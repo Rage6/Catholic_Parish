@@ -1,0 +1,59 @@
+@media (min-width: 700px) {
+
+  .section {
+    padding: 5vh 10%;
+    font-size: 1.5rem;
+    min-height: 90vh;
+  }
+
+  .sectionBackground {
+    /* background-size: cover;
+    background-position: center; */
+  }
+
+  .introSection {
+    /* background-image:
+      linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+      url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp'); */
+    height: 87vh;
+  }
+
+  .introTitle {
+    padding: 20vh 5vw 0 5vw;
+    font-size: 5rem;
+    /* color: white;
+    text-align: center; */
+  }
+
+  .introSubtitle {
+    padding: 15vh 15vw 0 15vw;
+    font-size: 2.6rem;
+    /* color: white;
+    text-align: center; */
+  }
+
+  .searchSection {
+    /* background-image:
+      linear-gradient(
+        rgb(105, 30, 32,0.7),
+        rgb(105, 30, 32,0.7)),
+      url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium"); */
+  }
+
+  .basicInfoSection {
+    /* background-image: url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg'); */
+  }
+
+  .proceduresSection {
+    /* background-image: url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg'); */
+  }
+
+  .historySection {
+    /* background-image: url('https://images.findagrave.com/photos/2006/111/CEM46517262_114576626350.jpg') */
+  }
+
+  .contactSection {
+    /* background-image: url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg') */
+  }
+
+}
