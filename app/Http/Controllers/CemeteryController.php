@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Deceased;
+
 class CemeteryController extends Controller
 {
     /**
@@ -13,8 +15,10 @@ class CemeteryController extends Controller
      */
     public function index()
     {
+        $deceased = Deceased::all();
         return view('cemetery.index',[
-          'css' => 'cemetery'
+          'css' => 'cemetery',
+          'all_deceased' => $deceased
         ]);
     }
 
