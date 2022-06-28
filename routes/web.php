@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function() {
       Route::get('/create-deceased',[App\Http\Controllers\AdminController::class,'create_deceased'])->name('cemetery.create-deceased');
       // Add a deceased member to the cemetery
       Route::post('/create-deceased-added',[App\Http\Controllers\AdminController::class,'store_deceased'])->name('cemetery.create');
+      // Add empty plot to cemetery
+      Route::post('/create-deceased-empty',[App\Http\Controllers\AdminController::class,'store_empty_deceased'])->name('cemetery.empty');
     });
     Route::middleware(['permission:Edit Deceased'])->group(function() {
       // Provide form to update an existing deceased

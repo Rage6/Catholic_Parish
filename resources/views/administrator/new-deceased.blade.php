@@ -14,8 +14,12 @@
                           {{ session('status') }}
                       </div>
                     @endif
-                    <div>
+                    <div style="display:flex;justify-content:space-between">
                       <a href="{{ route('admin.index') }}"><< BACK</a>
+                      <form method="POST" action="{{ route('cemetery.empty') }}">
+                        @csrf
+                        <button>+ EMPTY PLOT</button>
+                      </form>
                     </div>
                     <div>
                       <div>

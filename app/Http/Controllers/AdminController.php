@@ -105,6 +105,24 @@ class AdminController extends Controller
       ]);
     }
 
+    public function store_empty_deceased(Request $request)
+    {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $input = request()->validate([]);
+
+      Deceased::create($input);
+
+      return redirect()->route('admin.index',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions
+      ]);
+    }
+
     /**
      * Display the specified resource.
      *
