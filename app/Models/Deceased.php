@@ -19,6 +19,8 @@ class Deceased extends Model
       'date_of_death',
       'on_tombstone',
       'spouse',
-      'children'
+      'children',
+      'is_deceased',
+      'is_purchased'
     ];
 }

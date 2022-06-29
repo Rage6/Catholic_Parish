@@ -93,8 +93,28 @@ class AdminController extends Controller
         'date_of_death' => 'required',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
-        'children' => 'nullable'
+        'children' => 'nullable',
+        'is_purchased' => 'required',
+        'is_deceased' => 'required'
       ]);
+
+      Deceased::create($input);
+
+      return redirect()->route('admin.index',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions
+      ]);
+    }
+
+    public function store_empty_deceased(Request $request)
+    {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $input = request()->validate([]);
 
       Deceased::create($input);
 
@@ -190,7 +210,9 @@ class AdminController extends Controller
         'date_of_death' => 'required',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
-        'children' => 'nullable'
+        'children' => 'nullable',
+        'is_purchased' => 'required',
+        'is_deceased' => 'required'
       ]);
 
       $deceased = Deceased::find($id);
@@ -204,6 +226,8 @@ class AdminController extends Controller
       $deceased->on_tombstone = $request->on_tombstone;
       $deceased->spouse = $request->spouse;
       $deceased->children = $request->children;
+      $deceased->is_purchased = $request->is_purchased;
+      $deceased->is_deceased = $request->is_deceased;
       $deceased->save();
 
       return redirect()->route('admin.index',[

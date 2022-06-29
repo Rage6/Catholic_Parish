@@ -56,19 +56,22 @@
         </div>
         <div id="mainMenuTable" class="mainMenuTable">
           <div>
-            Find A Deceased Member
+            Find A Grave
           </div>
           <div>
-            When, Where & How
+            When Visiting
           </div>
           <div>
-            Practices & Respects
+            Funeral Rite
           </div>
           <div>
-            Learn Their History
+            Cemetery History
           </div>
           <div>
-            Contact Information
+            Available Plots
+          </div>
+          <div>
+            Contact Us
           </div>
           @if (Route::has('login'))
             <div>

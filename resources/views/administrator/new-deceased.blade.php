@@ -14,8 +14,12 @@
                           {{ session('status') }}
                       </div>
                     @endif
-                    <div>
+                    <div style="display:flex;justify-content:space-between">
                       <a href="{{ route('admin.index') }}"><< BACK</a>
+                      <form method="POST" action="{{ route('cemetery.empty') }}">
+                        @csrf
+                        <button>+ ADD EMPTY PLOT</button>
+                      </form>
                     </div>
                     <div>
                       <div>
@@ -173,6 +177,28 @@
                                           <strong>{{ $message }}</strong>
                                       </span>
                                   @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="purchased" name="is_purchased">
+                                    <option value="0" selected>NO</option>
+                                    <option value="1">YES</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="filled" name="is_deceased">
+                                    <option selected value="0">NO</option>
+                                    <option value="1">YES</option>
+                                  </select>
                               </div>
                           </div>
 

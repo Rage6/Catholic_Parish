@@ -5,6 +5,12 @@
   min-height: 90vh;
 }
 
+.sectionTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
 .sectionBackground {
   background-size: cover;
   background-position: center;
@@ -39,6 +45,59 @@
     url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
 }
 
+.searchTool {
+  background-color: rgb(105, 30, 32);
+}
+
+.searchTool {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.searchTool input {
+  font-size: 1.3rem;
+  width: 90%;
+}
+
+.resultBox {
+  margin-bottom: 50px;
+  padding: 0 5%;
+  background-image:
+    linear-gradient(
+    rgb(105, 30, 32,0.7),
+    rgb(105, 30, 32,0.7));
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.noResults {
+  display: none;
+  padding: 5px 0;
+  font-style: italic;
+}
+
+.resultList {
+
+}
+
+.resultRow {
+  border-bottom: 1px solid white;
+  padding: 5px 0;
+}
+
+.resultRow div:last-child {
+  text-align: right;
+}
+
+.resultRow:first-child {
+  padding-top: 10px;
+}
+
+.resultRow:last-child {
+  padding-bottom: 10px;
+  border-bottom: none;
+}
+
 .basicInfoSection {
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
@@ -46,11 +105,17 @@
       url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
 }
 
-.proceduresSection {
+.riteSection {
+  color: white;
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
       url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg');
+}
+
+.riteSubtitle {
+  font-style: italic;
+  text-align: center;
 }
 
 .historySection {
@@ -58,6 +123,13 @@
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
       url('https://images.findagrave.com/photos/2006/111/CEM46517262_114576626350.jpg')
+}
+
+.emptyPlotsInfoSection {
+  background-image: linear-gradient(
+      rgb(105, 30, 32,0.7),
+      rgb(105, 30, 32,0.7)),
+      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
 }
 
 .contactSection {

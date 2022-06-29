@@ -163,6 +163,38 @@
                               </div>
                           </div>
 
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="purchased" name="is_purchased">
+                                    @if ($deceased->is_purchased == 1)
+                                    <option value="0">NO</option>
+                                    <option selected value="1">YES</option>
+                                    @else
+                                    <option selected value="0">NO</option>
+                                    <option value="1">YES</option>
+                                    @endif
+                                  </select>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="filled" name="is_deceased">
+                                    @if ($deceased->is_deceased == 1)
+                                      <option value="0">NO</option>
+                                      <option selected value="1">YES</option>
+                                    @else
+                                      <option selected value="0">NO</option>
+                                      <option value="1">YES</option>
+                                    @endif
+                                  </select>
+                              </div>
+                          </div>
+
                           <div class="row mb-0">
                               <div class="col-md-6 offset-md-4">
                                   <button type="submit" class="btn btn-primary">
