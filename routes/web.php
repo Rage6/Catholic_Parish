@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name('cemetery.index');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
