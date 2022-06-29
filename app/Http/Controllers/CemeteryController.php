@@ -16,9 +16,16 @@ class CemeteryController extends Controller
     public function index()
     {
         $deceased = Deceased::all();
+        $open_plot_count = 0;
+        foreach ($deceased as $one_deceased) {
+          if ($one_deceased->is_purchased == 0) {
+            $open_plot_count++;
+          };
+        };
         return view('cemetery.index',[
           'css' => 'cemetery',
-          'all_deceased' => $deceased
+          'all_deceased' => $deceased,
+          'open_plot_count' => $open_plot_count
         ]);
     }
 

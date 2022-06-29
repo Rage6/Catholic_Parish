@@ -93,7 +93,9 @@ class AdminController extends Controller
         'date_of_death' => 'required',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
-        'children' => 'nullable'
+        'children' => 'nullable',
+        'is_purchased' => 'required',
+        'is_deceased' => 'required'
       ]);
 
       Deceased::create($input);
@@ -208,7 +210,9 @@ class AdminController extends Controller
         'date_of_death' => 'required',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
-        'children' => 'nullable'
+        'children' => 'nullable',
+        'is_purchased' => 'required',
+        'is_deceased' => 'required'
       ]);
 
       $deceased = Deceased::find($id);
@@ -222,6 +226,8 @@ class AdminController extends Controller
       $deceased->on_tombstone = $request->on_tombstone;
       $deceased->spouse = $request->spouse;
       $deceased->children = $request->children;
+      $deceased->is_purchased = $request->is_purchased;
+      $deceased->is_deceased = $request->is_deceased;
       $deceased->save();
 
       return redirect()->route('admin.index',[

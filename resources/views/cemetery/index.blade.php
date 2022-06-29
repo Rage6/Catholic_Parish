@@ -26,26 +26,28 @@
           </div>
           <div class="resultList">
             @foreach ($all_deceased as $one_deceased)
-              <div
-                class="resultRow"
-                data-id="{{ $one_deceased->id }}"
-                data-first="{{ $one_deceased->first_name }}"
-                data-last="{{ $one_deceased->last_name }}"
-                @if ($one_deceased->maiden_name)
-                  data-maiden="{{ $one_deceased->maiden_name }}"
-                @endif
-              >
-                <div>
-                  {{ $one_deceased->first_name }}
+              @if ($one_deceased->is_deceased == 1)
+                <div
+                  class="resultRow"
+                  data-id="{{ $one_deceased->id }}"
+                  data-first="{{ $one_deceased->first_name }}"
+                  data-last="{{ $one_deceased->last_name }}"
                   @if ($one_deceased->maiden_name)
-                    {{ "(".$one_deceased->maiden_name.") " }}
+                    data-maiden="{{ $one_deceased->maiden_name }}"
                   @endif
-                  {{ $one_deceased->last_name }}
+                >
+                  <div>
+                    {{ $one_deceased->first_name }}
+                    @if ($one_deceased->maiden_name)
+                      {{ "(".$one_deceased->maiden_name.") " }}
+                    @endif
+                    {{ $one_deceased->last_name }}
+                  </div>
+                  <div>
+                    {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }} - {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
+                  </div>
                 </div>
-                <div>
-                  {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }} - {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
-                </div>
-              </div>
+              @endif
             @endforeach
           </div>
         </div>
@@ -112,6 +114,31 @@
       <div class="sectionTitle">
         Available Plots
       </div>
+      @if ($open_plot_count > 0)
+        <div>
+          Current available plots: {{ $open_plot_count }}
+        </div>
+        <div class="emptyPlotBox">
+          <div class="plotList">
+            @foreach ($all_deceased as $one_deceased)
+              @if ($one_deceased->is_purchased == 0)
+                <div
+                  class="plotsRow"
+                  data-id="{{ $one_deceased->id }}"
+                >
+                  <div>
+                    {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                  </div>
+                </div>
+              @endif
+            @endforeach
+          </div>
+        </div>
+      @else
+        <div>
+          There are no available plots at this time.
+        </div>
+      @endif
     </div>
     <div class="contactSection sectionBackground section primaryFont">
       <div class="sectionTitle">
