@@ -26,7 +26,7 @@
         <script src="{{ mix('/js/app.js') }}"></script>
 
         <!-- Custom Javascript -->
-        <script src="{{ mix('js/master.js') }}"></script>
+        <script src="{{ url('js/master.js') }}"></script>
     </head>
     <body>
       <div id="app">
