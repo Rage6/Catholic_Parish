@@ -12,11 +12,11 @@
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="{{ url('css/master/360.css') }}" rel="stylesheet">
-        <link href="{{ url('css/master/700.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/master/360.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/master/700.css') }}" rel="stylesheet">
         @if ($css)
-          <link href="{{ url('css/'.$css.'/360.css') }}" rel="stylesheet">
-          <link href="{{ url('css/'.$css.'/700.css') }}" rel="stylesheet">
+          <link href="{{ asset('css/'.$css.'/360.css') }}" rel="stylesheet">
+          <link href="{{ asset('css/'.$css.'/700.css') }}" rel="stylesheet">
         @endif
 
         <!-- jQuery 3.6.0 -->
@@ -26,7 +26,7 @@
         <script src="{{ mix('/js/app.js') }}"></script>
 
         <!-- Custom Javascript -->
-        <script src="{{ url('js/master.js') }}"></script>
+        <script src="{{ asset('js/master.js') }}"></script>
     </head>
     <body>
       <div id="app">
