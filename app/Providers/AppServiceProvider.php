@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         // I added this because the default max length (if there is a default max) was too high for ClearDB, and it caused an error.
         Schema::defaultStringLength(191);
 
-        // I added this because the default 'http' was causing errors in the CSS and JS when using the 'https' in my Heroku URL
+        // I added this because the default 'http' was causing errors in the CSS and JS when Heroku expects 'https' instead
         if(config('app.env') === 'production') {
             \URL::forceScheme('https');
         };
