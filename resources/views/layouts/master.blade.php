@@ -13,10 +13,10 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/master/360.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/master/700.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/master/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
         @if ($css)
           <link href="{{ asset('css/'.$css.'/360.css') }}" rel="stylesheet">
-          <link href="{{ asset('css/'.$css.'/700.css') }}" rel="stylesheet">
+          <link href="{{ asset('css/'.$css.'/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
         @endif
 
         <!-- jQuery 3.6.0 -->
