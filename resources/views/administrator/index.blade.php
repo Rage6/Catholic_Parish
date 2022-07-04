@@ -32,7 +32,7 @@
                     </div>
                     <div style="width:100%">
                       <div style="display:grid;grid-template-columns:25% 25% 25% 25%">
-                        <div>FULL NAME</div>
+                        <div></div>
                         <div>VIEW</div>
                         <div>EDIT</div>
                         <div>DELETE</div>

@@ -56,7 +56,7 @@ class AdminController extends Controller
      */
     public function create_deceased()
     {
-        return view('administrator.new-deceased');
+        return view('administrator.new_deceased');
     }
 
     /**
@@ -150,6 +150,26 @@ class AdminController extends Controller
         ]);
     }
 
+    public function all_members() {
+      $all_users = User::all();
+
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $can_assign = false;
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        if ($users_permissions[$num][0] == "Assign Roles") {
+          $can_assign = true;
+        };
+      };
+      return view('administrator.all_members',[
+        'all_members' => $all_users,
+        'can_assign' => $can_assign
+      ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -161,7 +181,7 @@ class AdminController extends Controller
       $member = User::find($member_id);
       $all_roles = Role::all();
       $all_user_roles = User::find($member_id)->all_user_roles;
-      return view('administrator.member_permissions')
+      return view('administrator.member_roles')
         ->with('member', $member)
         ->with('all_roles', $all_roles)
         ->with('all_user_roles', $all_user_roles);

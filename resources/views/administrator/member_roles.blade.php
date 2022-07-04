@@ -15,6 +15,9 @@
                       </div>
                     @endif
                     <div>
+                      <a href="{{ route('admin.roles') }}"><< BACK</a>
+                    </div>
+                    <div>
                       @foreach ($all_roles as $one_role)
                         <div>
                           <div>{{ $one_role->title }}</div>

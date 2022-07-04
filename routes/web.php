@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function() {
     // Administrator homepage
     Route::get('/administrator', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/deceased/{id}/show',[App\Http\Controllers\AdminController::class, 'show_deceased']);
+    Route::get('/all-members',[App\Http\Controllers\AdminController::class, 'all_members'])->name('admin.members');
     Route::middleware(['permission:Create Deceased'])->group(function() {
       // Provide form to add new deceased to cemetery
       Route::get('/create-deceased',[App\Http\Controllers\AdminController::class,'create_deceased'])->name('cemetery.create-deceased');
@@ -41,7 +42,10 @@ Route::middleware('auth')->group(function() {
       // Delete the existing deceased member
       Route::delete('/deceased/{id}/update',[App\Http\Controllers\AdminController::class,'delete_deceased'])->name('cemetery.delete');
     });
-    // Show which roles that a certain member is assigned with
-    Route::get('administrator/{member_id}/roles', [App\Http\Controllers\AdminController::class,'member_roles'])->name('admin.permissions');
+    Route::middleware(['permission:Assign Roles'])->group(function() {
+      // Show which roles that a certain member is assigned with
+      Route::get('assign-roles', [App\Http\Controllers\AdminController::class,'all_members'])->name('admin.roles');
+      Route::get('assign-roles/{member_id}', [App\Http\Controllers\AdminController::class,'member_roles']);
+    });
   });
 });
