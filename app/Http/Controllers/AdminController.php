@@ -125,6 +125,29 @@ class AdminController extends Controller
       ]);
     }
 
+    public function assign_roles($id, Request $request)
+    {
+      $all_roles = Role::all();
+      $all_user_roles = User::find($id)->all_user_roles;
+
+      foreach ($all_roles as $init_role) {
+        $request_name = "role_".$init_role->id;
+
+        $request_value = $request->$request_name;
+        $request_boolean = intval($request_value);
+        User::find($id)->all_user_roles()->detach($init_role->id);
+        if ($request_boolean == 1) {
+          User::find($id)->all_user_roles()->attach($init_role->id);
+        };
+      };
+
+      return redirect()->route('admin.assign',[
+        'id' => $id,
+        'all_roles' => $all_roles,
+        'all_user_roles' => $all_user_roles
+      ]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -170,12 +193,6 @@ class AdminController extends Controller
       ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function member_roles($member_id)
     {
       $member = User::find($member_id);
@@ -197,6 +214,31 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function update_deceased_all() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      return view('administrator.all_update_deceased',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased
+      ]);
     }
 
     public function update_deceased_form($id) {
@@ -250,7 +292,7 @@ class AdminController extends Controller
       $deceased->is_deceased = $request->is_deceased;
       $deceased->save();
 
-      return redirect()->route('admin.index',[
+      return redirect()->route('cemetery.allupdates',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions
@@ -266,6 +308,38 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function delete_deceased_all() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      return view('administrator.all_delete_deceased',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased
+      ]);
+    }
+
+    public function delete_deceased_form($id) {
+      $this_deceased = Deceased::find($id);
+      return view('administrator.delete_deceased',[
+        'deceased' => $this_deceased
+      ]);
     }
 
     public function delete_deceased(Request $request, $id) {

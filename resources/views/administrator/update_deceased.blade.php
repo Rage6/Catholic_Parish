@@ -15,7 +15,7 @@
                       </div>
                     @endif
                     <div>
-                      <a href="{{ route('admin.index') }}"><< BACK</a>
+                      <a href="{{ route('cemetery.allupdates') }}"><< BACK</a>
                     </div>
                     <div>
                       <div>

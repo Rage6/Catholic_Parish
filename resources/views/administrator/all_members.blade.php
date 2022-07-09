@@ -39,7 +39,7 @@
                           </div>
                           @if ($can_assign == true)
                             <div>
-                              <a href="assign-roles/{{ $one_member->id }}">
+                              <a href="{{ route('admin.assign',['id' => $one_member->id]) }}">
                                 <button>
                                   ROLES
                                 </button>

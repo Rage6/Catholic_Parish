@@ -33,19 +33,28 @@ Route::middleware('auth')->group(function() {
       Route::post('/create-deceased-empty',[App\Http\Controllers\AdminController::class,'store_empty_deceased'])->name('cemetery.empty');
     });
     Route::middleware(['permission:Edit Deceased'])->group(function() {
+      // Go to overall list of deceased for editing data
+      Route::get('/edit-deceased', [App\Http\Controllers\AdminController::class,'update_deceased_all'])->name('cemetery.allupdates');
       // Provide form to update an existing deceased
-      Route::get('/deceased/{id}/update',[App\Http\Controllers\AdminController::class,'update_deceased_form']);
+      Route::get('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_form']);
       // Update the existing deceased member
-      Route::put('/deceased/{id}/update',[App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
+      Route::put('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
     });
     Route::middleware(['permission:Delete Deceased'])->group(function() {
+      // Go to overall list of deceased for deleting data
+      Route::get('/delete-deceased', [App\Http\Controllers\AdminController::class,'delete_deceased_all'])->name('cemetery.alldeletes');
+      // Provide form to confirm that this deceased record should be deleted
+      Route::get('/deceased/{id}/delete', [App\Http\Controllers\AdminController::class,'delete_deceased_form']);
       // Delete the existing deceased member
-      Route::delete('/deceased/{id}/update',[App\Http\Controllers\AdminController::class,'delete_deceased'])->name('cemetery.delete');
+      Route::delete('/deceased/{id}/delete',[App\Http\Controllers\AdminController::class,'delete_deceased'])->name('cemetery.delete');
     });
     Route::middleware(['permission:Assign Roles'])->group(function() {
-      // Show which roles that a certain member is assigned with
+      // Lists all members IOT select a member and change their roles
       Route::get('assign-roles', [App\Http\Controllers\AdminController::class,'all_members'])->name('admin.roles');
-      Route::get('assign-roles/{member_id}', [App\Http\Controllers\AdminController::class,'member_roles']);
+      // Show which roles that a certain member is assigned with
+      Route::get('assign-roles/{id}', [App\Http\Controllers\AdminController::class,'member_roles'])->name('admin.assign');
+      // Show which roles that a certain member is assigned with
+      Route::post('assign-roles/{id}', [App\Http\Controllers\AdminController::class,'assign_roles'])->name('admin.assign');
     });
   });
 });
