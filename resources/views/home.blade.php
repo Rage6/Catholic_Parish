@@ -16,13 +16,11 @@
                   @endif
 
                   @if ($is_admin)
-                    <!-- <div class="row"> -->
-                      <div class="col-6 offset-6">
-                        <a href="{{route('admin.index')}}">
-                          <button class="btn btn-secondary">ADMINISTRATOR</button>
-                        </a>
-                      </div>
-                    <!-- </div> -->
+                    <div class="col-6 offset-6">
+                      <a href="{{route('admin.index')}}">
+                        <button class="btn btn-secondary">ADMINISTRATOR</button>
+                      </a>
+                    </div>
                   @endif
                   <div>
                     @if (count($user_roles) > 1)
@@ -45,9 +43,11 @@
                     @endif
                   </div>
                   @foreach ($users_permissions as $one_permission)
-                    <div>
-                      {{ $one_permission[0] }}
-                    </div>
+                    @if ($one_permission[1] != 'administer-website')
+                      <div>
+                        {{ $one_permission[0] }}
+                      </div>
+                    @endif
                   @endforeach
 
                 </div>

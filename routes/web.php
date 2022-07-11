@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-  Route::middleware(['role:Web Administrator'])->group(function() {
+  Route::middleware(['permission:Administer The Website'])->group(function() {
     // Administrator homepage
     Route::get('/administrator', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/deceased/{id}/show',[App\Http\Controllers\AdminController::class, 'show_deceased']);

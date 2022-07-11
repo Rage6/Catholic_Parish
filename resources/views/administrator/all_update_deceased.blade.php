@@ -26,31 +26,69 @@
                       <u>DECEASED IN CEMETERY</u>
                     </div>
                     <div style="width:100%">
-                      <div style="display:grid;grid-template-columns:25% 25% 25% 25%">
-                        <div></div>
-                        <div>VIEW</div>
-                        <div>EDIT</div>
-                      </div>
+
                       @foreach ($all_deceased as $one_deceased)
-                        <div style="display:grid;grid-template-columns:25% 25% 25% 25%">
-                          <div>
-                            {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                        @if ($one_deceased->is_deceased)
+                          <div style="display:grid;grid-template-columns:50% 50%">
+                            <div>
+                              {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                            </div>
+                            <div>
+                              <a href="deceased/{{ $one_deceased->id }}/update">
+                                <button>
+                                  UPDATE?
+                                </button>
+                              </a>
+                            </div>
                           </div>
-                          <div>
-                            <a href="deceased/{{$one_deceased->id}}/show">
-                              <button>
-                                VIEW
-                              </button>
-                            </a>
+                        @endif
+                      @endforeach
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div>
+                      <u>PURCHASED PLOTS</u>
+                    </div>
+                    <div style="width:100%">
+
+                      @foreach ($all_deceased as $one_deceased)
+                        @if (!$one_deceased->is_deceased && $one_deceased->is_purchased)
+                          <div style="display:grid;grid-template-columns:50% 50%">
+                            <div>
+                              {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                            </div>
+                            <div>
+                              <a href="deceased/{{ $one_deceased->id }}/update">
+                                <button>
+                                  UPDATE?
+                                </button>
+                              </a>
+                            </div>
                           </div>
-                          <div>
-                            <a href="deceased/{{ $one_deceased->id }}/update">
-                              <button>
-                                EDIT
-                              </button>
-                            </a>
+                        @endif
+                      @endforeach
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div>
+                      <u>PURCHASED PLOTS</u>
+                    </div>
+                    <div style="width:100%">
+                      @foreach ($all_deceased as $one_deceased)
+                        @if (!$one_deceased->is_deceased && !$one_deceased->is_purchased)
+                          <div style="display:grid;grid-template-columns:50% 50%">
+                            <div>
+                              {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                            </div>
+                            <div>
+                              <a href="deceased/{{ $one_deceased->id }}/update">
+                                <button>
+                                  UPDATE?
+                                </button>
+                              </a>
+                            </div>
                           </div>
-                        </div>
+                        @endif
                       @endforeach
                     </div>
                   </div>

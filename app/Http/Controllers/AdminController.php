@@ -29,7 +29,6 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
 
       $all_permission_data = [];
 
@@ -37,15 +36,21 @@ class AdminController extends Controller
         $permission_data = new \stdClass;
         $permission_data->label_name = $users_permissions[$num][0];
         $permission_data->data = $users_permissions[$num];
-        $all_permission_data[] = $permission_data;
+        $unique_permission = true;
+        for ($unique_num = 0; $unique_num < count($all_permission_data); $unique_num++) {
+          if ($users_permissions[$num][0] == $all_permission_data[$unique_num]->label_name) {
+            $unique_permission = false;
+          };
+        };
+        if ($unique_permission) {
+          $all_permission_data[] = $permission_data;
+        };
       };
 
       return view('administrator.index',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
-        'users_permissions' => $users_permissions,
-        'all_permission_data' => $all_permission_data,
-        'all_deceased' => $all_deceased
+        'all_permission_data' => $all_permission_data
       ]);
     }
 

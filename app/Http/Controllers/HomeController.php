@@ -30,18 +30,31 @@ class HomeController extends Controller
         $current_user = Auth::user();
         $user_roles = User::find($current_user->id)->all_user_roles;
         $is_admin = false;
-        foreach ($user_roles as $one_role) {
-          if ($one_role->title == "Web Administrator") {
+        $role_model = new Role();
+        $users_permissions = $role_model->users_permissions($current_user->id);
+        $unique_users_permissions = [];
+        foreach ($users_permissions as $one_permission) {
+          // This determines if the permission is already recognized
+          $is_unique = true;
+          foreach ($unique_users_permissions as $one_unique) {
+            if ($one_permission[1] == $one_unique[1]) {
+              $is_unique = false;
+            };
+          };
+          if ($is_unique) {
+            $unique_users_permissions[] = $one_permission;
+          };
+          // This makes sure they are an administrator in the first place
+          if ($one_permission[1] == "administer-website") {
             $is_admin = true;
           };
         };
-        $role_model = new Role();
-        $users_permissions = $role_model->users_permissions($current_user->id);
 
         return view('home',[
           'current_user' => $current_user,
           'user_roles' => $user_roles,
-          'users_permissions' => $users_permissions,
+          'users_permissions' => $unique_users_permissions,
+          // 'users_permissions' => $users_permissions,
           'is_admin' => $is_admin
         ]);
     }

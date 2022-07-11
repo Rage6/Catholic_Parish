@@ -22,18 +22,18 @@
                     </a>
                   </div>
                   <div class="card-body">
-                    @foreach ($users_permissions as $one_permission)
-
+                    @foreach ($all_permission_data as $one_permission)
+                      @if ($one_permission->data[1] != 'administer-website')
                         <!-- <ul class="list-group">
                           <li class="list-group-item"> -->
-                            <a href="/{{ $one_permission[1] }}">
+                            <a href="/{{ $one_permission->data[1] }}">
                               <button class="btn btn-primary col-12">
-                                {{ $one_permission[0] }}
+                                {{ $one_permission->data[0] }}
                               </button>
                             </a>
                           <!-- </li>
                         </ul> -->
-
+                      @endif
                     @endforeach
                   </div>
                 </div>
