@@ -164,22 +164,6 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
-
-                              <div class="col-md-6">
-                                  <select id="purchased" name="is_purchased">
-                                    @if ($deceased->is_purchased == 1)
-                                    <option value="0">NO</option>
-                                    <option selected value="1">YES</option>
-                                    @else
-                                    <option selected value="0">NO</option>
-                                    <option value="1">YES</option>
-                                    @endif
-                                  </select>
-                              </div>
-                          </div>
-
-                          <div class="row mb-3">
                               <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
 
                               <div class="col-md-6">
@@ -192,6 +176,14 @@
                                       <option value="1">YES</option>
                                     @endif
                                   </select>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
+
+                              <div class="col-md-6">
+                                  <textarea id="purchased" name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purchase, etc.)">{{ $deceased->purchased_by }}</textarea>
                               </div>
                           </div>
 

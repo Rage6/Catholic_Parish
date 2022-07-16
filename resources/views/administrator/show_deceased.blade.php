@@ -133,20 +133,6 @@
                         @endif
 
                         <div class="row mb-3">
-                            <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
-
-                            <div id="purchased" class="col-md-6">
-                              <div class="form-control">
-                                @if ($deceased->is_purchased == 1)
-                                  YES
-                                @else
-                                  NO
-                                @endif
-                              </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="deceased" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
 
                             <div id="deceased" class="col-md-6">
@@ -157,6 +143,14 @@
                                   NO
                                 @endif
                               </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
+
+                            <div id="purchased" class="col-md-6">
+                              <textarea class="form-control" readonly>{{ $deceased->purchased_by }}</textarea>
                             </div>
                         </div>
 

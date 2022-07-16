@@ -99,7 +99,7 @@ class AdminController extends Controller
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
-        'is_purchased' => 'required',
+        'purchased_by' => 'required',
         'is_deceased' => 'required'
       ]);
 
@@ -278,7 +278,7 @@ class AdminController extends Controller
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
-        'is_purchased' => 'required',
+        'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
 
@@ -293,7 +293,7 @@ class AdminController extends Controller
       $deceased->on_tombstone = $request->on_tombstone;
       $deceased->spouse = $request->spouse;
       $deceased->children = $request->children;
-      $deceased->is_purchased = $request->is_purchased;
+      $deceased->purchased_by = $request->purchased_by;
       $deceased->is_deceased = $request->is_deceased;
       $deceased->save();
 

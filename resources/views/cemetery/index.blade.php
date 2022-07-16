@@ -116,12 +116,17 @@
       </div>
       @if ($open_plot_count > 0)
         <div>
-          Current available plots: {{ $open_plot_count }}
+          At this time, there
+            @if ($open_plot_count != 1)
+              are {{ $open_plot_count }} available plots.
+            @else
+              is {{ $open_plot_count }} available plot.
+            @endif
         </div>
         <div class="emptyPlotBox">
           <div class="plotList">
             @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->is_purchased == 0)
+              @if ($one_deceased->purchased_by == null && $one_deceased->first_name == "EMPTY" && $one_deceased->last_name == "PLOT")
                 <div
                   class="plotsRow"
                   data-id="{{ $one_deceased->id }}"

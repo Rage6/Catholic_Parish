@@ -50,9 +50,8 @@
                       <u>PURCHASED PLOTS</u>
                     </div>
                     <div style="width:100%">
-
                       @foreach ($all_deceased as $one_deceased)
-                        @if (!$one_deceased->is_deceased && $one_deceased->is_purchased)
+                        @if (!$one_deceased->is_deceased && $one_deceased->purchased_by)
                           <div style="display:grid;grid-template-columns:50% 50%">
                             <div>
                               {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
@@ -71,11 +70,11 @@
                   </div>
                   <div class="card-body">
                     <div>
-                      <u>PURCHASED PLOTS</u>
+                      <u>AVAILABLE PLOTS</u>
                     </div>
                     <div style="width:100%">
                       @foreach ($all_deceased as $one_deceased)
-                        @if (!$one_deceased->is_deceased && !$one_deceased->is_purchased)
+                        @if (!$one_deceased->is_deceased && !$one_deceased->purchased_by)
                           <div style="display:grid;grid-template-columns:50% 50%">
                             <div>
                               {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}

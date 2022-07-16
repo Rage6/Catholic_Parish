@@ -184,7 +184,7 @@
                               <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
 
                               <div class="col-md-6">
-                                  <select id="purchased" name="is_purchased">
+                                  <select id="purchased" name="is_deceased">
                                     <option value="0" selected>NO</option>
                                     <option value="1">YES</option>
                                   </select>
@@ -192,13 +192,10 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
+                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
                               <div class="col-md-6">
-                                  <select id="filled" name="is_deceased">
-                                    <option selected value="0">NO</option>
-                                    <option value="1">YES</option>
-                                  </select>
+                                  <textarea name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)"></textarea>
                               </div>
                           </div>
 

@@ -21,6 +21,6 @@ class Deceased extends Model
       'spouse',
       'children',
       'is_deceased',
-      'is_purchased'
+      'purchased_by'
     ];
 }
