@@ -54,6 +54,19 @@ class AdminController extends Controller
       ]);
     }
 
+    public function show_deceased_all() {
+      $init_all_deceased = Deceased::all();
+      $all_deceased = [];
+      foreach ($init_all_deceased as $one_deceased) {
+        if ($one_deceased->is_deceased == true) {
+          $all_deceased[] = $one_deceased;
+        };
+      };
+      return view('administrator.all_show_deceased', [
+        'all_deceased' => $all_deceased
+      ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -99,9 +112,14 @@ class AdminController extends Controller
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
-        'purchased_by' => 'required',
+        'profile_photo' => 'file',
+        'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
+
+      if (request('profile_photo')) {
+        $input['profile_photo'] = request('profile_photo')->store('images');
+      };
 
       Deceased::create($input);
 

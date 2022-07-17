@@ -19,10 +19,10 @@ Auth::routes();
 
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+  Route::get('/list-in-cemetery', [App\Http\Controllers\AdminController::class, 'show_deceased_all'])->name('cemetery.allShown');
   Route::middleware(['permission:Administer The Website'])->group(function() {
     // Administrator homepage
     Route::get('/administrator', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
-    Route::get('/deceased/{id}/show',[App\Http\Controllers\AdminController::class, 'show_deceased']);
     Route::get('/all-members',[App\Http\Controllers\AdminController::class, 'all_members'])->name('admin.members');
     Route::middleware(['permission:Create Deceased'])->group(function() {
       // Provide form to add new deceased to cemetery
