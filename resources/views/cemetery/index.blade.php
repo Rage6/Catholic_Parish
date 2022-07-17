@@ -126,7 +126,7 @@
         <div class="emptyPlotBox">
           <div class="plotList">
             @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->purchased_by == null && $one_deceased->first_name == "EMPTY" && $one_deceased->last_name == "PLOT")
+              @if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == false)
                 <div
                   class="plotsRow"
                   data-id="{{ $one_deceased->id }}"

@@ -181,10 +181,10 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
 
                               <div class="col-md-6">
-                                  <select id="purchased" name="is_deceased">
+                                  <select id="filled" name="is_deceased">
                                     <option value="0" selected>NO</option>
                                     <option value="1">YES</option>
                                   </select>

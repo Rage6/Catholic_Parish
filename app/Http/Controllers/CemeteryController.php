@@ -18,7 +18,7 @@ class CemeteryController extends Controller
         $deceased = Deceased::all();
         $open_plot_count = 0;
         foreach ($deceased as $one_deceased) {
-          if ($one_deceased->purchased_by == null && $one_deceased->first_name == "EMPTY" && $one_deceased->last_name == "PLOT") {
+          if ($one_deceased->purchased_by == null && $one_deceased->is_deceased) {
             $open_plot_count++;
           };
         };
