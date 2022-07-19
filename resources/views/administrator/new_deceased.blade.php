@@ -23,7 +23,7 @@
                     </div>
                     <div>
                       <div>
-                        <form method="POST" action="{{ route('cemetery.create') }}">
+                        <form method="POST" action="{{ route('cemetery.create') }}" enctype="multipart/form-data">
                           @csrf
                           <div class="row mb-3">
                               <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>

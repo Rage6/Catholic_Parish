@@ -23,6 +23,21 @@
                           @csrf
                           @method('PUT')
                           <div class="row mb-3">
+
+                              <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                              <div id="profilePhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->profile_photo)
+                                    <img src="/storages/app/{{ $deceased->profile_photo }}">
+                                  @else
+                                    <img src="{{ url('/storages/app/images/default.jpeg') }}">
+                                  @endif
+                                </div>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
                               <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
 
                               <div class="col-md-6">
