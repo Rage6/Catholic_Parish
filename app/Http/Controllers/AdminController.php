@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\Deceased;
 
 use App\Http\Controllers\stdClass;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -285,7 +286,7 @@ class AdminController extends Controller
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
 
-      $request->validate([
+      $deceased = request()->validate([
         'first_name' => 'required',
         'middle_name' => 'nullable',
         'last_name' => 'required',
@@ -296,6 +297,7 @@ class AdminController extends Controller
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
+        'profile_photo' => 'file',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
@@ -313,7 +315,33 @@ class AdminController extends Controller
       $deceased->children = $request->children;
       $deceased->purchased_by = $request->purchased_by;
       $deceased->is_deceased = $request->is_deceased;
+      if (request('profile_photo')) {
+        $old_filename = $deceased->profile_photo;
+        $request['profile_photo'] = request('profile_photo')->store('images');
+        $filename = request('profile_photo')->hashName();
+        $deceased->profile_photo = "images/".$filename;
+        Storage::delete($old_filename);
+      };
       $deceased->save();
+
+      return redirect()->route('cemetery.allupdates',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions
+      ]);
+    }
+
+    public function delete_deceased_profile(Request $request, $id)
+    {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $this_deceased = Deceased::find($id);
+      Storage::delete($this_deceased->profile_photo);
+      $this_deceased->profile_photo = null;
+      $this_deceased->save();
 
       return redirect()->route('cemetery.allupdates',[
         'current_user' => $current_user,
