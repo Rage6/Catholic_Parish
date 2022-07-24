@@ -25,6 +25,21 @@
                           <div style="display:grid;grid-template-columns:50% 50%">
                             <div>
                               {{ $one_role->title }}
+                              <div>
+                                @foreach ($all_role_descriptions as $one_description)
+                                  @if ($one_description->role_title == $one_role->title)
+                                    @if (count($one_description->permissions) > 0)
+                                      <ul>
+                                        @foreach ($one_description->permissions as $this_permission)
+                                          <li>{{ $this_permission }}</li>
+                                        @endforeach
+                                      </ul>
+                                    @else
+                                      <i>No permissions are assigned to this role</i>
+                                    @endif
+                                  @endif
+                                @endforeach
+                              </div>
                             </div>
                             @php $active = false @endphp
                             @foreach ($all_user_roles as $one_user_role)

@@ -222,10 +222,22 @@ class AdminController extends Controller
       $member = User::find($member_id);
       $all_roles = Role::all();
       $all_user_roles = User::find($member_id)->all_user_roles;
+      $all_role_descriptions = [];
+      foreach($all_roles as $one_role) {
+        $permission_object = new \stdClass;
+        $permission_object->role_title = $one_role->title;
+        $permission_list = [];
+        foreach(Role::find($one_role->id)->all_role_permissions as $one_permission) {
+          $permission_list[] = $one_permission->label;
+        };
+        $permission_object->permissions = $permission_list;
+        $all_role_descriptions[] = $permission_object;
+      };
       return view('administrator.member_roles')
         ->with('member', $member)
         ->with('all_roles', $all_roles)
-        ->with('all_user_roles', $all_user_roles);
+        ->with('all_user_roles', $all_user_roles)
+        ->with('all_role_descriptions', $all_role_descriptions);
     }
 
     /**

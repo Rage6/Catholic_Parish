@@ -35,20 +35,6 @@
                     </div>
                   @endforeach
                   <br>
-                  <div>
-                    @if (count($users_permissions) > 1)
-                      MY PERMISSIONS:
-                    @else
-                      MY PERMISSION:
-                    @endif
-                  </div>
-                  @foreach ($users_permissions as $one_permission)
-                    @if ($one_permission[1] != 'administer-website')
-                      <div>
-                        {{ $one_permission[0] }}
-                      </div>
-                    @endif
-                  @endforeach
                   <a href="{{route('cemetery.allShown')}}">
                     <button class="btn btn-primary">
                       LIST OF DECEASED IN CEMETERY
