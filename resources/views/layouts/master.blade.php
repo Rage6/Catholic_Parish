@@ -32,8 +32,10 @@
       <div id="app">
       <div class="allContent">
         <div class="mainMenuBar primaryFont primaryBackground">
-          <div class="logo">
-          </div>
+          <!-- <a href="{{ route('cemetery.index') }}"> -->
+            <div class="logo">
+            </div>
+          <!-- </a> -->
           <div class="menuBox">
             <div id="mainMenuBttn" class="mainMenuBttn">
               <div></div>
@@ -56,22 +58,9 @@
         </div>
         <div id="mainMenuTable" class="mainMenuTable">
           <div>
-            Find A Grave
-          </div>
-          <div>
-            When Visiting
-          </div>
-          <div>
-            Funeral Rite
-          </div>
-          <div>
-            Cemetery History
-          </div>
-          <div>
-            Available Plots
-          </div>
-          <div>
-            Contact Us
+            <a href="{{ route('cemetery.index') }}">
+              Home
+            </a>
           </div>
           @if (Route::has('login'))
             <div>

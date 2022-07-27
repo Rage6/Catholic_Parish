@@ -1,3 +1,4 @@
+/* CEMETERY.INDEX */
 .section {
   border-top: 5px solid gold;
   padding: 5vh 10%;
@@ -137,4 +138,60 @@
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
       url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg')
+}
+
+/* CEMETERY.INDIVIDUAL */
+.indivMain {
+  background-image:
+    linear-gradient(
+      rgb(105, 30, 32,0.7),
+      rgb(105, 30, 32,0.7)),
+    url('/images/collage.jpg');
+    /* Image from https://live.staticflickr.com/3488/3203117329_c09c237cb7_b.jpg */
+  color: white;
+  min-height: 90vh;
+}
+
+.fullName {
+  margin: 0 10% 20px 10%;
+  padding-top: 5vh;
+  font-size: 3rem;
+}
+
+.fullName div:first-child {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.photoBox {
+  padding: 0 5vw;
+  height: 50vh;
+}
+
+.photoProfile {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: black;
+  height: 90%;
+}
+
+.photoMenu {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+}
+
+.photoMenu div {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 0 0 15px 15px;
+  font-size: 1.2rem;
+  background-color: grey;
+  width: 20%;
+}
+
+.basicInfoBox {
+  background-image: linear-gradient(rgba('255,223,0,0.8'),rgba('255,223,0,0.8'))
 }

@@ -94,4 +94,13 @@ class CemeteryController extends Controller
     {
         //
     }
+
+    public function individual($id)
+    {
+      $deceased = Deceased::find($id);
+      return view('cemetery.individual',[
+        'css' => 'cemetery',
+        'deceased' => $deceased
+      ]);
+    }
 }

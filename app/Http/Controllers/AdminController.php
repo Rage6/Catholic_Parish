@@ -332,7 +332,9 @@ class AdminController extends Controller
         $request['profile_photo'] = request('profile_photo')->store('images');
         $filename = request('profile_photo')->hashName();
         $deceased->profile_photo = "images/".$filename;
-        Storage::delete($old_filename);
+        if ($old_filename != null) {
+          Storage::delete($old_filename);
+        };
       };
       $deceased->save();
 

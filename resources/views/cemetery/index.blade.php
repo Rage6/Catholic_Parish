@@ -37,11 +37,13 @@
                   @endif
                 >
                   <div>
-                    {{ $one_deceased->first_name }}
-                    @if ($one_deceased->maiden_name)
-                      {{ "(".$one_deceased->maiden_name.") " }}
-                    @endif
-                    {{ $one_deceased->last_name }}
+                    <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
+                      {{ $one_deceased->first_name }}
+                      @if ($one_deceased->maiden_name)
+                        {{ "(".$one_deceased->maiden_name.") " }}
+                      @endif
+                      {{ $one_deceased->last_name }}
+                    </a>
                   </div>
                   <div>
                     {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }} - {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
@@ -123,10 +125,10 @@
               is {{ $open_plot_count }} available plot.
             @endif
         </div>
-        <div class="emptyPlotBox">
+        <!-- <div class="emptyPlotBox">
           <div class="plotList">
             @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == false)
+              @if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == false && $one_deceased->first_name == 'EMPTY' && $one_deceased->last_name == 'PLOT')
                 <div
                   class="plotsRow"
                   data-id="{{ $one_deceased->id }}"
@@ -138,12 +140,29 @@
               @endif
             @endforeach
           </div>
-        </div>
+        </div> -->
       @else
         <div>
           There are no available plots at this time.
         </div>
       @endif
+      <div>
+        <div>COMMON QUESTIONS</div>
+        <div>
+          <i>What is different about a Catholic cemetery?</i>
+          <div>
+            There are basically only two places that the Catholic Church consecrates as Holy Ground: a church and a cemetery. But why a cemetery? It represents the continuation, even in death, of the harmony and spiritual alliance which makes all Catholics members of one great family, thereby constituting it an actual family plot. As ministries of the Church, Catholic cemeteries expresses the link of community between all the faithful living and dead—the Communion of Saints.
+          </div>
+          <i>Who can be buried in a Catholic Cemetery?</i>
+          <div>
+            Baptized Catholics may be buried in a Catholic cemetery. Likewise, non-Catholic spouses and other family members of Catholics may be buried in a Catholic Cemetery. A member of the clergy of the Church of the one can certainly be invited to conduct burial services at the gravesite.
+          </div>
+          <i>Does the Catholic Church permit cremation?</i>
+          <div>
+            Yes.  Cremation is permitted, although the Church does prefer the body to be present at the funeral Mass.
+          </div>
+        </div>
+      </div>
     </div>
     <div class="contactSection sectionBackground section primaryFont">
       <div class="sectionTitle">

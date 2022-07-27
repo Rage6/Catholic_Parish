@@ -34,7 +34,7 @@
                               {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
                             </div>
                             <div>
-                              <a href="deceased/{{ $one_deceased->id }}/show">
+                              <a href="cemetery/{{ $one_deceased->id }}">
                                 <button>
                                   VIEW
                                 </button>
