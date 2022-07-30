@@ -181,7 +181,7 @@
 
                           <div class="row mb-3">
 
-                              <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+                              <label for="profilePhoto" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
 
                               <div id="profilePhoto" class="col-md-6">
                                 <div class="form-control">
@@ -191,7 +191,7 @@
                                     <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
                                   @endif
                                   @if ($deceased->profile_photo)
-                                    <button 
+                                    <button
                                       class="btn btn-danger"
                                       formaction="{{ route('cemetery.deleteProfile',['id' => $deceased->id]) }}">
                                       X
@@ -204,7 +204,73 @@
                                   </div>
                                   <input id="profile" type="file" class="form-control @error('profile') is-invalid @enderror" name="profile_photo" value="{{ old('profile_photo') }}">
                                 </div>
-                                @error('children')
+                                @error('profilePhoto')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+
+                              <label for="tombstonePhoto" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div id="tombstonePhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->tombstone_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->tombstone_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                  @if ($deceased->tombstone_photo)
+                                    <button
+                                      class="btn btn-danger"
+                                      formaction="{{ route('cemetery.deleteTombstone',['id' => $deceased->id]) }}">
+                                      X
+                                    </button>
+                                  @endif
+                                </div>
+                                <div class="form-control">
+                                  <div>
+                                    Change Tombstone Photo
+                                  </div>
+                                  <input id="tombstone" type="file" class="form-control @error('tombstone') is-invalid @enderror" name="tombstone_photo" value="{{ old('tombstone_photo') }}">
+                                </div>
+                                @error('tombstone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+
+                              <label for="mapPhoto" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div id="mapPhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->map_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->map_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                  @if ($deceased->map_photo)
+                                    <button
+                                      class="btn btn-danger"
+                                      formaction="{{ route('cemetery.deleteMap',['id' => $deceased->id]) }}">
+                                      X
+                                    </button>
+                                  @endif
+                                </div>
+                                <div class="form-control">
+                                  <div>
+                                    Change Map Photo
+                                  </div>
+                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+                                </div>
+                                @error('map')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

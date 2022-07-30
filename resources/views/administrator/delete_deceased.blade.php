@@ -132,6 +132,42 @@
                           </div>
                         @endif
 
+                        @if ($deceased->profile_photo)
+                          <div class="row mb-3">
+                              <label for="profile" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                              <div id="deceased" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->profile_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->tombstone_photo)
+                          <div class="row mb-3">
+                              <label for="tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div id="tombstone" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->tombstone_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->map_photo)
+                          <div class="row mb-3">
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div id="map" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->map_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
                         <div class="row mb-3">
                             <label for="deceased" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
 

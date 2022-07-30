@@ -1,6 +1,9 @@
 @extends('layouts.master')
   @section('content')
     <div class="indivMain">
+      <div>
+        <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
+      </div>
       <div class="fullName">
         <div>
           In memory of
@@ -14,13 +17,15 @@
         </div>
       </div>
       <div class="photoBox">
-        @if ($deceased->profile_photo == null)
-          <div class="photoProfile" style="background-image:url('/images/default_profile.png')"></div>
-        @else
+        @if ($deceased->profile_photo != null)
           <div class="photoProfile" style="background-image:url('/{{ $deceased->profile_photo }}')"></div>
+        @else
+          <div class="photoProfile" style="background-image:url('/images/default_profile.png')"></div>
         @endif
         <div class="photoMenu">
-          <div>Profile</div>
+          @if ($deceased->profile_photo == null)
+            <div>Profile</div>
+          @endif
           <div>Tomb</div>
           <div>Map</div>
         </div>

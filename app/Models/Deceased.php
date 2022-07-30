@@ -21,6 +21,8 @@ class Deceased extends Model
       'spouse',
       'children',
       'profile_photo',
+      'tombstone_photo',
+      'map_photo',
       'is_deceased',
       'purchased_by'
     ];

@@ -186,7 +186,35 @@
                               <div class="col-md-6">
                                   <input id="profile" type="file" class="form-control @error('profile') is-invalid @enderror" name="profile_photo" value="{{ old('profile_photo') }}">
 
-                                  @error('children')
+                                  @error('profile')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="tombstone" type="file" class="form-control @error('tombstone') is-invalid @enderror" name="tombstone_photo" value="{{ old('tombstone_photo') }}">
+
+                                  @error('tombstone')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+
+                                  @error('map')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>

@@ -114,12 +114,22 @@ class AdminController extends Controller
         'spouse' => 'nullable',
         'children' => 'nullable',
         'profile_photo' => 'file',
+        'tombstone_photo' => 'file',
+        'map_photo' => 'file',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
 
       if (request('profile_photo')) {
         $input['profile_photo'] = request('profile_photo')->store('images');
+      };
+
+      if (request('tombstone_photo')) {
+        $input['tombstone_photo'] = request('tombstone_photo')->store('images');
+      };
+
+      if (request('map_photo')) {
+        $input['map_photo'] = request('map_photo')->store('images');
       };
 
       Deceased::create($input);
@@ -310,6 +320,8 @@ class AdminController extends Controller
         'spouse' => 'nullable',
         'children' => 'nullable',
         'profile_photo' => 'file',
+        'tombstone_photo' => 'file',
+        'map_photo' => 'file',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
@@ -336,6 +348,24 @@ class AdminController extends Controller
           Storage::delete($old_filename);
         };
       };
+      if (request('tombstone_photo')) {
+        $old_filename = $deceased->tombstone_photo;
+        $request['tombstone_photo'] = request('tombstone_photo')->store('images');
+        $filename = request('tombstone_photo')->hashName();
+        $deceased->tombstone_photo = "images/".$filename;
+        if ($old_filename != null) {
+          Storage::delete($old_filename);
+        };
+      };
+      if (request('map_photo')) {
+        $old_filename = $deceased->map_photo;
+        $request['map_photo'] = request('map_photo')->store('images');
+        $filename = request('map_photo')->hashName();
+        $deceased->map_photo = "images/".$filename;
+        if ($old_filename != null) {
+          Storage::delete($old_filename);
+        };
+      };
       $deceased->save();
 
       return redirect()->route('cemetery.allupdates',[
@@ -355,6 +385,44 @@ class AdminController extends Controller
       $this_deceased = Deceased::find($id);
       Storage::delete($this_deceased->profile_photo);
       $this_deceased->profile_photo = null;
+      $this_deceased->save();
+
+      return redirect()->route('cemetery.allupdates',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions
+      ]);
+    }
+
+    public function delete_deceased_tombstone(Request $request, $id)
+    {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $this_deceased = Deceased::find($id);
+      Storage::delete($this_deceased->tombstone_photo);
+      $this_deceased->tombstone_photo = null;
+      $this_deceased->save();
+
+      return redirect()->route('cemetery.allupdates',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions
+      ]);
+    }
+
+    public function delete_deceased_map(Request $request, $id)
+    {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+
+      $this_deceased = Deceased::find($id);
+      Storage::delete($this_deceased->map_photo);
+      $this_deceased->map_photo = null;
       $this_deceased->save();
 
       return redirect()->route('cemetery.allupdates',[
@@ -414,6 +482,15 @@ class AdminController extends Controller
       $users_permissions = $role_model->users_permissions($current_user->id);
 
       $deceased = Deceased::find($id);
+      if ($deceased->profile_photo) {
+        Storage::delete($deceased->profile_photo);
+      };
+      if ($deceased->tombstone_photo) {
+        Storage::delete($deceased->tombstone_photo);
+      };
+      if ($deceased->map_photo) {
+        Storage::delete($deceased->map_photo);
+      };
       $deceased->delete();
 
       return redirect()->route('admin.index',[
