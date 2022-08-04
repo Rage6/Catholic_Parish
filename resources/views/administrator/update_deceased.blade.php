@@ -15,13 +15,14 @@
                       </div>
                     @endif
                     <div>
-                      <a href="{{ route('admin.index') }}"><< BACK</a>
+                      <a href="{{ route('cemetery.allupdates') }}"><< BACK</a>
                     </div>
                     <div>
                       <div>
-                        <form method="POST" action="{{ route('cemetery.update',['id' => $deceased->id]) }}">
+                        <form method="POST" action="{{ route('cemetery.update',['id' => $deceased->id]) }}" enctype="multipart/form-data">
                           @csrf
                           @method('PUT')
+
                           <div class="row mb-3">
                               <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
 
@@ -120,6 +121,21 @@
                               </div>
                           </div>
 
+                          <!-- <div class="row mb-3">
+
+                              <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                              <div id="profilePhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->profile_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->profile_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                </div>
+                              </div>
+                          </div> -->
+
                           <div class="row mb-3">
                               <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Words on the Tombstone') }}</label>
 
@@ -164,18 +180,101 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
 
-                              <div class="col-md-6">
-                                  <select id="purchased" name="is_purchased">
-                                    @if ($deceased->is_purchased == 1)
-                                    <option value="0">NO</option>
-                                    <option selected value="1">YES</option>
-                                    @else
-                                    <option selected value="0">NO</option>
-                                    <option value="1">YES</option>
-                                    @endif
-                                  </select>
+                              <label for="profilePhoto" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                              <div id="profilePhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->profile_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->profile_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                  @if ($deceased->profile_photo)
+                                    <button
+                                      class="btn btn-danger"
+                                      formaction="{{ route('cemetery.deleteProfile',['id' => $deceased->id]) }}">
+                                      X
+                                    </button>
+                                  @endif
+                                </div>
+                                <div class="form-control">
+                                  <div>
+                                    Change Profile Photo
+                                  </div>
+                                  <input id="profile" type="file" class="form-control @error('profile') is-invalid @enderror" name="profile_photo" value="{{ old('profile_photo') }}">
+                                </div>
+                                @error('profilePhoto')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+
+                              <label for="tombstonePhoto" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div id="tombstonePhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->tombstone_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->tombstone_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                  @if ($deceased->tombstone_photo)
+                                    <button
+                                      class="btn btn-danger"
+                                      formaction="{{ route('cemetery.deleteTombstone',['id' => $deceased->id]) }}">
+                                      X
+                                    </button>
+                                  @endif
+                                </div>
+                                <div class="form-control">
+                                  <div>
+                                    Change Tombstone Photo
+                                  </div>
+                                  <input id="tombstone" type="file" class="form-control @error('tombstone') is-invalid @enderror" name="tombstone_photo" value="{{ old('tombstone_photo') }}">
+                                </div>
+                                @error('tombstone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+
+                              <label for="mapPhoto" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div id="mapPhoto" class="col-md-6">
+                                <div class="form-control">
+                                  @if ($deceased->map_photo)
+                                    <img class="img-thumbnail" src="{{ url($deceased->map_photo) }}">
+                                  @else
+                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
+                                  @endif
+                                  @if ($deceased->map_photo)
+                                    <button
+                                      class="btn btn-danger"
+                                      formaction="{{ route('cemetery.deleteMap',['id' => $deceased->id]) }}">
+                                      X
+                                    </button>
+                                  @endif
+                                </div>
+                                <div class="form-control">
+                                  <div>
+                                    Change Map Photo
+                                  </div>
+                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+                                </div>
+                                @error('map')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                               </div>
                           </div>
 
@@ -192,6 +291,14 @@
                                       <option value="1">YES</option>
                                     @endif
                                   </select>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
+
+                              <div class="col-md-6">
+                                  <textarea id="purchased" name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purchase, etc.)">{{ $deceased->purchased_by }}</textarea>
                               </div>
                           </div>
 

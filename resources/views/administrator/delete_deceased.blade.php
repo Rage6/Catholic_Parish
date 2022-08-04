@@ -15,7 +15,7 @@
                       </div>
                     @endif
                     <div>
-                      <a href="{{ route('admin.index') }}"><< BACK</a>
+                      <a href="{{ route('cemetery.alldeletes') }}"><< BACK</a>
                     </div>
                     <div>
                       <div>
@@ -132,6 +132,42 @@
                           </div>
                         @endif
 
+                        @if ($deceased->profile_photo)
+                          <div class="row mb-3">
+                              <label for="profile" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                              <div id="deceased" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->profile_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->tombstone_photo)
+                          <div class="row mb-3">
+                              <label for="tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div id="tombstone" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->tombstone_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->map_photo)
+                          <div class="row mb-3">
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div id="map" class="col-md-6">
+                                <div class="form-control">
+                                  <img class="img-thumbnail" src="/{{ $deceased->map_photo }}">
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
                         <div class="row mb-3">
                             <label for="deceased" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
 
@@ -150,10 +186,30 @@
                             <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
                             <div id="purchased" class="col-md-6">
-                              <textarea class="form-control" readonly>{{ $deceased->purchased_by }}</textarea>
+                              <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)">{{ $deceased->purchased_by }}</textarea>
                             </div>
                         </div>
 
+                        <button data-deletebutton="deceased_{{ $deceased->id }}">
+                          DELETE
+                        </button>
+                        <div data-deletebox="deceased_{{ $deceased->id }}" style="display:none">
+                          <div>
+                            Are you sure you want to permanently delete this deceased record?
+                          </div>
+                          <div style="display:grid;grid-template-columns:25% 25%;">
+                            <button data-canceldelete="deceased_{{ $deceased->id }}">
+                              CANCEL
+                            </button>
+                            <form method="POST" action="{{ route('cemetery.delete',['id' => $deceased->id]) }}">
+                              @csrf
+                              @method('DELETE')
+                              <button>
+                                DELETE
+                              </button>
+                            </form>
+                          </div>
+                        </div>
                       </div>
                     </div>
                 </div>

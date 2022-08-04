@@ -23,7 +23,7 @@
                     </div>
                     <div>
                       <div>
-                        <form method="POST" action="{{ route('cemetery.create') }}">
+                        <form method="POST" action="{{ route('cemetery.create') }}" enctype="multipart/form-data">
                           @csrf
                           <div class="row mb-3">
                               <label for="firstName" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
@@ -181,10 +181,52 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Has this plot been purchased for this person?') }}</label>
+                              <label for="profile" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
 
                               <div class="col-md-6">
-                                  <select id="purchased" name="is_purchased">
+                                  <input id="profile" type="file" class="form-control @error('profile') is-invalid @enderror" name="profile_photo" value="{{ old('profile_photo') }}">
+
+                                  @error('profile')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Tombstone Photo') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="tombstone" type="file" class="form-control @error('tombstone') is-invalid @enderror" name="tombstone_photo" value="{{ old('tombstone_photo') }}">
+
+                                  @error('tombstone')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+
+                                  @error('map')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="filled" name="is_deceased">
                                     <option value="0" selected>NO</option>
                                     <option value="1">YES</option>
                                   </select>
@@ -192,13 +234,10 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Is this person deceased and in this plot?') }}</label>
+                              <label for="filled" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
                               <div class="col-md-6">
-                                  <select id="filled" name="is_deceased">
-                                    <option selected value="0">NO</option>
-                                    <option value="1">YES</option>
-                                  </select>
+                                  <textarea name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)"></textarea>
                               </div>
                           </div>
 

@@ -20,7 +20,10 @@ class Deceased extends Model
       'on_tombstone',
       'spouse',
       'children',
+      'profile_photo',
+      'tombstone_photo',
+      'map_photo',
       'is_deceased',
-      'is_purchased'
+      'purchased_by'
     ];
 }

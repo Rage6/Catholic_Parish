@@ -18,7 +18,7 @@ class CemeteryController extends Controller
         $deceased = Deceased::all();
         $open_plot_count = 0;
         foreach ($deceased as $one_deceased) {
-          if ($one_deceased->is_purchased == 0) {
+          if ($one_deceased->purchased_by == null && $one_deceased->is_deceased) {
             $open_plot_count++;
           };
         };
@@ -93,5 +93,14 @@ class CemeteryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function individual($id)
+    {
+      $deceased = Deceased::find($id);
+      return view('cemetery.individual',[
+        'css' => 'cemetery',
+        'deceased' => $deceased
+      ]);
     }
 }
