@@ -52,4 +52,26 @@ $(()=>{
     };
   });
 
+  // Displays the selected photo of the deceased individual
+  const switchSelectedPhotos = (typeName) => {
+    $("[data-size='main']").css('display','none');
+    var selected = "[data-size='main'][data-type='" + typeName + "']";
+    $(selected).css('display','block');
+  };
+
+  // Initially displays the available photo
+  if ($("[data-type='profile']")) {
+    switchSelectedPhotos('profile');
+  } else if ($("[data-type='tombstone']")) {
+    switchSelectedPhotos('tombstone');
+  } else if ($("[data-type='map']")) {
+    switchSelectedPhotos('map');
+  } else {
+    console.log("No photos were available");
+  };
+
+  $("[data-size='thumbnail']").click(function(e) {
+    switchSelectedPhotos(e.target.dataset.type);
+  });
+
 })

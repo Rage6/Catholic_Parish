@@ -142,6 +142,7 @@
 
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
+  padding-bottom: 50px;
   background-image:
     linear-gradient(
       rgb(105, 30, 32,0.7),
@@ -150,6 +151,10 @@
     /* Image from https://live.staticflickr.com/3488/3203117329_c09c237cb7_b.jpg */
   color: white;
   min-height: 90vh;
+}
+
+.backBttn {
+  
 }
 
 .fullName {
@@ -165,7 +170,6 @@
 
 .photoBox {
   padding: 0 5vw;
-  height: 50vh;
 }
 
 .photoProfile {
@@ -173,25 +177,42 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-color: black;
-  height: 90%;
+  height: 45vh;
 }
 
 .photoMenu {
   display: flex;
-  justify-content: space-between;
-  height: 10%;
+  justify-content: flex-start;
 }
 
 .photoMenu div {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-radius: 0 0 15px 15px;
-  font-size: 1.2rem;
-  background-color: grey;
-  width: 20%;
+  margin-right: 10px;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
 
 .basicInfoBox {
-  background-image: linear-gradient(rgba('255,223,0,0.8'),rgba('255,223,0,0.8'))
+  margin: 15px 0 0 5%;
+  padding: 10px 3%;
+  color: black;
+  font-size: 1.2rem;
+  background-image: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8));
+  width: 84%;
+}
+
+.basicElement {
+
+}
+
+.basicElement:first-child {
+
+}
+
+.basicElement div:last-child {
+  margin-left: 10%;
+  font-size: 1.5rem;
+  width: 90%;
 }

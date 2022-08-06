@@ -32,3 +32,30 @@
 .resultRow {
 
 }
+
+/* CEMETERY.INDIVIDUAL */
+.indivMain {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "back back"
+    "name name"
+    "photo info";
+}
+
+.backBttn {
+  grid-area: back;
+}
+
+.fullName {
+  grid-area: name;
+}
+
+.photoBox {
+  grid-area: photo;
+}
+
+.basicInfoBox {
+  grid-area: info;
+}
