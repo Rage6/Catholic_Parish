@@ -44,9 +44,20 @@ class HomeController extends Controller
           if ($is_unique) {
             $unique_users_permissions[] = $one_permission;
           };
-          // This makes sure they are an administrator in the first place
-          if ($one_permission[1] == "administer-website") {
-            $is_admin = true;
+        };
+        // NOTES: This array should match the array in Http/Middleware/AdminAccess.php
+        $titles_for_access = [
+          "Priest",
+          "Deacon",
+          "Lay Minister",
+          "Choir Member",
+          "Web Administrator"
+        ];
+        foreach($user_roles as $one_role) {
+          foreach($titles_for_access as $one_title) {
+            if ($one_title == $one_role->title) {
+              $is_admin = true;
+            };
           };
         };
 

@@ -21,7 +21,8 @@ Auth::routes();
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
   Route::get('/list-in-cemetery', [App\Http\Controllers\AdminController::class, 'show_deceased_all'])->name('cemetery.allShown');
-  Route::middleware(['permission:Administer The Website'])->group(function() {
+  // Route::middleware(['permission:Administer The Website'])->group(function() {
+  Route::middleware('access')->group(function() {
     // Administrator homepage
     Route::get('/administrator', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/all-members',[App\Http\Controllers\AdminController::class, 'all_members'])->name('admin.members');
