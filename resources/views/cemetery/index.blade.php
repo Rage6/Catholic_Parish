@@ -62,6 +62,30 @@
       <div class="sectionTitle">
         When Visiting
       </div>
+      <p>
+        <u>Obey the Hours</u>: Our cemetery is open from dawn until dusk. Try not to remain in the cemetery after dark.
+      </p>
+      <p>
+        <u>Drive with Care</u>: When starting to driving around the cemetery, turn to the right. Make sure to follow the roadway and remain off the grass. Drive slowly, and watch out for people who might not be paying attention.
+      </p>
+      <p>
+        <u>Respect the Graves</u>: Don't touch any monuments or headstones; this is not only disrespectful, but may cause damage to the memorials, especially older ones. Never remove anything from a gravestone, such as flowers, coins, or tributes that have been left by family.
+      </p>
+      <p>
+        <u>Look After Your Children</u>: If you bring children, make sure to keep a close eye on them and keep them from running, yelling, playing or climbing on graves and monuments. Teach them to act in a respectful and considerate manner.
+      </p>
+      <p>
+        <u>Speak Softly & Politely</u>: Be respectful to other mourners: remember to keep your voice down when having conversations, and avoid using bad language.
+      </p>
+      <p>
+        <u>Lower the Volume</u>: If you choose to bring it with you, take a moment to ensure that your cellphone is turned off. Avoid having phone conversations, as voices tend to carry in open spaces. Make sure to turn off your car stereo while driving or parking in the cemetery.
+      </p>
+      <p>
+        <u>Be Respectful of Services and Other Mourners</u>: If a funeral is occurring, take care not to get in the way of processions. Never take photos of strangers at a funeral or visiting a gravesite; it is extremely disrespectful to them in their time of grief. Respect their privacy and give them their space.
+      </p>
+      <p>
+        <u>Don't Leave Trash Behind</u>: Litter creates extra work for the caretakers, and is disrespectful to both other visitors and those who are buried there. Hang onto your trash and take it with you when you leave.
+      </p>
     </div>
     <div class="riteSection sectionBackground section primaryFont">
       <div class="sectionTitle">
@@ -114,54 +138,41 @@
     </div>
     <div class="emptyPlotsInfoSection sectionBackground section primaryFont">
       <div class="sectionTitle">
-        Available Plots
+        About Available Plots
       </div>
-      @if ($open_plot_count > 0)
-        <div>
-          At this time, there
-            @if ($open_plot_count != 1)
-              are {{ $open_plot_count }} available plots.
-            @else
-              is {{ $open_plot_count }} available plot.
-            @endif
-        </div>
-        <!-- <div class="emptyPlotBox">
-          <div class="plotList">
-            @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == false && $one_deceased->first_name == 'EMPTY' && $one_deceased->last_name == 'PLOT')
-                <div
-                  class="plotsRow"
-                  data-id="{{ $one_deceased->id }}"
-                >
-                  <div>
-                    {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
-                  </div>
-                </div>
-              @endif
-            @endforeach
-          </div>
-        </div> -->
-      @else
-        <div>
-          There are no available plots at this time.
-        </div>
-      @endif
       <div>
-        <div>COMMON QUESTIONS</div>
-        <div>
-          <i>What is different about a Catholic cemetery?</i>
-          <div>
-            There are basically only two places that the Catholic Church consecrates as Holy Ground: a church and a cemetery. But why a cemetery? It represents the continuation, even in death, of the harmony and spiritual alliance which makes all Catholics members of one great family, thereby constituting it an actual family plot. As ministries of the Church, Catholic cemeteries expresses the link of community between all the faithful living and dead—the Communion of Saints.
+        @if ($open_plot_count > 0)
+          <div class="emptyPlotCount">
+            At this time, there
+              @if ($open_plot_count != 1)
+                are <b>{{ $open_plot_count }}</b> available plots.
+              @else
+                is <b>{{ $open_plot_count }}</b> available plot.
+              @endif
+            Each plot costs a one-time payment of $___. This cost is to assist the respectful maintenance of the cemetery. You can claim a plot by messaging the Cemetery Manager in the "Contact Us" information below.
           </div>
-          <i>Who can be buried in a Catholic Cemetery?</i>
-          <div>
-            Baptized Catholics may be buried in a Catholic cemetery. Likewise, non-Catholic spouses and other family members of Catholics may be buried in a Catholic Cemetery. A member of the clergy of the Church of the one can certainly be invited to conduct burial services at the gravesite.
+        @else
+          <div class="emptyPlotCount">
+            There are no available plots at this time. Any questions about the cemetery can be messaged to the Cemetery Manager by the "Contact Us" information below.
           </div>
-          <i>Does the Catholic Church permit cremation?</i>
-          <div>
-            Yes.  Cremation is permitted, although the Church does prefer the body to be present at the funeral Mass.
-          </div>
-        </div>
+        @endif
+        <p>
+          There are some common questions when considering a plot or arranging a burial in our cemetery. Please review the below list of questions because they may answer your confusion. If your answer is not satisfied, feel free to message the Cemetery Manager in the "Contact Us" information below.
+        </p>
+        <i>
+          What is different about a Catholic cemetery?
+        </i>
+        <p>
+          There are basically only two places that the Catholic Church consecrates as Holy Ground: a church and a cemetery. But why a cemetery? It represents the continuation, even in death, of the harmony and spiritual alliance which makes all Catholics members of one great family, thereby constituting it an actual family plot. As ministries of the Church, Catholic cemeteries expresses the link of community between all the faithful living and dead—the Communion of Saints.
+        </p>
+        <i>Who can be buried in a Catholic Cemetery?</i>
+        <p>
+          Baptized Catholics may be buried in a Catholic cemetery. Likewise, non-Catholic spouses and other family members of Catholics may be buried in a Catholic Cemetery.
+        </p>
+        <i>Does the Catholic Church permit cremation?</i>
+        <p>
+          Yes.  Cremation is permitted, although the Church does prefer the body to be present at the funeral Mass.
+        </p>
       </div>
     </div>
     <div class="contactSection sectionBackground section primaryFont">

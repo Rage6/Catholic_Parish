@@ -133,6 +133,13 @@
       url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
 }
 
+.emptyPlotCount {
+  margin-bottom: 20px;
+  border: 1px solid white;
+  padding: 10px 6%;
+  background-image: linear-gradient(rgb(105, 30, 32,1),rgb(105, 30, 32,1));
+}
+
 .contactSection {
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
@@ -154,7 +161,7 @@
 }
 
 .backBttn {
-  
+
 }
 
 .fullName {

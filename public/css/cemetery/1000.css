@@ -33,6 +33,12 @@
 
 }
 
+.emptyPlotCount {
+  margin-right: 6%;
+  width: 40%;
+  float: left;
+}
+
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
   display: grid;
