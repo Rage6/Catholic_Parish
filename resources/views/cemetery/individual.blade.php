@@ -51,10 +51,10 @@
             @if ($deceased->middle_name)
               {{ $deceased->middle_name }}
             @endif
-            {{ $deceased->last_name }}
             @if ($deceased->maiden_name)
               ({{ $deceased->maiden_name }})
             @endif
+            {{ $deceased->last_name }}
             @if ($deceased->suffix_name)
               {{ $deceased->suffix_name }}
             @endif

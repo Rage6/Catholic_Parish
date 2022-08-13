@@ -60,11 +60,11 @@ $(()=>{
   };
 
   // Initially displays the available photo
-  if ($("[data-type='profile']")) {
+  if ($("[data-type='profile']").length > 0) {
     switchSelectedPhotos('profile');
-  } else if ($("[data-type='tombstone']")) {
+  } else if ($("[data-type='tombstone']").length > 0) {
     switchSelectedPhotos('tombstone');
-  } else if ($("[data-type='map']")) {
+  } else if ($("[data-type='map']").length > 0) {
     switchSelectedPhotos('map');
   } else {
     console.log("No photos were available");
