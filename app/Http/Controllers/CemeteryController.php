@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Deceased;
+use App\Models\User;
+use App\Models\Role;
 
 class CemeteryController extends Controller
 {
@@ -22,10 +24,33 @@ class CemeteryController extends Controller
             $open_plot_count++;
           };
         };
+        $all_users = User::all();
+        $cemetery_roles = [
+          'Cemetery Manager',
+          'Priest',
+          'Deacon'
+        ];
+        $cemetery_users = [];
+        foreach ($all_users as $one_user) {
+          $roles = [];
+          $user_roles = $one_user->all_user_roles;
+          foreach ($user_roles as $one_role) {
+            for ($num = 0; $num < count($cemetery_roles); $num++) {
+              if ($one_role->title == $cemetery_roles[$num]) {
+                array_push($roles, $one_role->title);
+              };
+            };
+          };
+          if (count($roles) > 0) {
+            $one_user->cemetery_roles = $roles;
+            array_push($cemetery_users, $one_user);
+          };
+        };
         return view('cemetery.index',[
           'css' => 'cemetery',
           'all_deceased' => $deceased,
-          'open_plot_count' => $open_plot_count
+          'open_plot_count' => $open_plot_count,
+          'cem_user' => $cemetery_users
         ]);
     }
 

@@ -39,6 +39,12 @@
   float: left;
 }
 
+.contactGrid {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
   display: grid;
@@ -64,4 +70,14 @@
 
 .basicInfoBox {
   grid-area: info;
+}
+
+.basicInfoList {
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  justify-content: space-between;
+}
+
+.basicInfoList p {
+
 }
