@@ -181,33 +181,64 @@
       <div class="sectionTitle">
         Contact Us
       </div>
-      <div>
-        <p>
-          Purchasing plots, making funeral arrangements, and general questions can be directed to one of the individuals below.
-        </p>
-        <div class="contactGrid">
-          <div>
-            @foreach ($cem_user as $one_user)
+      <div class="contactGrid">
+        <div>
+          <p>
+            Purchasing plots, making funeral arrangements, and general questions can be directed to one of the individuals below.
+          </p>
+          @foreach ($cem_user as $one_user)
+            <div>
+              {{ $one_user->first_name }} {{ $one_user->last_name }}
+            </div>
+            <div>
+              @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
+                @if ($num == 0)
+                  {{ $one_user->cemetery_roles[$num] }}
+                @else
+                  , {{ $one_user->cemetery_roles[$num] }}
+                @endif
+              @endfor
+            </div>
+          @endforeach
+        </div>
+        <div class="contactForm">
+          <form>
+            @csrf
+            <div>
               <div>
-                {{ $one_user->first_name }} {{ $one_user->last_name }}
+                Your message is to:
               </div>
-              <div>
+              <select name="cem_recipient">
+                @foreach ($cem_user as $one_user)
+                <option value="{{ $one_user->id }}">
+                {{ $one_user->first_name }} {{ $one_user->last_name }} (
                 @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
                   @if ($num == 0)
-                    {{ $one_user->cemetery_roles[$num] }}
+                    {{$one_user->cemetery_roles[$num]}}
                   @else
-                    , {{ $one_user->cemetery_roles[$num] }}
+                    , {{$one_user->cemetery_roles[$num]}}
                   @endif
                 @endfor
+                )
+                </option>
+                @endforeach
+              </select>
+              <div>
+                <div>
+                  We should reply to:
+                </div>
+                <input type="email" name="cem_reply_email" placeholder="Enter your email here">
               </div>
-            @endforeach
-          </div>
-          <div>
-            <form>
-              @csrf
-
-            </form>
-          </div>
+              <div>
+                <div>
+                  Your message is:
+                </div>
+                <textarea name="cem_message">
+                </textarea>
+              </div>
+              <button>SEND</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -147,6 +147,10 @@
       url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg')
 }
 
+.contactForm {
+  background-color: rgb(105, 30, 32);
+}
+
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
   padding-bottom: 50px;
