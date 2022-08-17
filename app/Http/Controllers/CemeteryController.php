@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Deceased;
 use App\Models\User;
 use App\Models\Role;
+use App\Mail\CemeteryMessage;
+
+use Illuminate\Support\Facades\Mail;
 
 class CemeteryController extends Controller
 {
@@ -127,5 +130,11 @@ class CemeteryController extends Controller
         'css' => 'cemetery',
         'deceased' => $deceased
       ]);
+    }
+
+    public function messaging()
+    {
+      Mail::to('nvogt10@gmail.com')->send(new CemeteryMessage());
+      return redirect()->route('cemetery.index');
     }
 }

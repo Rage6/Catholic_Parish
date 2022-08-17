@@ -202,7 +202,7 @@
           @endforeach
         </div>
         <div class="contactForm">
-          <form>
+          <form method="post" action="{{ route('cemetery.messaging') }}" enctype="multipart/form-data">
             @csrf
             <div>
               <div>
