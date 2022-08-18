@@ -11,14 +11,16 @@ class CemeteryMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $request;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($request)
     {
-        //
+        $this->request = $request;
     }
 
     /**
@@ -28,6 +30,7 @@ class CemeteryMessage extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.cemetery_message');
+        return $this->view('emails.cemetery_message')
+                    ->with(['mail' => $this->request]);
     }
 }

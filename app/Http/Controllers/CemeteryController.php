@@ -132,9 +132,9 @@ class CemeteryController extends Controller
       ]);
     }
 
-    public function messaging()
+    public function messaging(Request $request)
     {
-      Mail::to('nvogt10@gmail.com')->send(new CemeteryMessage());
+      Mail::to('nvogt10@gmail.com')->send(new CemeteryMessage($request));
       return redirect()->route('cemetery.index');
     }
 }

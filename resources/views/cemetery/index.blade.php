@@ -227,13 +227,13 @@
                 <div>
                   We should reply to:
                 </div>
-                <input type="email" name="cem_reply_email" placeholder="Enter your email here">
+                <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
               </div>
               <div>
                 <div>
                   Your message is:
                 </div>
-                <textarea name="cem_message">
+                <textarea name="cem_message" required>
                 </textarea>
               </div>
               <button>SEND</button>
