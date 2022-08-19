@@ -210,17 +210,17 @@
               </div>
               <select name="cem_recipient">
                 @foreach ($cem_user as $one_user)
-                <option value="{{ $one_user->id }}">
-                {{ $one_user->first_name }} {{ $one_user->last_name }} (
-                @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
-                  @if ($num == 0)
-                    {{$one_user->cemetery_roles[$num]}}
-                  @else
-                    , {{$one_user->cemetery_roles[$num]}}
-                  @endif
-                @endfor
-                )
-                </option>
+                  <option value="{{ $one_user->id }}">
+                    {{ $one_user->first_name }} {{ $one_user->last_name }} (
+                    @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
+                      @if ($num == 0)
+                        {{$one_user->cemetery_roles[$num]}}
+                      @else
+                        , {{$one_user->cemetery_roles[$num]}}
+                      @endif
+                    @endfor
+                    )
+                  </option>
                 @endforeach
               </select>
               <div>

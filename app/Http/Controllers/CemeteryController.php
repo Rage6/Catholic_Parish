@@ -28,11 +28,12 @@ class CemeteryController extends Controller
           };
         };
         $all_users = User::all();
-        $cemetery_roles = [
-          'Cemetery Manager',
-          'Priest',
-          'Deacon'
-        ];
+        // $cemetery_roles = [
+        //   'Cemetery Manager',
+        //   'Priest',
+        //   'Deacon'
+        // ];
+        $cemetery_roles = explode(",",env('CEMETERY_ROLES'));
         $cemetery_users = [];
         foreach ($all_users as $one_user) {
           $roles = [];
@@ -134,7 +135,13 @@ class CemeteryController extends Controller
 
     public function messaging(Request $request)
     {
-      Mail::to('nvogt10@gmail.com')->send(new CemeteryMessage($request));
+      $input = request()->validate([
+        'cem_recipient' => 'required',
+        'cem_reply_email' => 'required|email',
+        'cem_message' => 'required'
+      ]);
+      $recipient = User::find($input['cem_recipient']);
+      Mail::to($recipient->email)->send(new CemeteryMessage($input));
       return redirect()->route('cemetery.index');
     }
 }

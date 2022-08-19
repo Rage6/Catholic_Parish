@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name('cemetery.index');
 Route::get('/cemetery/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');
 Route::post('/message', [App\Http\Controllers\CemeteryController::class, 'messaging'])->name('cemetery.messaging');
-// Route::get('/run-storage-link', function () {
-//   Artisan::call('storage:link');
-// });
+// Retrieves the images from the 'storage' directory
+Route::get('images/{filename}', function($filename){
+     $storagePath = storage_path('app/public/images/' . $filename);
+        return response()->file($storagePath);
+});
 
 Auth::routes();
 
