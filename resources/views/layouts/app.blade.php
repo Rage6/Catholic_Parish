@@ -69,10 +69,7 @@
                                         Home
                                     </a>
                                     <a class="dropdown-item" href="{{ route('home.change-profile') }}">
-                                        Change Profile
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('home.change-password') }}">
-                                        Change Password
+                                        Change Account
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

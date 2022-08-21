@@ -6,7 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Change Password') }}</div>
-
+                    <a class="dropdown-item" href="{{ route('home.change-profile') }}">
+                        << BACK
+                    </a>
                     <form action="{{ route('update-password') }}" method="POST">
                         @csrf
                         <div class="card-body">

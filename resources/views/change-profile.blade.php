@@ -37,7 +37,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="suffixNameInput" class="form-label">Suffix Name</label>
-                                <input name="suffix_name" type="text" value="{{ $current_user->suffix_name }}" class="form-control @error('suffix_name') is-invalid @enderror" id="suffixNameInput">
+                                <input name="suffix_name" type="text" value="{{ $current_user->suffix_name }}" placeholder="Jr, III, etc." class="form-control @error('suffix_name') is-invalid @enderror" id="suffixNameInput">
                                 @error('suffix_name')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -49,7 +49,13 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                            <div class="row justify-content-end">
+                              <a href="{{ route('home.change-password') }}" class="col-4">
+                                <div class="btn btn-secondary">
+                                  CHANGE PASSWORD
+                                </div>
+                              </a>
+                            </div>
                         </div>
 
                         <div class="card-footer">
