@@ -117,7 +117,7 @@ class HomeController extends Controller
         $user->suffix_name = $request->suffix_name;
         $user->email = $request->email;
         $user->save();
-        return back()->with("status", "Password changed successfully!");
+        return back()->with("status", "Profile changed successfully!");
     }
 
 }

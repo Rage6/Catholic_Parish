@@ -234,7 +234,11 @@
                 <div>
                   We should reply to:
                 </div>
-                <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
+                @guest
+                  <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
+                @else
+                  <input type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" required> 
+                @endguest
               </div>
               <div>
                 <div>
