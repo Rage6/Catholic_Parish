@@ -68,6 +68,9 @@
                                     <a class="dropdown-item" href="{{ route('home.index') }}">
                                         Home
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('home.change-profile') }}">
+                                        Change Profile
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('home.change-password') }}">
                                         Change Password
                                     </a>

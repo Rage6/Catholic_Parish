@@ -74,25 +74,50 @@ class HomeController extends Controller
 
     public function changePassword()
     {
-       return view('change-password');
+        return view('change-password');
     }
 
     public function updatePassword(Request $request)
     {
-            # Validation
-            $request->validate([
-                'old_password' => 'required',
-                'new_password' => 'required|confirmed',
-            ]);
-            #Match The Old Password
-            if(!Hash::check($request->old_password, auth()->user()->password)){
-                return back()->with("error", "Old Password Doesn't match!");
-            }
-            #Update the new Password
-            User::whereId(auth()->user()->id)->update([
-                'password' => Hash::make($request->new_password)
-            ]);
-            return back()->with("status", "Password changed successfully!");
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+        #Update the new Password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", "Password changed successfully!");
+    }
+
+    public function changeProfile()
+    {
+        $current_user = Auth::user();
+        return view('change-profile', [
+          'current_user' => $current_user
+        ]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'suffix_name' => 'nullable',
+            'email' => 'required|email'
+        ]);
+        $user = Auth::user();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->suffix_name = $request->suffix_name;
+        $user->email = $request->email;
+        $user->save();
+        return back()->with("status", "Password changed successfully!");
     }
 
 }
