@@ -26,6 +26,8 @@ Auth::routes();
 
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+  Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('home.change-password');
+  Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
   Route::get('/list-in-cemetery', [App\Http\Controllers\AdminController::class, 'show_deceased_all'])->name('cemetery.allShown');
   // Route::middleware(['permission:Administer The Website'])->group(function() {
   Route::middleware('access')->group(function() {
