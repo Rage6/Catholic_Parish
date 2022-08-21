@@ -31,7 +31,7 @@
                   class="resultRow"
                   data-id="{{ $one_deceased->id }}"
                   data-first="{{ $one_deceased->first_name }}"
-                  data-last="{{ $one_deceased->last_name }}"
+                  data-last="{{ $one_deceased->last_name }}  @if ($one_deceased->suffix_name) {{ $one_deceased->suffix_name }} @endif"
                   @if ($one_deceased->maiden_name)
                     data-maiden="{{ $one_deceased->maiden_name }}"
                   @endif
@@ -43,6 +43,9 @@
                         {{ "(".$one_deceased->maiden_name.") " }}
                       @endif
                       {{ $one_deceased->last_name }}
+                      @if ($one_deceased->suffix_name)
+                        {{ $one_deceased->suffix_name }}
+                      @endif
                     </a>
                   </div>
                   <div>
@@ -188,7 +191,7 @@
           </p>
           @foreach ($cem_user as $one_user)
             <div>
-              {{ $one_user->first_name }} {{ $one_user->last_name }}
+              {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
             </div>
             <div>
               @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
@@ -211,7 +214,11 @@
               <select name="cem_recipient">
                 @foreach ($cem_user as $one_user)
                   <option value="{{ $one_user->id }}">
-                    {{ $one_user->first_name }} {{ $one_user->last_name }} (
+                    {{ $one_user->first_name }} {{ $one_user->last_name }}
+                    @if ($one_user->suffix_name)
+                      {{ $one_user->suffix_name }}
+                    @endif
+                    (
                     @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
                       @if ($num == 0)
                         {{$one_user->cemetery_roles[$num]}}

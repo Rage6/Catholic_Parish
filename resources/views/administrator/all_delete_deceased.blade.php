@@ -34,7 +34,7 @@
                         @if ($one_deceased->is_deceased)
                         <div style="display:grid;grid-template-columns:50% 50%">
                           <div>
-                            {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
+                            {{ $one_deceased->first_name }} {{ $one_deceased->last_name }} @if ($one_deceased->suffix_name) {{ $one_deceased->suffix_name }} @endif
                           </div>
                           <div>
                             <a href="deceased/{{ $one_deceased->id }}/delete">

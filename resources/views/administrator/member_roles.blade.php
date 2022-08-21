@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  ROLES: {{ $member->first_name }} {{ $member->last_name }}
+                  ROLES: {{ $member->first_name }} {{ $member->last_name }} @if ($member->suffix_name) {{ $member->suffix_name }} @endif
                 </div>
                 <div class="card-body">
                     @if (session('status'))

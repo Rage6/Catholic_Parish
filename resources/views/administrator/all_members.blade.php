@@ -30,7 +30,7 @@
                       @foreach ($all_members as $one_member)
                         <div style="display:grid;grid-template-columns:50% 25% 25%">
                           <div>
-                            {{ $one_member->first_name }} {{ $one_member->last_name }}
+                            {{ $one_member->first_name }} {{ $one_member->last_name }} @if ($one_member->suffix_name) {{ $one_member->suffix_name }} @endif
                           </div>
                           <div>
                             <button>

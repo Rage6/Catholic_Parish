@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  {{ $current_user->first_name }} {{ $current_user->last_name }}
+                  {{ $current_user->first_name }} {{ $current_user->last_name }} @if ($current_user->suffix_name) {{ $current_user->suffix_name }} @endif
                 </div>
                 <div class="card-body">
                   @if (session('status'))
