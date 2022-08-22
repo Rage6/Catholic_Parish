@@ -120,4 +120,14 @@ class HomeController extends Controller
         return back()->with("status", "Profile changed successfully!");
     }
 
+    public function delete_user_form() {
+      return view('delete-account');
+    }
+
+    public function delete_user_action() {
+      $this_user = Auth::user();
+      $this_user->delete();
+      return redirect()->route('cemetery.index');
+    }
+
 }

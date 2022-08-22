@@ -55,11 +55,16 @@
                                   CHANGE PASSWORD
                                 </div>
                               </a>
+                              <a href="{{ route('home.delete-form') }}" class="col-4">
+                                <div class="btn btn-danger">
+                                  DELETE ACCOUNT
+                                </div>
+                              </a>
                             </div>
                         </div>
 
                         <div class="card-footer">
-                            <button class="btn btn-success">Submit</button>
+                            <button class="btn btn-success">Submit Changes</button>
                         </div>
 
                     </form>
