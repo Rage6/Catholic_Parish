@@ -14,6 +14,7 @@
         <!-- Styles -->
         <link href="{{ asset('css/master/360.css') }}" rel="stylesheet">
         <link href="{{ asset('css/master/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
+        <link rel="stylesheet" href="https://use.typekit.net/ooy8rdv.css">
         @if ($css)
           <link href="{{ asset('css/'.$css.'/360.css') }}" rel="stylesheet">
           <link href="{{ asset('css/'.$css.'/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
