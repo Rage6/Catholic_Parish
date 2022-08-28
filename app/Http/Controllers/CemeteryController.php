@@ -124,6 +124,15 @@ class CemeteryController extends Controller
         //
     }
 
+    public function list()
+    {
+        $deceased = Deceased::all();
+        return view('cemetery.list',[
+          'css' => 'cemetery',
+          'all_deceased' => $deceased
+        ]);
+    }
+
     public function individual($id)
     {
       $deceased = Deceased::find($id);
