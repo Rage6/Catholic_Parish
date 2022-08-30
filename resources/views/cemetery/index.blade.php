@@ -12,11 +12,14 @@
       <div class="sectionTitle">
         Find a Grave
       </div>
-      <div>
+      <!-- <div>
         Feel free to search for a specific individual amongst our cemetery's deceased members.
       </div>
-      <div>
-        <div class="searchTool">
+      <div> -->
+        <a href="{{ route('cemetery.list') }}">
+          <div style="color:white">LIST OF DECEASED</div>
+        </a>
+        <!-- <div class="searchTool">
           <div>Search By Name:</div>
           <input id="nameInput" name="searchDead" type="text" placeholder="First, last, or maiden"/>
         </div>
@@ -59,7 +62,7 @@
       </div>
       <div>
         Clicking on their name will provide you their basic information, location, and photos (if available).
-      </div>
+      </div> -->
     </div>
     <div class="basicInfoSection sectionBackground section primaryFont">
       <div class="sectionTitle">
@@ -237,7 +240,7 @@
                 @guest
                   <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
                 @else
-                  <input type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" required> 
+                  <input type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" required>
                 @endguest
               </div>
               <div>
