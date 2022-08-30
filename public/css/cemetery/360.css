@@ -151,6 +151,25 @@
   background-color: rgb(105, 30, 32);
 }
 
+/* CEMETERY.LIST */
+
+nav {
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination div {
+  margin-right: 10px;
+}
+
+.pagination div a {
+  color: white;
+}
+
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
   padding-bottom: 50px;

@@ -2,7 +2,7 @@
   @section('content')
     <div class="indivMain">
       <div class="backBttn">
-        <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
+        <a href="{{ route('cemetery.list') }}" style="color:white"><< BACK</a>
       </div>
       <div class="fullName">
         <div>

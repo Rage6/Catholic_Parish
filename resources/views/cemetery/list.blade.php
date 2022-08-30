@@ -1,13 +1,5 @@
 @extends('layouts.master')
   @section('content')
-    <div class="introSection sectionBackground">
-      <div class="introTitle primaryFont">
-        PARISH CEMETERY
-      </div>
-      <div class="introSubtitle">
-        <i>Eternal rest grant unto them, O Lord, and let perpetual light shine upon them</i>
-      </div>
-    </div>
     <div class="searchSection sectionBackground section primaryFont">
       <div class="sectionTitle">
         Find a Grave
@@ -56,6 +48,7 @@
             @endforeach
           </div>
         </div>
+        {{ $all_deceased->links('pagination::cemetery-list') }}
       </div>
       <div>
         Clicking on their name will provide you their basic information, location, and photos (if available).

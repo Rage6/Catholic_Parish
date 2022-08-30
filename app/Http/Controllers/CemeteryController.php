@@ -126,10 +126,10 @@ class CemeteryController extends Controller
 
     public function list()
     {
-        $deceased = Deceased::all();
+        // $deceased = Deceased::all();
         return view('cemetery.list',[
           'css' => 'cemetery',
-          'all_deceased' => $deceased
+          'all_deceased' => Deceased::where('is_deceased','=','1')->paginate(20)
         ]);
     }
 
