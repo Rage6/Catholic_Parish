@@ -33,6 +33,18 @@
 
 }
 
+.basicInfoSection {
+  font-size: 1.2rem;
+}
+
+.basicInfoSection p u {
+  font-size: 1.5rem;
+}
+
+.riteImage {
+  width: 20%
+}
+
 .emptyPlotCount {
   margin-right: 6%;
   width: 40%;

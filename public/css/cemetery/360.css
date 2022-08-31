@@ -25,15 +25,15 @@
 }
 
 .introTitle {
-  padding: 20vh 5vw 0 5vw;
-  font-size: 3rem;
+  padding: 15vh 5vw 0 5vw;
+  font-size: 2.5rem;
   color: white;
   text-align: center;
 }
 
 .introSubtitle {
   padding: 15vh 15vw 0 15vw;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   text-align: center;
 }
@@ -44,6 +44,21 @@
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
     url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
+}
+
+.searchSection a {
+  text-decoration: none;
+}
+
+.browseBttn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  color: rgb(105, 30, 32);
+  text-align: center;
+  border-radius: 30px;
+  background-color: gold;
 }
 
 .searchTool {
@@ -104,6 +119,11 @@
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
       url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+  font-size: 1.2rem;
+}
+
+.basicInfoSection u {
+  font-size: 1.5rem;
 }
 
 .riteSection {
@@ -114,9 +134,50 @@
       url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg');
 }
 
-.riteSubtitle {
+.riteSection div p {
+  font-size: 1.2rem;
+}
+
+.riteSubtitleParent {
+  margin: 50px 0 30px 0;
+}
+
+.riteSubtitleChild {
+  border: 3px solid white;
+  padding: 10px;
   font-style: italic;
   text-align: center;
+  background-color: rgb(105, 30, 32,1);
+}
+
+.firstRiteP {
+  margin-top: 40px;
+}
+
+.riteImage {
+  margin-top: 1em;
+  margin-left: 20px;
+  background-size:cover;
+  background-position: center;
+  height: 200px;
+  width: 100%;
+}
+
+.riteImageOne {
+  float: right;
+  background-image:url('https://www.dignitymemorial.com/dfsmedia/042808e1630c49a48950d5077d6556eb/25142-50068');
+}
+
+.riteImageTwo {
+  margin-left: 0;
+  margin-right: 20px;
+  float: left;
+  background-image:url('https://c8.alamy.com/comp/BCBM3N/a-priest-waves-a-senser-over-the-casket-at-a-catholic-funeral-mass-BCBM3N.jpg');
+}
+
+.riteImageThree {
+  float: right;
+  background-image:url('https://c8.alamy.com/comp/A5B16P/catholic-funeral-where-priest-is-blessing-the-coffin-before-it-is-A5B16P.jpg');
 }
 
 .historySection {
@@ -137,7 +198,12 @@
   margin-bottom: 20px;
   border: 1px solid white;
   padding: 10px 6%;
+  font-size: 1.2rem;
   background-image: linear-gradient(rgb(105, 30, 32,1),rgb(105, 30, 32,1));
+}
+
+.emptyPlotsInfoSection div p {
+  font-size: 1.2rem;
 }
 
 .contactSection {
@@ -152,6 +218,10 @@
 }
 
 /* CEMETERY.LIST */
+
+.listSection {
+  height: 87%;
+}
 
 nav {
   margin-top: -40px;

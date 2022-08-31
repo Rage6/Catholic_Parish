@@ -1,6 +1,6 @@
 @extends('layouts.master')
   @section('content')
-    <div class="searchSection sectionBackground section primaryFont">
+    <div class="listSection searchSection sectionBackground section primaryFont">
       <div class="backBttn">
         <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
       </div>

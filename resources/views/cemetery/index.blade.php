@@ -12,13 +12,16 @@
       <div class="sectionTitle">
         Find a Grave
       </div>
-      <!-- <div>
-        Feel free to search for a specific individual amongst our cemetery's deceased members.
-      </div>
-      <div> -->
-        <a href="{{ route('cemetery.list') }}">
-          <div style="color:white">LIST OF DECEASED</div>
-        </a>
+      <p class="basicInfoSection">
+        Our records makes it easy to browse through the list of graves, and the search tool can find a specific grave quickly.
+      </p>
+      <a href="{{ route('cemetery.list') }}">
+        <div class="browseBttn">
+          <div>
+            BROWSE RECORDS
+          </div>
+        </div>
+      </a>
         <!-- <div class="searchTool">
           <div>Search By Name:</div>
           <input id="nameInput" name="searchDead" type="text" placeholder="First, last, or maiden"/>
@@ -73,6 +76,9 @@
           <u>Obey the Hours</u>: Our cemetery is open from dawn until dusk. Try not to remain in the cemetery after dark.
         </p>
         <p>
+          <u>Speak Softly & Politely</u>: Remember to keep your voice down when having conversations, and avoid using bad language.
+        </p>
+        <p>
           <u>Drive with Care</u>: When starting to driving around the cemetery, turn to the right. Make sure to follow the roadway and remain off the grass. Drive slowly, and watch out for people who might not be paying attention.
         </p>
         <p>
@@ -81,9 +87,9 @@
         <p>
           <u>Look After Your Children</u>: If you bring children, make sure to keep a close eye on them and keep them from running, yelling, playing or climbing on graves and monuments. Teach them to act in a respectful and considerate manner.
         </p>
-        <p>
+        <!-- <p>
           <u>Speak Softly & Politely</u>: Be respectful to other mourners: remember to keep your voice down when having conversations, and avoid using bad language.
-        </p>
+        </p> -->
         <p>
           <u>Lower the Volume</u>: If you choose to bring it with you, take a moment to ensure that your cellphone is turned off. Avoid having phone conversations, as voices tend to carry in open spaces. Make sure to turn off your car stereo while driving or parking in the cemetery.
         </p>
@@ -103,9 +109,12 @@
         The Catholic funeral rite is divided into several stations, or parts, each with its own purpose. For this reason we recommend following the complete structure and making use of each station.
       </p>
       <div>
-        <div class="riteSubtitle">
-          Vigil Service (Wake)
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            1. Vigil Service (Wake)
+          </span>
         </div>
+        <div class="riteImage riteImageOne"></div>
         <p>
           "At the vigil, the Christian community keeps watch with the family in prayer to the God of mercy and finds strength in Christ's presence" (Order of Christian Funerals, no. 56).
         </p>
@@ -120,22 +129,33 @@
         </p>
       </div>
       <div>
-        <div class="riteSubtitle">
-          Funeral Liturgy
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            2. Funeral Liturgy
+          </span>
         </div>
+        <div class="riteImage riteImageTwo"></div>
         <p>
           The funeral liturgy is the central liturgical celebration of the Christian community for the deceased. When one of its members dies, the Church encourages the celebration of the funeral liturgy at a Mass. When Mass cannot be celebrated, a funeral liturgy outside Mass can be celebrated at the church or in the funeral home.
         </p>
+        <!-- <div class="riteImage riteImageTwo"></div> -->
         <p>
           At the funeral liturgy, the Church gathers with the family and friends of the deceased to give praise and thanks to God for Christ's victory over sin and death, to commend the deceased to God's tender mercy and compassion, and to seek strength in the proclamation of the Paschal Mystery. The funeral liturgy, therefore, is an act of worship, and not merely an expression of grief.
         </p>
       </div>
       <div>
-        <div class="riteSubtitle">
-          Rite of Committal (Burial or Interment)
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            3. Rite of Committal (Burial or Interment)
+          </span></br>
         </div>
+        <div class="riteImage riteImageThree"></div>
         <p>
-          The Rite of Committal, the conclusion of the funeral rite, is the final act of the community of faith in caring for the body of its deceased member. It should normally be celebrated at the place of committal, that is, beside the open grave or place of interment. In committing the body to its resting place, the community expresses the hope that, with all those who have gone before us marked with the sign of faith, the deceased awaits the glory of the resurrection. The Rite of Committal is an expression of the communion that exists between the Church on earth and the Church in heaven: the deceased passes with the farewell prayers of the community of believers into the welcoming company of those who need faith no longer, but see God face-to-face.
+          The Rite of Committal, the conclusion of the funeral rite, is the final act of the community of faith in caring for the body of its deceased member. It should normally be celebrated at the place of committal, that is, beside the open grave or place of interment. In committing the body to its resting place, the community expresses the hope that, with all those who have gone before us marked with the sign of faith, the deceased awaits the glory of the resurrection.
+        </p>
+        <!-- <div class="riteImage riteImageThree"></div> -->
+        <p>
+          The Rite of Committal is an expression of the communion that exists between the Church on earth and the Church in heaven: the deceased passes with the farewell prayers of the community of believers into the welcoming company of those who need faith no longer, but see God face-to-face.
         </p>
       </div>
     </div>

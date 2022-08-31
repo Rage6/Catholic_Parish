@@ -28,11 +28,6 @@ class CemeteryController extends Controller
           };
         };
         $all_users = User::all();
-        // $cemetery_roles = [
-        //   'Cemetery Manager',
-        //   'Priest',
-        //   'Deacon'
-        // ];
         $cemetery_roles = explode(",",env('CEMETERY_ROLES'));
         $cemetery_users = [];
         foreach ($all_users as $one_user) {
