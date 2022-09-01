@@ -24,12 +24,6 @@ class User extends Authenticatable
       'maiden_name',
       'last_name',
       'suffix_name',
-      'date_of_birth',
-      'date_of_death',
-      'personal_description',
-      'on_tombstone',
-      'spouse',
-      'children',
       'email',
       'password'
     ];

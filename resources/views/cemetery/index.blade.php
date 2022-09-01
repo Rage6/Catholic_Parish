@@ -12,55 +12,63 @@
       <div class="sectionTitle">
         Find a Grave
       </div>
-      <div>
-        Feel free to search for a specific individual amongst our cemetery's deceased members.
-      </div>
-      <div>
-        <div class="searchTool">
-          <div>Search By Name:</div>
-          <input id="nameInput" name="searchDead" type="text" placeholder="First, last, or maiden"/>
-        </div>
-        <div class="resultBox">
-          <div class="noResults" id="noResults">
-            No results
-          </div>
-          <div class="resultList">
-            @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->is_deceased == 1)
-                <div
-                  class="resultRow"
-                  data-id="{{ $one_deceased->id }}"
-                  data-first="{{ $one_deceased->first_name }}"
-                  data-last="{{ $one_deceased->last_name }}"
-                  @if ($one_deceased->maiden_name)
-                    data-maiden="{{ $one_deceased->maiden_name }}"
-                  @endif
-                >
-                  <div>
-                    <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
-                      {{ $one_deceased->first_name }}
-                      @if ($one_deceased->maiden_name)
-                        {{ "(".$one_deceased->maiden_name.") " }}
-                      @endif
-                      {{ $one_deceased->last_name }}
-                    </a>
-                  </div>
-                  <div>
-                    {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }} - {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
-                  </div>
-                </div>
-              @endif
-            @endforeach
+      <p class="basicInfoSection">
+        Our records makes it easy to browse through the list of graves, and the search tool can find a specific grave quickly.
+      </p>
+      <a href="{{ route('cemetery.list') }}">
+        <div class="browseBttn">
+          <div>
+            BROWSE RECORDS
           </div>
         </div>
+      </a>
+      <div>
+        -- OR --
       </div>
       <div>
-        Clicking on their name will provide you their basic information, location, and photos (if available).
+        <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
+          @csrf
+          <div>
+            <input name="name_type" placeholder="First, Last, or Maiden">
+          </div>
+          <button>
+            SEARCH
+          </button>
+        </form>
       </div>
     </div>
     <div class="basicInfoSection sectionBackground section primaryFont">
       <div class="sectionTitle">
         When Visiting
+      </div>
+      <div class="basicInfoList">
+        <p>
+          <u>Obey the Hours</u>: Our cemetery is open from dawn until dusk. Try not to remain in the cemetery after dark.
+        </p>
+        <p>
+          <u>Speak Softly & Politely</u>: Remember to keep your voice down when having conversations, and avoid using bad language.
+        </p>
+        <p>
+          <u>Drive with Care</u>: When starting to driving around the cemetery, turn to the right. Make sure to follow the roadway and remain off the grass. Drive slowly, and watch out for people who might not be paying attention.
+        </p>
+        <p>
+          <u>Respect the Graves</u>: Don't touch any monuments or headstones; this is not only disrespectful, but may cause damage to the memorials, especially older ones. Never remove anything from a gravestone, such as flowers, coins, or tributes that have been left by family.
+        </p>
+        <p>
+          <u>Look After Your Children</u>: If you bring children, make sure to keep a close eye on them and keep them from running, yelling, playing or climbing on graves and monuments. Teach them to act in a respectful and considerate manner.
+        </p>
+        <!-- <p>
+          <u>Speak Softly & Politely</u>: Be respectful to other mourners: remember to keep your voice down when having conversations, and avoid using bad language.
+        </p> -->
+        <p>
+          <u>Lower the Volume</u>: If you choose to bring it with you, take a moment to ensure that your cellphone is turned off. Avoid having phone conversations, as voices tend to carry in open spaces. Make sure to turn off your car stereo while driving or parking in the cemetery.
+        </p>
+        <p>
+          <u>Be Respectful of Services and Other Mourners</u>: If a funeral is occurring, take care not to get in the way of processions. Never take photos of strangers at a funeral or visiting a gravesite; it is extremely disrespectful to them in their time of grief. Respect their privacy and give them their space.
+        </p>
+        <p>
+          <u>Don't Leave Trash Behind</u>: Litter creates extra work for the caretakers, and is disrespectful to both other visitors and those who are buried there. Hang onto your trash and take it with you when you leave.
+        </p>
       </div>
     </div>
     <div class="riteSection sectionBackground section primaryFont">
@@ -71,9 +79,12 @@
         The Catholic funeral rite is divided into several stations, or parts, each with its own purpose. For this reason we recommend following the complete structure and making use of each station.
       </p>
       <div>
-        <div class="riteSubtitle">
-          Vigil Service (Wake)
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            1. Vigil Service (Wake)
+          </span>
         </div>
+        <div class="riteImage riteImageOne"></div>
         <p>
           "At the vigil, the Christian community keeps watch with the family in prayer to the God of mercy and finds strength in Christ's presence" (Order of Christian Funerals, no. 56).
         </p>
@@ -88,22 +99,33 @@
         </p>
       </div>
       <div>
-        <div class="riteSubtitle">
-          Funeral Liturgy
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            2. Funeral Liturgy
+          </span>
         </div>
+        <div class="riteImage riteImageTwo"></div>
         <p>
           The funeral liturgy is the central liturgical celebration of the Christian community for the deceased. When one of its members dies, the Church encourages the celebration of the funeral liturgy at a Mass. When Mass cannot be celebrated, a funeral liturgy outside Mass can be celebrated at the church or in the funeral home.
         </p>
+        <!-- <div class="riteImage riteImageTwo"></div> -->
         <p>
           At the funeral liturgy, the Church gathers with the family and friends of the deceased to give praise and thanks to God for Christ's victory over sin and death, to commend the deceased to God's tender mercy and compassion, and to seek strength in the proclamation of the Paschal Mystery. The funeral liturgy, therefore, is an act of worship, and not merely an expression of grief.
         </p>
       </div>
       <div>
-        <div class="riteSubtitle">
-          Rite of Committal (Burial or Interment)
+        <div class="riteSubtitleParent">
+          <span class="riteSubtitleChild">
+            3. Rite of Committal (Burial or Interment)
+          </span></br>
         </div>
+        <div class="riteImage riteImageThree"></div>
         <p>
-          The Rite of Committal, the conclusion of the funeral rite, is the final act of the community of faith in caring for the body of its deceased member. It should normally be celebrated at the place of committal, that is, beside the open grave or place of interment. In committing the body to its resting place, the community expresses the hope that, with all those who have gone before us marked with the sign of faith, the deceased awaits the glory of the resurrection. The Rite of Committal is an expression of the communion that exists between the Church on earth and the Church in heaven: the deceased passes with the farewell prayers of the community of believers into the welcoming company of those who need faith no longer, but see God face-to-face.
+          The Rite of Committal, the conclusion of the funeral rite, is the final act of the community of faith in caring for the body of its deceased member. It should normally be celebrated at the place of committal, that is, beside the open grave or place of interment. In committing the body to its resting place, the community expresses the hope that, with all those who have gone before us marked with the sign of faith, the deceased awaits the glory of the resurrection.
+        </p>
+        <!-- <div class="riteImage riteImageThree"></div> -->
+        <p>
+          The Rite of Committal is an expression of the communion that exists between the Church on earth and the Church in heaven: the deceased passes with the farewell prayers of the community of believers into the welcoming company of those who need faith no longer, but see God face-to-face.
         </p>
       </div>
     </div>
@@ -114,59 +136,114 @@
     </div>
     <div class="emptyPlotsInfoSection sectionBackground section primaryFont">
       <div class="sectionTitle">
-        Available Plots
+        About Available Plots
       </div>
-      @if ($open_plot_count > 0)
-        <div>
-          At this time, there
-            @if ($open_plot_count != 1)
-              are {{ $open_plot_count }} available plots.
-            @else
-              is {{ $open_plot_count }} available plot.
-            @endif
-        </div>
-        <!-- <div class="emptyPlotBox">
-          <div class="plotList">
-            @foreach ($all_deceased as $one_deceased)
-              @if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == false && $one_deceased->first_name == 'EMPTY' && $one_deceased->last_name == 'PLOT')
-                <div
-                  class="plotsRow"
-                  data-id="{{ $one_deceased->id }}"
-                >
-                  <div>
-                    {{ $one_deceased->first_name }} {{ $one_deceased->last_name }}
-                  </div>
-                </div>
-              @endif
-            @endforeach
-          </div>
-        </div> -->
-      @else
-        <div>
-          There are no available plots at this time.
-        </div>
-      @endif
       <div>
-        <div>COMMON QUESTIONS</div>
-        <div>
-          <i>What is different about a Catholic cemetery?</i>
-          <div>
-            There are basically only two places that the Catholic Church consecrates as Holy Ground: a church and a cemetery. But why a cemetery? It represents the continuation, even in death, of the harmony and spiritual alliance which makes all Catholics members of one great family, thereby constituting it an actual family plot. As ministries of the Church, Catholic cemeteries expresses the link of community between all the faithful living and dead—the Communion of Saints.
+        @if ($open_plot_count > 0)
+          <div class="emptyPlotCount">
+            At this time, there
+              @if ($open_plot_count != 1)
+                are <b>{{ $open_plot_count }}</b> available plots.
+              @else
+                is <b>{{ $open_plot_count }}</b> available plot.
+              @endif
+            Each plot costs a one-time payment of $___. This cost is to assist the respectful maintenance of the cemetery. You can claim a plot by messaging the Cemetery Manager in the "Contact Us" information below.
           </div>
-          <i>Who can be buried in a Catholic Cemetery?</i>
-          <div>
-            Baptized Catholics may be buried in a Catholic cemetery. Likewise, non-Catholic spouses and other family members of Catholics may be buried in a Catholic Cemetery. A member of the clergy of the Church of the one can certainly be invited to conduct burial services at the gravesite.
+        @else
+          <div class="emptyPlotCount">
+            There are no available plots at this time. Any questions about the cemetery can be messaged to the Cemetery Manager by the "Contact Us" information below.
           </div>
-          <i>Does the Catholic Church permit cremation?</i>
-          <div>
-            Yes.  Cremation is permitted, although the Church does prefer the body to be present at the funeral Mass.
-          </div>
-        </div>
+        @endif
+        <p>
+          There are some common questions when considering a plot or arranging a burial in our cemetery. Please review the below list of questions because they may answer your confusion. If your answer is not satisfied, feel free to message the Cemetery Manager in the "Contact Us" information below.
+        </p>
+        <i>
+          What is different about a Catholic cemetery?
+        </i>
+        <p>
+          There are basically only two places that the Catholic Church consecrates as Holy Ground: a church and a cemetery. But why a cemetery? It represents the continuation, even in death, of the harmony and spiritual alliance which makes all Catholics members of one great family, thereby constituting it an actual family plot. As ministries of the Church, Catholic cemeteries expresses the link of community between all the faithful living and dead—the Communion of Saints.
+        </p>
+        <i>Who can be buried in a Catholic Cemetery?</i>
+        <p>
+          Baptized Catholics may be buried in a Catholic cemetery. Likewise, non-Catholic spouses and other family members of Catholics may be buried in a Catholic Cemetery.
+        </p>
+        <i>Does the Catholic Church permit cremation?</i>
+        <p>
+          Yes.  Cremation is permitted, although the Church does prefer the body to be present at the funeral Mass.
+        </p>
       </div>
     </div>
     <div class="contactSection sectionBackground section primaryFont">
       <div class="sectionTitle">
         Contact Us
+      </div>
+      <div class="contactGrid">
+        <div>
+          <p>
+            Purchasing plots, making funeral arrangements, and general questions can be directed to one of the individuals below.
+          </p>
+          @foreach ($cem_user as $one_user)
+            <div>
+              {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
+            </div>
+            <div>
+              @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
+                @if ($num == 0)
+                  {{ $one_user->cemetery_roles[$num] }}
+                @else
+                  , {{ $one_user->cemetery_roles[$num] }}
+                @endif
+              @endfor
+            </div>
+          @endforeach
+        </div>
+        <div class="contactForm">
+          <form method="post" action="{{ route('cemetery.messaging') }}" enctype="multipart/form-data">
+            @csrf
+            <div>
+              <div>
+                Your message is to:
+              </div>
+              <select name="cem_recipient">
+                @foreach ($cem_user as $one_user)
+                  <option value="{{ $one_user->id }}">
+                    {{ $one_user->first_name }} {{ $one_user->last_name }}
+                    @if ($one_user->suffix_name)
+                      {{ $one_user->suffix_name }}
+                    @endif
+                    (
+                    @for ($num = 0; $num < count($one_user->cemetery_roles); $num++)
+                      @if ($num == 0)
+                        {{$one_user->cemetery_roles[$num]}}
+                      @else
+                        , {{$one_user->cemetery_roles[$num]}}
+                      @endif
+                    @endfor
+                    )
+                  </option>
+                @endforeach
+              </select>
+              <div>
+                <div>
+                  We should reply to:
+                </div>
+                @guest
+                  <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
+                @else
+                  <input type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" required>
+                @endguest
+              </div>
+              <div>
+                <div>
+                  Your message is:
+                </div>
+                <textarea name="cem_message" required>
+                </textarea>
+              </div>
+              <button>SEND</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   @endsection

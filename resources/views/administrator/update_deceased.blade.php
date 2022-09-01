@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  UPDATE: {{ $deceased->first_name }} {{ $deceased->last_name }}
+                  UPDATE: {{ $deceased->first_name }} {{ $deceased->last_name }} @if ($deceased->suffix_name) {{ $deceased->suffix_name }} @endif
                 </div>
                 <div class="card-body">
                     @if (session('status'))

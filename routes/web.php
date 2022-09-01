@@ -14,14 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name('cemetery.index');
+Route::get('/cemetery/list', [App\Http\Controllers\CemeteryController::class, 'list'])->name('cemetery.list');
+Route::post('/cemetery/list/search',[App\Http\Controllers\CemeteryController::class, 'search'])->name('cemetery.search');
 Route::get('/cemetery/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');
+Route::post('/message', [App\Http\Controllers\CemeteryController::class, 'messaging'])->name('cemetery.messaging');
+// Retrieves the images from the 'storage' directory
+Route::get('images/{filename}', function($filename){
+     $storagePath = storage_path('app/public/images/' . $filename);
+        return response()->file($storagePath);
+});
 
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+  Route::get('/change-profile', [App\Http\Controllers\HomeController::class, 'changeProfile'])->name('home.change-profile');
+  Route::put('/change-profile', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('home.change-profile');
+  Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('home.change-password');
+  Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
+  Route::get('/delete-user',[App\Http\Controllers\HomeController::class,'delete_user_form'])->name('home.delete-form');
+  Route::delete('/delete-user_action',[App\Http\Controllers\HomeController::class,'delete_user_action'])->name('home.delete-action');
   Route::get('/list-in-cemetery', [App\Http\Controllers\AdminController::class, 'show_deceased_all'])->name('cemetery.allShown');
-  Route::middleware(['permission:Administer The Website'])->group(function() {
+  // Route::middleware(['permission:Administer The Website'])->group(function() {
+  Route::middleware('access')->group(function() {
     // Administrator homepage
     Route::get('/administrator', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/all-members',[App\Http\Controllers\AdminController::class, 'all_members'])->name('admin.members');

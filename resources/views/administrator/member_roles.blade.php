@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  ROLES: {{ $member->first_name }} {{ $member->last_name }}
+                  ROLES: {{ $member->first_name }} {{ $member->last_name }} @if ($member->suffix_name) {{ $member->suffix_name }} @endif
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -22,7 +22,7 @@
                         @csrf
 
                         @foreach ($all_roles as $one_role)
-                          <div style="display:grid;grid-template-columns:50% 50%">
+                          <div style="display:grid;grid-template-columns:50% 50%;margin-bottom:50px">
                             <div>
                               {{ $one_role->title }}
                               <div>
@@ -48,15 +48,19 @@
                               @endif
                             @endforeach
                             @if ($active == true)
-                              <select name="role_{{ $one_role->id }}">
-                                <option selected value="1">YES</option>
-                                <option value="0">NO</option>
-                              </select>
+                              <div>
+                                <select name="role_{{ $one_role->id }}">
+                                  <option selected value="1">YES</option>
+                                  <option value="0">NO</option>
+                                </select>
+                              </div>
                             @else
-                              <select name="role_{{ $one_role->id }}">
-                                <option value="1">YES</option>
-                                <option selected value="0">NO</option>
-                              </select>
+                              <div>
+                                <select name="role_{{ $one_role->id }}">
+                                  <option value="1">YES</option>
+                                  <option selected value="0">NO</option>
+                                </select>
+                              </div>
                             @endif
                           </div>
                         @endforeach
