@@ -49,7 +49,7 @@ class CemeteryController extends Controller
           'css' => 'cemetery',
           'all_deceased' => $deceased,
           'open_plot_count' => $open_plot_count,
-          'cem_user' => $cemetery_users
+          'cem_user' => $cemetery_users,
         ]);
     }
 
@@ -122,10 +122,32 @@ class CemeteryController extends Controller
     public function list()
     {
         // $deceased = Deceased::all();
+        if (!isset($_GET['name_type'])) {
+          $all_results = null;
+        } else {
+          $all_results = Deceased::where('first_name',$_GET['name_type'])
+            ->orWhere('last_name',$_GET['name_type'])
+            ->orWhere('maiden_name',$_GET['name_type'])
+            ->paginate(20);
+        };
         return view('cemetery.list',[
           'css' => 'cemetery',
-          'all_deceased' => Deceased::where('is_deceased','=','1')->paginate(20)
+          'all_deceased' => Deceased::where('is_deceased','=','1')->paginate(20),
+          'all_results' => $all_results
         ]);
+    }
+
+    public function search(Request $request) {
+      $input = request()->validate([
+        'name_type' => 'string|max:255|nullable',
+      ]);
+      // $results = Deceased::where('first_name',$input['first_name'])
+      //   ->orWhere('last_name',$input['last_name'])
+      //   ->orWhere('maiden_name',$input['maiden_name'])
+      //   ->paginate(20);
+      return redirect()->route('cemetery.list',[
+        'name_type' => $input['name_type']
+      ]);
     }
 
     public function individual($id)
