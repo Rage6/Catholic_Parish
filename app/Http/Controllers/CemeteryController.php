@@ -125,9 +125,18 @@ class CemeteryController extends Controller
         if (!isset($_GET['name_type'])) {
           $all_results = null;
         } else {
-          $all_results = Deceased::where('first_name',$_GET['name_type'])
-            ->orWhere('last_name',$_GET['name_type'])
-            ->orWhere('maiden_name',$_GET['name_type'])
+          $all_results = Deceased::where([
+              ['first_name',$_GET['name_type']],
+              ['is_deceased','1']
+            ])
+            ->orWhere([
+                ['last_name',$_GET['name_type']],
+                ['is_deceased','1']
+            ])
+            ->orWhere([
+                ['maiden_name',$_GET['name_type']],
+                ['is_deceased','1']
+            ])
             ->paginate(20);
         };
         return view('cemetery.list',[
