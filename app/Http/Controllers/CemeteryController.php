@@ -141,10 +141,6 @@ class CemeteryController extends Controller
       $input = request()->validate([
         'name_type' => 'string|max:255|nullable',
       ]);
-      // $results = Deceased::where('first_name',$input['first_name'])
-      //   ->orWhere('last_name',$input['last_name'])
-      //   ->orWhere('maiden_name',$input['maiden_name'])
-      //   ->paginate(20);
       return redirect()->route('cemetery.list',[
         'name_type' => $input['name_type']
       ]);

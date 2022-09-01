@@ -27,7 +27,7 @@
               $all_deceased = $all_results;
             @endphp
           @endif
-          @if ($all_deceased != null)
+          @if ($all_deceased != null && count($all_deceased))
             <div class="resultList">
               @foreach ($all_deceased as $one_deceased)
                 @if ($one_deceased->is_deceased == 1)
