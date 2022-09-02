@@ -12,29 +12,34 @@
       <div class="sectionTitle">
         Find a Grave
       </div>
-      <p class="basicInfoSection">
-        Our records makes it easy to browse through the list of graves, and the search tool can find a specific grave quickly.
+      <p class="searchInfo">
+        Our records make it easy to browse the entire list of graves, while the search tool helps you quickly find a specific grave.
       </p>
-      <a href="{{ route('cemetery.list') }}">
-        <div class="browseBttn">
-          <div>
-            BROWSE RECORDS
+      <div class="listTools">
+        <a href="{{ route('cemetery.list') }}">
+          <div class="browseBttn">
+            <div>
+              BROWSE RECORDS
+            </div>
           </div>
+        </a>
+        <div class="orDivider">
+          -- OR --
         </div>
-      </a>
-      <div>
-        -- OR --
-      </div>
-      <div>
-        <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
-          @csrf
-          <div>
-            <input name="name_type" placeholder="First, Last, or Maiden">
+        <div class="searchBox">
+          <div style="color:gold">
+            FIND BY NAME
           </div>
-          <button>
-            SEARCH
-          </button>
-        </form>
+          <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
+            @csrf
+            <div>
+              <input name="name_type" placeholder="First, Last, or Maiden">
+            </div>
+            <button>
+              SEARCH
+            </button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="basicInfoSection sectionBackground section primaryFont">
@@ -78,12 +83,10 @@
       <p>
         The Catholic funeral rite is divided into several stations, or parts, each with its own purpose. For this reason we recommend following the complete structure and making use of each station.
       </p>
-      <div>
-        <div class="riteSubtitleParent">
-          <span class="riteSubtitleChild">
-            1. Vigil Service (Wake)
-          </span>
-        </div>
+      <div class="riteSubtitleChild">
+        1. Vigil Service (Wake)
+      </div>
+      <div class="riteSubtitleContent">
         <div class="riteImage riteImageOne"></div>
         <p>
           "At the vigil, the Christian community keeps watch with the family in prayer to the God of mercy and finds strength in Christ's presence" (Order of Christian Funerals, no. 56).
@@ -98,12 +101,10 @@
           It is most appropriate, when family and friends are gathered together for visitation, to offer time for recalling the life of the deceased. For this reason, eulogies are usually encouraged to be done at the funeral home during visitation or at the Vigil Service.
         </p>
       </div>
-      <div>
-        <div class="riteSubtitleParent">
-          <span class="riteSubtitleChild">
-            2. Funeral Liturgy
-          </span>
-        </div>
+      <div class="riteSubtitleChild">
+        2. Funeral Liturgy
+      </div>
+      <div class="riteSubtitleContent">
         <div class="riteImage riteImageTwo"></div>
         <p>
           The funeral liturgy is the central liturgical celebration of the Christian community for the deceased. When one of its members dies, the Church encourages the celebration of the funeral liturgy at a Mass. When Mass cannot be celebrated, a funeral liturgy outside Mass can be celebrated at the church or in the funeral home.
@@ -113,12 +114,10 @@
           At the funeral liturgy, the Church gathers with the family and friends of the deceased to give praise and thanks to God for Christ's victory over sin and death, to commend the deceased to God's tender mercy and compassion, and to seek strength in the proclamation of the Paschal Mystery. The funeral liturgy, therefore, is an act of worship, and not merely an expression of grief.
         </p>
       </div>
-      <div>
-        <div class="riteSubtitleParent">
-          <span class="riteSubtitleChild">
-            3. Rite of Committal (Burial or Interment)
-          </span></br>
-        </div>
+      <div class="riteSubtitleChild">
+        3. Rite of Committal (Burial or Interment)
+      </div>
+      <div class="riteSubtitleContent">
         <div class="riteImage riteImageThree"></div>
         <p>
           The Rite of Committal, the conclusion of the funeral rite, is the final act of the community of faith in caring for the body of its deceased member. It should normally be celebrated at the place of committal, that is, beside the open grave or place of interment. In committing the body to its resting place, the community expresses the hope that, with all those who have gone before us marked with the sign of faith, the deceased awaits the glory of the resurrection.

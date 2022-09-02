@@ -18,6 +18,50 @@
   font-size: 2.6rem;
 }
 
+.basicInfoSection {
+  font-size: 1.2rem;
+}
+
+.basicInfoSection p u {
+  font-size: 1.5rem;
+}
+
+.riteSubtitleChild {
+  display: inline;
+}
+
+.riteImage {
+  width: 20%
+}
+
+.riteImageOne {
+  margin-left: 20px;
+  float: right;
+}
+
+.riteImageTwo {
+  margin-left: 20px;
+  float: left;
+}
+
+.riteImageThree {
+  margin-left: 20px;
+  float: right;
+}
+
+.emptyPlotCount {
+  margin-right: 6%;
+  width: 40%;
+  float: left;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+
+/* CEMETERY.LIST */
 .searchTool {
   padding: 0 5%;
   width: 40%;
@@ -31,30 +75,6 @@
 
 .resultRow {
 
-}
-
-.basicInfoSection {
-  font-size: 1.2rem;
-}
-
-.basicInfoSection p u {
-  font-size: 1.5rem;
-}
-
-.riteImage {
-  width: 20%
-}
-
-.emptyPlotCount {
-  margin-right: 6%;
-  width: 40%;
-  float: left;
-}
-
-.contactGrid {
-  display: grid;
-  grid-template-columns: 48% 48%;
-  justify-content: space-between;
 }
 
 /* CEMETERY.INDIVIDUAL */

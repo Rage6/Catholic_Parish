@@ -50,6 +50,16 @@
   text-decoration: none;
 }
 
+.searchInfo {
+  padding: 10px 3%;
+  background-color: rgb(105, 30, 32);
+  font-size: 1.2rem;
+}
+
+.listTools {
+  margin-top: 75px;
+}
+
 .browseBttn {
   display: flex;
   flex-direction: column;
@@ -61,11 +71,37 @@
   background-color: gold;
 }
 
-.searchTool {
+.orDivider {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.searchBox {
+  padding: 5px 2% 10px 2%;
   background-color: rgb(105, 30, 32);
 }
 
+.searchBox form {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.searchBox form div input {
+  padding: 1px 6px;
+  font-size: 1.1rem;
+  height: calc(100% - 6px);
+  width: 90%;
+}
+
+.searchBox form button {
+  font-size: 0.8rem;
+  color: rgb(105,30,32);
+  background-color: gold;
+}
+
 .searchTool {
+  background-color: rgb(105, 30, 32);
   padding: 10px 0;
   text-align: center;
 }
@@ -134,19 +170,25 @@
 }
 
 .riteSection div p {
+  /* margin-top: 0; */
   font-size: 1.2rem;
 }
 
-.riteSubtitleParent {
+/* .riteSubtitleParent {
   margin: 50px 0 30px 0;
-}
+} */
 
 .riteSubtitleChild {
+  display: block;
   border: 3px solid white;
   padding: 10px;
   font-style: italic;
   text-align: center;
   background-color: rgb(105, 30, 32,1);
+}
+
+.riteSubtitleContent {
+  margin-bottom: 50px
 }
 
 .firstRiteP {
@@ -155,7 +197,7 @@
 
 .riteImage {
   margin-top: 1em;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   background-size:cover;
   background-position: center;
   height: 200px;
@@ -163,19 +205,19 @@
 }
 
 .riteImageOne {
-  float: right;
+  /* float: right; */
   background-image:url('https://www.dignitymemorial.com/dfsmedia/042808e1630c49a48950d5077d6556eb/25142-50068');
 }
 
 .riteImageTwo {
   margin-left: 0;
   margin-right: 20px;
-  float: left;
+  /* float: left; */
   background-image:url('https://c8.alamy.com/comp/BCBM3N/a-priest-waves-a-senser-over-the-casket-at-a-catholic-funeral-mass-BCBM3N.jpg');
 }
 
 .riteImageThree {
-  float: right;
+  /* float: right; */
   background-image:url('https://c8.alamy.com/comp/A5B16P/catholic-funeral-where-priest-is-blessing-the-coffin-before-it-is-A5B16P.jpg');
 }
 
@@ -246,7 +288,7 @@ nav {
     linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-    url('/images/collage.jpg');
+    url("/images/collage.jpg");
     /* Image from https://live.staticflickr.com/3488/3203117329_c09c237cb7_b.jpg */
   color: white;
   min-height: 90vh;
