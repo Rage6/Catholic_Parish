@@ -16,29 +16,36 @@
         Our records make it easy to browse the entire list of graves, while the search tool helps you quickly find a specific grave.
       </p>
       <div class="listTools">
-        <a href="{{ route('cemetery.list') }}">
-          <div class="browseBttn">
-            <div>
-              BROWSE RECORDS
+        <div>
+          <a href="{{ route('cemetery.list') }}">
+            <div class="browseBttn">
+              <div>
+                BROWSE RECORDS
+              </div>
             </div>
+          </a>
+          <div class="orDivider">
+            -- OR --
           </div>
-        </a>
-        <div class="orDivider">
-          -- OR --
+          <div class="searchBox">
+            <div style="color:gold">
+              FIND BY NAME
+            </div>
+            <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
+              @csrf
+              <div>
+                <input name="name_type" placeholder="First, Last, or Maiden">
+              </div>
+              <button>
+                SEARCH
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="searchBox">
-          <div style="color:gold">
-            FIND BY NAME
-          </div>
-          <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
-            @csrf
-            <div>
-              <input name="name_type" placeholder="First, Last, or Maiden">
-            </div>
-            <button>
-              SEARCH
-            </button>
-          </form>
+        <div>
+          @foreach ($random_list as $one_random)
+            <div>{{ $one_random }}</div>
+          @endforeach
         </div>
       </div>
     </div>

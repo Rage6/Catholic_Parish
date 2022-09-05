@@ -18,6 +18,11 @@
   font-size: 2.6rem;
 }
 
+.listTools {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
 .basicInfoSection {
   font-size: 1.2rem;
 }

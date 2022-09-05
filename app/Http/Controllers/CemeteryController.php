@@ -21,12 +21,42 @@ class CemeteryController extends Controller
     public function index()
     {
         $deceased = Deceased::all();
+        // Gets a fixed number of random deceased names
+        $name_list = [];
+        foreach ($deceased as $random) {
+          if ($random->first_name != "EMPTY" && $random->first_name != "PLOT") {
+            $name_list[] = $random->first_name." ".$random->last_name;
+          };
+        };
+        if (count($name_list) >= 20) { // How many names selected
+          $last_index = 20;
+        } else {
+          $last_index = count($name_list);
+        };
+        $random_list = [];
+        for ($num = 0; $num < $last_index; $num++) {
+          $selected = random_int(0,count($name_list)-1);
+          $new_name = $name_list[$selected];
+          $is_new = true;
+          for ($check = 0; $check < count($random_list); $check++) {
+            if ($random_list[$check] == $new_name) {
+              $is_new = false;
+            };
+          };
+          if ($is_new == true) {
+            $random_list[] = $new_name;
+          } else {
+            $num--;
+          };
+        };
+        // Gets the number of empty plots
         $open_plot_count = 0;
         foreach ($deceased as $one_deceased) {
           if ($one_deceased->purchased_by == null && $one_deceased->is_deceased) {
             $open_plot_count++;
           };
         };
+        // Gets the cemetery admin for contact info
         $all_users = User::all();
         $cemetery_roles = explode(",",env('CEMETERY_ROLES'));
         $cemetery_users = [];
@@ -50,6 +80,7 @@ class CemeteryController extends Controller
           'all_deceased' => $deceased,
           'open_plot_count' => $open_plot_count,
           'cem_user' => $cemetery_users,
+          'random_list' => $random_list,
         ]);
     }
 
