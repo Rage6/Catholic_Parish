@@ -23,6 +23,26 @@
   grid-template-columns: 50% 50%;
 }
 
+.deceased_animation {
+  animation-duration: 150s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes name_0 {
+  0% {
+    color: blue;
+  }
+  5% {
+    color: blue;
+  }
+  6% {
+    color: red;
+  }
+  100% {
+    color: red;
+  }
+}
+
 .basicInfoSection {
   font-size: 1.2rem;
 }

@@ -28,13 +28,14 @@ class CemeteryController extends Controller
             $name_list[] = $random->first_name." ".$random->last_name;
           };
         };
-        if (count($name_list) >= 20) { // How many names selected
-          $last_index = 20;
+        $min_number = 20;
+        if (count($name_list) < $min_number) {
+          $last_number = count($name_list);
         } else {
-          $last_index = count($name_list);
+          $last_number = $min_number;
         };
         $random_list = [];
-        for ($num = 0; $num < $last_index; $num++) {
+        for ($num = 0; $num < $last_number; $num++) {
           $selected = random_int(0,count($name_list)-1);
           $new_name = $name_list[$selected];
           $is_new = true;
@@ -47,6 +48,25 @@ class CemeteryController extends Controller
             $random_list[] = $new_name;
           } else {
             $num--;
+          };
+        };
+        $full_list = [];
+        // $full_num = count($random_list);
+        for ($full_num = count($random_list); $full_num < $min_number; $full_num++) {
+          if ($full_num < $min_number) {
+            $num_left = $min_number - count($random_list);
+            $full_list = $random_list;
+            $random_num = 0;
+            for ($i = 0; $i < $num_left; $i++) {
+              $full_list[] = $random_list[$random_num];
+              if ($random_num >= count($random_list)-1) {
+                $random_num = 0;
+              } else {
+                $random_num++;
+              };
+              $i++;
+            };
+            $random_list = $full_list;
           };
         };
         // Gets the number of empty plots

@@ -43,8 +43,16 @@
           </div>
         </div>
         <div>
+          @php
+            $num = 0;
+          @endphp
           @foreach ($random_list as $one_random)
-            <div>{{ $one_random }}</div>
+            <div class="deceased_animation" style="animation-name: name_{{ $num }}">
+              {{ $one_random }}
+            </div>
+            @php
+              $num = $num + 1;
+            @endphp
           @endforeach
         </div>
       </div>
