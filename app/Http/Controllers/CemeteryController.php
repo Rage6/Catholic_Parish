@@ -24,7 +24,7 @@ class CemeteryController extends Controller
         // Gets a fixed number of random deceased names
         $name_list = [];
         foreach ($deceased as $random) {
-          if ($random->first_name != "EMPTY" && $random->first_name != "PLOT") {
+          if ($random->is_deceased == 1) {
             $name_list[] = $random->first_name." ".$random->last_name;
           };
         };
@@ -51,28 +51,24 @@ class CemeteryController extends Controller
           };
         };
         $full_list = [];
-        // $full_num = count($random_list);
         for ($full_num = count($random_list); $full_num < $min_number; $full_num++) {
-          if ($full_num < $min_number) {
-            $num_left = $min_number - count($random_list);
-            $full_list = $random_list;
-            $random_num = 0;
-            for ($i = 0; $i < $num_left; $i++) {
-              $full_list[] = $random_list[$random_num];
-              if ($random_num >= count($random_list)-1) {
-                $random_num = 0;
-              } else {
-                $random_num++;
-              };
-              $i++;
+          $num_left = $min_number - count($random_list);
+          $full_list = $random_list;
+          $random_num = 0;
+          for ($i = 0; $i < $num_left; $i++) {
+            $full_list[] = $random_list[$random_num];
+            if ($random_num >= count($random_list)-1) {
+              $random_num = 0;
+            } else {
+              $random_num++;
             };
-            $random_list = $full_list;
           };
+          $random_list = $full_list;
         };
         // Gets the number of empty plots
         $open_plot_count = 0;
         foreach ($deceased as $one_deceased) {
-          if ($one_deceased->purchased_by == null && $one_deceased->is_deceased) {
+          if ($one_deceased->purchased_by == null && $one_deceased->is_deceased == 0) {
             $open_plot_count++;
           };
         };
