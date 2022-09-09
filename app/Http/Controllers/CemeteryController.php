@@ -25,7 +25,10 @@ class CemeteryController extends Controller
         $name_list = [];
         foreach ($deceased as $random) {
           if ($random->is_deceased == 1) {
-            $name_list[] = $random->first_name." ".$random->last_name;
+            if ($random->suffix_name) {
+              $random->last_name = $random->last_name." ".$random->suffix_name;
+            };
+            $name_list[] = [$random->first_name,$random->last_name];
           };
         };
         $min_number = 20;

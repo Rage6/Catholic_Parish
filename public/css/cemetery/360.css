@@ -60,6 +60,10 @@
   margin-top: 75px;
 }
 
+.all_grids {
+  display: none;
+}
+
 .browseBttn {
   display: flex;
   flex-direction: column;

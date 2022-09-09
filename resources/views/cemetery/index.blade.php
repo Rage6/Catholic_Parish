@@ -42,16 +42,28 @@
             </form>
           </div>
         </div>
-        <div>
+        <div class="all_grids">
           @php
             $num = 0;
+            $zone = 1;
           @endphp
           @foreach ($random_list as $one_random)
-            <div class="deceased_animation" style="animation-name: name_{{ $num }}">
-              {{ $one_random }}
-            </div>
+            @if ($zone == 1)
+              <div class="zoneGridLayout">
+            @endif
+                <div class="deceased_animation zone_{{ $zone }}" style="animation-name: name_{{ $num }}">
+                  {{ $one_random[0] }}</br>{{ $one_random[1] }}
+                </div>
+            @if ($zone == 5)
+              </div>
+            @endif
             @php
               $num = $num + 1;
+              if ($zone >= 5) {
+                $zone = 1;
+              } else {
+                $zone++;
+              };
             @endphp
           @endforeach
         </div>

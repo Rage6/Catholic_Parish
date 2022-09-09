@@ -23,9 +23,57 @@
   grid-template-columns: 50% 50%;
 }
 
+.all_grids {
+  display: block;
+  position: relative;
+  height: 55vh;
+}
+
+.zoneGridLayout {
+  padding: 0 2%;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 33% 34% 33%;
+  grid-template-areas:
+    "one . two"
+    ". three ."
+    "four . five";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 96%;
+}
+
 .deceased_animation {
   animation-duration: 60s;
   animation-iteration-count: infinite;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.zone_1 {
+  grid-area: one;
+  /* background-color: red; */
+}
+
+.zone_2 {
+  grid-area: two;
+  /* background-color: blue; */
+}
+
+.zone_3 {
+  grid-area: three;
+  /* background-color: yellow; */
+}
+
+.zone_4 {
+  grid-area: four;
+  /* background-color: green; */
+}
+
+.zone_5 {
+  grid-area: five;
+  /* background-color: orange; */
 }
 
 @keyframes name_0 {
