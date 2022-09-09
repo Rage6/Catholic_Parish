@@ -45,24 +45,26 @@
         <div class="all_grids">
           @php
             $num = 0;
-            $zone = 1;
+            $zone_index = 0;
+            $zone_list = [1,2,5,3,4];
+            $last_index = count($zone_list) - 1;
           @endphp
           @foreach ($random_list as $one_random)
-            @if ($zone == 1)
+            @if ($zone_index == 0)
               <div class="zoneGridLayout">
             @endif
-                <div class="deceased_animation zone_{{ $zone }}" style="animation-name: name_{{ $num }}">
+                <div class="deceased_animation zone_{{ $zone_list[$zone_index] }}" style="animation-name: name_{{ $num }}">
                   {{ $one_random[0] }}</br>{{ $one_random[1] }}
                 </div>
-            @if ($zone == 5)
+            @if ($zone_index == $last_index)
               </div>
             @endif
             @php
               $num = $num + 1;
-              if ($zone >= 5) {
-                $zone = 1;
+              if ($zone_index >= $last_index) {
+                $zone_index = 0;
               } else {
-                $zone++;
+                $zone_index++;
               };
             @endphp
           @endforeach
