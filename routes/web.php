@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name('cemetery.index');
+Route::get('/find-a-grave', [App\Http\Controllers\CemeteryController::class, 'find'])->name('cemetery.find');
+Route::get('/rules', [App\Http\Controllers\CemeteryController::class, 'rules'])->name('cemetery.rules');
+Route::get('/rite', [App\Http\Controllers\CemeteryController::class, 'rite'])->name('cemetery.rite');
+Route::get('/history', [App\Http\Controllers\CemeteryController::class, 'history'])->name('cemetery.history');
+Route::get('/available-plots', [App\Http\Controllers\CemeteryController::class, 'available'])->name('cemetery.available');
+Route::get('/cemetery-contact-info', [App\Http\Controllers\CemeteryController::class, 'contact'])->name('cemetery.contact');
+
 Route::get('/cemetery/list', [App\Http\Controllers\CemeteryController::class, 'list'])->name('cemetery.list');
 Route::post('/cemetery/list/search',[App\Http\Controllers\CemeteryController::class, 'search'])->name('cemetery.search');
 Route::get('/cemetery/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');

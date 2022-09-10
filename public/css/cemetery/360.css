@@ -60,6 +60,12 @@
   margin-top: 75px;
 }
 
+.searchBttns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .all_grids {
   display: none;
 }

@@ -1,4 +1,5 @@
 .section {
+  border-top: none;
   padding: 5vh 10%;
   font-size: 1.5rem;
   min-height: 90vh;
@@ -18,26 +19,55 @@
   font-size: 2.6rem;
 }
 
+.searchSection {
+  padding: 0 0 5vh 0;
+  background-image:
+    linear-gradient(to right,
+      rgb(105, 30, 32,1) 0%,
+      rgb(105, 30, 32,1) 40%,
+      rgb(0, 0, 0, 0.2) 100%),
+    url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
+  min-height: 95vh;
+}
+
+.searchTop {
+  /* border-top: 1px solid gold; */
+  border-bottom: 1px solid gold;
+  padding-top: 5vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(105, 30, 32);
+  height: 25%;
+}
+
+.searchTitle {
+  /* border-bottom: 1px solid gold; */
+}
+
 .listTools {
+  margin-left: 10%;
+  margin-right: 10%;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
+  margin-top: 15vh;
+  height: 55vh;
 }
 
 .all_grids {
   display: block;
   position: relative;
-  height: 55vh;
+  /* height: 55vh; */
 }
 
 .zoneGridLayout {
   padding: 0 2%;
   display: grid;
-  grid-template-columns: 33% 34% 33%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 33% 34% 33%;
   grid-template-areas:
-    "one . two"
-    ". three ."
-    "four . five";
+    "one two"
+    "three three"
+    "four five";
   position: absolute;
   top: 0;
   height: 100%;
@@ -49,6 +79,13 @@
   animation-iteration-count: infinite;
   text-align: center;
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deceased_animation span {
+  /* background-color: transparent; */
 }
 
 .zone_1 {
@@ -78,6 +115,7 @@
 
 @keyframes name_0 {
   0% {
+    border-radius: 20px;
     color: rgba(255,255,255,0);
     font-size: 1.5rem;
   }
@@ -86,7 +124,7 @@
   }
   5% {
     color: rgba(255,255,255,1);
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   6% {
     color: rgba(255,255,255,0);
@@ -102,12 +140,14 @@
   }
   4% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   5% {
     color: rgba(255,255,255,1);
   }
   10% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   11% {
     color: rgba(255,255,255,0);
@@ -123,12 +163,14 @@
   }
   9% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   10% {
     color: rgba(255,255,255,1);
   }
   15% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   16% {
     color: rgba(255,255,255,0);
@@ -144,12 +186,14 @@
   }
   14% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   15% {
     color: rgba(255,255,255,1);
   }
   20% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   21% {
     color: rgba(255,255,255,0);
@@ -165,12 +209,14 @@
   }
   19% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   20% {
     color: rgba(255,255,255,1);
   }
   25% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   26% {
     color: rgba(255,255,255,0);
@@ -186,12 +232,14 @@
   }
   24% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   25% {
     color: rgba(255,255,255,1);
   }
   30% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   31% {
     color: rgba(255,255,255,0);
@@ -207,12 +255,14 @@
   }
   29% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   30% {
     color: rgba(255,255,255,1);
   }
   35% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   36% {
     color: rgba(255,255,255,0);
@@ -228,12 +278,14 @@
   }
   34% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   35% {
     color: rgba(255,255,255,1);
   }
   40% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   41% {
     color: rgba(255,255,255,0);
@@ -249,12 +301,14 @@
   }
   39% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   40% {
     color: rgba(255,255,255,1);
   }
   45% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   46% {
     color: rgba(255,255,255,0);
@@ -270,12 +324,14 @@
   }
   44% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   45% {
     color: rgba(255,255,255,1);
   }
   50% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   51% {
     color: rgba(255,255,255,0);
@@ -291,12 +347,14 @@
   }
   49% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   50% {
     color: rgba(255,255,255,1);
   }
   55% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   56% {
     color: rgba(255,255,255,0);
@@ -312,12 +370,14 @@
   }
   54% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   55% {
     color: rgba(255,255,255,1);
   }
   60% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   61% {
     color: rgba(255,255,255,0);
@@ -333,12 +393,14 @@
   }
   59% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   60% {
     color: rgba(255,255,255,1);
   }
   65% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   66% {
     color: rgba(255,255,255,0);
@@ -354,12 +416,14 @@
   }
   64% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   65% {
     color: rgba(255,255,255,1);
   }
   70% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   71% {
     color: rgba(255,255,255,0);
@@ -375,12 +439,14 @@
   }
   69% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   70% {
     color: rgba(255,255,255,1);
   }
   75% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   76% {
     color: rgba(255,255,255,0);
@@ -396,12 +462,14 @@
   }
   74% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   75% {
     color: rgba(255,255,255,1);
   }
   80% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   81% {
     color: rgba(255,255,255,0);
@@ -417,12 +485,14 @@
   }
   79% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   80% {
     color: rgba(255,255,255,1);
   }
   85% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   86% {
     color: rgba(255,255,255,0);
@@ -438,12 +508,14 @@
   }
   84% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   85% {
     color: rgba(255,255,255,1);
   }
   90% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   91% {
     color: rgba(255,255,255,0);
@@ -459,12 +531,14 @@
   }
   89% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   90% {
     color: rgba(255,255,255,1);
   }
   95% {
     color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   96% {
     color: rgba(255,255,255,0);
@@ -480,12 +554,14 @@
   }
   94% {
     color: rgba(255,255,255,0);
+    font-size: 1.5rem;
   }
   95% {
     color: rgba(255,255,255,1);
   }
   99% {
-    color: rgba(255,255,255,0);
+    color: rgba(255,255,255,1);
+    font-size: 1.8rem;
   }
   100% {
     color: rgba(255,255,255,0);
