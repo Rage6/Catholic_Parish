@@ -47,14 +47,14 @@ class HomeController extends Controller
             $unique_users_permissions[] = $one_permission;
           };
         };
-        // NOTES: This array should match the array in Http/Middleware/AdminAccess.php
-        $titles_for_access = [
-          "Priest",
-          "Deacon",
-          "Lay Minister",
-          "Choir Member",
-          "Web Administrator"
-        ];
+        // $titles_for_access = [
+        //   "Priest",
+        //   "Deacon",
+        //   "Lay Minister",
+        //   "Choir Member",
+        //   "Web Administrator"
+        // ];
+        $titles_for_access = explode(",",env('ADMIN_ACCESS'));
         foreach($user_roles as $one_role) {
           foreach($titles_for_access as $one_title) {
             if ($one_title == $one_role->title) {

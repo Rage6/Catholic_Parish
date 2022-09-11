@@ -60,9 +60,41 @@
         </div>
         <div id="mainMenuTable" class="mainMenuTable">
           <div>
-            <a href="{{ route('cemetery.index') }}">
-              Home
-            </a>
+            <div>
+              <a href="{{ route('cemetery.index') }}">
+                Home
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.find') }}">
+                Find A Grave
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.rules') }}">
+                Visiting Guidelines
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.rite') }}">
+                Funeral Rite
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.history') }}">
+                Cemetery History
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.available') }}">
+                Available Plots
+              </a>
+            </div>
+            <div>
+              <a href="{{ route('cemetery.contact') }}">
+                Contact Us
+              </a>
+            </div>
           </div>
           @if (Route::has('login'))
             <div>
