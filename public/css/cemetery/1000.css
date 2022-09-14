@@ -618,13 +618,22 @@
 }
 
 .resultList {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 48% 48%;
-  column-gap: 4%;
+  column-gap: 4%; */
+}
+
+.maxWidth {
+  display: grid;
+}
+
+.minWidth {
+  display: none;
 }
 
 .resultRow {
-
+  grid-template-rows: 60px;
+  grid-template-columns: 33% 34% 33%;
 }
 
 /* CEMETERY.INDIVIDUAL */

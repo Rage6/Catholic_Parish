@@ -52,8 +52,33 @@
                         @endif
                       </a>
                     </div>
-                    <div>
+                    <div class="minWidth">
                       {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }} - {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
+                    </div>
+                    @php
+                      $all_months = [
+                        "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+                      ];
+
+                      $dob = $one_deceased->date_of_birth;
+                      $dob = explode("-",$dob);
+                      $dobDay = $dob[2];
+                      $dobMonth = $all_months[intval($dob[1])-1];
+                      $dobYear = $dob[0];
+                      $dob = $dobMonth." ".$dobDay.", ".$dobYear;
+
+                      $dod = $one_deceased->date_of_death;
+                      $dod = explode("-",$dod);
+                      $dodDay = $dod[2];
+                      $dodMonth = $all_months[intval($dod[1])-1];
+                      $dodYear = $dod[0];
+                      $dod = $dodMonth." ".$dodDay.", ".$dodYear;
+                    @endphp
+                    <div class="maxWidth">
+                      {{ $dob }}
+                    </div>
+                    <div class="maxWidth">
+                      {{ $dod }}
                     </div>
                   </div>
                 @endif
