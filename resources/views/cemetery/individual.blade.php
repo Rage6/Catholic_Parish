@@ -23,10 +23,10 @@
         @if ($deceased->tombstone_photo != null)
           <div class="photoProfile" data-size="main" data-type="tombstone" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
         @endif
-        @if ($deceased->map_photo != null)
-          <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/{{ $deceased->map_photo }}')"></div>
+        @if ($deceased->zone != null)
+          <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/images/overview_{{ $deceased->zone }}.jpg')"></div>
         @endif
-        @if ($deceased->profile_photo == null && $deceased->tombstone_photo == null && $deceased->map_photo == null)
+        @if ($deceased->profile_photo == null && $deceased->tombstone_photo == null && $deceased->zone == null)
           <div class="photoProfile">NO PHOTOS AVAILABLE</div>
         @endif
         <div class="photoMenu">
@@ -36,8 +36,8 @@
           @if ($deceased->tombstone_photo != null)
             <div data-type="tombstone" data-size="thumbnail" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
           @endif
-          @if ($deceased->map_photo != null)
-            <div data-type="map" data-size="thumbnail"style="background-image:url('/{{ $deceased->map_photo }}')"></div>
+          @if ($deceased->zone != null)
+            <div data-type="map" data-size="thumbnail"style="background-image:url('/images/overview_{{ $deceased->zone }}.jpg')"></div>
           @endif
         </div>
       </div>

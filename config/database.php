@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Database\DBAL\TimestampType;
 
 return [
 
@@ -146,6 +147,16 @@ return [
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
 
+    ],
+
+    /*
+      I (Nicholas Vogt) added these instructions (https://laravel.com/docs/9.x/migrations#modifying-columns) so that the timestamp can be modified if needed in the future. Haven't tested it yet.
+    */
+
+    'dbal' => [
+        'types' => [
+            'timestamp' => TimestampType::class,
+        ],
     ],
 
 ];

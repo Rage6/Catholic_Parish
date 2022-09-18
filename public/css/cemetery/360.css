@@ -18,21 +18,36 @@
 }
 
 .introSection {
+  padding-top: 10vh;
   background-image:
     linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
     url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp');
-  height: 87vh;
+  height: 77vh;
+}
+
+.introName {
+  margin: 0 10vw;
+  border-bottom: 2px solid gold;
+  border-radius: 5px 5px 0 0;
+  padding: 1vh 10vw;
+  color: gold;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: rgb(105, 30, 32, 0.7);
 }
 
 .introTitle {
-  padding: 15vh 5vw 0 5vw;
+  margin: 0 10vw;
+  padding: 1vh 10vw 0 10vw;
+  border-radius: 0 0 5px 5px;
   font-size: 2.5rem;
-  color: white;
+  color: gold;
   text-align: center;
+  background-color: rgb(105, 30, 32, 0.7);
 }
 
 .introSubtitle {
-  padding: 15vh 15vw 0 15vw;
+  padding: 6vh 15vw 0 15vw;
   font-size: 1.5rem;
   color: white;
   text-align: center;
@@ -92,9 +107,13 @@
   background-color: rgb(105, 30, 32);
 }
 
+.searchTitle {
+  color: gold;
+}
+
 .searchBox form {
   display: grid;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 100%;
 }
 
 .searchBox form div input {
@@ -105,9 +124,14 @@
 }
 
 .searchBox form button {
-  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-left: 15%;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-size: 1rem;
   color: rgb(105,30,32);
   background-color: gold;
+  width: 70%;
 }
 
 .searchTool {
@@ -117,6 +141,8 @@
 }
 
 .searchTool input {
+  margin-left: 5%;
+  margin-bottom: 5px;
   font-size: 1.3rem;
   width: 90%;
 }
@@ -135,6 +161,10 @@
 .noResults {
   padding: 5px 0;
   font-style: italic;
+}
+
+.listTitles {
+  display: none;
 }
 
 .resultList {
@@ -177,10 +207,7 @@
 
 .riteSection {
   color: white;
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg');
+  background-color: rgb(105, 30, 32);
 }
 
 .riteSection div p {
@@ -262,10 +289,31 @@
 }
 
 .contactSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg')
+  background-color: rgb(105, 30, 32);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.contactIntro {
+  margin: 0 0 20px 0;
+}
+
+.contactGrid {
+
+}
+
+.roleElement {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 70%;
+}
+
+.roleTitle {
+  border-bottom: 2px solid white;
+  font-size: 1.1rem;
+  text-align: left;
 }
 
 .contactForm {

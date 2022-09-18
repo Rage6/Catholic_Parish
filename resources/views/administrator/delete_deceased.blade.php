@@ -156,13 +156,14 @@
                           </div>
                         @endif
 
-                        @if ($deceased->map_photo)
+                        @if ($deceased->zone)
                           <div class="row mb-3">
-                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Zone') }}</label>
 
                               <div id="map" class="col-md-6">
                                 <div class="form-control">
-                                  <img class="img-thumbnail" src="/{{ $deceased->map_photo }}">
+                                  <!-- <img class="img-thumbnail" src="/{{ $deceased->map_photo }}"> -->
+                                  <img class="img-thumbnail" src="/images/overview_{{ $deceased->zone }}.jpg">
                                 </div>
                               </div>
                           </div>

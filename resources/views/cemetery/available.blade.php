@@ -5,7 +5,7 @@
         <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
       </div>
       <div class="sectionTitle">
-        About Available Plots
+        Available Plots
       </div>
       <div>
         @if ($open_plot_count > 0)
@@ -16,7 +16,7 @@
               @else
                 is <b>{{ $open_plot_count }}</b> available plot.
               @endif
-            Each plot costs a one-time payment of $___. This cost is to assist the respectful maintenance of the cemetery. You can claim a plot by messaging the Cemetery Manager in the "Contact Us" information below.
+            Each plot costs a one-time payment of $___. This cost is to assist the respectful maintenance of the cemetery. You can claim a plot by messaging the Cemetery Manager in the <a style="color:gold" href="{{ route('cemetery.contact') }}">"Contact Us"</a> page.
           </div>
         @else
           <div class="emptyPlotCount">

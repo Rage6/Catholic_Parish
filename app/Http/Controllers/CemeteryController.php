@@ -188,6 +188,7 @@ class CemeteryController extends Controller
                 ['maiden_name',$_GET['name_type']],
                 ['is_deceased','1']
             ])
+            ->orderBy('last_name','ASC')
             ->paginate(20);
         };
         return view('cemetery.list',[

@@ -247,28 +247,50 @@
 
                           <div class="row mb-3">
 
-                              <label for="mapPhoto" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+                              <label for="mapPhoto" class="col-md-4 col-form-label text-md-end">{{ __('Map Zone') }}</label>
 
                               <div id="mapPhoto" class="col-md-6">
                                 <div class="form-control">
-                                  @if ($deceased->map_photo)
-                                    <img class="img-thumbnail" src="{{ url($deceased->map_photo) }}">
+                                  @if ($deceased->zone)
+                                    <img class="img-thumbnail" src="/images/overview_{{ $deceased->zone }}.jpg">
                                   @else
-                                    <img class="img-thumbnail" src="{{ url('/images/default_profile.png') }}">
-                                  @endif
-                                  @if ($deceased->map_photo)
-                                    <button
-                                      class="btn btn-danger"
-                                      formaction="{{ route('cemetery.deleteMap',['id' => $deceased->id]) }}">
-                                      X
-                                    </button>
+                                    <img class="img-thumbnail" src="/images/overview_zone.jpg"/>
                                   @endif
                                 </div>
                                 <div class="form-control">
                                   <div>
-                                    Change Map Photo
+                                    Change Zone
                                   </div>
-                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+                                  <!-- <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
+                                  <select id="map" class="@error('map') is-invalid @enderror" name="zone">
+                                    <option value="nw">
+                                      North West (NW)
+                                    </option>
+                                    <option value="nc">
+                                      North Central (NC)
+                                    </option>
+                                    <option value="ne">
+                                      North East (NE)
+                                    </option>
+                                    <option value="wc">
+                                      West Central (WC)
+                                    </option>
+                                    <option value="c">
+                                      Central (C)
+                                    </option>
+                                    <option value="ec">
+                                      East Central (EC)
+                                    </option>
+                                    <option value="sw">
+                                      South West (SW)
+                                    </option>
+                                    <option value="sc">
+                                      South Central (SC)
+                                    </option>
+                                    <option value="se">
+                                      South East (SE)
+                                    </option>
+                                  </select>
                                 </div>
                                 @error('map')
                                     <span class="invalid-feedback" role="alert">

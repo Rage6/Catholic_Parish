@@ -1,6 +1,9 @@
 @extends('layouts.master')
   @section('content')
     <div class="introSection sectionBackground">
+      <div class="introName">
+        {{ env('APP_NAME') }}
+      </div>
       <div class="introTitle primaryFont">
         PARISH CEMETERY
       </div>

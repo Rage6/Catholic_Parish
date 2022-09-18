@@ -115,7 +115,8 @@ class AdminController extends Controller
         'children' => 'nullable',
         'profile_photo' => 'file',
         'tombstone_photo' => 'file',
-        'map_photo' => 'file',
+        // 'map_photo' => 'file',
+        'zone' => 'required',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
@@ -128,9 +129,9 @@ class AdminController extends Controller
         $input['tombstone_photo'] = request('tombstone_photo')->store('images');
       };
 
-      if (request('map_photo')) {
-        $input['map_photo'] = request('map_photo')->store('images');
-      };
+      // if (request('map_photo')) {
+      //   $input['map_photo'] = request('map_photo')->store('images');
+      // };
 
       Deceased::create($input);
 
@@ -321,7 +322,8 @@ class AdminController extends Controller
         'children' => 'nullable',
         'profile_photo' => 'file',
         'tombstone_photo' => 'file',
-        'map_photo' => 'file',
+        // 'map_photo' => 'file',
+        'zone' => 'required',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required'
       ]);
@@ -357,15 +359,16 @@ class AdminController extends Controller
           Storage::delete($old_filename);
         };
       };
-      if (request('map_photo')) {
-        $old_filename = $deceased->map_photo;
-        $request['map_photo'] = request('map_photo')->store('images');
-        $filename = request('map_photo')->hashName();
-        $deceased->map_photo = "images/".$filename;
-        if ($old_filename != null) {
-          Storage::delete($old_filename);
-        };
-      };
+      // if (request('map_photo')) {
+      //   $old_filename = $deceased->map_photo;
+      //   $request['map_photo'] = request('map_photo')->store('images');
+      //   $filename = request('map_photo')->hashName();
+      //   $deceased->map_photo = "images/".$filename;
+      //   if ($old_filename != null) {
+      //     Storage::delete($old_filename);
+      //   };
+      // };
+      $deceased->zone = $request->zone;
       $deceased->save();
 
       return redirect()->route('cemetery.allupdates',[
@@ -413,24 +416,24 @@ class AdminController extends Controller
       ]);
     }
 
-    public function delete_deceased_map(Request $request, $id)
-    {
-      $current_user = Auth::user();
-      $user_roles = User::find($current_user->id)->all_user_roles;
-      $role_model = new Role();
-      $users_permissions = $role_model->users_permissions($current_user->id);
-
-      $this_deceased = Deceased::find($id);
-      Storage::delete($this_deceased->map_photo);
-      $this_deceased->map_photo = null;
-      $this_deceased->save();
-
-      return redirect()->route('cemetery.allupdates',[
-        'current_user' => $current_user,
-        'user_roles' => $user_roles,
-        'users_permissions' => $users_permissions
-      ]);
-    }
+    // public function delete_deceased_map(Request $request, $id)
+    // {
+    //   $current_user = Auth::user();
+    //   $user_roles = User::find($current_user->id)->all_user_roles;
+    //   $role_model = new Role();
+    //   $users_permissions = $role_model->users_permissions($current_user->id);
+    //
+    //   $this_deceased = Deceased::find($id);
+    //   Storage::delete($this_deceased->map_photo);
+    //   $this_deceased->map_photo = null;
+    //   $this_deceased->save();
+    //
+    //   return redirect()->route('cemetery.allupdates',[
+    //     'current_user' => $current_user,
+    //     'user_roles' => $user_roles,
+    //     'users_permissions' => $users_permissions
+    //   ]);
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -488,9 +491,9 @@ class AdminController extends Controller
       if ($deceased->tombstone_photo) {
         Storage::delete($deceased->tombstone_photo);
       };
-      if ($deceased->map_photo) {
-        Storage::delete($deceased->map_photo);
-      };
+      // if ($deceased->map_photo) {
+      //   Storage::delete($deceased->map_photo);
+      // };
       $deceased->delete();
 
       return redirect()->route('admin.index',[

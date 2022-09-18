@@ -23,13 +23,10 @@
       rgb(105, 30, 32,1) 100%); */
   }
 
-  .mainMenuBar {
-    /* padding: 20px 3vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.7rem;
-    height: 8vh; */
+  .mainMenuTable {
+    /* border: 1px solid gold; */
+    /* background-color: rgb(105, 30, 32); */
+    width: 40vw;
   }
 
   .logo {

@@ -59,7 +59,7 @@
         @endif -->
         </div>
         <div id="mainMenuTable" class="mainMenuTable">
-          <div>
+          <!-- <div> -->
             <div>
               <a href="{{ route('cemetery.index') }}">
                 Home
@@ -95,18 +95,24 @@
                 Contact Us
               </a>
             </div>
-          </div>
+          <!-- </div> -->
           @if (Route::has('login'))
-            <div>
+            <!-- <div> -->
               @auth
-                <a href="{{ url('/home') }}">My Account</a>
+                <div class="loginBttn">
+                  <a href="{{ url('/home') }}">My Account</a>
+                </div>
               @else
-                <a href="{{ route('login') }}">Log in</a></br>
+                <div class="loginBttn">
+                  <a href="{{ route('login') }}">Log in</a>
+                </div>
                 @if (Route::has('register'))
-                  <a href="{{ route('register') }}">Register</a>
+                  <div>
+                    <a href="{{ route('register') }}">Register</a>
+                  </div>
                 @endif
               @endauth
-            </div>
+            <!-- </div> -->
           @endif
         </div>
 

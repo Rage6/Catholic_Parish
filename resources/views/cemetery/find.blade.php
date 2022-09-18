@@ -24,15 +24,13 @@
           <div class="orDivider">
             -- OR --
           </div>
-          <div class="searchBox">
-            <div style="color:gold">
+          <div class="searchTool searchBox" style="width:90%">
+            <div class="searchTitle">
               FIND BY NAME
             </div>
             <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
               @csrf
-              <div>
-                <input name="name_type" placeholder="First, Last, or Maiden">
-              </div>
+              <input name="name_type" placeholder="First, Last, or Maiden">
               <button>
                 SEARCH
               </button>

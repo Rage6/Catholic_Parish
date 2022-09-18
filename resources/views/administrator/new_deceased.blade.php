@@ -209,16 +209,48 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Zone') }}</label>
 
                               <div class="col-md-6">
-                                  <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}">
+                                  <!-- <input id="map" type="text" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
+                                  <select id="map" class="@error('map') is-invalid @enderror" name="zone">
+                                    <option value="nw">
+                                      North West (NW)
+                                    </option>
+                                    <option value="nc">
+                                      North Central (NC)
+                                    </option>
+                                    <option value="ne">
+                                      North East (NE)
+                                    </option>
+                                    <option value="wc">
+                                      West Central (WC)
+                                    </option>
+                                    <option value="c">
+                                      Central (C)
+                                    </option>
+                                    <option value="ec">
+                                      East Central (EC)
+                                    </option>
+                                    <option value="sw">
+                                      South West (SW)
+                                    </option>
+                                    <option value="sc">
+                                      South Central (SC)
+                                    </option>
+                                    <option value="se">
+                                      South East (SE)
+                                    </option>
+                                  </select>
 
                                   @error('map')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
                                   @enderror
+                              </div>
+                              <div>
+                                <img class="img-fluid max-width" src="/images/overview_zone.jpg">
                               </div>
                           </div>
 

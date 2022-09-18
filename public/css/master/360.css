@@ -62,13 +62,30 @@ body {
   padding: 5px 0;
   position: absolute;
   left: -100%;
-  background-color: white;
+  background-color: rgb(105, 30, 32);
   width: 100%;
 }
 
 .mainMenuTable div {
   padding: 5px 5vh;
+  color: gold;
   font-size: 1.3rem;
+}
+
+.mainMenuTable div a {
+  color: inherit;
+}
+
+.mainMenuTable div:hover {
+  background-color: gold;
+}
+
+.mainMenuTable div:hover {
+  color: rgb(105, 30, 32) !important;
+}
+
+.loginBttn {
+  border-top: 1px solid gold;
 }
 
 footer {

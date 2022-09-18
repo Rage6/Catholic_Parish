@@ -2,7 +2,7 @@
   @section('content')
     <div class="listSection searchSection sectionBackground section primaryFont">
       <div class="backBttn">
-        <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
+        <a href="{{ route('cemetery.find') }}" style="color:white"><< BACK</a>
       </div>
       <div class="sectionTitle">
         Find a Grave
@@ -11,8 +11,8 @@
         Feel free to search for a specific individual amongst our cemetery's deceased members.
       </div>
       <div>
-        <div class="searchTool">
-          <div>Search By Name:</div>
+        <div class="searchTool searchBox">
+          <div class="searchTitle">Find By Name:</div>
           <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
             @csrf
             <input name="name_type" placeholder="First, Last, or Maiden">
@@ -22,6 +22,17 @@
           </form>
         </div>
         <div class="resultBox">
+          <div class="listTitles">
+            <div>
+              Name
+            </div>
+            <div>
+              Date of Birth
+            </div>
+            <div>
+              Date of Death
+            </div>
+          </div>
           @if ($all_results != null)
             @php
               $all_deceased = $all_results;
@@ -91,9 +102,6 @@
           @endif
         </div>
         {{ $all_deceased->links('pagination::cemetery-list') }}
-      </div>
-      <div>
-        Clicking on their name will provide you their basic information, location, and photos (if available).
       </div>
     </div>
   @endsection

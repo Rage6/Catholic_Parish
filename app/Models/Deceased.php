@@ -22,7 +22,8 @@ class Deceased extends Model
       'children',
       'profile_photo',
       'tombstone_photo',
-      'map_photo',
+      // 'map_photo',
+      'zone',
       'is_deceased',
       'purchased_by'
     ];
