@@ -263,31 +263,67 @@
                                   </div>
                                   <!-- <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
                                   <select id="map" class="@error('map') is-invalid @enderror" name="zone">
-                                    <option value="nw">
+                                    <option value="nw"
+                                      @if ($deceased->zone == "nw")
+                                        selected
+                                      @endif
+                                    >
                                       North West (NW)
                                     </option>
-                                    <option value="nc">
+                                    <option value="nc"
+                                      @if ($deceased->zone == "nc")
+                                        selected
+                                      @endif
+                                    >
                                       North Central (NC)
                                     </option>
-                                    <option value="ne">
+                                    <option value="ne"
+                                      @if ($deceased->zone == "ne")
+                                        selected
+                                      @endif
+                                    >
                                       North East (NE)
                                     </option>
-                                    <option value="wc">
+                                    <option value="wc"
+                                      @if ($deceased->zone == "wc")
+                                        selected
+                                      @endif
+                                    >
                                       West Central (WC)
                                     </option>
-                                    <option value="c">
+                                    <option value="c"
+                                      @if ($deceased->zone == "c")
+                                        selected
+                                      @endif
+                                    >
                                       Central (C)
                                     </option>
-                                    <option value="ec">
+                                    <option value="ec"
+                                      @if ($deceased->zone == "ec")
+                                        selected
+                                      @endif
+                                    >
                                       East Central (EC)
                                     </option>
-                                    <option value="sw">
+                                    <option value="sw"
+                                      @if ($deceased->zone == "sw")
+                                        selected
+                                      @endif
+                                    >
                                       South West (SW)
                                     </option>
-                                    <option value="sc">
+                                    <option value="sc"
+                                      @if ($deceased->zone == "sc")
+                                        selected
+                                      @endif
+                                    >
                                       South Central (SC)
                                     </option>
-                                    <option value="se">
+                                    <option value="se"
+                                      @if ($deceased->zone == "se")
+                                        selected
+                                      @endif
+                                    >
                                       South East (SE)
                                     </option>
                                   </select>
