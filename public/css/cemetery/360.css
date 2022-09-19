@@ -286,7 +286,9 @@
 }
 
 .contactIntro {
-  margin: 0 0 20px 0;
+  margin: 0 0 40px 0;
+  border-bottom: 2px dashed gold;
+  padding: 1em;
 }
 
 .contactGrid {
@@ -306,6 +308,9 @@
 }
 
 .contactForm {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px dashed gold;
   background-color: rgb(105, 30, 32);
 }
 
