@@ -24,7 +24,7 @@ body {
 }
 
 .mainMenuBar {
-  padding: 20px 3vw;
+  padding: 3vh 3vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,7 +62,7 @@ body {
   padding: 5px 0;
   position: absolute;
   left: -100%;
-  background-color: rgb(105, 30, 32);
+  background-color: rgb(79, 30, 32);
   width: 100%;
 }
 

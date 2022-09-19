@@ -3,13 +3,14 @@
   border-top: 5px solid gold;
   padding: 5vh 10%;
   font-size: 1.5rem;
-  min-height: 90vh;
+  min-height: 76vh;
 }
 
 .sectionTitle {
+  border-bottom: 2px solid gold;
   font-size: 2.5rem;
   text-align: center;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .sectionBackground {
@@ -18,11 +19,11 @@
 }
 
 .introSection {
-  padding-top: 10vh;
+  padding-top: 6vh;
   background-image:
     linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
     url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp');
-  height: 77vh;
+  height: 80vh;
 }
 
 .introName {
@@ -54,11 +55,7 @@
 }
 
 .searchSection {
-  background-image:
-    linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-    url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
+  background-color: rgb(105, 30, 32);
 }
 
 .searchSection a {
@@ -135,9 +132,10 @@
 }
 
 .searchTool {
-  background-color: rgb(105, 30, 32);
+  border: 1px solid gold;
   padding: 10px 0;
   text-align: center;
+  background-color: rgb(105, 30, 32);
 }
 
 .searchTool input {
@@ -194,10 +192,7 @@
 } */
 
 .basicInfoSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+  background-color: rgb(105, 30, 32);
   font-size: 1.2rem;
 }
 
@@ -263,17 +258,11 @@
 }
 
 .historySection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/111/CEM46517262_114576626350.jpg')
+  background-color: rgb(105, 30, 32);
 }
 
 .emptyPlotsInfoSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+  background-color: rgb(105, 30, 32);
 }
 
 .emptyPlotCount {
@@ -301,7 +290,7 @@
 }
 
 .contactGrid {
-
+  margin-top: 1em;
 }
 
 .roleElement {
@@ -318,6 +307,24 @@
 
 .contactForm {
   background-color: rgb(105, 30, 32);
+}
+
+.contactInput {
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.contactTextarea {
+  width: 100%;
+  height: 40vh;
+}
+
+.contactForm button {
+  border-radius: 20px;
+  padding: 10px 5%;
+  font-size: 1.2rem;
+  color: rgb(105, 30, 32);
+  background-color: gold;
 }
 
 /* CEMETERY.LIST */
@@ -357,7 +364,11 @@ nav {
 }
 
 .backBttn {
+  font-size: 1.2rem;
+}
 
+.backBttn a {
+  text-decoration: none;
 }
 
 .fullName {

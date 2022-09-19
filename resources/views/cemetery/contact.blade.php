@@ -39,7 +39,7 @@
                 <div>
                   To:
                 </div>
-                <select name="cem_recipient">
+                <select class="contactInput" name="cem_recipient">
                   @foreach ($cem_user as $one_user)
                     <option value="{{ $one_user->id }}">
                       {{ $one_user->first_name }} {{ $one_user->last_name }}
@@ -55,9 +55,9 @@
                   From:
                 </div>
                 @guest
-                  <input type="email" name="cem_reply_email" placeholder="Enter your email here" required>
+                  <input class="contactInput" type="email" name="cem_reply_email" placeholder="Enter your email here" required>
                 @else
-                  <input type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" placeholder="Enter your email here" required>
+                  <input class="contactInput" type="email" name="cem_reply_email" value="{{ Auth::user()->email }}" placeholder="Enter your email here" required>
                 @endguest
               </div>
               <div>
