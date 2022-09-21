@@ -15,14 +15,18 @@
 
 .introName {
   margin: 0 22vw;
+  margin-left: calc(45vw - 225px);
   padding: 1vh 5vw;
   font-size: 1.4rem;
+  width: 450px;
 }
 
 .introTitle {
+  margin-left: calc(45vw - 350px);
   border-radius: 5px;
   padding: 0vh 5vw;
   font-size: 5rem;
+  width: 700px;
 }
 
 .introSubtitle {

@@ -19,10 +19,12 @@
 }
 
 .introSection {
+  position: absolute; /* For video */
+  z-index: 2; /* For video */
   padding-top: 6vh;
-  background-image:
+  /* background-image:
     linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
-    url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp');
+    url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp'); */
   height: 80vh;
 }
 
@@ -34,7 +36,7 @@
   color: gold;
   font-size: 1.1rem;
   text-align: center;
-  background-color: rgb(105, 30, 32, 0.7);
+  background-color: rgb(105, 30, 32, 0.8);
 }
 
 .introTitle {
@@ -44,7 +46,7 @@
   font-size: 2.5rem;
   color: gold;
   text-align: center;
-  background-color: rgb(105, 30, 32, 0.7);
+  background-color: rgb(105, 30, 32, 0.8);
 }
 
 .introSubtitle {
@@ -52,6 +54,25 @@
   font-size: 1.5rem;
   color: white;
   text-align: center;
+}
+
+.videoParent { /* For video */
+  overflow: hidden;
+  position: absolute;
+  height: 86vh;
+  width: 100vw;
+  top: 14vh;
+}
+
+.videoParent video { /* For video */
+  height: 100%;
+  width: 177.77777778vh; /* 100 * 16 / 9 */
+  min-width: 100%;
+  min-height: 56.25vw; /* 100 * 9 / 16 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .searchSection {

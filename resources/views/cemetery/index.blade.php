@@ -11,6 +11,13 @@
         <i>Eternal rest grant unto them, O Lord, and let perpetual light shine upon them</i>
       </div>
     </div>
+    <div class="videoParent">
+      <video
+        src="/images/Cemetery_montage_low.mp4"
+        autoplay
+        loop
+        muted></video>
+    </div>
 
     <!--  -->
 
