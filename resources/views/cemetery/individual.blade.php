@@ -1,6 +1,6 @@
 @extends('layouts.master')
   @section('content')
-    <div class="indivMain">
+    <div class="indivMain section">
       <div class="backBttn">
         <a href="{{ route('cemetery.list') }}" style="color:white"><< BACK</a>
       </div>

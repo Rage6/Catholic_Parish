@@ -7,7 +7,7 @@
       <div class="sectionTitle">
         Find a Grave
       </div>
-      <div>
+      <div class="listIntro">
         Feel free to search for a specific individual amongst our cemetery's deceased members.
       </div>
       <div>

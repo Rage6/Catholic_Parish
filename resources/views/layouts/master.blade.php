@@ -19,6 +19,7 @@
         @if ($css)
           <link href="{{ asset('css/'.$css.'/360.css') }}" rel="stylesheet">
           <link href="{{ asset('css/'.$css.'/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
+          <link href="{{ asset('css/'.$css.'/1500.css') }}" rel="stylesheet" media="screen and (min-width: 1500px)">
         @endif
 
         <!-- jQuery 3.6.0 -->

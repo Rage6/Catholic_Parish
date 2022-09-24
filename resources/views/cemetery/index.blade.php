@@ -16,7 +16,9 @@
         src="/images/Cemetery_montage_low.mp4"
         autoplay
         loop
-        muted></video>
+        muted
+        playsinline>
+      </video>
     </div>
 
     <!--  -->

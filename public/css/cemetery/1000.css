@@ -15,14 +15,14 @@
 
 .introName {
   margin: 0 22vw;
-  margin-left: calc(45vw - 225px);
+  margin-left: calc(45% - 225px);
   padding: 1vh 5vw;
   font-size: 1.4rem;
   width: 450px;
 }
 
 .introTitle {
-  margin-left: calc(45vw - 350px);
+  margin-left: calc(45% - 350px);
   border-radius: 5px;
   padding: 0vh 5vw;
   font-size: 5rem;
@@ -30,7 +30,7 @@
 }
 
 .introSubtitle {
-  padding: 15vh 15vw 0 15vw;
+  margin: 15vh 14vw 0 14vw;
   font-size: 2.6rem;
 }
 
@@ -41,8 +41,8 @@
       rgb(105, 30, 32, 0.8) 0%,
       rgb(105, 30, 32, 0.8) 40%,
       rgb(0, 0, 0, 0.2) 100%),
-    url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
-  min-height: 95vh;
+    url("/images/list.jpg");
+  /* min-height: 95vh; */
 }
 
 .searchTop {
@@ -65,7 +65,7 @@
   display: grid;
   grid-template-columns: 40% 60%;
   margin-top: 15vh;
-  height: 55vh;
+  /* height: 55vh; */
 }
 
 .all_grids {
@@ -587,7 +587,7 @@
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+      url('/images/guidelines.jpg');
   font-size: 1.2rem;
 }
 
@@ -599,7 +599,7 @@
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-      url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg');
+      url('/images/rite.jpg');
 }
 
 .riteSubtitleChild {
@@ -629,14 +629,14 @@
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/111/CEM46517262_114576626350.jpg')
+      url('/images/history.jpg')
 }
 
 .emptyPlotsInfoSection {
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+      url('/images/overview.jpg');
 }
 
 .emptyPlotCount {
@@ -655,7 +655,7 @@
   background-image: linear-gradient(
       rgb(105, 30, 32,0.7),
       rgb(105, 30, 32,0.7)),
-      url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg');
+      url('/images/contact.jpg');
 }
 
 .contactForm {

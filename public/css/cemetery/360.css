@@ -21,11 +21,12 @@
 .introSection {
   position: absolute; /* For video */
   z-index: 2; /* For video */
-  padding-top: 6vh;
+  padding-top: 10vh;
   /* background-image:
     linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
     url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp'); */
   height: 80vh;
+  max-width: 1500px;
 }
 
 .introName {
@@ -50,10 +51,12 @@
 }
 
 .introSubtitle {
-  padding: 6vh 15vw 0 15vw;
+  margin: 10vh 14vw 0 14vw;
+  padding: 1vh 1vw;
   font-size: 1.5rem;
   color: white;
   text-align: center;
+  background-color: rgb(0, 0, 0, 0.4);
 }
 
 .videoParent { /* For video */
@@ -160,21 +163,23 @@
 }
 
 .searchTool input {
-  margin-left: 5%;
+  margin-left: 4%;
   margin-bottom: 5px;
+  padding: 2px 1%;
   font-size: 1.3rem;
   width: 90%;
 }
 
 .resultBox {
+  margin-top: 30px;
   margin-bottom: 50px;
   padding: 0 5%;
   background-image:
     linear-gradient(
     rgb(105, 30, 32,0.7),
     rgb(105, 30, 32,0.7));
-  max-height: 350px;
-  overflow-y: scroll;
+  /* max-height: 350px; */
+  /* overflow-y: scroll; */
 }
 
 .noResults {
@@ -191,8 +196,11 @@
 }
 
 .resultRow {
+  margin-bottom: 20px;
+  border: 1px dashed gold;
+  padding: 0 5%;
   display: grid;
-  grid-template-rows: 60px 60px;
+  grid-template-rows: auto auto;
 }
 
 .minWidth {
@@ -357,6 +365,10 @@
 
 .listSection {
   height: 87%;
+}
+
+.listIntro {
+  margin: 10px 0 30px 0;
 }
 
 nav {
