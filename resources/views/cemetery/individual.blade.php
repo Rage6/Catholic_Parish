@@ -63,15 +63,23 @@
         <div class="basicElement">
           <div>Born on</div>
           <div>
-            @php $birth_date = strtotime($deceased->date_of_birth); @endphp
-            {{ date("F jS, Y", $birth_date) }}
+            @if ($deceased->date_of_birth)
+              @php $birth_date = strtotime($deceased->date_of_birth); @endphp
+              {{ date("F jS, Y", $birth_date) }}
+            @else
+              UNKNOWN
+            @endif
           </div>
         </div>
         <div class="basicElement">
           <div>Died on</div>
           <div>
-            @php $death_date = strtotime($deceased->date_of_death); @endphp
-            {{ date("F jS, Y", $death_date) }}
+            @if ($deceased->date_of_death)
+              @php $death_date = strtotime($deceased->date_of_death); @endphp
+              {{ date("F jS, Y", $death_date) }}
+            @else
+              UNKNOWN
+            @endif
           </div>
         </div>
         @if ($deceased->spouse)

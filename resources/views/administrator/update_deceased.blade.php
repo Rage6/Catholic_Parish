@@ -97,7 +97,7 @@
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                               <div class="col-md-6">
-                                  <input id="dateOfBirth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ $deceased->date_of_birth }}" required autocomplete="dateOfBirth" autofocus>
+                                  <input id="dateOfBirth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ $deceased->date_of_birth }}" autocomplete="dateOfBirth" autofocus>
 
                                   @error('date_of_birth')
                                       <span class="invalid-feedback" role="alert">
@@ -111,7 +111,7 @@
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
 
                               <div class="col-md-6">
-                                  <input id="dateOfDeath" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_death" value="{{ $deceased->date_of_death }}" required autocomplete="dateOfDeath" autofocus>
+                                  <input id="dateOfDeath" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_death" value="{{ $deceased->date_of_death }}" autocomplete="dateOfDeath" autofocus>
 
                                   @error('date_of_death')
                                       <span class="invalid-feedback" role="alert">

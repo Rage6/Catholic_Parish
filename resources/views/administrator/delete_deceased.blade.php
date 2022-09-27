@@ -76,25 +76,29 @@
                           </div>
                         @endif
 
-                        <div class="row mb-3">
-                            <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+                        @if ($deceased->date_of_birth)
+                          <div class="row mb-3">
+                              <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
-                            <div id="dateOfBirth" class="col-md-6">
-                              <div class="form-control">
-                                {{ $deceased->date_of_birth }}
+                              <div id="dateOfBirth" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->date_of_birth }}
+                                </div>
                               </div>
-                            </div>
-                        </div>
+                          </div>
+                        @endif
 
-                        <div class="row mb-3">
-                            <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
+                        @if ($deceased->date_of_death)
+                          <div class="row mb-3">
+                              <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
 
-                            <div id="dateOfDeath" class="col-md-6">
-                              <div class="form-control">
-                                {{ $deceased->date_of_death }}
+                              <div id="dateOfDeath" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->date_of_death }}
+                                </div>
                               </div>
-                            </div>
-                        </div>
+                          </div>
+                        @endif
 
                         @if ($deceased->on_tombstone)
                           <div class="row mb-3">

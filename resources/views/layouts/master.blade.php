@@ -30,6 +30,7 @@
 
         <!-- Custom Javascript -->
         <script src="{{ asset('js/master.js') }}"></script>
+        <script src="{{ asset('js/home.js') }}"></script>
     </head>
     <body>
       <div id="app">
