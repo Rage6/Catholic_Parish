@@ -19,6 +19,12 @@
         muted
         playsinline>
       </video>
+      <div class="videoImages">
+        <div class="imageOne singleImage"></div>
+        <div class="imageTwo singleImage"></div>
+        <div class="imageThree singleImage"></div>
+        <div class="imageFour singleImage"></div>
+      </div>
     </div>
 
     <!--  -->

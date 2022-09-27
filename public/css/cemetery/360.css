@@ -78,6 +78,40 @@
   transform: translate(-50%, -50%);
 }
 
+.videoImages {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.singleImage {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.imageOne {
+  z-index: -1;
+  background-image: url('/images/contact_min.jpg');
+}
+
+.imageTwo {
+  z-index: -2;
+  background-image: url('/images/list_min.jpg');
+}
+
+.imageThree {
+  z-index: -3;
+  background-image: url('/images/rite.jpg');
+}
+
+.imageFour {
+  z-index: -4;
+  background-image: url('/images/contact_min.jpg');
+}
+
 .searchSection {
   background-color: rgb(105, 30, 32);
 }
