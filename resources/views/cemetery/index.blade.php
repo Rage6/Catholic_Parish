@@ -20,6 +20,7 @@
         playsinline>
       </video>
       <div class="videoImages">
+        <div class="imageBlank singleImage"></div>
         <div class="imageOne singleImage"></div>
         <div class="imageTwo singleImage"></div>
         <div class="imageThree singleImage"></div>

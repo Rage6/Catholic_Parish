@@ -51,7 +51,7 @@
 }
 
 .introSubtitle {
-  margin: 10vh 14vw 0 14vw;
+  margin: 5vh 14vw 0 14vw;
   padding: 1vh 1vw;
   font-size: 1.5rem;
   color: white;
@@ -90,26 +90,155 @@
   background-position: center;
   height: 100%;
   width: 100%;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blank {
+  0% {
+    background-color: rgba(255,255,255,1);
+  }
+  1% {
+    background-color: rgba(255,255,255,0);
+  }
+  24% {
+    background-color: rgba(255,255,255,0);
+  }
+  25% {
+    background-color: rgba(255,255,255,1);
+  }
+  26% {
+    background-color: rgba(255,255,255,0);
+  }
+  49% {
+    background-color: rgba(255,255,255,0);
+  }
+  50% {
+    background-color: rgba(255,255,255,1);
+  }
+  51% {
+    background-color: rgba(255,255,255,0);
+  }
+  74% {
+    background-color: rgba(255,255,255,0);
+  }
+  75% {
+    background-color: rgba(255,255,255,1);
+  }
+  76% {
+    background-color: rgba(255,255,255,0);
+  }
+  99% {
+    background-color: rgba(255,255,255,0);
+  }
+  100% {
+    background-color: rgba(255,255,255,1);
+  }
+}
+
+.imageBlank {
+  z-index: 0;
+  background-color: white;
+  animation-name: blank;
+}
+
+@keyframes one {
+  0% {
+    visibility: visible;
+  }
+  25% {
+    visibility: visible;
+  }
+  25% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
 }
 
 .imageOne {
   z-index: -1;
   background-image: url('/images/contact_min.jpg');
+  animation-name: one;
+}
+
+@keyframes two {
+  0% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: visible;
+  }
+  50% {
+    visibility: visible;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
 }
 
 .imageTwo {
   z-index: -2;
   background-image: url('/images/list_min.jpg');
+  animation-name: two;
+}
+
+@keyframes three {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+  }
+  75% {
+    visibility: visible;
+  }
+  75% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
 }
 
 .imageThree {
   z-index: -3;
-  background-image: url('/images/rite.jpg');
+  background-image: url('/images/history_min.jpg');
+  animation-name: three;
+}
+
+@keyframes four {
+  0% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
 }
 
 .imageFour {
   z-index: -4;
-  background-image: url('/images/contact_min.jpg');
+  background-image: url('/images/rite.jpg');
+  animation-name: four;
 }
 
 .searchSection {

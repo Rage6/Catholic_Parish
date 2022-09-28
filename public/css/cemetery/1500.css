@@ -8,3 +8,7 @@
   padding-left: calc(50% - 600px);
   padding-right: calc(50% - 600px);
 }
+
+.introSubtitle {
+  margin: 8vh 14vw;
+}
