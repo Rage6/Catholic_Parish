@@ -10,12 +10,8 @@ $(()=>{
         console.log("Autoplay failed");
         $("video").css('display','none');
         $(".videoImages").css('display','block');
-        // $(".videoParent")
-        //   .css('background-image',"url('/images/contact.jpg')")
-        //   .css('background-size','cover')
-        //   .css('background-position','center')
-          // Automatic playback failed.
-          // Show a UI element to let the user manually start playback.
+        // Automatic playback failed.
+        // Show a UI element to let the user manually start playback.
       });
   };
 
