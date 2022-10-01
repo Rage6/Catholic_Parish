@@ -100,6 +100,30 @@
                           </div>
                         @endif
 
+                        @if ($deceased->father_name)
+                          <div class="row mb-3">
+                              <label for="father" class="col-md-4 col-form-label text-md-end">{{ __("Father's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="mother" class="form-control">
+                                    {{ $deceased->father_name }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->mother_name)
+                          <div class="row mb-3">
+                              <label for="mother" class="col-md-4 col-form-label text-md-end">{{ __("Mother's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="mother" class="form-control">
+                                    {{ $deceased->mother_name }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
                         @if ($deceased->on_tombstone)
                           <div class="row mb-3">
                               <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Words on the Tombstone') }}</label>
@@ -187,13 +211,25 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
+                        @if ($deceased->purchased_by)
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
-                            <div id="purchased" class="col-md-6">
-                              <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)">{{ $deceased->purchased_by }}</textarea>
-                            </div>
-                        </div>
+                              <div id="purchased" class="col-md-6">
+                                <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)">{{ $deceased->purchased_by }}</textarea>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->additional_notes)
+                          <div class="row mb-3">
+                              <label for="additional_notes" class="col-md-4 col-form-label text-md-end">{{ __('Additional Notes') }}</label>
+
+                              <div id="additional_notes" class="col-md-6">
+                                <textarea class="form-control">{{ $deceased->additional_notes }}</textarea>
+                              </div>
+                          </div>
+                        @endif
 
                         <button data-deletebutton="deceased_{{ $deceased->id }}">
                           DELETE

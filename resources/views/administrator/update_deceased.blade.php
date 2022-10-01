@@ -137,11 +137,117 @@
                           </div> -->
 
                           <div class="row mb-3">
+                              <label for="father" class="col-md-4 col-form-label text-md-end">{{ __("Father's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="father" type="text" class="form-control @error('father_name') is-invalid @enderror" name="father_name" value="{{ $deceased->father_name }}" autocomplete="father" autofocus>
+
+                                  @error('father_name')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="mother" class="col-md-4 col-form-label text-md-end">{{ __("Mother's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="mother" type="text" class="form-control @error('mother_name') is-invalid @enderror" name="mother_name" value="{{ $deceased->mother_name }}" autocomplete="mother" autofocus>
+
+                                  @error('mother_name')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="title" class="col-md-4 col-form-label text-md-end">{{ __("Title") }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $deceased->title }}" autocomplete="title" autofocus>
+
+                                  @error('title')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="vocation" class="col-md-4 col-form-label text-md-end">{{ __("Vocation") }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="vocation" class="@error('map') is-invalid @enderror" name="vocation">
+                                    @if ($deceased->vocation == null)
+                                      <option selected value="null">
+                                        None
+                                      </option>
+                                      <option value="Priest">
+                                        Priest
+                                      </option>
+                                      <option value="Nun">
+                                        Nun
+                                      </option>
+                                      <option value="Monk">
+                                        Monk
+                                      </option>
+                                      <option value="Deacon">
+                                        Deacon
+                                      </option>
+                                    @else
+                                      <option value="null">
+                                        None
+                                      </option>
+                                      <option
+                                        @if ($deceased->vocation == 'priest')
+                                          selected
+                                        @endif
+                                        value="priest">
+                                        Priest
+                                      </option>
+                                      <option
+                                        @if ($deceased->vocation == 'nun')
+                                          selected
+                                        @endif
+                                        value="nun">
+                                        Nun
+                                      </option>
+                                      <option
+                                        @if ($deceased->vocation == 'monk')
+                                          selected
+                                        @endif
+                                        value="Monk">
+                                        Monk
+                                      </option>
+                                      <option
+                                        @if ($deceased->vocation == 'deacon')
+                                          selected
+                                        @endif
+                                        value="deacon">
+                                        Deacon
+                                      </option>
+                                    @endif
+                                  </select>
+
+                                  @error('vocation')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
                               <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Words on the Tombstone') }}</label>
 
                               <div class="col-md-6">
                                   <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
-                                  <textarea id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ $deceased->on_tombstone }}" autocomplete="onTombstone" autofocus rows="4"></textarea>
+                                  <textarea id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" autocomplete="onTombstone" autofocus rows="4">{{ $deceased->on_tombstone }}</textarea>
 
                                   @error('on_tombstone')
                                       <span class="invalid-feedback" role="alert">
@@ -357,6 +463,21 @@
 
                               <div class="col-md-6">
                                   <textarea id="purchased" name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purchase, etc.)">{{ $deceased->purchased_by }}</textarea>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="additional_notes" class="col-md-4 col-form-label text-md-end">{{ __('Additional Notes') }}</label>
+
+                              <div class="col-md-6">
+                                  <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
+                                  <textarea id="additional_notes" type="text" class="form-control @error('additional_notes') is-invalid @enderror" name="additional_notes" autocomplete="additional_notes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible to the public.">{{ $deceased->additional_notes }}</textarea>
+
+                                  @error('additional_notes')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
                               </div>
                           </div>
 

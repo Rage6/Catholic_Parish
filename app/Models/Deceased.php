@@ -17,6 +17,10 @@ class Deceased extends Model
       'suffix_name',
       'date_of_birth',
       'date_of_death',
+      'father_name',
+      'mother_name',
+      'title',
+      'vocation',
       'on_tombstone',
       'spouse',
       'children',
@@ -25,6 +29,7 @@ class Deceased extends Model
       // 'map_photo',
       'zone',
       'is_deceased',
-      'purchased_by'
+      'purchased_by',
+      'additional_notes'
     ];
 }

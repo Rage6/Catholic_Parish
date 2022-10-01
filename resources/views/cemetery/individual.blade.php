@@ -9,6 +9,9 @@
           In memory of
         </div>
         <div>
+          @if ($deceased->title)
+            {{ $deceased->title }}
+          @endif
           {{ $deceased->first_name }}
           {{ $deceased->last_name }}
           @if ($deceased->suffix_name)
@@ -82,6 +85,30 @@
             @endif
           </div>
         </div>
+        @if ($deceased->vocation)
+          <div class="basicElement">
+            <div>Vocation</div>
+            <div>
+              {{ $deceased->vocation }}
+            </div>
+          </div>
+        @endif
+        @if ($deceased->father_name)
+          <div class="basicElement">
+            <div>Father's Name</div>
+            <div>
+              {{ $deceased->father_name }}
+            </div>
+          </div>
+        @endif
+        @if ($deceased->mother_name)
+          <div class="basicElement">
+            <div>Mother's Name</div>
+            <div>
+              {{ $deceased->mother_name }}
+            </div>
+          </div>
+        @endif
         @if ($deceased->spouse)
           <div class="basicElement">
             <div>Spouse</div>

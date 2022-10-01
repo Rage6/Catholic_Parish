@@ -124,12 +124,71 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+                              <label for="father" class="col-md-4 col-form-label text-md-end">{{ __("Father's Name") }}</label>
 
                               <div class="col-md-6">
-                                  <input id="description" type="text" class="form-control @error('personal_description') is-invalid @enderror" name="personal_description" value="{{ old('personal_description') }}" autocomplete="description" autofocus>
+                                  <input id="father" type="text" class="form-control @error('father_name') is-invalid @enderror" name="father_name" value="{{ old('father_name') }}" autocomplete="father" autofocus>
 
-                                  @error('personal_description')
+                                  @error('father_name')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="father" class="col-md-4 col-form-label text-md-end">{{ __("Mother's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="father" type="text" class="form-control @error('mother_name') is-invalid @enderror" name="mother_name" value="{{ old('mother_name') }}" autocomplete="father" autofocus>
+
+                                  @error('mother_name')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="title" class="col-md-4 col-form-label text-md-end">{{ __("Title") }}</label>
+
+                              <div class="col-md-6">
+                                  <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
+
+                                  @error('title')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="vocation" class="col-md-4 col-form-label text-md-end">{{ __("Vocation") }}</label>
+
+                              <div class="col-md-6">
+                                  <!-- <input id="map" type="text" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
+                                  <select id="vocation" class="@error('map') is-invalid @enderror" name="vocation">
+                                    <option value="null">
+                                      None
+                                    </option>
+                                    <option value="Priest">
+                                      Priest
+                                    </option>
+                                    <option value="Nun">
+                                      Nun
+                                    </option>
+                                    <option value="Monk">
+                                      Monk
+                                    </option>
+                                    <option value="Deacon">
+                                      Deacon
+                                    </option>
+                                  </select>
+
+                                  @error('vocation')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
@@ -214,6 +273,9 @@
                               <div class="col-md-6">
                                   <!-- <input id="map" type="text" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
                                   <select id="map" class="@error('map') is-invalid @enderror" name="zone">
+                                    <option value="null">
+                                      Unknown
+                                    </option>
                                     <option value="nw">
                                       North West (NW)
                                     </option>
@@ -270,6 +332,21 @@
 
                               <div class="col-md-6">
                                   <textarea name="purchased_by" class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)"></textarea>
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Additional Notes') }}</label>
+
+                              <div class="col-md-6">
+                                  <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
+                                  <textarea id="addedNotes" type="text" class="form-control @error('additional_notes') is-invalid @enderror" name="additional_notes" value="{{ old('additional_notes') }}" autocomplete="addedNotes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible to the public."></textarea>
+
+                                  @error('additional_notes')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
                               </div>
                           </div>
 

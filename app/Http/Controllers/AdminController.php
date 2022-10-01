@@ -110,16 +110,29 @@ class AdminController extends Controller
         'suffix_name' => 'nullable',
         'date_of_birth' => 'nullable',
         'date_of_death' => 'nullable',
+        'father_name' => 'nullable',
+        'mother_name' => 'nullable',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
         'profile_photo' => 'file',
         'tombstone_photo' => 'file',
         // 'map_photo' => 'file',
-        'zone' => 'required',
+        'zone' => 'nullable',
         'purchased_by' => 'nullable',
-        'is_deceased' => 'required'
+        'is_deceased' => 'required',
+        'additional_notes' => 'nullable',
+        'vocation' => 'nullable',
+        'title' => 'nullable'
       ]);
+
+      if (request('vocation') == 'null') {
+        $input['vocation'] = null;
+      };
+
+      if (request('zone') == 'null') {
+        $input['zone'] = null;
+      };
 
       if (request('profile_photo')) {
         $input['profile_photo'] = request('profile_photo')->store('images');
@@ -317,6 +330,8 @@ class AdminController extends Controller
         'suffix_name' => 'nullable',
         'date_of_birth' => 'nullable',
         'date_of_death' => 'nullable',
+        'father_name' => 'nullable',
+        'mother_name' => 'nullable',
         'on_tombstone' => 'nullable',
         'spouse' => 'nullable',
         'children' => 'nullable',
@@ -325,8 +340,15 @@ class AdminController extends Controller
         // 'map_photo' => 'file',
         'zone' => 'required',
         'purchased_by' => 'nullable',
-        'is_deceased' => 'required'
+        'is_deceased' => 'required',
+        'vocation' => 'nullable',
+        'title' => 'nullable',
+        'additional_notes' => 'nullable'
       ]);
+
+      if ($request->vocation == 'null') {
+        $request->vocation = null;
+      };
 
       $deceased = Deceased::find($id);
       $deceased->first_name = $request->first_name;
@@ -336,11 +358,15 @@ class AdminController extends Controller
       $deceased->suffix_name = $request->suffix_name;
       $deceased->date_of_birth = $request->date_of_birth;
       $deceased->date_of_death = $request->date_of_death;
+      $deceased->father_name = $request->father_name;
+      $deceased->mother_name = $request->mother_name;
       $deceased->on_tombstone = $request->on_tombstone;
       $deceased->spouse = $request->spouse;
       $deceased->children = $request->children;
       $deceased->purchased_by = $request->purchased_by;
       $deceased->is_deceased = $request->is_deceased;
+      $deceased->vocation = $request->vocation;
+      $deceased->title = $request->title;
       if (request('profile_photo')) {
         $old_filename = $deceased->profile_photo;
         $request['profile_photo'] = request('profile_photo')->store('images');
@@ -369,6 +395,7 @@ class AdminController extends Controller
       //   };
       // };
       $deceased->zone = $request->zone;
+      $deceased->additional_notes = $request->additional_notes;
       $deceased->save();
 
       return redirect()->route('cemetery.allupdates',[
