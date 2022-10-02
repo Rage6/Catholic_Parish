@@ -369,6 +369,13 @@
                                   </div>
                                   <!-- <input id="map" type="file" class="form-control @error('map') is-invalid @enderror" name="map_photo" value="{{ old('map_photo') }}"> -->
                                   <select id="map" class="@error('map') is-invalid @enderror" name="zone">
+                                    <option value="null"
+                                      @if ($deceased->zone == null)
+                                        selected
+                                      @endif
+                                    >
+                                      Unknown
+                                    </option>
                                     <option value="nw"
                                       @if ($deceased->zone == "nw")
                                         selected
