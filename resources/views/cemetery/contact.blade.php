@@ -25,7 +25,7 @@
                   @endfor
                 </div>
                 <div>
-                  {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
+                  @if ($one_user->title) {{ $one_user->title }} @endif {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
                 </div>
               </div>
             @endforeach
@@ -42,7 +42,7 @@
                 <select class="contactInput" name="cem_recipient">
                   @foreach ($cem_user as $one_user)
                     <option value="{{ $one_user->id }}">
-                      {{ $one_user->first_name }} {{ $one_user->last_name }}
+                      @if ($one_user->title) {{ $one_user->title }} @endif {{ $one_user->first_name }} {{ $one_user->last_name }}
                       @if ($one_user->suffix_name)
                         {{ $one_user->suffix_name }}
                       @endif

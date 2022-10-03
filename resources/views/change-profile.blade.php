@@ -43,6 +43,13 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="titleNameInput" class="form-label">Title</label>
+                                <input name="title" type="text" value="{{ $current_user->title }}" placeholder="Fr., Sr., etc." class="form-control @error('title') is-invalid @enderror" id="titleNameInput">
+                                @error('title')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="emailInput" class="form-label">Email</label>
                                 <input name="email" type="email" value="{{ $current_user->email }}" class="form-control @error('email') is-invalid @enderror" id="email">
                                 @error('email')
