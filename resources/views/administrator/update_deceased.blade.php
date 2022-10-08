@@ -15,7 +15,8 @@
                       </div>
                     @endif
                     <div>
-                      <a href="{{ route('cemetery.allupdates') }}"><< BACK</a>
+                      @php $route_name = 'cemetery.all'.$type.'updates' @endphp
+                      <a href="{{ route($route_name) }}"><< BACK</a>
                     </div>
                     <div>
                       <div>

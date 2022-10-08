@@ -55,19 +55,6 @@ class AdminController extends Controller
       ]);
     }
 
-    public function show_deceased_all() {
-      $init_all_deceased = Deceased::all();
-      $all_deceased = [];
-      foreach ($init_all_deceased as $one_deceased) {
-        if ($one_deceased->is_deceased == true) {
-          $all_deceased[] = $one_deceased;
-        };
-      };
-      return view('administrator.all_show_deceased', [
-        'all_deceased' => $all_deceased
-      ]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -276,7 +263,16 @@ class AdminController extends Controller
         //
     }
 
-    public function update_deceased_all() {
+    public function update_deceased_options() {
+      $list_title = "UPDATE CEMETERY OPTIONS";
+      $list_route = "admin.index";
+      return view('administrator.options_update_deceased',[
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    public function update_deceased_current() {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
@@ -285,6 +281,9 @@ class AdminController extends Controller
 
       $all_permission_data = [];
 
+      $list_title = "UPDATE CURRENT DECEASED";
+      $list_route = "cemetery.updateoptions";
+
       for ($num = 0; $num < count($users_permissions); $num++) {
         $permission_data = new \stdClass;
         $permission_data->label_name = $users_permissions[$num][0];
@@ -292,19 +291,82 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
-      return view('administrator.all_update_deceased',[
+      return view('administrator.update_current_deceased',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
-        'all_deceased' => $all_deceased
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
       ]);
     }
 
-    public function update_deceased_form($id) {
+    public function update_deceased_available() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      $list_title = "UPDATE AVAILABLE PLOTS";
+      $list_route = "cemetery.updateoptions";
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      return view('administrator.update_available_plots',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    public function update_deceased_purchased() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      $list_title = "UPDATE PURCHASED PLOTS";
+      $list_route = "cemetery.updateoptions";
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      return view('administrator.update_purchased_plots',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    public function update_deceased_form($id,$type) {
       $this_deceased = Deceased::find($id);
       return view('administrator.update_deceased',[
-        'deceased' => $this_deceased
+        'deceased' => $this_deceased,
+        'type' => $type
       ]);
     }
 
@@ -401,7 +463,7 @@ class AdminController extends Controller
       $deceased->additional_notes = $request->additional_notes;
       $deceased->save();
 
-      return redirect()->route('cemetery.allupdates',[
+      return redirect()->route('cemetery.updateoptions',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions
@@ -420,7 +482,7 @@ class AdminController extends Controller
       $this_deceased->profile_photo = null;
       $this_deceased->save();
 
-      return redirect()->route('cemetery.allupdates',[
+      return redirect()->route('cemetery.updateoptions',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions
@@ -439,7 +501,7 @@ class AdminController extends Controller
       $this_deceased->tombstone_photo = null;
       $this_deceased->save();
 
-      return redirect()->route('cemetery.allupdates',[
+      return redirect()->route('cemetery.updateoptions',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions
@@ -458,7 +520,7 @@ class AdminController extends Controller
     //   $this_deceased->map_photo = null;
     //   $this_deceased->save();
     //
-    //   return redirect()->route('cemetery.allupdates',[
+    //   return redirect()->route('cemetery.updateoptions',[
     //     'current_user' => $current_user,
     //     'user_roles' => $user_roles,
     //     'users_permissions' => $users_permissions
@@ -476,7 +538,41 @@ class AdminController extends Controller
         //
     }
 
-    public function delete_deceased_all() {
+    public function delete_deceased_options() {
+      $list_title = "CEMETERY DELETION OPTIONS";
+      $list_route = "admin.index";
+      return view('administrator.options_delete_deceased',[
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    // public function delete_deceased_all() {
+    //   $current_user = Auth::user();
+    //   $user_roles = User::find($current_user->id)->all_user_roles;
+    //   $role_model = new Role();
+    //   $users_permissions = $role_model->users_permissions($current_user->id);
+    //   $all_deceased = Deceased::all();
+    //
+    //   $all_permission_data = [];
+    //
+    //   for ($num = 0; $num < count($users_permissions); $num++) {
+    //     $permission_data = new \stdClass;
+    //     $permission_data->label_name = $users_permissions[$num][0];
+    //     $permission_data->data = $users_permissions[$num];
+    //     $all_permission_data[] = $permission_data;
+    //   };
+    //
+    //   return view('administrator.all_delete_deceased',[
+    //     'current_user' => $current_user,
+    //     'user_roles' => $user_roles,
+    //     'users_permissions' => $users_permissions,
+    //     'all_permission_data' => $all_permission_data,
+    //     'all_deceased' => $all_deceased
+    //   ]);
+    // }
+
+    public function delete_deceased_available() {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
@@ -492,18 +588,85 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
-      return view('administrator.all_delete_deceased',[
+      $list_title = "DELETE AVAILABLE PLOTS";
+      $list_route = "cemetery.deleteoptions";
+
+      return view('administrator.delete_available_plots',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
-        'all_deceased' => $all_deceased
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
       ]);
     }
 
-    public function delete_deceased_form($id) {
+    public function delete_deceased_current() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      $list_title = "DELETE CURRENT DECEASED";
+      $list_route = "cemetery.deleteoptions";
+
+      return view('administrator.delete_current_deceased',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    public function delete_deceased_purchased() {
+      $current_user = Auth::user();
+      $user_roles = User::find($current_user->id)->all_user_roles;
+      $role_model = new Role();
+      $users_permissions = $role_model->users_permissions($current_user->id);
+      $all_deceased = Deceased::all();
+
+      $all_permission_data = [];
+
+      for ($num = 0; $num < count($users_permissions); $num++) {
+        $permission_data = new \stdClass;
+        $permission_data->label_name = $users_permissions[$num][0];
+        $permission_data->data = $users_permissions[$num];
+        $all_permission_data[] = $permission_data;
+      };
+
+      $list_title = "DELETE PURCHASED PLOTS";
+      $list_route = "cemetery.deleteoptions";
+
+      return view('administrator.delete_purchased_plots',[
+        'current_user' => $current_user,
+        'user_roles' => $user_roles,
+        'users_permissions' => $users_permissions,
+        'all_permission_data' => $all_permission_data,
+        'all_deceased' => $all_deceased,
+        'list_title' => $list_title,
+        'list_route' => $list_route
+      ]);
+    }
+
+    public function delete_deceased_form($id,$type) {
       $this_deceased = Deceased::find($id);
       return view('administrator.delete_deceased',[
+        'deceased' => $this_deceased,
+        'type' => $type,
         'deceased' => $this_deceased
       ]);
     }

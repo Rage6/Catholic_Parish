@@ -35,11 +35,6 @@
                     </div>
                   @endforeach
                   <br>
-                  <a href="{{route('cemetery.allShown')}}">
-                    <button class="btn btn-primary">
-                      LIST OF DECEASED IN CEMETERY
-                    </button>
-                  </a>
                   </div>
                 </div>
             </div>

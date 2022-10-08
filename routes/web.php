@@ -41,7 +41,6 @@ Route::middleware('auth')->group(function() {
   Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
   Route::get('/delete-user',[App\Http\Controllers\HomeController::class,'delete_user_form'])->name('home.delete-form');
   Route::delete('/delete-user_action',[App\Http\Controllers\HomeController::class,'delete_user_action'])->name('home.delete-action');
-  Route::get('/list-in-cemetery', [App\Http\Controllers\AdminController::class, 'show_deceased_all'])->name('cemetery.allShown');
   // Route::middleware(['permission:Administer The Website'])->group(function() {
   Route::middleware('access')->group(function() {
     // Administrator homepage
@@ -57,9 +56,15 @@ Route::middleware('auth')->group(function() {
     });
     Route::middleware(['permission:Edit Deceased'])->group(function() {
       // Go to overall list of deceased for editing data
-      Route::get('/edit-deceased', [App\Http\Controllers\AdminController::class,'update_deceased_all'])->name('cemetery.allupdates');
+      Route::get('/edit-deceased', [App\Http\Controllers\AdminController::class,'update_deceased_options'])->name('cemetery.updateoptions');
+      // Updating a list of ONLY the plots already filled
+      Route::get('/edit-deceased/current', [App\Http\Controllers\AdminController::class,'update_deceased_current'])->name('cemetery.allcurrentupdates');
+      // Updating a list of ONLY the available plots
+      Route::get('/edit-deceased/available', [App\Http\Controllers\AdminController::class,'update_deceased_available'])->name('cemetery.allavailableupdates');
+      // Updating a list of ONLY the purchased plots
+      Route::get('/edit-deceased/purchased', [App\Http\Controllers\AdminController::class,'update_deceased_purchased'])->name('cemetery.allpurchasedupdates');
       // Provide form to update an existing deceased
-      Route::get('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_form']);
+      Route::get('/deceased/{id}/update/{type}', [App\Http\Controllers\AdminController::class,'update_deceased_form'])->name('cemetery.updateform');
       // Update the existing deceased member
       Route::put('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
       Route::put('/deceased/{id}/delete-profile-photo',[App\Http\Controllers\AdminController::class,'delete_deceased_profile'])->name('cemetery.deleteProfile');
@@ -67,10 +72,16 @@ Route::middleware('auth')->group(function() {
       // Route::put('/deceased/{id}/delete-map-photo',[App\Http\Controllers\AdminController::class,'delete_deceased_map'])->name('cemetery.deleteMap');
     });
     Route::middleware(['permission:Delete Deceased'])->group(function() {
-      // Go to overall list of deceased for deleting data
-      Route::get('/delete-deceased', [App\Http\Controllers\AdminController::class,'delete_deceased_all'])->name('cemetery.alldeletes');
+      // Go to overall list of deletion options
+      Route::get('/delete-deceased', [App\Http\Controllers\AdminController::class,'delete_deceased_options'])->name('cemetery.deleteoptions');
+      // Deleting a list of ONLY the plots already filled
+      Route::get('/delete-deceased/current', [App\Http\Controllers\AdminController::class,'delete_deceased_current'])->name('cemetery.allcurrentdeletes');
+      // Deleting a list of ONLY the available plots
+      Route::get('/delete-deceased/available', [App\Http\Controllers\AdminController::class,'delete_deceased_available'])->name('cemetery.allavailabledeletes');
+      // Deleting a list of ONLY the purchased plots
+      Route::get('/delete-deceased/purchased', [App\Http\Controllers\AdminController::class,'delete_deceased_purchased'])->name('cemetery.allpurchaseddeletes');
       // Provide form to confirm that this deceased record should be deleted
-      Route::get('/deceased/{id}/delete', [App\Http\Controllers\AdminController::class,'delete_deceased_form']);
+      Route::get('/deceased/{id}/delete/{type}', [App\Http\Controllers\AdminController::class,'delete_deceased_form'])->name('cemetery.deleteform');
       // Delete the existing deceased member
       Route::delete('/deceased/{id}/delete',[App\Http\Controllers\AdminController::class,'delete_deceased'])->name('cemetery.delete');
     });
