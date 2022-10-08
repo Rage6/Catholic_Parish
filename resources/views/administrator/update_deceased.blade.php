@@ -300,7 +300,8 @@
                                   @if ($deceased->profile_photo)
                                     <button
                                       class="btn btn-danger"
-                                      formaction="{{ route('cemetery.deleteProfile',['id' => $deceased->id]) }}">
+                                      name="action"
+                                      value="profile">
                                       X
                                     </button>
                                   @endif
@@ -333,7 +334,8 @@
                                   @if ($deceased->tombstone_photo)
                                     <button
                                       class="btn btn-danger"
-                                      formaction="{{ route('cemetery.deleteTombstone',['id' => $deceased->id]) }}">
+                                      name="action"
+                                      value="tombstone">
                                       X
                                     </button>
                                   @endif
@@ -491,7 +493,7 @@
 
                           <div class="row mb-0">
                               <div class="col-md-6 offset-md-4">
-                                  <button type="submit" class="btn btn-primary">
+                                  <button type="submit" name="action" value="update" class="btn btn-primary">
                                     UPDATE
                                   </button>
                               </div>

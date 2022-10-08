@@ -405,7 +405,8 @@ class AdminController extends Controller
         'is_deceased' => 'required',
         'vocation' => 'nullable',
         'title' => 'nullable',
-        'additional_notes' => 'nullable'
+        'additional_notes' => 'nullable',
+        'action' => 'required'
       ]);
 
       if ($request->vocation == 'null') {
@@ -429,6 +430,8 @@ class AdminController extends Controller
       $deceased->is_deceased = $request->is_deceased;
       $deceased->vocation = $request->vocation;
       $deceased->title = $request->title;
+
+      if ($request->action == "update") {
       if (request('profile_photo')) {
         $old_filename = $deceased->profile_photo;
         $request['profile_photo'] = request('profile_photo')->store('public/images');
@@ -462,44 +465,17 @@ class AdminController extends Controller
       $deceased->zone = $request->zone;
       $deceased->additional_notes = $request->additional_notes;
       $deceased->save();
-
-      return redirect()->route('cemetery.updateoptions',[
-        'current_user' => $current_user,
-        'user_roles' => $user_roles,
-        'users_permissions' => $users_permissions
-      ]);
-    }
-
-    public function delete_deceased_profile(Request $request, $id)
-    {
-      $current_user = Auth::user();
-      $user_roles = User::find($current_user->id)->all_user_roles;
-      $role_model = new Role();
-      $users_permissions = $role_model->users_permissions($current_user->id);
-
-      $this_deceased = Deceased::find($id);
-      Storage::delete('public/'.$this_deceased->profile_photo);
-      $this_deceased->profile_photo = null;
-      $this_deceased->save();
-
-      return redirect()->route('cemetery.updateoptions',[
-        'current_user' => $current_user,
-        'user_roles' => $user_roles,
-        'users_permissions' => $users_permissions
-      ]);
-    }
-
-    public function delete_deceased_tombstone(Request $request, $id)
-    {
-      $current_user = Auth::user();
-      $user_roles = User::find($current_user->id)->all_user_roles;
-      $role_model = new Role();
-      $users_permissions = $role_model->users_permissions($current_user->id);
-
+    } elseif ($request->action == "tombstone") {
       $this_deceased = Deceased::find($id);
       Storage::delete('public/'.$this_deceased->tombstone_photo);
       $this_deceased->tombstone_photo = null;
       $this_deceased->save();
+    } elseif ($request->action == "profile") {
+      $this_deceased = Deceased::find($id);
+      Storage::delete('public/'.$this_deceased->profile_photo);
+      $this_deceased->profile_photo = null;
+      $this_deceased->save();
+    };
 
       return redirect()->route('cemetery.updateoptions',[
         'current_user' => $current_user,
@@ -507,6 +483,44 @@ class AdminController extends Controller
         'users_permissions' => $users_permissions
       ]);
     }
+
+    // public function delete_deceased_profile(Request $request, $id)
+    // {
+    //   $current_user = Auth::user();
+    //   $user_roles = User::find($current_user->id)->all_user_roles;
+    //   $role_model = new Role();
+    //   $users_permissions = $role_model->users_permissions($current_user->id);
+    //
+    //   $this_deceased = Deceased::find($id);
+    //   Storage::delete('public/'.$this_deceased->profile_photo);
+    //   $this_deceased->profile_photo = null;
+    //   $this_deceased->save();
+    //
+    //   return redirect()->route('cemetery.updateoptions',[
+    //     'current_user' => $current_user,
+    //     'user_roles' => $user_roles,
+    //     'users_permissions' => $users_permissions
+    //   ]);
+    // }
+
+    // public function delete_deceased_tombstone(Request $request, $id)
+    // {
+    //   $current_user = Auth::user();
+    //   $user_roles = User::find($current_user->id)->all_user_roles;
+    //   $role_model = new Role();
+    //   $users_permissions = $role_model->users_permissions($current_user->id);
+    //
+    //   $this_deceased = Deceased::find($id);
+    //   Storage::delete('public/'.$this_deceased->tombstone_photo);
+    //   $this_deceased->tombstone_photo = null;
+    //   $this_deceased->save();
+    //
+    //   return redirect()->route('cemetery.updateoptions',[
+    //     'current_user' => $current_user,
+    //     'user_roles' => $user_roles,
+    //     'users_permissions' => $users_permissions
+    //   ]);
+    // }
 
     // public function delete_deceased_map(Request $request, $id)
     // {

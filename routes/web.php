@@ -67,9 +67,6 @@ Route::middleware('auth')->group(function() {
       Route::get('/deceased/{id}/update/{type}', [App\Http\Controllers\AdminController::class,'update_deceased_form'])->name('cemetery.updateform');
       // Update the existing deceased member
       Route::put('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
-      Route::put('/deceased/{id}/delete-profile-photo',[App\Http\Controllers\AdminController::class,'delete_deceased_profile'])->name('cemetery.deleteProfile');
-      Route::put('/deceased/{id}/delete-tombstone-photo',[App\Http\Controllers\AdminController::class,'delete_deceased_tombstone'])->name('cemetery.deleteTombstone');
-      // Route::put('/deceased/{id}/delete-map-photo',[App\Http\Controllers\AdminController::class,'delete_deceased_map'])->name('cemetery.deleteMap');
     });
     Route::middleware(['permission:Delete Deceased'])->group(function() {
       // Go to overall list of deletion options
