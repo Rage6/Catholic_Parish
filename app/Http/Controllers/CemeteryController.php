@@ -220,12 +220,14 @@ class CemeteryController extends Controller
       $deceased = Deceased::all();
       // Gets a fixed number of random deceased names
       $name_list = [];
+      $id_list = [];
       foreach ($deceased as $random) {
         if ($random->is_deceased == 1) {
           if ($random->suffix_name) {
             $random->last_name = $random->last_name." ".$random->suffix_name;
           };
           $name_list[] = [$random->first_name,$random->last_name];
+          $id_list[] = $random->id;
         };
       };
       $min_number = 20;
@@ -235,17 +237,20 @@ class CemeteryController extends Controller
         $last_number = $min_number;
       };
       $random_list = [];
+      $random_id_list = [];
       for ($num = 0; $num < $last_number; $num++) {
         $selected = random_int(0,count($name_list)-1);
         $new_name = $name_list[$selected];
+        $new_id = $id_list[$selected];
         $is_new = true;
-        for ($check = 0; $check < count($random_list); $check++) {
-          if ($random_list[$check] == $new_name) {
+        for ($check = 0; $check < count($random_id_list); $check++) {
+          if ($random_id_list[$check] == $new_id) {
             $is_new = false;
           };
         };
         if ($is_new == true) {
           $random_list[] = $new_name;
+          $random_id_list[] = $new_id;
         } else {
           $num--;
         };
