@@ -125,6 +125,30 @@
                           </div>
                         @endif
 
+                        @if ($deceased->title)
+                          <div class="row mb-3">
+                              <label for="title" class="col-md-4 col-form-label text-md-end">{{ __("Title") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="title" class="form-control">
+                                    {{ $deceased->title }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->vocation)
+                          <div class="row mb-3">
+                              <label for="vocation" class="col-md-4 col-form-label text-md-end">{{ __("Vocation") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="vocation" class="form-control">
+                                    {{ $deceased->vocation }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
                         @if ($deceased->on_tombstone)
                           <div class="row mb-3">
                               <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Words on the Tombstone') }}</label>

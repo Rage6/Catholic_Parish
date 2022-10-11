@@ -53,6 +53,9 @@
                   >
                     <div>
                       <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
+                        @if ($one_deceased->title)
+                          {{ $one_deceased->title }}
+                        @endif
                         {{ $one_deceased->first_name }}
                         @if ($one_deceased->maiden_name)
                           {{ "(".$one_deceased->maiden_name.") " }}

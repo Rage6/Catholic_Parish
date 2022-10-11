@@ -277,7 +277,8 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where('is_deceased',1)->paginate(20);
 
       $all_permission_data = [];
 
@@ -291,14 +292,15 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
-      return view('administrator.update_current_deceased',[
+      return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'current'
       ]);
     }
 
@@ -307,7 +309,11 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where([
+        ['is_deceased',0],
+        ['purchased_by',null]
+      ])->paginate(20);
 
       $all_permission_data = [];
 
@@ -321,14 +327,15 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
-      return view('administrator.update_available_plots',[
+      return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'available'
       ]);
     }
 
@@ -337,8 +344,11 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
-
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where([
+        ['is_deceased',0],
+        ['purchased_by','!=',null]
+      ])->paginate(20);
       $all_permission_data = [];
 
       $list_title = "UPDATE PURCHASED PLOTS";
@@ -351,14 +361,15 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
-      return view('administrator.update_purchased_plots',[
+      return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'purchased'
       ]);
     }
 
@@ -591,7 +602,11 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where([
+        ['is_deceased',0],
+        ['purchased_by',null]
+      ])->paginate(20);
 
       $all_permission_data = [];
 
@@ -605,14 +620,15 @@ class AdminController extends Controller
       $list_title = "DELETE AVAILABLE PLOTS";
       $list_route = "cemetery.deleteoptions";
 
-      return view('administrator.delete_available_plots',[
+      return view('administrator.delete_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'available'
       ]);
     }
 
@@ -621,7 +637,8 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where('is_deceased',1)->paginate(20);
 
       $all_permission_data = [];
 
@@ -635,14 +652,15 @@ class AdminController extends Controller
       $list_title = "DELETE CURRENT DECEASED";
       $list_route = "cemetery.deleteoptions";
 
-      return view('administrator.delete_current_deceased',[
+      return view('administrator.delete_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'current'
       ]);
     }
 
@@ -651,7 +669,11 @@ class AdminController extends Controller
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
-      $all_deceased = Deceased::all();
+      // $all_deceased = Deceased::all();
+      $all_deceased = Deceased::where([
+        ['is_deceased',0],
+        ['purchased_by','!=',null]
+      ])->paginate(20);
 
       $all_permission_data = [];
 
@@ -665,14 +687,15 @@ class AdminController extends Controller
       $list_title = "DELETE PURCHASED PLOTS";
       $list_route = "cemetery.deleteoptions";
 
-      return view('administrator.delete_purchased_plots',[
+      return view('administrator.delete_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
         'users_permissions' => $users_permissions,
         'all_permission_data' => $all_permission_data,
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
-        'list_route' => $list_route
+        'list_route' => $list_route,
+        'type' => 'purchased'
       ]);
     }
 

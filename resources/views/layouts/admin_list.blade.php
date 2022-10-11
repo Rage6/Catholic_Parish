@@ -26,6 +26,9 @@
                       @yield('list')
                     </div>
                   </div>
+                  @if (isset($all_deceased))
+                    {{ $all_deceased->links('pagination::cemetery-list') }}
+                  @endif
                 </div>
             </div>
         </div>

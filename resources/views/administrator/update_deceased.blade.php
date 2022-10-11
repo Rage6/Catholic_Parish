@@ -205,31 +205,31 @@
                                         None
                                       </option>
                                       <option
-                                        @if ($deceased->vocation == 'priest')
+                                        @if ($deceased->vocation == 'Priest')
                                           selected
                                         @endif
-                                        value="priest">
+                                        value="Priest">
                                         Priest
                                       </option>
                                       <option
-                                        @if ($deceased->vocation == 'nun')
+                                        @if ($deceased->vocation == 'Nun')
                                           selected
                                         @endif
-                                        value="nun">
+                                        value="Nun">
                                         Nun
                                       </option>
                                       <option
-                                        @if ($deceased->vocation == 'monk')
+                                        @if ($deceased->vocation == 'Monk')
                                           selected
                                         @endif
                                         value="Monk">
                                         Monk
                                       </option>
                                       <option
-                                        @if ($deceased->vocation == 'deacon')
+                                        @if ($deceased->vocation == 'Deacon')
                                           selected
                                         @endif
-                                        value="deacon">
+                                        value="Deacon">
                                         Deacon
                                       </option>
                                     @endif

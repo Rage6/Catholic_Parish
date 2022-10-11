@@ -223,6 +223,9 @@ class CemeteryController extends Controller
       $id_list = [];
       foreach ($deceased as $random) {
         if ($random->is_deceased == 1) {
+          if ($random->title) {
+            $random->first_name = $random->title." ".$random->first_name;
+          };
           if ($random->suffix_name) {
             $random->last_name = $random->last_name." ".$random->suffix_name;
           };
