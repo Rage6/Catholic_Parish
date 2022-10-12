@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'Verdana', sans-serif;
 }
 
 .allContent {
@@ -8,7 +9,8 @@ body {
 }
 
 .primaryFont {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'Verdana', sans-serif;
   /* font-family: 'EB Garamond', serif; */
   color: white;
 }
