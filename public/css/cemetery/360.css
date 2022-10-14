@@ -42,7 +42,7 @@
 
 .introTitle {
   margin: 0 10vw;
-  padding: 1vh 10vw 0 10vw;
+  padding: 1vh 10vw;
   border-radius: 0 0 5px 5px;
   font-size: 2.5rem;
   color: gold;
@@ -325,6 +325,7 @@
 }
 
 .searchTitle {
+  padding-bottom: 1vh;
   color: gold;
 }
 
@@ -425,6 +426,10 @@
   font-size: 1.5rem;
 }
 
+.basicInfoSection div p {
+  line-height: 1.3;
+}
+
 .riteSection {
   color: white;
   background-color: rgb(105, 30, 32);
@@ -490,7 +495,12 @@
   background-color: rgb(105, 30, 32);
 }
 
+.emptyPlotsInfoSection div p {
+  margin-bottom: 50px;
+}
+
 .emptyPlotCount {
+  margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid white;
   padding: 10px 6%;
@@ -521,12 +531,15 @@
 }
 
 .roleElement {
+  margin-bottom: 20px;
   font-size: 1.5rem;
   text-align: center;
   width: 70%;
 }
 
 .roleTitle {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
   border-bottom: 2px solid white;
   font-size: 1.1rem;
   text-align: left;
@@ -545,16 +558,22 @@
 }
 
 .contactTextarea {
+  margin-top: 5px;
   width: 100%;
   height: 40vh;
 }
 
 .contactForm button {
+  margin-top: 20px;
   border-radius: 20px;
   padding: 10px 5%;
   font-size: 1.2rem;
   color: rgb(105, 30, 32);
   background-color: gold;
+}
+
+.contactField {
+  margin-bottom: 20px;
 }
 
 /* CEMETERY.LIST */
@@ -598,6 +617,7 @@ nav {
 }
 
 .backBttn {
+  padding-bottom: 5vh;
   font-size: 1.2rem;
 }
 
