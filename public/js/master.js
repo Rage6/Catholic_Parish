@@ -1,5 +1,22 @@
 $(()=>{
 
+  $(document).ready(function () {
+    // Initially displays the available photo
+    if ($("[data-type='profile']").length > 0) {
+      switchSelectedPhotos('profile');
+    } else if ($("[data-type='tombstone']").length > 0) {
+      switchSelectedPhotos('tombstone');
+    } else if ($("[data-type='map']").length > 0) {
+      switchSelectedPhotos('map');
+    } else {
+      console.log("No photos were available");
+    };
+
+    $("[data-size='thumbnail']").click(function(e) {
+      switchSelectedPhotos(e.target.dataset.type);
+    });
+  });
+
   // Opens/closes the main menu at the top
   $("#mainMenuBttn").click(()=>{
     var tableLeft = $("#mainMenuTable").css('left');
@@ -58,20 +75,5 @@ $(()=>{
     var selected = "[data-size='main'][data-type='" + typeName + "']";
     $(selected).css('display','block');
   };
-
-  // Initially displays the available photo
-  if ($("[data-type='profile']").length > 0) {
-    switchSelectedPhotos('profile');
-  } else if ($("[data-type='tombstone']").length > 0) {
-    switchSelectedPhotos('tombstone');
-  } else if ($("[data-type='map']").length > 0) {
-    switchSelectedPhotos('map');
-  } else {
-    console.log("No photos were available");
-  };
-
-  $("[data-size='thumbnail']").click(function(e) {
-    switchSelectedPhotos(e.target.dataset.type);
-  });
 
 })
