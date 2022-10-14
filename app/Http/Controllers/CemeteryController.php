@@ -193,7 +193,7 @@ class CemeteryController extends Controller
         };
         return view('cemetery.list',[
           'css' => 'cemetery',
-          'all_deceased' => Deceased::where('is_deceased','=','1')->paginate(20),
+          'all_deceased' => Deceased::where('is_deceased','=','1')->orderBy('last_name','ASC')->orderBy('first_name','ASC')->orderBy('maiden_name','ASC')->paginate(20),
           'all_results' => $all_results
         ]);
     }

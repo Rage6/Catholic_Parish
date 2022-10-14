@@ -42,6 +42,7 @@
             <div class="resultList">
               @foreach ($all_deceased as $one_deceased)
                 @if ($one_deceased->is_deceased == 1)
+                  <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
                   <div
                     class="resultRow"
                     data-id="{{ $one_deceased->id }}"
@@ -52,7 +53,7 @@
                     @endif
                   >
                     <div>
-                      <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
+                      <!-- <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}"> -->
                         @if ($one_deceased->title)
                           {{ $one_deceased->title }}
                         @endif
@@ -64,7 +65,7 @@
                         @if ($one_deceased->suffix_name)
                           {{ $one_deceased->suffix_name }}
                         @endif
-                      </a>
+                      <!-- </a> -->
                     </div>
                     <div class="minWidth">
                       @if ($one_deceased->date_of_birth)
@@ -111,6 +112,7 @@
                       {{ $dod }}
                     </div>
                   </div>
+                  </a>
                 @endif
               @endforeach
             </div>

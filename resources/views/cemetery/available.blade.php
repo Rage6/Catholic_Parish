@@ -20,7 +20,7 @@
           </div>
         @else
           <div class="emptyPlotCount">
-            There are no available plots at this time. Any questions about the cemetery can be messaged to the Cemetery Manager by the "Contact Us" information below.
+            There are no available plots at this time. For any questions, please contact the parish staff on the <a style="color:gold" href="{{ route('cemetery.contact') }}">"Contact Us"</a> page.
           </div>
         @endif
         <p>

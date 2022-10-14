@@ -30,7 +30,11 @@
           <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/images/overview_{{ $deceased->zone }}.jpg')"></div>
         @endif
         @if ($deceased->profile_photo == null && $deceased->tombstone_photo == null && $deceased->zone == null)
-          <div class="photoProfile">NO PHOTOS AVAILABLE</div>
+          <div class="photoProfile" style="display:flex;flex-direction:column;justify-content:center">
+            <div style="text-align:center">
+              NO PHOTOS FOUND
+            </div>
+          </div>
         @endif
         <div class="photoMenu">
           @if ($deceased->profile_photo != null)

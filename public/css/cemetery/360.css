@@ -385,6 +385,7 @@
 }
 
 .listTitles {
+  text-align: center;
   display: none;
 }
 
@@ -395,7 +396,7 @@
 .resultRow {
   margin-bottom: 20px;
   border: 1px dashed gold;
-  padding: 0 5%;
+  padding: 10px 5%;
   display: grid;
   grid-template-rows: auto auto;
 }

@@ -703,6 +703,7 @@
 }
 
 .resultBox {
+  padding: 10px 5%;
   max-height: none;
 }
 
@@ -722,6 +723,7 @@
 
 .maxWidth {
   display: grid;
+  text-align: center;
 }
 
 .minWidth {
@@ -729,7 +731,6 @@
 }
 
 .resultRow {
-  grid-template-rows: 60px;
   grid-template-columns: 33% 34% 33%;
 }
 
