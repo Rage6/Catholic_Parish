@@ -108,7 +108,7 @@
                 <div class="loginBttn">
                   <a href="{{ route('login') }}">Log in</a>
                 </div>
-                @if (Route::has('register'))
+                @if (Route::has('register') && env('PUBLIC_REGISTRATION'))
                   <div>
                     <a href="{{ route('register') }}">Register</a>
                   </div>
