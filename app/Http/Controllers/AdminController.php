@@ -121,12 +121,18 @@ class AdminController extends Controller
         $input['zone'] = null;
       };
 
+      if (explode(":",$_SERVER['HTTP_HOST'])[0] == 'localhost') {
+        $storagePath = 'images';
+      } else {
+        $storagePath = 'public/images';
+      };
+
       if (request('profile_photo')) {
-        $input['profile_photo'] = request('profile_photo')->store('images');
+        $input['profile_photo'] = request('profile_photo')->store($storagePath);
       };
 
       if (request('tombstone_photo')) {
-        $input['tombstone_photo'] = request('tombstone_photo')->store('images');
+        $input['tombstone_photo'] = request('tombstone_photo')->store($storagePath);
       };
 
       // if (request('map_photo')) {
@@ -442,51 +448,57 @@ class AdminController extends Controller
       $deceased->vocation = $request->vocation;
       $deceased->title = $request->title;
 
+      if (explode(":",$_SERVER['HTTP_HOST'])[0] == 'localhost') {
+        $storagePath = 'images';
+      } else {
+        $storagePath = 'public/images';
+      };
+
       if ($request->action == "update") {
-      if (request('profile_photo')) {
-        $old_filename = $deceased->profile_photo;
-        $request['profile_photo'] = request('profile_photo')->store('public/images');
-        $filename = request('profile_photo')->hashName();
-        $deceased->profile_photo = "images/".$filename;
-        if ($old_filename != null) {
-          Storage::delete('public/'.$old_filename);
+        if (request('profile_photo')) {
+          $old_filename = $deceased->profile_photo;
+          $request['profile_photo'] = request('profile_photo')->store($storagePath);
+          $filename = request('profile_photo')->hashName();
+          $deceased->profile_photo = $storagePath."/".$filename;
+          if ($old_filename != null) {
+            Storage::delete($old_filename);
+          };
         };
-      };
-      if (request('tombstone_photo')) {
-        $old_filename = $deceased->tombstone_photo;
-        $request['tombstone_photo'] = request('tombstone_photo')->store('public/images');
-        $filename = request('tombstone_photo')->hashName();
-        $deceased->tombstone_photo = "images/".$filename;
-        if ($old_filename != null) {
-          Storage::delete('public/'.$old_filename);
+        if (request('tombstone_photo')) {
+          $old_filename = $deceased->tombstone_photo;
+          $request['tombstone_photo'] = request('tombstone_photo')->store($storagePath);
+          $filename = request('tombstone_photo')->hashName();
+          $deceased->tombstone_photo = $storagePath."/".$filename;
+          if ($old_filename != null) {
+            Storage::delete($old_filename);
+          };
         };
+        // if (request('map_photo')) {
+        //   $old_filename = $deceased->map_photo;
+        //   $request['map_photo'] = request('map_photo')->store('images');
+        //   $filename = request('map_photo')->hashName();
+        //   $deceased->map_photo = "images/".$filename;
+        //   if ($old_filename != null) {
+        //     Storage::delete($old_filename);
+        //   };
+        // };
+        if ($request->zone == 'null') {
+          $request->zone = null;
+        };
+        $deceased->zone = $request->zone;
+        $deceased->additional_notes = $request->additional_notes;
+        $deceased->save();
+      } elseif ($request->action == "tombstone") {
+        $this_deceased = Deceased::find($id);
+        Storage::delete($this_deceased->tombstone_photo);
+        $this_deceased->tombstone_photo = null;
+        $this_deceased->save();
+      } elseif ($request->action == "profile") {
+        $this_deceased = Deceased::find($id);
+        Storage::delete($this_deceased->profile_photo);
+        $this_deceased->profile_photo = null;
+        $this_deceased->save();
       };
-      // if (request('map_photo')) {
-      //   $old_filename = $deceased->map_photo;
-      //   $request['map_photo'] = request('map_photo')->store('images');
-      //   $filename = request('map_photo')->hashName();
-      //   $deceased->map_photo = "images/".$filename;
-      //   if ($old_filename != null) {
-      //     Storage::delete($old_filename);
-      //   };
-      // };
-      if ($request->zone == 'null') {
-        $request->zone = null;
-      };
-      $deceased->zone = $request->zone;
-      $deceased->additional_notes = $request->additional_notes;
-      $deceased->save();
-    } elseif ($request->action == "tombstone") {
-      $this_deceased = Deceased::find($id);
-      Storage::delete('public/'.$this_deceased->tombstone_photo);
-      $this_deceased->tombstone_photo = null;
-      $this_deceased->save();
-    } elseif ($request->action == "profile") {
-      $this_deceased = Deceased::find($id);
-      Storage::delete('public/'.$this_deceased->profile_photo);
-      $this_deceased->profile_photo = null;
-      $this_deceased->save();
-    };
 
       return redirect()->route('cemetery.updateoptions',[
         'current_user' => $current_user,
@@ -716,10 +728,10 @@ class AdminController extends Controller
 
       $deceased = Deceased::find($id);
       if ($deceased->profile_photo) {
-        Storage::delete('public/'.$deceased->profile_photo);
+        Storage::delete($deceased->profile_photo);
       };
       if ($deceased->tombstone_photo) {
-        Storage::delete('public/'.$deceased->tombstone_photo);
+        Storage::delete($deceased->tombstone_photo);
       };
       // if ($deceased->map_photo) {
       //   Storage::delete($deceased->map_photo);
