@@ -712,7 +712,7 @@
   border-bottom: 2px solid gold;
   padding-bottom: 10px;
   display: grid;
-  grid-template-columns: 33% 34% 33%;
+  grid-template-columns: 35% 15% 25% 25%;
 }
 
 .resultList {
@@ -731,7 +731,9 @@
 }
 
 .resultRow {
-  grid-template-columns: 33% 34% 33%;
+  /* grid-template-columns: 33% 34% 33%; */
+  grid-template-columns: 35% 15% 25% 25%;
+  font-size: 1.1rem;
 }
 
 /* CEMETERY.INDIVIDUAL */

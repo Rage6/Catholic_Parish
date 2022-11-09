@@ -189,12 +189,46 @@ class CemeteryController extends Controller
                 ['is_deceased','1']
             ])
             ->orderBy('last_name','ASC')
+            ->orderBy('first_name','ASC')
+            ->orderBy('maiden_name','ASC')
             ->paginate(20);
+        };
+        $all_deceased = null;
+        if ($all_results) {
+          $all_deceased = $all_results;
+        } else {
+          $all_deceased = Deceased::where('is_deceased','=','1')
+            ->orderBy('last_name','ASC')
+            ->orderBy('first_name','ASC')
+            ->orderBy('maiden_name','ASC')
+            ->paginate(20);
+        };
+        for ($i = 0; $i < count($all_deceased); $i++) {
+          $age = null;
+          $one_deceased = $all_deceased[$i];
+          if ($one_deceased->date_of_birth && $one_deceased->date_of_death) {
+            $yob = intval(substr($one_deceased->date_of_birth,-10,4));
+            $yod = intval(substr($one_deceased->date_of_death,-10,4));
+            $age = $yod - $yob;
+            $mob = intval(substr($one_deceased->date_of_birth,-5,2));
+            $mod = intval(substr($one_deceased->date_of_death,-5,2));
+            if ($mob > $mod) {
+              $age = $age - 1;
+            } elseif ($mob == $mod) {
+              $day_of_birth = intval(substr($one_deceased->date_of_birth,-1,2));
+              $day_of_death = intval(substr($one_deceased->date_of_death,-1,2));
+              if ($day_of_birth > $day_of_death) {
+                $age = $age - 1;
+              };
+            };
+          } else {
+            $age = "UNKNOWN";
+          };
+          $all_deceased[$i]->age = $age;
         };
         return view('cemetery.list',[
           'css' => 'cemetery',
-          'all_deceased' => Deceased::where('is_deceased','=','1')->orderBy('last_name','ASC')->orderBy('first_name','ASC')->orderBy('maiden_name','ASC')->paginate(20),
-          'all_results' => $all_results
+          'all_deceased' => $all_deceased
         ]);
     }
 
@@ -210,6 +244,24 @@ class CemeteryController extends Controller
     public function individual($id)
     {
       $deceased = Deceased::find($id);
+      $age = null;
+      if ($deceased->date_of_birth && $deceased->date_of_death) {
+        $yob = intval(\Illuminate\Support\Str::limit($deceased->date_of_birth,4,$end=''));
+        $yod = intval(\Illuminate\Support\Str::limit($deceased->date_of_death,4,$end=''));
+        $age = $yod - $yob;
+        $mob = intval(substr($deceased->date_of_birth,-5,2));
+        $mod = intval(substr($deceased->date_of_death,-5,2));
+        if ($mob > $mod) {
+          $age = $age - 1;
+        } elseif ($mob == $mod) {
+          $day_of_birth = intval(substr($deceased->date_of_birth,-1,2));
+          $day_of_death = intval(substr($deceased->date_of_death,-1,2));
+          if ($day_of_birth > $day_of_death) {
+            $age = $age - 1;
+          };
+        };
+      };
+      $deceased->age = $age;
       return view('cemetery.individual',[
         'css' => 'cemetery',
         'deceased' => $deceased

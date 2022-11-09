@@ -27,33 +27,24 @@
               Name
             </div>
             <div>
+              Age
+            </div>
+            <div>
               Date of Birth
             </div>
             <div>
               Date of Death
             </div>
           </div>
-          @if ($all_results != null)
-            @php
-              $all_deceased = $all_results;
-            @endphp
-          @endif
           @if ($all_deceased != null && count($all_deceased))
             <div class="resultList">
               @foreach ($all_deceased as $one_deceased)
                 @if ($one_deceased->is_deceased == 1)
                   <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
-                  <div
-                    class="resultRow"
-                    data-id="{{ $one_deceased->id }}"
-                    data-first="{{ $one_deceased->first_name }}"
-                    data-last="{{ $one_deceased->last_name }}  @if ($one_deceased->suffix_name) {{ $one_deceased->suffix_name }} @endif"
-                    @if ($one_deceased->maiden_name)
-                      data-maiden="{{ $one_deceased->maiden_name }}"
-                    @endif
-                  >
-                    <div>
-                      <!-- <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}"> -->
+                    <div
+                      class="resultRow"
+                    >
+                      <div>
                         @if ($one_deceased->title)
                           {{ $one_deceased->title }}
                         @endif
@@ -65,53 +56,58 @@
                         @if ($one_deceased->suffix_name)
                           {{ $one_deceased->suffix_name }}
                         @endif
-                      <!-- </a> -->
+                        <!-- @if ($one_deceased->age)
+                          {{ "(".$one_deceased->age." y/o)" }}
+                        @endif -->
+                      </div>
+                      <div class="minWidth">
+                        @if ($one_deceased->date_of_birth)
+                          {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }}
+                        @else
+                          UNKNOWN
+                        @endif
+                        -
+                        @if ($one_deceased->date_of_death)
+                          {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
+                        @else
+                          UNKNOWN
+                        @endif
+                      </div>
+                      <div class="maxWidth">
+                        {{ $one_deceased->age }}
+                      </div>
+                      @php
+                        $all_months = [
+                          "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+                        ];
+                        if ($one_deceased->date_of_birth) {
+                          $dob = $one_deceased->date_of_birth;
+                          $dob = explode("-",$dob);
+                          $dobDay = $dob[2];
+                          $dobMonth = $all_months[intval($dob[1])-1];
+                          $dobYear = $dob[0];
+                          $dob = $dobMonth." ".$dobDay.", ".$dobYear;
+                        } else {
+                          $dob = "UNKNOWN";
+                        };
+                        if ($one_deceased->date_of_death) {
+                          $dod = $one_deceased->date_of_death;
+                          $dod = explode("-",$dod);
+                          $dodDay = $dod[2];
+                          $dodMonth = $all_months[intval($dod[1])-1];
+                          $dodYear = $dod[0];
+                          $dod = $dodMonth." ".$dodDay.", ".$dodYear;
+                        } else {
+                          $dod = "UNKNOWN";
+                        };
+                      @endphp
+                      <div class="maxWidth">
+                        {{ $dob }}
+                      </div>
+                      <div class="maxWidth">
+                        {{ $dod }}
+                      </div>
                     </div>
-                    <div class="minWidth">
-                      @if ($one_deceased->date_of_birth)
-                        {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }}
-                      @else
-                        UNKNOWN
-                      @endif
-                      -
-                      @if ($one_deceased->date_of_death)
-                        {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
-                      @else
-                        UNKNOWN
-                      @endif
-                    </div>
-                    @php
-                      $all_months = [
-                        "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
-                      ];
-                      if ($one_deceased->date_of_birth) {
-                        $dob = $one_deceased->date_of_birth;
-                        $dob = explode("-",$dob);
-                        $dobDay = $dob[2];
-                        $dobMonth = $all_months[intval($dob[1])-1];
-                        $dobYear = $dob[0];
-                        $dob = $dobMonth." ".$dobDay.", ".$dobYear;
-                      } else {
-                        $dob = "UNKNOWN";
-                      };
-                      if ($one_deceased->date_of_death) {
-                        $dod = $one_deceased->date_of_death;
-                        $dod = explode("-",$dod);
-                        $dodDay = $dod[2];
-                        $dodMonth = $all_months[intval($dod[1])-1];
-                        $dodYear = $dod[0];
-                        $dod = $dodMonth." ".$dodDay.", ".$dodYear;
-                      } else {
-                        $dod = "UNKNOWN";
-                      };
-                    @endphp
-                    <div class="maxWidth">
-                      {{ $dob }}
-                    </div>
-                    <div class="maxWidth">
-                      {{ $dod }}
-                    </div>
-                  </div>
                   </a>
                 @endif
               @endforeach

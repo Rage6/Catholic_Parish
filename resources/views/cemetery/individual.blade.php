@@ -89,6 +89,19 @@
             @endif
           </div>
         </div>
+        @if ($deceased->date_of_death && $deceased->date_of_birth)
+          <div class="basicElement">
+            <div>Age</div>
+            <div>
+              {{ $deceased->age }}
+              @if ($deceased->age == 1)
+                year old
+              @else
+                years old
+              @endif
+            </div>
+          </div>
+        @endif
         @if ($deceased->vocation)
           <div class="basicElement">
             <div>Vocation</div>
