@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::table('deceaseds', function (Blueprint $table) {
             $table->string('father_name',255)->nullable()->default(null);
             $table->string('mother_name',255)->nullable()->default(null);
-            $table->string('additional_notes',1000)->nullable()->default(null);
+            $table->text('public_notes',10000)->nullable()->default(null);
+            $table->text('admin_notes',10000)->nullable()->default(null);
             $table->string('vocation',255)->nullable()->default(null);
             $table->string('title',255)->nullable()->default(null);
         });

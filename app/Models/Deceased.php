@@ -30,6 +30,7 @@ class Deceased extends Model
       'zone',
       'is_deceased',
       'purchased_by',
-      'additional_notes'
+      'public_notes',
+      'admin_notes'
     ];
 }

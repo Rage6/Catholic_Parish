@@ -246,12 +246,22 @@
                           </div>
                         @endif
 
-                        @if ($deceased->additional_notes)
+                        @if ($deceased->public_notes)
                           <div class="row mb-3">
-                              <label for="additional_notes" class="col-md-4 col-form-label text-md-end">{{ __('Additional Notes') }}</label>
+                              <label for="public_notes" class="col-md-4 col-form-label text-md-end">{{ __('Public Notes') }}</label>
 
-                              <div id="additional_notes" class="col-md-6">
-                                <textarea class="form-control">{{ $deceased->additional_notes }}</textarea>
+                              <div id="public_notes" class="col-md-6">
+                                <textarea class="form-control">{{ $deceased->public_notes }}</textarea>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->admin_notes)
+                          <div class="row mb-3">
+                              <label for="private_notes" class="col-md-4 col-form-label text-md-end">{{ __('Private Notes') }}</label>
+
+                              <div id="private_notes" class="col-md-6">
+                                <textarea class="form-control">{{ $deceased->admin_notes }}</textarea>
                               </div>
                           </div>
                         @endif

@@ -108,7 +108,8 @@ class AdminController extends Controller
         'zone' => 'nullable',
         'purchased_by' => 'nullable',
         'is_deceased' => 'required',
-        'additional_notes' => 'nullable',
+        'public_notes' => 'nullable',
+        'admin_notes' => 'nullable',
         'vocation' => 'nullable',
         'title' => 'nullable'
       ]);
@@ -422,7 +423,8 @@ class AdminController extends Controller
         'is_deceased' => 'required',
         'vocation' => 'nullable',
         'title' => 'nullable',
-        'additional_notes' => 'nullable',
+        'public_notes' => 'nullable',
+        'admin_notes' => 'nullable',
         'action' => 'required'
       ]);
 
@@ -486,7 +488,8 @@ class AdminController extends Controller
           $request->zone = null;
         };
         $deceased->zone = $request->zone;
-        $deceased->additional_notes = $request->additional_notes;
+        $deceased->public_notes = $request->public_notes;
+        $deceased->admin_notes = $request->admin_notes;
         $deceased->save();
       } elseif ($request->action == "tombstone") {
         $this_deceased = Deceased::find($id);

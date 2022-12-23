@@ -150,6 +150,14 @@
             </div>
           </div>
         @endif
+        @if ($deceased->public_notes)
+          <div class="basicElement">
+            <div>Additional Notes</div>
+            <div>
+              {{ $deceased->public_notes }}
+            </div>
+          </div>
+        @endif
       </div>
     </div>
   @endsection

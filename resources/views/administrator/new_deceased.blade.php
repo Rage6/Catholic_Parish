@@ -336,13 +336,28 @@
                           </div>
 
                           <div class="row mb-3">
-                              <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Additional Notes') }}</label>
+                              <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Public Notes') }}</label>
 
                               <div class="col-md-6">
                                   <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
-                                  <textarea id="addedNotes" type="text" class="form-control @error('additional_notes') is-invalid @enderror" name="additional_notes" value="{{ old('additional_notes') }}" autocomplete="addedNotes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible to the public."></textarea>
+                                  <textarea id="addedNotes" type="text" class="form-control @error('public_notes') is-invalid @enderror" name="public_notes" value="{{ old('public_notes') }}" autocomplete="addedNotes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible on the website."></textarea>
 
-                                  @error('additional_notes')
+                                  @error('public_notes')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <label for="on_tombstone" class="col-md-4 col-form-label text-md-end">{{ __('Private Notes') }}</label>
+
+                              <div class="col-md-6">
+                                  <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
+                                  <textarea id="addedPrivateNotes" type="text" class="form-control @error('admin_notes') is-invalid @enderror" name="admin_notes" value="{{ old('admin_notes') }}" autocomplete="addedPrivateNotes" autofocus rows="4" maxlength="10000" placeholder="These notes will NOT be visible on the website."></textarea>
+
+                                  @error('admin_notes')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
