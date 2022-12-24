@@ -673,7 +673,7 @@ nav {
 }
 
 .basicElement {
-
+  margin-bottom: 20px;
 }
 
 .basicElement:first-child {
@@ -684,4 +684,14 @@ nav {
   margin-left: 10%;
   font-size: 1.5rem;
   width: 90%;
+}
+
+.basicElement textarea {
+  margin-left: 10%;
+  padding: 2px 1%;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-family: 'Verdana', sans-serif;
+  width: 88%;
+  height: 50vh;
 }

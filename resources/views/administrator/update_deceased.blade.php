@@ -481,7 +481,7 @@
 
                               <div class="col-md-6">
                                   <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
-                                  <textarea id="public_notes" type="text" class="form-control @error('public_notes') is-invalid @enderror" name="public_notes" autocomplete="public_notes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible on the website.">{{ $deceased->public_notes }}</textarea>
+                                  <textarea id="public_notes" type="text" class="form-control @error('public_notes') is-invalid @enderror" name="public_notes" autocomplete="public_notes" autofocus rows="4" maxlength="10000" placeholder="These notes WILL be visible on the website.">{{ $deceased->public_notes }}</textarea>
 
                                   @error('public_notes')
                                       <span class="invalid-feedback" role="alert">

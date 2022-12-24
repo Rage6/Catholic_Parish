@@ -153,9 +153,7 @@
         @if ($deceased->public_notes)
           <div class="basicElement">
             <div>Additional Notes</div>
-            <div>
-              {{ $deceased->public_notes }}
-            </div>
+            <textarea>{{ $deceased->public_notes }}</textarea>
           </div>
         @endif
       </div>

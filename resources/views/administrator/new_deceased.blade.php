@@ -340,7 +340,7 @@
 
                               <div class="col-md-6">
                                   <!-- <input id="onTombstone" type="text" class="form-control @error('on_tombstone') is-invalid @enderror" name="on_tombstone" value="{{ old('on_tombstone') }}" autocomplete="onTombstone" autofocus> -->
-                                  <textarea id="addedNotes" type="text" class="form-control @error('public_notes') is-invalid @enderror" name="public_notes" value="{{ old('public_notes') }}" autocomplete="addedNotes" autofocus rows="4" maxlength="1000" placeholder="These notes WILL be visible on the website."></textarea>
+                                  <textarea id="addedNotes" type="text" class="form-control @error('public_notes') is-invalid @enderror" name="public_notes" value="{{ old('public_notes') }}" autocomplete="addedNotes" autofocus rows="4" maxlength="10000" placeholder="These notes WILL be visible on the website."></textarea>
 
                                   @error('public_notes')
                                       <span class="invalid-feedback" role="alert">

@@ -764,6 +764,10 @@
   grid-area: info;
 }
 
+.basicElement textarea {
+  height: 30vh;
+}
+
 .basicInfoList {
   display: grid;
   grid-template-columns: repeat(2, 45%);
