@@ -365,7 +365,8 @@ class CemeteryController extends Controller
     }
 
     public function contact() {
-      $all_users = User::all();
+      // $all_users = User::all();
+      $all_users = User::where('email','!=',null)->orderBy('list_order','desc')->get();
       $cemetery_roles = explode(",",env('CEMETERY_ROLES'));
       $cemetery_users = [];
       foreach ($all_users as $one_user) {
