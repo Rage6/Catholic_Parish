@@ -39,7 +39,10 @@
                 <div>
                   To:
                 </div>
-                <select class="contactInput" name="cem_recipient">
+                <select class="contactInput" name="cem_recipient" required>
+                  <option value="">
+                    <i>Choose a recipient</i>
+                  </option>
                   @foreach ($cem_user as $one_user)
                     <option value="{{ $one_user->id }}">
                       @if ($one_user->title) {{ $one_user->title }} @endif {{ $one_user->first_name }} {{ $one_user->last_name }}
