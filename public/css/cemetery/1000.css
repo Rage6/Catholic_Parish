@@ -732,8 +732,18 @@
 
 .resultRow {
   /* grid-template-columns: 33% 34% 33%; */
-  grid-template-columns: 35% 15% 25% 25%;
+  grid-template-columns: 5% 30% 15% 25% 25%;
   font-size: 1.1rem;
+}
+
+.resultRow div:nth-child(1) {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.resultRow div:nth-child(2) {
+  padding-left: 10px;
 }
 
 /* CEMETERY.INDIVIDUAL */

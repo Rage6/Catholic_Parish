@@ -44,6 +44,14 @@
                     <div
                       class="resultRow"
                     >
+                      <div
+                        @if ($one_deceased->profile_photo)
+                          style="background-image:url('/{{ $one_deceased->profile_photo }}')"
+                        @elseif ($one_deceased->tombstone_photo)
+                          style="background-image:url('/{{ $one_deceased->tombstone_photo }}')"
+                        @endif
+                      >
+                      </div>
                       <div>
                         @if ($one_deceased->title)
                           {{ $one_deceased->title }}
