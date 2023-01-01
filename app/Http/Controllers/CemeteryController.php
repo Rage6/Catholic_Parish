@@ -212,13 +212,15 @@ class CemeteryController extends Controller
             $age = $yod - $yob;
             $mob = intval(substr($one_deceased->date_of_birth,-5,2));
             $mod = intval(substr($one_deceased->date_of_death,-5,2));
-            if ($mob > $mod) {
-              $age = $age - 1;
-            } elseif ($mob == $mod) {
-              $day_of_birth = intval(substr($one_deceased->date_of_birth,-1,2));
-              $day_of_death = intval(substr($one_deceased->date_of_death,-1,2));
-              if ($day_of_birth > $day_of_death) {
+            if ($age > 0) {
+              if ($mob > $mod) {
                 $age = $age - 1;
+              } elseif ($mob == $mod) {
+                $day_of_birth = intval(substr($one_deceased->date_of_birth,-1,2));
+                $day_of_death = intval(substr($one_deceased->date_of_death,-1,2));
+                if ($day_of_birth > $day_of_death) {
+                  $age = $age - 1;
+                };
               };
             };
           } else {
@@ -251,13 +253,15 @@ class CemeteryController extends Controller
         $age = $yod - $yob;
         $mob = intval(substr($deceased->date_of_birth,-5,2));
         $mod = intval(substr($deceased->date_of_death,-5,2));
-        if ($mob > $mod) {
-          $age = $age - 1;
-        } elseif ($mob == $mod) {
-          $day_of_birth = intval(substr($deceased->date_of_birth,-1,2));
-          $day_of_death = intval(substr($deceased->date_of_death,-1,2));
-          if ($day_of_birth > $day_of_death) {
+        if ($age > 0) {
+          if ($mob > $mod) {
             $age = $age - 1;
+          } elseif ($mob == $mod) {
+            $day_of_birth = intval(substr($deceased->date_of_birth,-1,2));
+            $day_of_death = intval(substr($deceased->date_of_death,-1,2));
+            if ($day_of_birth > $day_of_death) {
+              $age = $age - 1;
+            };
           };
         };
       };
