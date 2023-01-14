@@ -40,7 +40,7 @@
             <div class="resultList">
               @foreach ($all_deceased as $one_deceased)
                 @if ($one_deceased->is_deceased == 1)
-                  <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id ]) }}">
+                  <a style="color:white" href="{{ route('cemetery.person',['id' => $one_deceased->id, 'param_name' => $param_name, 'param_value' => $param_value ]) }}">
                     <div
                       class="resultRow"
                     >

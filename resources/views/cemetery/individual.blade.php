@@ -2,7 +2,11 @@
   @section('content')
     <div class="indivMain section">
       <div class="backBttn">
-        <a href="{{ route('cemetery.list') }}" style="color:white"><< BACK</a>
+        @if (!$param_name)
+          <a href="{{ route('cemetery.list') }}" style="color:white"><< BACK</a>
+        @else
+          <a href="{{ route('cemetery.list',[$param_name => $param_value]) }}" style="color:white"><< BACK</a>
+        @endif
       </div>
       <div class="fullName">
         <div>

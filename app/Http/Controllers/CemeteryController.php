@@ -228,10 +228,28 @@ class CemeteryController extends Controller
           };
           $all_deceased[$i]->age = $age;
         };
-        return view('cemetery.list',[
-          'css' => 'cemetery',
-          'all_deceased' => $all_deceased
-        ]);
+        if (isset($_GET['name_type'])) {
+          return view('cemetery.list',[
+            'css' => 'cemetery',
+            'all_deceased' => $all_deceased,
+            'param_name' => 'name_type',
+            'param_value' => $_GET['name_type']
+          ]);
+        } else if (isset($_GET['page'])) {
+          return view('cemetery.list',[
+            'css' => 'cemetery',
+            'all_deceased' => $all_deceased,
+            'param_name' => 'page',
+            'param_value' => $_GET['page']
+          ]);
+        } else {
+          return view('cemetery.list',[
+            'css' => 'cemetery',
+            'all_deceased' => $all_deceased,
+            'param_name' => 'none',
+            'param_value' => null
+          ]);
+        };
     }
 
     public function search(Request $request) {
@@ -245,6 +263,13 @@ class CemeteryController extends Controller
 
     public function individual($id)
     {
+      if ($_GET['param_name'] && $_GET['param_name'] != 'none') {
+        $param_name = $_GET['param_name'];
+        $param_value = $_GET['param_value'];
+      } else {
+        $param_name = null;
+        $param_value = null;
+      };
       $deceased = Deceased::find($id);
       $age = null;
       if ($deceased->date_of_birth && $deceased->date_of_death) {
@@ -268,7 +293,9 @@ class CemeteryController extends Controller
       $deceased->age = $age;
       return view('cemetery.individual',[
         'css' => 'cemetery',
-        'deceased' => $deceased
+        'deceased' => $deceased,
+        'param_name' => $param_name,
+        'param_value' => $param_value
       ]);
     }
 
