@@ -17,6 +17,9 @@
             {{ $deceased->title }}
           @endif
           {{ $deceased->first_name }}
+          @if ($deceased->nickname)
+            "{{ $deceased->nickname }}"
+          @endif
           {{ $deceased->last_name }}
           @if ($deceased->suffix_name)
             {{ $deceased->suffix_name }}
@@ -62,15 +65,20 @@
             @if ($deceased->middle_name)
               {{ $deceased->middle_name }}
             @endif
-            @if ($deceased->maiden_name)
-              ({{ $deceased->maiden_name }})
-            @endif
             {{ $deceased->last_name }}
             @if ($deceased->suffix_name)
               {{ $deceased->suffix_name }}
             @endif
           </div>
         </div>
+        @if ($deceased->nickname)
+          <div class="basicElement">
+            <div>Nickname</div>
+            <div>
+              "{{ $deceased->nickname }}"
+            </div>
+          </div>
+        @endif
         <div class="basicElement">
           <div>Born on</div>
           <div>
@@ -103,6 +111,14 @@
               @else
                 years old
               @endif
+            </div>
+          </div>
+        @endif
+        @if ($deceased->maiden_name)
+          <div class="basicElement">
+            <div>Maiden Name</div>
+            <div>
+              {{ $deceased->maiden_name }}
             </div>
           </div>
         @endif

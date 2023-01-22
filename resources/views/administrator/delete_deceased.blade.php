@@ -77,6 +77,18 @@
                           </div>
                         @endif
 
+                        @if ($deceased->nickname)
+                          <div class="row mb-3">
+                              <label for="nickname" class="col-md-4 col-form-label text-md-end">{{ __('Nickname') }}</label>
+
+                              <div id="maidenName" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->nickname }}
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
                         @if ($deceased->date_of_birth)
                           <div class="row mb-3">
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>

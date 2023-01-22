@@ -95,6 +95,7 @@ class AdminController extends Controller
         'last_name' => 'required',
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
+        'nickname' => 'nullable',
         'date_of_birth' => 'nullable',
         'date_of_death' => 'nullable',
         'father_name' => 'nullable',
@@ -408,6 +409,7 @@ class AdminController extends Controller
         'last_name' => 'required',
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
+        'nickname' => 'nullable',
         'date_of_birth' => 'nullable',
         'date_of_death' => 'nullable',
         'father_name' => 'nullable',
@@ -437,6 +439,7 @@ class AdminController extends Controller
       $deceased->middle_name = $request->middle_name;
       $deceased->last_name = $request->last_name;
       $deceased->maiden_name = $request->maiden_name;
+      $deceased->nickname = $request->nickname;
       $deceased->suffix_name = $request->suffix_name;
       $deceased->date_of_birth = $request->date_of_birth;
       $deceased->date_of_death = $request->date_of_death;

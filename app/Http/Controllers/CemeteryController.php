@@ -188,6 +188,10 @@ class CemeteryController extends Controller
                 ['maiden_name',$_GET['name_type']],
                 ['is_deceased','1']
             ])
+            ->orWhere([
+                ['nickname',$_GET['name_type']],
+                ['is_deceased','1']
+            ])
             ->orderBy('last_name','ASC')
             ->orderBy('first_name','ASC')
             ->orderBy('maiden_name','ASC')

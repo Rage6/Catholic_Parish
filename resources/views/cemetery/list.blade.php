@@ -57,6 +57,9 @@
                           {{ $one_deceased->title }}
                         @endif
                         {{ $one_deceased->first_name }}
+                        @if ($one_deceased->nickname)
+                          "{{ $one_deceased->nickname }}"
+                        @endif
                         @if ($one_deceased->maiden_name)
                           {{ "(".$one_deceased->maiden_name.") " }}
                         @endif
