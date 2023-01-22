@@ -177,19 +177,19 @@ class CemeteryController extends Controller
           $all_results = null;
         } else {
           $all_results = Deceased::where([
-              ['first_name',$_GET['name_type']],
+              ['first_name','LIKE','%'.$_GET['name_type'].'%'],
               ['is_deceased','1']
             ])
             ->orWhere([
-                ['last_name',$_GET['name_type']],
+                ['last_name','LIKE','%'.$_GET['name_type'].'%'],
                 ['is_deceased','1']
             ])
             ->orWhere([
-                ['maiden_name',$_GET['name_type']],
+                ['maiden_name','LIKE','%'.$_GET['name_type'].'%'],
                 ['is_deceased','1']
             ])
             ->orWhere([
-                ['nickname',$_GET['name_type']],
+                ['nickname','LIKE','%'.$_GET['name_type'].'%'],
                 ['is_deceased','1']
             ])
             ->orderBy('last_name','ASC')

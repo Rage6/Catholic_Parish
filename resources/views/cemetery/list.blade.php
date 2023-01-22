@@ -15,7 +15,7 @@
           <div class="searchTitle">Find By Name:</div>
           <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
             @csrf
-            <input name="name_type" placeholder="First, Last, or Maiden">
+            <input name="name_type" placeholder="First, Last, Maiden, or Nickname">
             <button>
               SEARCH
             </button>
