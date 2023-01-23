@@ -18,7 +18,7 @@
           @endif
           {{ $deceased->first_name }}
           @if ($deceased->nickname)
-            "{{ $deceased->nickname }}"
+            "{{ $deceased->nickname[0] }}"
           @endif
           {{ $deceased->last_name }}
           @if ($deceased->suffix_name)
@@ -71,14 +71,6 @@
             @endif
           </div>
         </div>
-        @if ($deceased->nickname)
-          <div class="basicElement">
-            <div>Nickname</div>
-            <div>
-              "{{ $deceased->nickname }}"
-            </div>
-          </div>
-        @endif
         <div class="basicElement">
           <div>Born on</div>
           <div>
@@ -119,6 +111,26 @@
             <div>Maiden Name</div>
             <div>
               {{ $deceased->maiden_name }}
+            </div>
+          </div>
+        @endif
+        @if ($deceased->nickname)
+          <div class="basicElement">
+            @if (count($deceased->nickname) > 1)
+              <div>Nicknames</div>
+            @else
+              <div>Nickname</div>
+            @endif
+            <div>
+              @php $first_nickname = true @endphp
+              @foreach ($deceased->nickname as $one_nickname)
+                @if ($first_nickname == true)
+                  {{ $one_nickname }}
+                  @php $first_nickname = false @endphp
+                @else
+                  , {{ $one_nickname }}
+                @endif
+              @endforeach
             </div>
           </div>
         @endif

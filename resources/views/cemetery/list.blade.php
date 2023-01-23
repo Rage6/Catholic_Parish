@@ -58,7 +58,7 @@
                         @endif
                         {{ $one_deceased->first_name }}
                         @if ($one_deceased->nickname)
-                          "{{ $one_deceased->nickname }}"
+                          "{{ explode(";",$one_deceased->nickname)[0] }}"
                         @endif
                         @if ($one_deceased->maiden_name)
                           {{ "(".$one_deceased->maiden_name.") " }}

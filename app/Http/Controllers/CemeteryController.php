@@ -275,6 +275,9 @@ class CemeteryController extends Controller
         $param_value = null;
       };
       $deceased = Deceased::find($id);
+      if ($deceased->nickname) {
+        $deceased->nickname = explode(";",$deceased->nickname);
+      };
       $age = null;
       if ($deceased->date_of_birth && $deceased->date_of_death) {
         $yob = intval(\Illuminate\Support\Str::limit($deceased->date_of_birth,4,$end=''));
@@ -312,6 +315,10 @@ class CemeteryController extends Controller
         if ($random->is_deceased == 1) {
           if ($random->title) {
             $random->first_name = $random->title." ".$random->first_name;
+          };
+          if ($random->nickname) {
+            $random->nickname = explode(";",$random->nickname)[0];
+            $random->first_name = $random->first_name." '".$random->nickname."'";
           };
           if ($random->suffix_name) {
             $random->last_name = $random->last_name." ".$random->suffix_name;
