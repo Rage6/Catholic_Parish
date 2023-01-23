@@ -106,6 +106,20 @@
                                       </span>
                                   @enderror
                               </div>
+                              <div class="col-md-6" style="margin-left:10%;margin-top:10px;width:80%">
+                                When entering a nickname:
+                                <ul>
+                                  <li>
+                                    No need to surround the nicknames with quotation marks ("). This will be entered automatically
+                                  </li>
+                                  <li>
+                                    Multiple nicknames can be entered, but they MUST be seperated by semicolons (;)
+                                  </li>
+                                  <li>
+                                    Only the first nickname will be commonly included on the individual's name. Any other nicknames will only be seen in their individual profile.
+                                  </li>
+                                </ul>
+                              </div>
                           </div>
 
                           <div class="row mb-3">
