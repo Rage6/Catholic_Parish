@@ -210,7 +210,10 @@ class CemeteryController extends Controller
         for ($i = 0; $i < count($all_deceased); $i++) {
           $age = null;
           $one_deceased = $all_deceased[$i];
-          if ($one_deceased->date_of_birth && $one_deceased->date_of_death) {
+          if (($one_deceased->date_of_birth || ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year)) && $one_deceased->date_of_death) {
+            if ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year) {
+              $one_deceased->date_of_birth = $one_deceased->dob_year."-".$one_deceased->dob_month."-".$one_deceased->dob_day;
+            };
             $yob = intval(substr($one_deceased->date_of_birth,-10,4));
             $yod = intval(substr($one_deceased->date_of_death,-10,4));
             $age = $yod - $yob;
@@ -228,7 +231,7 @@ class CemeteryController extends Controller
               };
             };
           } else {
-            $age = "UNKNOWN";
+            $age = "---";
           };
           $all_deceased[$i]->age = $age;
         };

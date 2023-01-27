@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('maiden_name')->nullable();
             $table->string('suffix_name')->nullable();
             $table->string('nickname')->nullable();
-            $table->date('date_of_birth')->format('m/d/Y');
+            $table->string('date_of_birth',10)->nullable();
             $table->date('date_of_death')->format('m/d/Y');
             $table->string('on_tombstone')->nullable();
             $table->string('spouse')->nullable();

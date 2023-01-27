@@ -96,7 +96,10 @@ class AdminController extends Controller
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
         'nickname' => 'nullable',
-        'date_of_birth' => 'nullable',
+        // 'date_of_birth' => 'nullable',
+        'dob_month' => 'nullable',
+        'dob_day' => 'nullable',
+        'dob_year' => 'nullable',
         'date_of_death' => 'nullable',
         'father_name' => 'nullable',
         'mother_name' => 'nullable',
@@ -114,6 +117,9 @@ class AdminController extends Controller
         'vocation' => 'nullable',
         'title' => 'nullable'
       ]);
+
+      $dob = request('dob_year','0000')."-".request('dob_month','00')."-".request('dob_day','00');
+      $input['date_of_birth'] = $dob;
 
       if (request('vocation') == 'null') {
         $input['vocation'] = null;
