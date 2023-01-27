@@ -91,7 +91,25 @@
                         $all_months = [
                           "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
                         ];
-                        if ($one_deceased->date_of_birth) {
+
+                        if ($one_deceased->dob_month || $one_deceased->dob_day || $one_deceased->dob_year) {
+                          if ($one_deceased->dob_day) {
+                            $dobDay = $one_deceased->dob_day;
+                          } else {
+                            $dobDay = "__";
+                          };
+                          if ($one_deceased->dob_month) {
+                            $dobMonth = $all_months[intval($one_deceased->dob_month)-1];
+                          } else {
+                            $dobMonth = "__";
+                          };
+                          if ($one_deceased->dob_year) {
+                            $dobYear = $one_deceased->dob_year;
+                          } else {
+                            $dobYear = "____";
+                          };
+                          $dob = $dobMonth." ".$dobDay.", ".$dobYear;
+                        } elseif ($one_deceased->date_of_birth) {
                           $dob = $one_deceased->date_of_birth;
                           $dob = explode("-",$dob);
                           $dobDay = $dob[2];
@@ -118,7 +136,25 @@
                         } else {
                           $dob = "UNKNOWN";
                         };
-                        if ($one_deceased->date_of_death) {
+
+                        if ($one_deceased->dod_month || $one_deceased->dod_day || $one_deceased->dod_year) {
+                          if ($one_deceased->dod_day) {
+                            $dodDay = $one_deceased->dod_day;
+                          } else {
+                            $dodDay = "__";
+                          };
+                          if ($one_deceased->dod_month) {
+                            $dodMonth = $all_months[intval($one_deceased->dod_month)-1];
+                          } else {
+                            $dodMonth = "__";
+                          };
+                          if ($one_deceased->dod_year) {
+                            $dodYear = $one_deceased->dod_year;
+                          } else {
+                            $dodYear = "____";
+                          };
+                          $dod = $dodMonth." ".$dodDay.", ".$dodYear;
+                        } elseif ($one_deceased->date_of_death) {
                           $dod = $one_deceased->date_of_death;
                           $dod = explode("-",$dod);
                           $dodDay = $dod[2];

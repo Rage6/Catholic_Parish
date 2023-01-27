@@ -71,10 +71,41 @@
             @endif
           </div>
         </div>
+        @php
+          $all_months = [
+            "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+          ];
+
+          $dob_daySuffix = "th";
+          if (intval($deceased->dob_day) == 1 || intval($deceased->dob_day) == 21 || intval($deceased->dob_day) == 31) {
+            $dob_daySuffix = "st";
+          } elseif (intval($deceased->dob_day) == 2 || intval($deceased->dob_day) == 22) {
+            $dob_daySuffix = "nd";
+          } elseif (intval($deceased->dob_day) == 3 || intval($deceased->dob_day) == 23) {
+            $dob_daySuffix = "nd";
+          };
+          if (!$deceased->dob_day) {
+            $dob_daySuffix = "";
+          };
+
+          $dod_daySuffix = "th";
+          if (intval($deceased->dod_day) == 1 || intval($deceased->dod_day) == 21 || intval($deceased->dod_day) == 31) {
+            $dod_daySuffix = "st";
+          } elseif (intval($deceased->dod_day) == 2 || intval($deceased->dod_day) == 22) {
+            $dod_daySuffix = "nd";
+          } elseif (intval($deceased->dod_day) == 3 || intval($deceased->dod_day) == 23) {
+            $dod_daySuffix = "nd";
+          };
+          if (!$deceased->dod_day) {
+            $dod_daySuffix = "";
+          };
+        @endphp
         <div class="basicElement">
           <div>Born on</div>
           <div>
-            @if ($deceased->date_of_birth)
+            @if ($deceased->dob_month || $deceased->dob_day || $deceased->dob_year)
+              {{ $all_months[intval($deceased->dob_month) - 1] ?? "___" }} {{ $deceased->dob_day ?? "__" }}{{ $dob_daySuffix }}, {{ $deceased->dob_year ?? "____" }}
+            @elseif ($deceased->date_of_birth)
               @php $birth_date = strtotime($deceased->date_of_birth); @endphp
               {{ date("F jS, Y", $birth_date) }}
             @else
@@ -85,7 +116,9 @@
         <div class="basicElement">
           <div>Died on</div>
           <div>
-            @if ($deceased->date_of_death)
+            @if ($deceased->dod_month || $deceased->dod_day || $deceased->dod_year)
+              {{ $all_months[intval($deceased->dod_month) - 1] ?? "___" }} {{ $deceased->dod_day ?? "__" }}{{ $dod_daySuffix }}, {{ $deceased->dod_year ?? "____" }}
+            @elseif ($deceased->date_of_death)
               @php $death_date = strtotime($deceased->date_of_death); @endphp
               {{ date("F jS, Y", $death_date) }}
             @else

@@ -100,7 +100,10 @@ class AdminController extends Controller
         'dob_month' => 'nullable',
         'dob_day' => 'nullable',
         'dob_year' => 'nullable',
-        'date_of_death' => 'nullable',
+        // 'date_of_death' => 'nullable',
+        'dod_month' => 'nullable',
+        'dod_day' => 'nullable',
+        'dod_year' => 'nullable',
         'father_name' => 'nullable',
         'mother_name' => 'nullable',
         'on_tombstone' => 'nullable',
@@ -120,6 +123,9 @@ class AdminController extends Controller
 
       $dob = request('dob_year','0000')."-".request('dob_month','00')."-".request('dob_day','00');
       $input['date_of_birth'] = $dob;
+
+      $dod = request('dod_year','0000')."-".request('dod_month','00')."-".request('dod_day','00');
+      $input['date_of_death'] = $dod;
 
       if (request('vocation') == 'null') {
         $input['vocation'] = null;
@@ -417,7 +423,10 @@ class AdminController extends Controller
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
         'nickname' => 'nullable',
-        'date_of_birth' => 'nullable',
+        // 'date_of_birth' => 'nullable',
+        'dob_month' => 'nullable',
+        'dob_day' => 'nullable',
+        'dob_year' => 'nullable',
         'date_of_death' => 'nullable',
         'father_name' => 'nullable',
         'mother_name' => 'nullable',
@@ -437,6 +446,12 @@ class AdminController extends Controller
         'action' => 'required'
       ]);
 
+      $dob = request('dob_year','0000')."-".request('dob_month','00')."-".request('dob_day','00');
+      $request->date_of_birth = $dob;
+
+      $dod = request('dod_year','0000')."-".request('dod_month','00')."-".request('dod_day','00');
+      $request->date_of_death = $dod;
+
       if ($request->vocation == 'null') {
         $request->vocation = null;
       };
@@ -448,8 +463,14 @@ class AdminController extends Controller
       $deceased->maiden_name = $request->maiden_name;
       $deceased->nickname = $request->nickname;
       $deceased->suffix_name = $request->suffix_name;
-      $deceased->date_of_birth = $request->date_of_birth;
-      $deceased->date_of_death = $request->date_of_death;
+      // $deceased->date_of_birth = $request->date_of_birth;
+      $deceased->dob_month = $request->dob_month;
+      $deceased->dob_day = $request->dob_day;
+      $deceased->dob_year = $request->dob_year;
+      // $deceased->date_of_death = $request->date_of_death;
+      $deceased->dod_month = $request->dod_month;
+      $deceased->dod_day = $request->dod_day;
+      $deceased->dod_year = $request->dod_year;
       $deceased->father_name = $request->father_name;
       $deceased->mother_name = $request->mother_name;
       $deceased->on_tombstone = $request->on_tombstone;

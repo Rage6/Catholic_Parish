@@ -89,7 +89,31 @@
                           </div>
                         @endif
 
-                        @if ($deceased->date_of_birth)
+                        @if ($deceased->dob_month || $deceased->dob_day || $deceased->dob_year)
+                          <div class="row mb-3">
+                              <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+
+                              <div id="dateOfBirth" class="col-md-6">
+                                @php
+                                  $dob_month = $deceased->dob_month;
+                                  $dob_day = $deceased->dob_day;
+                                  $dob_year = $deceased->dob_year;
+                                  if (!$dob_month) {
+                                    $dob_month = "--";
+                                  };
+                                  if (!$dob_day) {
+                                    $dob_day = "--";
+                                  };
+                                  if (!$dob_year) {
+                                    $dob_year = "----";
+                                  };
+                                @endphp
+                                <div class="form-control">
+                                  {{ $dob_month }}/{{ $dob_day }}/{{ $dob_year }}
+                                </div>
+                              </div>
+                          </div>
+                        @elseif ($deceased->date_of_birth)
                           <div class="row mb-3">
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
@@ -101,7 +125,31 @@
                           </div>
                         @endif
 
-                        @if ($deceased->date_of_death)
+                        @if ($deceased->dod_month || $deceased->dod_day || $deceased->dod_year)
+                          <div class="row mb-3">
+                              <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
+
+                              <div id="dateOfDeath" class="col-md-6">
+                                @php
+                                  $dod_month = $deceased->dod_month;
+                                  $dod_day = $deceased->dod_day;
+                                  $dod_year = $deceased->dod_year;
+                                  if (!$dod_month) {
+                                    $dod_month = "--";
+                                  };
+                                  if (!$dod_day) {
+                                    $dod_day = "--";
+                                  };
+                                  if (!$dod_year) {
+                                    $dod_year = "----";
+                                  };
+                                @endphp
+                                <div class="form-control">
+                                  {{ $dod_month }}/{{ $dod_day }}/{{ $dod_year }}
+                                </div>
+                              </div>
+                          </div>
+                        @elseif ($deceased->date_of_death)
                           <div class="row mb-3">
                               <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
 

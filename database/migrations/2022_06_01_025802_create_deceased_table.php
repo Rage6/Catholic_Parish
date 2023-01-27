@@ -22,7 +22,13 @@ return new class extends Migration
             $table->string('suffix_name')->nullable();
             $table->string('nickname')->nullable();
             $table->string('date_of_birth',10)->nullable();
-            $table->date('date_of_death')->format('m/d/Y');
+            $table->string('dob_month',2)->nullable();
+            $table->string('dob_day',2)->nullable();
+            $table->string('dob_year',4)->nullable();
+            $table->string('date_of_death',10)->nullable();
+            $table->string('dod_month',2)->nullable();
+            $table->string('dod_day',2)->nullable();
+            $table->string('dod_year',4)->nullable();
             $table->string('on_tombstone')->nullable();
             $table->string('spouse')->nullable();
             $table->string('children')->nullable();

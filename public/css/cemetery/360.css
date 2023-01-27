@@ -594,6 +594,7 @@ nav {
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pagination div {

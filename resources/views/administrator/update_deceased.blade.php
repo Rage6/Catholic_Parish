@@ -122,11 +122,11 @@
                               </div>
                           </div>
 
-                          <div class="row mb-3">
+                          <!-- <div class="row mb-3">
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                               <div class="col-md-6">
-                                  <input id="dateOfBirth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ $deceased->date_of_birth }}" autocomplete="dateOfBirth" autofocus>
+                                  <input id="dateOfBirth" type="string" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ $deceased->date_of_birth }}" autocomplete="dateOfBirth" autofocus>
 
                                   @error('date_of_birth')
                                       <span class="invalid-feedback" role="alert">
@@ -134,9 +134,54 @@
                                       </span>
                                   @enderror
                               </div>
+                          </div> -->
+
+                          <div>
+                            <b>Date of Birth</b>
+                            <div style="display:flex">
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Month:</br>
+                                      <input id="dobMonth" type="string" class="form-control @error('dob_month') is-invalid @enderror" name="dob_month"
+                                      value="{{ $deceased->dob_month }}" placeholder="MM" autocomplete="dobMonth" autofocus>
+
+                                      @error('dob_month')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Day:</br>
+                                      <input id="dobDay" type="string" class="form-control @error('dob_day') is-invalid @enderror" name="dob_day"
+                                      value="{{ $deceased->dob_day }}" placeholder="DD" autocomplete="dobDay" autofocus>
+
+                                      @error('dob_day')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Year:</br>
+                                      <input id="dobYear" type="string" class="form-control @error('dob_year') is-invalid @enderror" name="dob_year"
+                                      value="{{ $deceased->dob_year }}" placeholder="YYYY" autocomplete="dobYear" autofocus>
+
+                                      @error('dob_year')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                            </div>
                           </div>
 
-                          <div class="row mb-3">
+                          <!-- <div class="row mb-3">
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
 
                               <div class="col-md-6">
@@ -148,6 +193,51 @@
                                       </span>
                                   @enderror
                               </div>
+                          </div> -->
+
+                          <div>
+                            <b>Date of Death</b>
+                            <div style="display:flex">
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Month:</br>
+                                      <input id="dodMonth" type="string" class="form-control @error('dod_month') is-invalid @enderror" name="dod_month"
+                                      value="{{ $deceased->dod_month }}" placeholder="MM" autocomplete="dodMonth" autofocus>
+
+                                      @error('dod_month')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Day:</br>
+                                      <input id="dodDay" type="string" class="form-control @error('dod_day') is-invalid @enderror" name="dod_day"
+                                      value="{{ $deceased->dod_day }}" placeholder="DD" autocomplete="dodDay" autofocus>
+
+                                      @error('dod_day')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                              <span class="row mb-5">
+                                  <span class="col-md-5">
+                                      Year:</br>
+                                      <input id="dodYear" type="string" class="form-control @error('dod_year') is-invalid @enderror" name="dod_year"
+                                      value="{{ $deceased->dod_year }}" placeholder="YYYY" autocomplete="dodYear" autofocus>
+
+                                      @error('dod_year')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                  </span>
+                              </span>
+                            </div>
                           </div>
 
                           <!-- <div class="row mb-3">
