@@ -138,11 +138,14 @@
 
                           <div>
                             <b>Date of Birth</b>
+                            <div>
+                              NOTE: The 'month' and 'day' numbers MUST be 2 digits long (ex. 03), while the year must be 4 digits long.
+                            </div>
                             <div style="display:flex">
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Month:</br>
-                                      <input id="dobMonth" type="string" class="form-control @error('dob_month') is-invalid @enderror" name="dob_month"
+                                      <input id="dobMonth" type="string" class="form-control @error('dob_month') is-invalid @enderror" name="dob_month" minlength="2" maxlength="2"
                                       value="{{ $deceased->dob_month }}" placeholder="MM" autocomplete="dobMonth" autofocus>
 
                                       @error('dob_month')
@@ -155,7 +158,7 @@
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Day:</br>
-                                      <input id="dobDay" type="string" class="form-control @error('dob_day') is-invalid @enderror" name="dob_day"
+                                      <input id="dobDay" type="string" class="form-control @error('dob_day') is-invalid @enderror" name="dob_day" minlength="2" maxlength="2"
                                       value="{{ $deceased->dob_day }}" placeholder="DD" autocomplete="dobDay" autofocus>
 
                                       @error('dob_day')
@@ -168,7 +171,7 @@
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Year:</br>
-                                      <input id="dobYear" type="string" class="form-control @error('dob_year') is-invalid @enderror" name="dob_year"
+                                      <input id="dobYear" type="string" class="form-control @error('dob_year') is-invalid @enderror" name="dob_year" minlength="4" maxlength="4"
                                       value="{{ $deceased->dob_year }}" placeholder="YYYY" autocomplete="dobYear" autofocus>
 
                                       @error('dob_year')
@@ -201,7 +204,7 @@
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Month:</br>
-                                      <input id="dodMonth" type="string" class="form-control @error('dod_month') is-invalid @enderror" name="dod_month"
+                                      <input id="dodMonth" type="string" class="form-control @error('dod_month') is-invalid @enderror" name="dod_month" minlength="2" maxlength="2"
                                       value="{{ $deceased->dod_month }}" placeholder="MM" autocomplete="dodMonth" autofocus>
 
                                       @error('dod_month')
@@ -214,7 +217,7 @@
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Day:</br>
-                                      <input id="dodDay" type="string" class="form-control @error('dod_day') is-invalid @enderror" name="dod_day"
+                                      <input id="dodDay" type="string" class="form-control @error('dod_day') is-invalid @enderror" name="dod_day" minlength="2" maxlength="2"
                                       value="{{ $deceased->dod_day }}" placeholder="DD" autocomplete="dodDay" autofocus>
 
                                       @error('dod_day')
@@ -227,7 +230,7 @@
                               <span class="row mb-5">
                                   <span class="col-md-5">
                                       Year:</br>
-                                      <input id="dodYear" type="string" class="form-control @error('dod_year') is-invalid @enderror" name="dod_year"
+                                      <input id="dodYear" type="string" class="form-control @error('dod_year') is-invalid @enderror" name="dod_year" minlength="4" maxlength="4"
                                       value="{{ $deceased->dod_year }}" placeholder="YYYY" autocomplete="dodYear" autofocus>
 
                                       @error('dod_year')
