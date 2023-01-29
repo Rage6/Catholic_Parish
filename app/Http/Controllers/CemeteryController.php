@@ -210,9 +210,12 @@ class CemeteryController extends Controller
         for ($i = 0; $i < count($all_deceased); $i++) {
           $age = null;
           $one_deceased = $all_deceased[$i];
-          if (($one_deceased->date_of_birth || ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year)) && $one_deceased->date_of_death) {
+          if (($one_deceased->date_of_birth || ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year)) && ($one_deceased->date_of_death || ($one_deceased->dod_day && $one_deceased->dod_month && $one_deceased->dod_year))) {
             if ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year) {
               $one_deceased->date_of_birth = $one_deceased->dob_year."-".$one_deceased->dob_month."-".$one_deceased->dob_day;
+            };
+            if ($one_deceased->dod_day && $one_deceased->dod_month && $one_deceased->dod_year) {
+              $one_deceased->date_of_death = $one_deceased->dod_year."-".$one_deceased->dod_month."-".$one_deceased->dod_day;
             };
             $yob = intval(substr($one_deceased->date_of_birth,-10,4));
             $yod = intval(substr($one_deceased->date_of_death,-10,4));
@@ -282,7 +285,13 @@ class CemeteryController extends Controller
         $deceased->nickname = explode(";",$deceased->nickname);
       };
       $age = null;
-      if ($deceased->date_of_birth && $deceased->date_of_death) {
+      if (($deceased->date_of_birth || ($deceased->dob_year && $deceased->dob_month && $deceased->dob_day)) && ($deceased->date_of_death || ($deceased->dod_year && $deceased->dod_month && $deceased->dod_day))) {
+        if ($deceased->dob_day && $deceased->dob_month && $deceased->dob_year) {
+          $deceased->date_of_birth = $deceased->dob_year."-".$deceased->dob_month."-".$deceased->dob_day;
+        };
+        if ($deceased->dod_day && $deceased->dod_month && $deceased->dod_year) {
+          $deceased->date_of_death = $deceased->dod_year."-".$deceased->dod_month."-".$deceased->dod_day;
+        };
         $yob = intval(\Illuminate\Support\Str::limit($deceased->date_of_birth,4,$end=''));
         $yod = intval(\Illuminate\Support\Str::limit($deceased->date_of_death,4,$end=''));
         $age = $yod - $yob;
