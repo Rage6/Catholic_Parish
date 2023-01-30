@@ -93,17 +93,17 @@
                         ];
 
                         if ($one_deceased->dob_month || $one_deceased->dob_day || $one_deceased->dob_year) {
-                          if ($one_deceased->dob_day) {
+                          if ($one_deceased->dob_day && intval($one_deceased->dob_day) > 0 && intval($one_deceased->dob_day) < 32) {
                             $dobDay = $one_deceased->dob_day;
                           } else {
                             $dobDay = "__";
                           };
-                          if ($one_deceased->dob_month) {
+                          if ($one_deceased->dob_month && intval($one_deceased->dob_month) > 0 && intval($one_deceased->dob_month) < 13) {
                             $dobMonth = $all_months[intval($one_deceased->dob_month)-1];
                           } else {
                             $dobMonth = "__";
                           };
-                          if ($one_deceased->dob_year) {
+                          if ($one_deceased->dob_year && intval($one_deceased->dob_year) > 1000) {
                             $dobYear = $one_deceased->dob_year;
                           } else {
                             $dobYear = "____";
@@ -116,39 +116,22 @@
                           $dobMonth = $all_months[intval($dob[1])-1];
                           $dobYear = $dob[0];
                           $dob = $dobMonth." ".$dobDay.", ".$dobYear;
-                        } elseif ($one_deceased->dob_month || $one_deceased->dob_day || $one_deceased->dob_year) {
-                          if ($one_deceased->dob_day) {
-                            $dobDay = $one_deceased->dob_day;
-                          } else {
-                            $dobDay = "__";
-                          };
-                          if ($one_deceased->dob_month) {
-                            $dobMonth = $all_months[intval($one_deceased->dob_month)-1];
-                          } else {
-                            $dobMonth = "__";
-                          };
-                          if ($one_deceased->dob_year) {
-                            $dobYear = $one_deceased->dob_year;
-                          } else {
-                            $dobYear = "____";
-                          };
-                          $dob = $dobMonth." ".$dobDay.", ".$dobYear;
                         } else {
                           $dob = "UNKNOWN";
                         };
 
                         if ($one_deceased->dod_month || $one_deceased->dod_day || $one_deceased->dod_year) {
-                          if ($one_deceased->dod_day) {
+                          if ($one_deceased->dod_day && intval($one_deceased->dod_day) > 0 && intval($one_deceased->dod_day) < 32) {
                             $dodDay = $one_deceased->dod_day;
                           } else {
                             $dodDay = "__";
                           };
-                          if ($one_deceased->dod_month) {
+                          if ($one_deceased->dod_month && intval($one_deceased->dod_month) > 0 && intval($one_deceased->dod_month) < 13) {
                             $dodMonth = $all_months[intval($one_deceased->dod_month)-1];
                           } else {
                             $dodMonth = "__";
                           };
-                          if ($one_deceased->dod_year) {
+                          if ($one_deceased->dod_year && intval($one_deceased->dod_year) > 1000) {
                             $dodYear = $one_deceased->dod_year;
                           } else {
                             $dodYear = "____";

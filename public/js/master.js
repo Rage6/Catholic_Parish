@@ -69,6 +69,11 @@ $(()=>{
     };
   });
 
+  // Underlines the current page number
+  if (window.location.search) {
+    $(document.getElementsByClassName('active')[0].getElementsByTagName("span")[0]).css('text-decoration','underline');
+  };
+
   // Displays the selected photo of the deceased individual
   const switchSelectedPhotos = (typeName) => {
     $("[data-size='main']").css('display','none');
