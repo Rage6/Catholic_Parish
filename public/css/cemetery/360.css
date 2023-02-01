@@ -65,6 +65,10 @@
   height: 86vh;
   width: 100%;
   top: 14vh;
+  background-image: url('https://media.tenor.com/guhB4PpjrmUAAAAC/loading-loading-gif.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 60px 60px;
 }
 
 .videoParent video { /* For video */
