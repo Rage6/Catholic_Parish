@@ -449,6 +449,9 @@ class CemeteryController extends Controller
 
     public function messaging(Request $request)
     {
+      $request->cem_recipient = htmlentities($request->cem_recipient);
+      $request->cem_reply_email = htmlentities($request->cem_reply_email);
+      $request->cem_message = htmlentities($request->message);
       $input = request()->validate([
         'cem_recipient' => 'required',
         'cem_reply_email' => 'required|email',
