@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('dod_year',4)->nullable();
             $table->string('on_tombstone')->nullable();
             $table->string('spouse')->nullable();
-            $table->string('children')->nullable();
+            $table->string('children',2000)->nullable();
             $table->timestamps();
         });
     }

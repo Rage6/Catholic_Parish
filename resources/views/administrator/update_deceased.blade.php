@@ -355,7 +355,7 @@
                               <label for="children" class="col-md-4 col-form-label text-md-end">{{ __('Children') }}</label>
 
                               <div class="col-md-6">
-                                  <input id="children" type="text" class="form-control @error('children') is-invalid @enderror" name="children" value="{{ $deceased->children }}" autocomplete="children" autofocus>
+                                  <input id="children" type="text" class="form-control @error('children') is-invalid @enderror" name="children" value="{{ $deceased->children }}" maxlength="2000" autocomplete="children" autofocus>
 
                                   @error('children')
                                       <span class="invalid-feedback" role="alert">

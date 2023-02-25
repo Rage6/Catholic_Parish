@@ -15,7 +15,14 @@ $(()=>{
     $("[data-size='thumbnail']").click(function(e) {
       switchSelectedPhotos(e.target.dataset.type);
     });
-  });
+
+    // Displays the selected photo of the deceased individual
+    const switchSelectedPhotos = (typeName) => {
+      $("[data-size='main']").css('display','none');
+      var selected = "[data-size='main'][data-type='" + typeName + "']";
+      $(selected).css('display','block');
+    };
+  // });
 
   // Opens/closes the main menu at the top
   $("#mainMenuBttn").click(()=>{
@@ -80,5 +87,7 @@ $(()=>{
     var selected = "[data-size='main'][data-type='" + typeName + "']";
     $(selected).css('display','block');
   };
+
+  });
 
 })
