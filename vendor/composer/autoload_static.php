@@ -17,8 +17,8 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
@@ -114,6 +114,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         ),
         'L' => 
         array (
+            'Lunaweb\\RecaptchaV3\\' => 20,
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
             'League\\Config\\' => 14,
@@ -380,6 +381,10 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Lunaweb\\RecaptchaV3\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -3326,6 +3331,9 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'Lunaweb\\RecaptchaV3\\Facades\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Facades/RecaptchaV3.php',
+        'Lunaweb\\RecaptchaV3\\Providers\\RecaptchaV3ServiceProvider' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Providers/RecaptchaV3ServiceProvider.php',
+        'Lunaweb\\RecaptchaV3\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/RecaptchaV3.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
