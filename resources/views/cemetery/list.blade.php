@@ -74,12 +74,16 @@
                       <div class="minWidth">
                         @if ($one_deceased->date_of_birth)
                           {{ \Illuminate\Support\Str::limit($one_deceased->date_of_birth,4,$end='') }}
+                        @elseif ($one_deceased->dob_year)
+                          {{ $one_deceased->dob_year }}
                         @else
                           UNKNOWN
                         @endif
                         -
                         @if ($one_deceased->date_of_death)
                           {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
+                        @elseif ($one_deceased->dob_year)
+                          {{ $one_deceased->dod_year }}
                         @else
                           UNKNOWN
                         @endif
