@@ -10,11 +10,11 @@
       <div>
         @if ($open_plot_count > 0)
           <div class="emptyPlotCount">
-            At this time, there
+            <span style="display:none">At this time, there
               @if ($open_plot_count != 1)
-                are <b>{{ $open_plot_count }}</b> available plots.
+                are <b>{{ $open_plot_count }}</b> available plots.</span>
               @else
-                is <b>{{ $open_plot_count }}</b> available plot.
+                is <b>{{ $open_plot_count }}</b> available plot.</span>
               @endif
             A single plot costs a one-time payment of either $250 (current parishioner) or $500 (former or non-parishioners), not to include the actual burial process. For all of the details and requirements, read more below.
           </div>
