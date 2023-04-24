@@ -299,7 +299,10 @@ class AdminController extends Controller
       $role_model = new Role();
       $users_permissions = $role_model->users_permissions($current_user->id);
       // $all_deceased = Deceased::all();
-      $all_deceased = Deceased::where('is_deceased',1)->orderBy('last_name','asc')->paginate(20);
+      $all_deceased = Deceased::where('is_deceased',1)
+        ->orderBy('last_name','asc')
+        ->orderBy('first_name','asc')
+        ->paginate(20);
 
       $all_permission_data = [];
 
@@ -332,9 +335,12 @@ class AdminController extends Controller
       $users_permissions = $role_model->users_permissions($current_user->id);
       // $all_deceased = Deceased::all();
       $all_deceased = Deceased::where([
-        ['is_deceased',0],
-        ['purchased_by',null]
-      ])->orderBy('last_name','asc')->paginate(20);
+          ['is_deceased',0],
+          ['purchased_by',null]
+        ])
+        ->orderBy('last_name','asc')
+        ->orderBy('first_name','asc')
+        ->paginate(20);
 
       $all_permission_data = [];
 
@@ -367,9 +373,12 @@ class AdminController extends Controller
       $users_permissions = $role_model->users_permissions($current_user->id);
       // $all_deceased = Deceased::all();
       $all_deceased = Deceased::where([
-        ['is_deceased',0],
-        ['purchased_by','!=',null]
-      ])->orderBy('last_name','asc')->paginate(20);
+          ['is_deceased',0],
+          ['purchased_by','!=',null]
+        ])
+        ->orderBy('last_name','asc')
+        ->orderBy('first_name','asc')
+        ->paginate(20);
       $all_permission_data = [];
 
       $list_title = "UPDATE PURCHASED PLOTS";
