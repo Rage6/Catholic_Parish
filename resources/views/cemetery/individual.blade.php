@@ -104,7 +104,7 @@
           <div>Born on</div>
           <div>
             @if ($deceased->dob_month || $deceased->dob_day || $deceased->dob_year)
-              {{ $all_months[intval($deceased->dob_month) - 1] ?? "___" }} {{ $deceased->dob_day ?? "__" }}{{ $dob_daySuffix }}, {{ $deceased->dob_year ?? "____" }}
+              {{ $all_months[intval($deceased->dob_month) - 1] ?? "___" }} {{ intval($deceased->dob_day) ?? "__" }}{{ $dob_daySuffix }}, {{ $deceased->dob_year ?? "____" }}
             @elseif ($deceased->date_of_birth)
               @php $birth_date = strtotime($deceased->date_of_birth); @endphp
               {{ date("F jS, Y", $birth_date) }}
@@ -117,7 +117,7 @@
           <div>Died on</div>
           <div>
             @if ($deceased->dod_month || $deceased->dod_day || $deceased->dod_year)
-              {{ $all_months[intval($deceased->dod_month) - 1] ?? "___" }} {{ $deceased->dod_day ?? "__" }}{{ $dod_daySuffix }}, {{ $deceased->dod_year ?? "____" }}
+              {{ $all_months[intval($deceased->dod_month) - 1] ?? "___" }} {{ intval($deceased->dod_day) ?? "__" }}{{ $dod_daySuffix }}, {{ $deceased->dod_year ?? "____" }}
             @elseif ($deceased->date_of_death)
               @php $death_date = strtotime($deceased->date_of_death); @endphp
               {{ date("F jS, Y", $death_date) }}

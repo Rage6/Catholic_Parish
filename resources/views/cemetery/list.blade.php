@@ -82,7 +82,7 @@
                         -
                         @if ($one_deceased->date_of_death)
                           {{ \Illuminate\Support\Str::limit($one_deceased->date_of_death,4,$end='') }}
-                        @elseif ($one_deceased->dob_year)
+                        @elseif ($one_deceased->dod_year)
                           {{ $one_deceased->dod_year }}
                         @else
                           UNKNOWN
