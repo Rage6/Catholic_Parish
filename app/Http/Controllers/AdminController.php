@@ -96,6 +96,7 @@ class AdminController extends Controller
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
         'nickname' => 'nullable',
+        'prefers_middle_name' => 'required',
         // 'date_of_birth' => 'nullable',
         'dob_month' => 'nullable|max:2|min:2',
         'dob_day' => 'nullable|max:2|min:2',
@@ -432,6 +433,7 @@ class AdminController extends Controller
         'maiden_name' => 'nullable',
         'suffix_name' => 'nullable',
         'nickname' => 'nullable',
+        'prefers_middle_name' => 'required',
         // 'date_of_birth' => 'nullable',
         'dob_month' => 'nullable|max:2|min:2',
         'dob_day' => 'nullable|max:2|min:2',
@@ -474,6 +476,7 @@ class AdminController extends Controller
       $deceased->last_name = $request->last_name;
       $deceased->maiden_name = $request->maiden_name;
       $deceased->nickname = $request->nickname;
+      $deceased->prefers_middle_name = $request->prefers_middle_name;
       $deceased->suffix_name = $request->suffix_name;
       // $deceased->date_of_birth = $request->date_of_birth;
       $deceased->dob_month = $request->dob_month;

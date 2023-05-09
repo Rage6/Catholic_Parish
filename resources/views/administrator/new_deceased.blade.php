@@ -95,6 +95,17 @@
                               </div>
                           </div>
 
+                          <div class="row mb-3">
+                              <label for="preference" class="col-md-4 col-form-label text-md-end">{{ __('Did they go by their middle name') }}</label>
+
+                              <div class="col-md-6">
+                                  <select id="preference" name="prefers_middle_name">
+                                    <option value="0" selected>NO</option>
+                                    <option value="1">YES</option>
+                                  </select>
+                              </div>
+                          </div>
+
                           <div class="row mb-3" style="border: 1px dashed blue;padding-top:5px;margin-bottom:10px">
                               <label for="nickname" class="col-md-4 col-form-label text-md-end">{{ __('Nickname') }}</label>
 

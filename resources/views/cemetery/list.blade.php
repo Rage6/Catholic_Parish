@@ -15,7 +15,7 @@
           <div class="searchTitle">Find By Name:</div>
           <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
             @csrf
-            <input name="name_type" placeholder="First, Last, Maiden, or Nickname">
+            <input name="name_type" placeholder="First, Middle, Last, Maiden, Nickname">
             <button>
               SEARCH
             </button>
@@ -56,7 +56,11 @@
                         @if ($one_deceased->title)
                           {{ $one_deceased->title }}
                         @endif
-                        {{ $one_deceased->first_name }}
+                        @if ($one_deceased->prefers_middle_name && $one_deceased->middle_name)
+                          {{ substr($one_deceased->first_name, 0, 1) }}. {{ $one_deceased->middle_name }}
+                        @else
+                          {{ $one_deceased->first_name }}
+                        @endif
                         @if ($one_deceased->nickname)
                           "{{ explode(";",$one_deceased->nickname)[0] }}"
                         @endif

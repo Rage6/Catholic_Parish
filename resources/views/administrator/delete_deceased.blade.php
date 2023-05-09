@@ -89,6 +89,22 @@
                           </div>
                         @endif
 
+                        <div class="row mb-3">
+                            <label for="preference" class="col-md-4 col-form-label text-md-end">{{ __('Did they go by their middle name?') }}</label>
+
+                            <div id="namePreference" class="col-md-6">
+                              @if ($deceased->prefers_middle_name == 1)
+                                <div class="form-control">
+                                  YES
+                                </div>
+                              @else
+                                <div class="form-control">
+                                  NO
+                                </div>
+                              @endif
+                            </div>
+                        </div>
+
                         @if ($deceased->dob_month || $deceased->dob_day || $deceased->dob_year)
                           <div class="row mb-3">
                               <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>

@@ -16,6 +16,7 @@ class Deceased extends Model
       'maiden_name',
       'suffix_name',
       'nickname',
+      'prefers_middle_name',
       // 'date_of_birth',
       'dob_month',
       'dob_day',

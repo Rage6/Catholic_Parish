@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('maiden_name')->nullable();
             $table->string('suffix_name')->nullable();
             $table->string('nickname')->nullable();
+            $table->boolean('prefers_middle_name')->default(0);
             $table->string('date_of_birth',10)->nullable();
             $table->string('dob_month',2)->nullable();
             $table->string('dob_day',2)->nullable();

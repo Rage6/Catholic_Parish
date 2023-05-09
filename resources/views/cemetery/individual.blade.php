@@ -16,7 +16,11 @@
           @if ($deceased->title)
             {{ $deceased->title }}
           @endif
-          {{ $deceased->first_name }}
+          @if ($deceased->prefers_middle_name && $deceased->middle_name)
+            {{ substr($deceased->first_name, 0, 1) }}. {{ $deceased->middle_name }}
+          @else
+            {{ $deceased->first_name }}
+          @endif
           @if ($deceased->nickname)
             "{{ $deceased->nickname[0] }}"
           @endif

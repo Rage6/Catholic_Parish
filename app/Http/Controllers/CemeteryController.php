@@ -192,9 +192,14 @@ class CemeteryController extends Controller
                 ['nickname','LIKE','%'.$_GET['name_type'].'%'],
                 ['is_deceased','1']
             ])
+            ->orWhere([
+                ['middle_name','LIKE','%'.$_GET['name_type'].'%'],
+                ['is_deceased','1']
+            ])
             ->orderBy('last_name','ASC')
-            ->orderBy('first_name','ASC')
             ->orderBy('maiden_name','ASC')
+            ->orderBy('first_name','ASC')
+            ->orderBy('middle_name','ASC')
             ->paginate(20);
         };
         $all_deceased = null;
@@ -203,8 +208,9 @@ class CemeteryController extends Controller
         } else {
           $all_deceased = Deceased::where('is_deceased','=','1')
             ->orderBy('last_name','ASC')
-            ->orderBy('first_name','ASC')
             ->orderBy('maiden_name','ASC')
+            ->orderBy('first_name','ASC')
+            ->orderBy('middle_name','ASC')
             ->paginate(20);
         };
         for ($i = 0; $i < count($all_deceased); $i++) {
