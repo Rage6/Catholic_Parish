@@ -20,6 +20,9 @@
             {{ substr($deceased->first_name, 0, 1) }}. {{ $deceased->middle_name }}
           @else
             {{ $deceased->first_name }}
+            @if ($deceased->middle_name && !$deceased->nickname)
+              {{ substr($deceased->middle_name, 0, 1) }}.
+            @endif
           @endif
           @if ($deceased->nickname)
             "{{ $deceased->nickname[0] }}"

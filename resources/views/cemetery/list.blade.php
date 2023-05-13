@@ -60,6 +60,9 @@
                           {{ substr($one_deceased->first_name, 0, 1) }}. {{ $one_deceased->middle_name }}
                         @else
                           {{ $one_deceased->first_name }}
+                          @if ($one_deceased->middle_name && !$one_deceased->nickname)
+                            {{ substr($one_deceased->middle_name, 0, 1) }}.
+                          @endif
                         @endif
                         @if ($one_deceased->nickname)
                           "{{ explode(";",$one_deceased->nickname)[0] }}"
