@@ -317,7 +317,7 @@
                               <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
                               <div id="purchased" class="col-md-6">
-                                <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)">{{ $deceased->purchased_by }}</textarea>
+                                <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)" disabled>{{ $deceased->purchased_by }}</textarea>
                               </div>
                           </div>
                         @endif
@@ -327,7 +327,7 @@
                               <label for="public_notes" class="col-md-4 col-form-label text-md-end">{{ __('Public Notes') }}</label>
 
                               <div id="public_notes" class="col-md-6">
-                                <textarea class="form-control">{{ $deceased->public_notes }}</textarea>
+                                <textarea class="form-control" disabled>{{ $deceased->public_notes }}</textarea>
                               </div>
                           </div>
                         @endif
@@ -337,7 +337,7 @@
                               <label for="private_notes" class="col-md-4 col-form-label text-md-end">{{ __('Private Notes') }}</label>
 
                               <div id="private_notes" class="col-md-6">
-                                <textarea class="form-control">{{ $deceased->admin_notes }}</textarea>
+                                <textarea class="form-control" disabled>{{ $deceased->admin_notes }}</textarea>
                               </div>
                           </div>
                         @endif
