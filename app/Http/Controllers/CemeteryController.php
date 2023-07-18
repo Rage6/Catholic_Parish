@@ -424,6 +424,12 @@ class CemeteryController extends Controller
       ]);
     }
 
+    public function improve_data() {
+      return view('cemetery.improve',[
+        'css' => 'cemetery'
+      ]);
+    }
+
     public function contact() {
       // $all_users = User::all();
       $all_users = User::where('email','!=',null)->orderBy('list_order','desc')->get();

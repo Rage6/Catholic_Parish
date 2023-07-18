@@ -93,6 +93,11 @@
               </a>
             </div>
             <div>
+              <a href="{{ route('cemetery.improve') }}">
+                How To Help
+              </a>
+            </div>
+            <div>
               <a href="{{ route('cemetery.contact') }}">
                 Contact Us
               </a>

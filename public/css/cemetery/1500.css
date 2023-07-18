@@ -12,3 +12,9 @@
 .introSubtitle {
   margin: 8vh 14vw;
 }
+
+.dataErrorList {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+}

@@ -700,3 +700,37 @@ nav {
   width: 88%;
   height: 50vh;
 }
+
+.helpSection {
+  padding-top: 30px;
+}
+
+.helpSection div {
+  margin-bottom: 15px;
+}
+
+.helpSubtitle {
+  margin-top: 50px;
+  padding: 5px 0;
+  border-top: 2px dashed;
+  border-bottom: 2px dashed;
+  display: block;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.dataErrorRow {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.dataErrorRow div a {
+  color: gold;
+}
+
+.dataErrorRow div:first-child {
+  padding: 10px 5%;
+  color: rgb(105, 30, 32);
+  text-align: center;
+  background-color: gold;
+}

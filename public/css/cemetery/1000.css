@@ -787,3 +787,9 @@
 .basicInfoList p {
 
 }
+
+.dataErrorList {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-column-gap: 4%;
+}

@@ -14,17 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name('cemetery.index');
-Route::get('/find-a-grave', [App\Http\Controllers\CemeteryController::class, 'find'])->name('cemetery.find');
-Route::get('/rules', [App\Http\Controllers\CemeteryController::class, 'rules'])->name('cemetery.rules');
-Route::get('/rite', [App\Http\Controllers\CemeteryController::class, 'rite'])->name('cemetery.rite');
-Route::get('/history', [App\Http\Controllers\CemeteryController::class, 'history'])->name('cemetery.history');
-Route::get('/available-plots', [App\Http\Controllers\CemeteryController::class, 'available'])->name('cemetery.available');
-Route::get('/cemetery-contact-info', [App\Http\Controllers\CemeteryController::class, 'contact'])->name('cemetery.contact');
 
+Route::get('/find-a-grave', [App\Http\Controllers\CemeteryController::class, 'find'])->name('cemetery.find');
 Route::get('/cemetery/list', [App\Http\Controllers\CemeteryController::class, 'list'])->name('cemetery.list');
 Route::post('/cemetery/list/search',[App\Http\Controllers\CemeteryController::class, 'search'])->name('cemetery.search');
 Route::get('/cemetery/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');
+
+Route::get('/rules', [App\Http\Controllers\CemeteryController::class, 'rules'])->name('cemetery.rules');
+
+Route::get('/rite', [App\Http\Controllers\CemeteryController::class, 'rite'])->name('cemetery.rite');
+
+Route::get('/history', [App\Http\Controllers\CemeteryController::class, 'history'])->name('cemetery.history');
+
+Route::get('/available-plots', [App\Http\Controllers\CemeteryController::class, 'available'])->name('cemetery.available');
+
+Route::get('/cemetery-contact-info', [App\Http\Controllers\CemeteryController::class, 'contact'])->name('cemetery.contact');
 Route::post('/message', [App\Http\Controllers\CemeteryController::class, 'messaging'])->name('cemetery.messaging');
+
+Route::get('/how-to-help',[App\Http\Controllers\CemeteryController::class, 'improve_data'])->name('cemetery.improve');
+
 // Retrieves the images from the 'storage' directory
 Route::get('images/{filename}', function($filename){
      $storagePath = storage_path('app/public/images/' . $filename);
