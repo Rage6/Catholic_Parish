@@ -420,7 +420,7 @@
                               <div id="mapPhoto" class="col-md-6">
                                 <div class="form-control">
                                   @if ($deceased->zone)
-                                    <img class="img-thumbnail" src="/images/overview_{{ $deceased->zone }}.jpg">
+                                    <img class="img-thumbnail" src="/images/{{ $deceased->zone }}.jpg">
                                   @else
                                     <img class="img-thumbnail" src="/images/overview_zone.jpg"/>
                                   @endif
@@ -438,68 +438,152 @@
                                     >
                                       Unknown
                                     </option>
-                                    <option value="nw"
-                                      @if ($deceased->zone == "nw")
+                                    <option value="old_a"
+                                      @if ($deceased->zone == "old_a")
                                         selected
                                       @endif
                                     >
-                                      North West (NW)
+                                      A (Old Section)
                                     </option>
-                                    <option value="nc"
-                                      @if ($deceased->zone == "nc")
+                                    <option value="old_b"
+                                      @if ($deceased->zone == "old_b")
                                         selected
                                       @endif
                                     >
-                                      North Central (NC)
+                                      B (Old Section)
                                     </option>
-                                    <option value="ne"
-                                      @if ($deceased->zone == "ne")
+                                    <option value="old_c"
+                                      @if ($deceased->zone == "old_c")
                                         selected
                                       @endif
                                     >
-                                      North East (NE)
+                                      C (Old Section)
                                     </option>
-                                    <option value="wc"
+                                    <option value="old_d"
                                       @if ($deceased->zone == "wc")
                                         selected
                                       @endif
                                     >
-                                      West Central (WC)
+                                      D (Old Section)
                                     </option>
-                                    <option value="c"
-                                      @if ($deceased->zone == "c")
+                                    <option value="old_e"
+                                      @if ($deceased->zone == "old_e")
                                         selected
                                       @endif
                                     >
-                                      Central (C)
+                                      E (Old Section)
                                     </option>
-                                    <option value="ec"
-                                      @if ($deceased->zone == "ec")
+                                    <option value="old_f"
+                                      @if ($deceased->zone == "old_f")
                                         selected
                                       @endif
                                     >
-                                      East Central (EC)
+                                      F (Old Section)
                                     </option>
-                                    <option value="sw"
-                                      @if ($deceased->zone == "sw")
+                                    <option value="old_g"
+                                      @if ($deceased->zone == "old_g")
                                         selected
                                       @endif
                                     >
-                                      South West (SW)
+                                      G (Old Section)
                                     </option>
-                                    <option value="sc"
-                                      @if ($deceased->zone == "sc")
+                                    <option value="old_h"
+                                      @if ($deceased->zone == "old_h")
                                         selected
                                       @endif
                                     >
-                                      South Central (SC)
+                                      H (Old Section)
                                     </option>
-                                    <option value="se"
-                                      @if ($deceased->zone == "se")
+                                    <option value="old_i"
+                                      @if ($deceased->zone == "old_i")
                                         selected
                                       @endif
                                     >
-                                      South East (SE)
+                                      I (Old Section)
+                                    </option>
+                                    <option value="old_j"
+                                      @if ($deceased->zone == "old_j")
+                                        selected
+                                      @endif
+                                    >
+                                      J (Old Section)
+                                    </option>
+                                    <option value="row_1"
+                                      @if ($deceased->zone == "row_1")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 1 (New Section)
+                                    </option>
+                                    <option value="row_2"
+                                      @if ($deceased->zone == "row_2")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 2 (New Section)
+                                    </option>
+                                    <option value="row_3"
+                                      @if ($deceased->zone == "row_3")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 3 (New Section)
+                                    </option>
+                                    <option value="row_4"
+                                      @if ($deceased->zone == "row_4")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 4 (New Section)
+                                    </option>
+                                    <option value="row_5"
+                                      @if ($deceased->zone == "row_5")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 5 (New Section)
+                                    </option>
+                                    <option value="row_6"
+                                      @if ($deceased->zone == "row_6")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 6 (New Section)
+                                    </option>
+                                    <option value="row_7"
+                                      @if ($deceased->zone == "row_7")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 7 (New Section)
+                                    </option>
+                                    <option value="row_8"
+                                      @if ($deceased->zone == "row_8")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 8 (New Section)
+                                    </option>
+                                    <option value="row_9"
+                                      @if ($deceased->zone == "row_9")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 9 (New Section)
+                                    </option>
+                                    <option value="row_10"
+                                      @if ($deceased->zone == "row_10")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 10 (New Section)
+                                    </option>
+                                    <option value="row_11"
+                                      @if ($deceased->zone == "row_11")
+                                        selected
+                                      @endif
+                                    >
+                                      Row 11 (New Section)
                                     </option>
                                   </select>
                                 </div>
@@ -509,6 +593,11 @@
                                     </span>
                                 @enderror
                               </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <u>Overview Map</u></br>
+                            <img class="img-fluid max-width" src="/images/overview_zone.jpg">
                           </div>
 
                           <div class="row mb-3">

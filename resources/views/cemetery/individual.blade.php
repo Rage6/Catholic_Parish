@@ -41,7 +41,7 @@
           <div class="photoProfile" data-size="main" data-type="tombstone" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
         @endif
         @if ($deceased->zone != null)
-          <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/images/overview_{{ $deceased->zone }}.jpg')"></div>
+          <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/images/{{ $deceased->zone }}.jpg')"></div>
         @endif
         @if ($deceased->profile_photo == null && $deceased->tombstone_photo == null && $deceased->zone == null)
           <div class="photoProfile" style="display:flex;flex-direction:column;justify-content:center">
@@ -58,7 +58,7 @@
             <div data-type="tombstone" data-size="thumbnail" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
           @endif
           @if ($deceased->zone != null)
-            <div data-type="map" data-size="thumbnail"style="background-image:url('/images/overview_{{ $deceased->zone }}.jpg')"></div>
+            <div data-type="map" data-size="thumbnail"style="background-image:url('/images/{{ $deceased->zone }}.jpg')"></div>
           @endif
         </div>
       </div>

@@ -345,7 +345,70 @@
                                     <option value="null">
                                       Unknown
                                     </option>
-                                    <option value="nw">
+                                    <option value="old_a">
+                                      A (Old Section)
+                                    </option>
+                                    <option value="old_b">
+                                      B (Old Section)
+                                    </option>
+                                    <option value="old_c">
+                                      C (Old Section)
+                                    </option>
+                                    <option value="old_d">
+                                      D (Old Section)
+                                    </option>
+                                    <option value="old_e">
+                                      E (Old Section)
+                                    </option>
+                                    <option value="old_f">
+                                      F (Old Section)
+                                    </option>
+                                    <option value="old_g">
+                                      G (Old Section)
+                                    </option>
+                                    <option value="old_h">
+                                      H (Old Section)
+                                    </option>
+                                    <option value="old_i">
+                                      I (Old Section)
+                                    </option>
+                                    <option value="old_j">
+                                      J (Old Section)
+                                    </option>
+                                    <option value="row_1">
+                                      Row 1 (New Section)
+                                    </option>
+                                    <option value="row_2">
+                                      Row 2 (New Section)
+                                    </option>
+                                    <option value="row_3">
+                                      Row 3 (New Section)
+                                    </option>
+                                    <option value="row_4">
+                                      Row 4 (New Section)
+                                    </option>
+                                    <option value="row_5">
+                                      Row 5 (New Section)
+                                    </option>
+                                    <option value="row_6">
+                                      Row 6 (New Section)
+                                    </option>
+                                    <option value="row_7">
+                                      Row 7 (New Section)
+                                    </option>
+                                    <option value="row_8">
+                                      Row 8 (New Section)
+                                    </option>
+                                    <option value="row_9">
+                                      Row 9 (New Section)
+                                    </option>
+                                    <option value="row_10">
+                                      Row 10 (New Section)
+                                    </option>
+                                    <option value="row_11">
+                                      Row 11 (New Section)
+                                    </option>
+                                    <!-- <option value="nw">
                                       North West (NW)
                                     </option>
                                     <option value="nc">
@@ -371,7 +434,7 @@
                                     </option>
                                     <option value="se">
                                       South East (SE)
-                                    </option>
+                                    </option> -->
                                   </select>
 
                                   @error('map')
@@ -381,6 +444,7 @@
                                   @enderror
                               </div>
                               <div>
+                                <u>Overview Map</u></br>
                                 <img class="img-fluid max-width" src="/images/overview_zone.jpg">
                               </div>
                           </div>

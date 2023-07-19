@@ -292,7 +292,7 @@
                               <div id="map" class="col-md-6">
                                 <div class="form-control">
                                   <!-- <img class="img-thumbnail" src="/{{ $deceased->map_photo }}"> -->
-                                  <img class="img-thumbnail" src="/images/overview_{{ $deceased->zone }}.jpg">
+                                  <img class="img-thumbnail" src="/images/{{ $deceased->zone }}.jpg">
                                 </div>
                               </div>
                           </div>
