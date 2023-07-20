@@ -5,7 +5,7 @@
   <!-- Gets only empty, available plots -->
   @foreach ($all_deceased as $one_deceased)
       @if (!$one_deceased->is_deceased && !$one_deceased->purchased_by)
-        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type]) }}">
+        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type, 'page' => $page]) }}">
           <button class="btn btn-primary col-12" style="margin-bottom:10px">
             @if ($one_deceased->title)
               {{ $one_deceased->title }}
@@ -22,7 +22,7 @@
   <!-- Gets only empty, purchased plots -->
   @foreach ($all_deceased as $one_deceased)
       @if (!$one_deceased->is_deceased && $one_deceased->purchased_by)
-        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type]) }}">
+        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type, 'page' => $page]) }}">
           <button class="btn btn-primary col-12 mb-2">
             @if ($one_deceased->title)
               {{ $one_deceased->title }}
@@ -42,7 +42,7 @@
   <!-- Gets only filled plots -->
   @foreach ($all_deceased as $one_deceased)
       @if ($one_deceased->is_deceased)
-        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type]) }}">
+        <a href="{{ route('cemetery.updateform', ['id' => $one_deceased->id, 'type' => $type, 'page' => $page]) }}">
           <button class="btn btn-primary col-12" style="margin-bottom:10px">
             @if ($one_deceased->title)
               {{ $one_deceased->title }}

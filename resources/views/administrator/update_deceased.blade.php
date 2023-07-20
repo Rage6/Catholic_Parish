@@ -16,11 +16,11 @@
                     @endif
                     <div>
                       @php $route_name = 'cemetery.all'.$type.'updates' @endphp
-                      <a href="{{ route($route_name) }}"><< BACK</a>
+                      <a href="{{ route($route_name, ['page' => $page]) }}"><< BACK</a>
                     </div>
                     <div>
                       <div>
-                        <form method="POST" action="{{ route('cemetery.update',['id' => $deceased->id]) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('cemetery.update',['id' => $deceased->id, 'type' => $type, 'page' => $page]) }}" enctype="multipart/form-data">
                           @csrf
                           @method('PUT')
 

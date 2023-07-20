@@ -294,7 +294,7 @@ class AdminController extends Controller
       ]);
     }
 
-    public function update_deceased_current() {
+    public function update_deceased_current(Request $request) {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
@@ -317,6 +317,12 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
+      if ($request->page) {
+        $page = $request->page;
+      } else {
+        $page = "1";
+      };
+
       return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
@@ -325,11 +331,12 @@ class AdminController extends Controller
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
         'list_route' => $list_route,
-        'type' => 'current'
+        'type' => 'current',
+        'page' => $page
       ]);
     }
 
-    public function update_deceased_available() {
+    public function update_deceased_available(Request $request) {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
@@ -355,6 +362,12 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
+      if ($request->page) {
+        $page = $request->page;
+      } else {
+        $page = "1";
+      };
+
       return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
@@ -363,11 +376,12 @@ class AdminController extends Controller
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
         'list_route' => $list_route,
-        'type' => 'available'
+        'type' => 'available',
+        'page' => $page
       ]);
     }
 
-    public function update_deceased_purchased() {
+    public function update_deceased_purchased(Request $request) {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
       $role_model = new Role();
@@ -392,6 +406,12 @@ class AdminController extends Controller
         $all_permission_data[] = $permission_data;
       };
 
+      if ($request->page) {
+        $page = $request->page;
+      } else {
+        $page = "1";
+      };
+
       return view('administrator.update_deceased_list',[
         'current_user' => $current_user,
         'user_roles' => $user_roles,
@@ -400,15 +420,17 @@ class AdminController extends Controller
         'all_deceased' => $all_deceased,
         'list_title' => $list_title,
         'list_route' => $list_route,
-        'type' => 'purchased'
+        'type' => 'purchased',
+        'page' => $page
       ]);
     }
 
-    public function update_deceased_form($id,$type) {
+    public function update_deceased_form($id,$type,$page) {
       $this_deceased = Deceased::find($id);
       return view('administrator.update_deceased',[
         'deceased' => $this_deceased,
-        'type' => $type
+        'type' => $type,
+        'page' => $page
       ]);
     }
 
@@ -419,7 +441,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_deceased_action(Request $request, $id)
+    public function update_deceased_action(Request $request, $id, $type, $page)
     {
       $current_user = Auth::user();
       $user_roles = User::find($current_user->id)->all_user_roles;
@@ -549,11 +571,17 @@ class AdminController extends Controller
         $this_deceased->save();
       };
 
-      return redirect()->route('cemetery.updateoptions',[
-        'current_user' => $current_user,
-        'user_roles' => $user_roles,
-        'users_permissions' => $users_permissions
+      $return_route = 'cemetery.all'.$type.'updates';
+
+      return redirect()->route($return_route,[
+        'page' => $page
       ]);
+
+      // return redirect()->route('cemetery.updateoptions',[
+      //   'current_user' => $current_user,
+      //   'user_roles' => $user_roles,
+      //   'users_permissions' => $users_permissions
+      // ]);
     }
 
     // public function delete_deceased_profile(Request $request, $id)

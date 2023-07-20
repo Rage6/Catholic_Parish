@@ -72,9 +72,9 @@ Route::middleware('auth')->group(function() {
       // Updating a list of ONLY the purchased plots
       Route::get('/edit-deceased/purchased', [App\Http\Controllers\AdminController::class,'update_deceased_purchased'])->name('cemetery.allpurchasedupdates');
       // Provide form to update an existing deceased
-      Route::get('/deceased/{id}/update/{type}', [App\Http\Controllers\AdminController::class,'update_deceased_form'])->name('cemetery.updateform');
+      Route::get('/deceased/{id}/update/{type}/{page}', [App\Http\Controllers\AdminController::class,'update_deceased_form'])->name('cemetery.updateform');
       // Update the existing deceased member
-      Route::put('/deceased/{id}/update', [App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
+      Route::put('/deceased/{id}/update/{type}/{page}', [App\Http\Controllers\AdminController::class,'update_deceased_action'])->name('cemetery.update');
     });
     Route::middleware(['permission:Delete Deceased'])->group(function() {
       // Go to overall list of deletion options
