@@ -164,7 +164,7 @@
                 Teresa Gwirtz (d. 1859)
               </div>
               <div>
-                This person is not on the spreadsheet or a hardcopy card, but <a href="https://www.findagrave.com/memorial/13590399/teresa-gwirtz">she is on FindAGrave</a>
+                This person is not on the spreadsheet or a hardcopy card, but <a href="https://www.findagrave.com/memorial/13590399/teresa-gwirtz" target="_blank">she is on FindAGrave</a>
               </div>
             </div>
             <div class="dataErrorRow">
@@ -180,7 +180,7 @@
                 Viola Horning (d. 1885)
               </div>
               <div>
-                Her name is not found in our records, but she is on <a href="https://www.findagrave.com/memorial/158117950/viola-horning">FindAGrave</a>.
+                Her name is not found in our records, but she is on <a href="https://www.findagrave.com/memorial/158117950/viola-horning" target="_blank">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -188,7 +188,7 @@
                 Elizabeth/Maria Hubert (d. 1921)
               </div>
               <div>
-                We need to confirm her OFFICIAL full name. <a href="https://www.findagrave.com/memorial/14461741/maria-elizabeth-hubert">FindAGrave</a> only knows “Maria” is part of it, and it has Maria as her first name
+                We need to confirm her OFFICIAL full name. <a href="https://www.findagrave.com/memorial/14461741/maria-elizabeth-hubert" target="_blank">FindAGrave</a> only knows “Maria” is part of it, and it has Maria as her first name
               </div>
             </div>
             <div class="dataErrorRow">
@@ -196,7 +196,7 @@
                 (Baby Boy) Kurtzman (d. 1915)
               </div>
               <div>
-                There is no hardcopy card about an infant like this, in spite of there being one on <a href="https://www.findagrave.com/memorial/211341834/baby_boy-kurtzman">FindAGrave</a>.
+                There is no hardcopy card about an infant like this, in spite of there being one on <a href="https://www.findagrave.com/memorial/211341834/baby_boy-kurtzman" target="_blank">FindAGrave</a>.
               </div>
             </div>
             <!-- <div class="dataErrorRow">
@@ -212,7 +212,7 @@
                 Philip & Philomine Loude
               </div>
               <div>
-                Although there are no "Loude" names on the cards or the spreadsheet, their tombstone is included on <a href="https://www.findagrave.com/cemetery/1014232/memorial-search?firstname=&middlename=&lastname=loude&cemeteryName=Sacred+Heart+Cemetery&birthyear=&birthyearfilter=&deathyear=&deathyearfilter=&memorialid=&mcid=&linkedToName=&datefilter=&orderby=r&plot=">FindAGrave</a> with pictures of their tombstones.
+                Although there are no "Loude" names on the cards or the spreadsheet, their tombstone is included on <a href="https://www.findagrave.com/cemetery/1014232/memorial-search?firstname=&middlename=&lastname=loude&cemeteryName=Sacred+Heart+Cemetery&birthyear=&birthyearfilter=&deathyear=&deathyearfilter=&memorialid=&mcid=&linkedToName=&datefilter=&orderby=r&plot=" target="_blank">FindAGrave</a> with pictures of their tombstones.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -220,7 +220,7 @@
                 J. McNamara/McNammara
               </div>
               <div>
-                It's unclear which name is correct. Only the name McNamara showed up on the hardcopy card, but only McNammara is on <a href="https://www.findagrave.com/memorial/18682965/j-mcnammara">FindAGrave</a>. Based on the tombstone picture, it is McNammara.
+                It's unclear which name is correct. Only the name McNamara showed up on the hardcopy card, but only McNammara is on <a href="https://www.findagrave.com/memorial/18682965/j-mcnammara" target="_blank">FindAGrave</a>. Based on the tombstone picture, it is McNammara.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -239,16 +239,16 @@
                 Both of this couple is shown as being with the Metzger and Gwirtz last names on FindAGrave. Why?
                 <ul>
                   <li>
-                    <a href="https://www.findagrave.com/memorial/14465265/florence-helen-gwirtz">Flossie Gwirtz</a>
+                    <a href="https://www.findagrave.com/memorial/14465265/florence-helen-gwirtz" target="_blank">Flossie Gwirtz</a>
                   </li>
                   <li>
-                    <a href="https://www.findagrave.com/memorial/25692241/flossie-metzger">Flossie Metzger</a>
+                    <a href="https://www.findagrave.com/memorial/25692241/flossie-metzger" target="_blank">Flossie Metzger</a>
                   </li>
                   <li>
-                    <a href="https://www.findagrave.com/memorial/14465256/george-bernard-gwirtz">George Gwirtz</a>
+                    <a href="https://www.findagrave.com/memorial/14465256/george-bernard-gwirtz" target="_blank">George Gwirtz</a>
                   </li>
                   <li>
-                    <a href="https://www.findagrave.com/memorial/25692251/george-bernard-metzger">George Metzger</a>
+                    <a href="https://www.findagrave.com/memorial/25692251/george-bernard-metzger" target="_blank">George Metzger</a>
                   </li>
                 </ul>
               </div>
@@ -258,7 +258,7 @@
                 Otillia Metzger (x2)
               </div>
               <div>
-                Two Otillia Metzgers with different dates appear in FindAGrave (<a href="https://www.findagrave.com/memorial/252730253/otillia-metzger">A</a> and <a href="https://www.findagrave.com/memorial/252720818/ottilia-metzger">B</a>), but neither are on our spreadsheet or hardcopy cards. In further complications, an <a href="https://www.findagrave.com/memorial/14461701/otilla-sutter">"Ottila Sutter"</a> seems to be connected to one of them as well.
+                Two Otillia Metzgers with different dates appear in FindAGrave (<a href="https://www.findagrave.com/memorial/252730253/otillia-metzger" target="_blank">A</a> and <a href="https://www.findagrave.com/memorial/252720818/ottilia-metzger" target="_blank">B</a>), but neither are on our spreadsheet or hardcopy cards. In further complications, an <a href="https://www.findagrave.com/memorial/14461701/otilla-sutter" target="_blank">"Ottila Sutter"</a> seems to be connected to one of them as well.
               </div>
             </div>
             <!-- <div class="dataErrorRow">
@@ -274,7 +274,7 @@
                 Henrietta Brennan/Niebrugge (d. 1901)
               </div>
               <div>
-                It looks like our records list her by her maiden name, Henrietta Brennan, and her hardcopy card says that her name is on the back of her parents' tombstone. However, the <a href="https://www.findagrave.com/memorial/126361879/henrietta-niebrugge">FindAGrave entry</a> lists her by her married name, Henrietta Niebrugge. That entry says that she died ~6 months after her marriage with John William Niebrugge.
+                It looks like our records list her by her maiden name, Henrietta Brennan, and her hardcopy card says that her name is on the back of her parents' tombstone. However, the <a href="https://www.findagrave.com/memorial/126361879/henrietta-niebrugge" target="_blank">FindAGrave entry</a> lists her by her married name, Henrietta Niebrugge. That entry says that she died ~6 months after her marriage with John William Niebrugge.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -282,7 +282,7 @@
                 John Nolen (d. 1877)
               </div>
               <div>
-                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683332/john-nolen">FindAGrave</a>.
+                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683332/john-nolen" target="_blank">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -290,7 +290,7 @@
                 Michael Nolen (d. ?)
               </div>
               <div>
-                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683345/michael-nolen">FindAGrave</a>.
+                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683345/michael-nolen" target="_blank">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -322,7 +322,7 @@
                 Charles Sutter (d. 1904)
               </div>
               <div>
-                He has no hardcopy card and is not on the spreadsheet, but he is on <a href="https://www.findagrave.com/memorial/131975655/charles-sutter">FindAGrave</a> (including a picture). He shares a tombstone with Maurice, who was ~12 years old.
+                He has no hardcopy card and is not on the spreadsheet, but he is on <a href="https://www.findagrave.com/memorial/131975655/charles-sutter" target="_blank">FindAGrave</a> (including a picture). He shares a tombstone with Maurice, who was ~12 years old.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -338,7 +338,7 @@
                 Mary Anna Sutter (d. 1895)
               </div>
               <div>
-                There is no hardcopy card matching "Mary Anna Sutter" on <a href="https://www.findagrave.com/memorial/18683493/mary-anna-sutter">FindAGrave</a>, but there is a card and tombstone that matches Anna Mariam of same dates. Are they the same person?
+                There is no hardcopy card matching "Mary Anna Sutter" on <a href="https://www.findagrave.com/memorial/18683493/mary-anna-sutter" target="_blank">FindAGrave</a>, but there is a card and tombstone that matches Anna Mariam of same dates. Are they the same person?
               </div>
             </div>
             <div class="dataErrorRow">
