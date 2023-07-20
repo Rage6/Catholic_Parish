@@ -593,6 +593,9 @@
                                     </span>
                                 @enderror
                               </div>
+                              <div style="margin: 10px 0 20px 0; text-align:center">
+                                <i>Unsure which zone the deceased member is buried in? <a href="/zone_instructions.html" target="_blank">Click here</a> for instructions.</i>
+                              </div>
                           </div>
 
                           <div class="row mb-3">
