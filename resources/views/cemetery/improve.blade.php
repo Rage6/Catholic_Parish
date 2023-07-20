@@ -41,7 +41,7 @@
             Clean Up The Details
           </div>
           <p>
-            You can help us clarify some of the discrepancies that have developed within our own records. While reviewing our cemetery's records, we mostly referenced three sources: our hardcopy card list, our digital spreadsheet, and our cemetery's page on <a style="color:gold" href="https://www.findagrave.com/cemetery/1014232/sacred-heart-cemetery">FindAGrave</a>. These sources occasionally conflict with one another.
+            You can help us clarify some of the discrepancies that have developed within our own records. While reviewing our cemetery's records, we mostly referenced three sources: our hardcopy card list, our <a style="color:gold" href="https://docs.google.com/spreadsheets/d/1XEJgPcC4c8M_owNmYirap50iclKg6PWf4ZV_7d3Yzzg/edit?usp=sharing" target="_blank">digital spreadsheet</a>, and our cemetery's page on <a style="color:gold" href="https://www.findagrave.com/cemetery/1014232/sacred-heart-cemetery" target="_blank">FindAGrave</a>. These sources occasionally conflict with one another.
           </p>
           <p>
             Here is our list of discrepancies that we still need to resolve:
@@ -57,23 +57,23 @@
           <div class="dataErrorList">
             <div class="dataErrorRow">
               <div>
-                Elizabeth/Elisabeth Best
+                Elizabeth/Elisabeth Best (d. 1860)
               </div>
               <div>
-                How is her first name actually spelled?
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                Jacob Best
-              </div>
-              <div>
-                What is his actual date of death?
+                How is her first name actually spelled? The tombstone and spreadsheet say "Elisabeth", while the hardcopy shows both ways of spelling it.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Unknown Biglin
+                Jacob Best (d. ?)
+              </div>
+              <div>
+                What is Jacob's actual date of death? The hardcopy initially said "5-4-1867", but this was crossed off and "12-28-1901" was written underneath
+              </div>
+            </div>
+            <div class="dataErrorRow">
+              <div>
+                Unknown Biglin (d. 1894)
               </div>
               <div>
                 No Biglin matches the “Unknown Biglin” in <a href="https://www.findagrave.com/memorial/18683817/unknown-biglin" target="_blank">FindAGrave</a>. Could this be a “Robert Biglin”, who is in our records but with no dates?
@@ -89,7 +89,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Elisabeth Brodman
+                Elisabeth Brodman (d. 1868)
               </div>
               <div>
                 She is said to be buried here according to FindAGrave, but there is no hardcopy card confirm it. She left her significant estate to Sacred Heart, so she was likely buried here.
@@ -97,7 +97,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                John Brodman
+                John Brodman (d. 1859)
               </div>
               <div>
                 Although we have no card to confirmed that John was buried here, historical documents on FindAGrave gives strong evidence that he was indeed buried here somewhere.
@@ -105,7 +105,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Johannes Buchhold/Buchholz
+                Johannes Buchhold/Buchholz (d. 1861)
               </div>
               <div>
                 Is his named as Buchhold or Buchholz? Our spreadsheet spells as the Buchhold, but there is only a Buchholz hardcopy card like this.
@@ -113,7 +113,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                John Burke
+                John Burke (d. 1858)
               </div>
               <div>
                 There is no hardcopy card of this man, but <a href="https://www.findagrave.com/memorial/18680829/john-burke" target="_blank">he is on our FindAGrave</a> with a picture of the tombstone. Confirming that the same tombstone is in our cemetery would be enough.
@@ -121,7 +121,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                (Unknown) Burns
+                (Unknown) Burns (d. ?)
               </div>
               <div>
                 The hardcopy card of this name is very empty, and it is not in FindAGrave. The only other information on the card it "Grandmother".
@@ -129,7 +129,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Viola Curran
+                Viola Curran (d. 1886)
               </div>
               <div>
                 This person's name is on FindAGrave and is a child of "J and C Curran", but not on any of our cemetery records.
@@ -137,7 +137,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Philomene Finnegan
+                Philomene Finnegan (d. ?)
               </div>
               <div>
                 There is a hardcopy card of this person, but it also says “no evidence of her”.
@@ -145,7 +145,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Joseph Fisher
+                Joseph Fisher (d. 1856)
               </div>
               <div>
                 Although there is no hardcopy card about this person, some <a href="https://www.findagrave.com/memorial/214044043/joseph-fisher" target="_blank">evidence on FindAGrave</a> indicates that they were buried here. First, their baptism records indicate that it happened at Sacred Heart. Second, this person did not show up on their census records after that family moved to Michigan.
@@ -153,7 +153,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Frances Gosser
+                Frances Gosser (d. 1825/?)
               </div>
               <div>
                 There are two names like this in both the cards and the spreadsheet, and they have spouses that match. Besides that, the second name shows no dates or parents. Are these two cards about the same person?
@@ -161,10 +161,10 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Teresa Gwirtz
+                Teresa Gwirtz (d. 1859)
               </div>
               <div>
-                This person is not on the spreadsheet or a hardcopy card.
+                This person is not on the spreadsheet or a hardcopy card, but <a href="https://www.findagrave.com/memorial/13590399/teresa-gwirtz">she is on FindAGrave</a>
               </div>
             </div>
             <div class="dataErrorRow">
@@ -177,42 +177,42 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Viola Horning
+                Viola Horning (d. 1885)
               </div>
               <div>
-                Her name is not found in our records, but is on FindAGrave.
+                Her name is not found in our records, but she is on <a href="https://www.findagrave.com/memorial/158117950/viola-horning">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Elizabeth/Maria Hubert
+                Elizabeth/Maria Hubert (d. 1921)
               </div>
               <div>
-                We need to confirm her OFFICIAL full name. FindAGrave only knows “Maria” is part of it, and it has Maria as her first name
+                We need to confirm her OFFICIAL full name. <a href="https://www.findagrave.com/memorial/14461741/maria-elizabeth-hubert">FindAGrave</a> only knows “Maria” is part of it, and it has Maria as her first name
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                (Baby Boy) Kurtzman
+                (Baby Boy) Kurtzman (d. 1915)
               </div>
               <div>
-                There is no hardcopy card about an infant like this, in spite of there being on on FindAGrave.
+                There is no hardcopy card about an infant like this, in spite of there being one on <a href="https://www.findagrave.com/memorial/211341834/baby_boy-kurtzman">FindAGrave</a>.
               </div>
             </div>
-            <div class="dataErrorRow">
+            <!-- <div class="dataErrorRow">
               <div>
                 Mary Leich
               </div>
               <div>
-                There is no hardcopy card about this name.
+                This is a duplicate of Mary Singer on FindAGrave
               </div>
-            </div>
+            </div> -->
             <div class="dataErrorRow">
               <div>
-                Philip/Philomine Loude
+                Philip & Philomine Loude
               </div>
               <div>
-                No "Loude" cards were found to confirm either of these names.
+                Although there are no "Loude" names on the cards or the spreadsheet, their tombstone is included on <a href="https://www.findagrave.com/cemetery/1014232/memorial-search?firstname=&middlename=&lastname=loude&cemeteryName=Sacred+Heart+Cemetery&birthyear=&birthyearfilter=&deathyear=&deathyearfilter=&memorialid=&mcid=&linkedToName=&datefilter=&orderby=r&plot=">FindAGrave</a> with pictures of their tombstones.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -220,23 +220,37 @@
                 J. McNamara/McNammara
               </div>
               <div>
-                It's unclear which name is correct. Only the name McNamara showed up on the hardcopy card, but only McNammara is on FindAGrave
+                It's unclear which name is correct. Only the name McNamara showed up on the hardcopy card, but only McNammara is on <a href="https://www.findagrave.com/memorial/18682965/j-mcnammara">FindAGrave</a>. Based on the tombstone picture, it is McNammara.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Alphonsus/Alphonse Metzger
+                Alphonsus/Alphonse Metzger (d. 1886)
               </div>
               <div>
-                The first name on the tombstone looks like "Alphonse", but it is very tough to tell.
+                The first name on the tombstone looks like "Alphonse", but it is very tough to tell. The spreadsheet says "Alphonsus".
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                George & Flossie Gwirtz
+                George & Flossie Gwirtz/Metzger (d. 1985 & 1972)
               </div>
               <div>
-                Both of this couple is shown as being with the Metzger and Gwirtz last names. Why?
+                Both of this couple is shown as being with the Metzger and Gwirtz last names on FindAGrave. Why?
+                <ul>
+                  <li>
+                    <a href="https://www.findagrave.com/memorial/14465265/florence-helen-gwirtz">Flossie Gwirtz</a>
+                  </li>
+                  <li>
+                    <a href="https://www.findagrave.com/memorial/25692241/flossie-metzger">Flossie Metzger</a>
+                  </li>
+                  <li>
+                    <a href="https://www.findagrave.com/memorial/14465256/george-bernard-gwirtz">George Gwirtz</a>
+                  </li>
+                  <li>
+                    <a href="https://www.findagrave.com/memorial/25692251/george-bernard-metzger">George Metzger</a>
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="dataErrorRow">
@@ -244,71 +258,71 @@
                 Otillia Metzger (x2)
               </div>
               <div>
-                Two Otillia Metzgers with different dates appear in FindAGrave, but neither are on our spreadsheet or hardcopy cards. In further complications, an "Ottila Sutter" seems to be connected to one of them as well.
+                Two Otillia Metzgers with different dates appear in FindAGrave (<a href="https://www.findagrave.com/memorial/252730253/otillia-metzger">A</a> and <a href="https://www.findagrave.com/memorial/252720818/ottilia-metzger">B</a>), but neither are on our spreadsheet or hardcopy cards. In further complications, an <a href="https://www.findagrave.com/memorial/14461701/otilla-sutter">"Ottila Sutter"</a> seems to be connected to one of them as well.
               </div>
             </div>
-            <div class="dataErrorRow">
+            <!-- <div class="dataErrorRow">
               <div>
                 Harold Moore
               </div>
               <div>
                 This man's name does not appear in either our spreadsheet or hardcopy cards.
               </div>
-            </div>
+            </div> -->
             <div class="dataErrorRow">
               <div>
-                Henrietta Niebrugg
+                Henrietta Brennan/Niebrugge (d. 1901)
               </div>
               <div>
-                This man's name does not appear in either our spreadsheet or hardcopy cards.
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                John Nolen
-              </div>
-              <div>
-                This man is not in our records, but is found on FindAGrave.
+                It looks like our records list her by her maiden name, Henrietta Brennan, and her hardcopy card says that her name is on the back of her parents' tombstone. However, the <a href="https://www.findagrave.com/memorial/126361879/henrietta-niebrugge">FindAGrave entry</a> lists her by her married name, Henrietta Niebrugge. That entry says that she died ~6 months after her marriage with John William Niebrugge.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Michael Nolen
+                John Nolen (d. 1877)
               </div>
               <div>
-                This man is not in our records, but is found on FindAGrave.
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                Cathleen Rondy
-              </div>
-              <div>
-                Although Cathleen is on our parish spreadsheet, it is not on our hardcopy cards or FindAGrave. She was child less than 1 year old, her father was buried at Sacred Heart, while her mother was buried at the Mansfield Catholic Cemetery
+                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683332/john-nolen">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Fred/Frederick Shill
+                Michael Nolen (d. ?)
               </div>
               <div>
-                The hardcopy card and tombstone calls him "Fred", but FindAGrave says "Frederick". Did the tombstone only shorten his name so that it fit?
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                Theodore Simon I
-              </div>
-              <div>
-                He is not in our hardcopy cards or spreadsheet, but he is on FindAGrave. The author of <a href="https://www.findagrave.com/memorial/111202703/theodore-simon" target="_blank">this entry on FindAGrave</a> claims that "a care taker at the Sacred Heart Of Jesus Church Cemetery... that Theodore Simon I is buried here".
+                This man is not in our records, but is found on <a href="https://www.findagrave.com/memorial/18683345/michael-nolen">FindAGrave</a>.
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Charles Sutter
+                Cathleen R. Rondy (d. 1918)
               </div>
               <div>
-                He has no hardcopy card and is not on the spreadsheet, but he is on FindAGrave (including a picture). He shares the same tombstone with Maurice, who was ~12 years old.
+                Although Cathleen is on our spreadsheet, she is not on our hardcopy cards or FindAGrave. She was a baby, less than 1 year old, and her father was buried at Sacred Heart, but her mother was buried at the Mansfield Catholic Cemetery
+              </div>
+            </div>
+            <div class="dataErrorRow">
+              <div>
+                Fred/Frederick Shill (d. 1886)
+              </div>
+              <div>
+                The hardcopy card and tombstone calls him "Fred", but FindAGrave says "Frederick". Was his official first name "Frederick", while his nickname was "Fred"?
+              </div>
+            </div>
+            <div class="dataErrorRow">
+              <div>
+                Theodore Simon I (d. ?)
+              </div>
+              <div>
+                He is not in our hardcopy cards or spreadsheet, but he is on <a href="https://www.findagrave.com/memorial/111202703/theodore-simon" target="_blank">FindAGrave</a>. The author of this entry on FindAGrave says that "a care taker at the Sacred Heart Of Jesus Church Cemetery... claims that Theodore Simon I is buried here".
+              </div>
+            </div>
+            <div class="dataErrorRow">
+              <div>
+                Charles Sutter (d. 1904)
+              </div>
+              <div>
+                He has no hardcopy card and is not on the spreadsheet, but he is on <a href="https://www.findagrave.com/memorial/131975655/charles-sutter">FindAGrave</a> (including a picture). He shares a tombstone with Maurice, who was ~12 years old.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -316,20 +330,20 @@
                 M Sutter
               </div>
               <div>
-                A hardcopy card and the spreadsheet confirms that this person is buried here. The first name is unclear, but likely Monica since that name is on the card's notes.
+                A hardcopy card and the spreadsheet confirms that this person is buried here. The first name is unclear. Could it be Monica, since that name is written as a note on its hardcopy card?
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Mary Anna Sutter
+                Mary Anna Sutter (d. 1895)
               </div>
               <div>
-                There is no hardcopy card matching "Mary Anna Sutter" on FindAGrave, but there is a card and tombstone that matches Anna Mariam of same dates. Are they the same person?
+                There is no hardcopy card matching "Mary Anna Sutter" on <a href="https://www.findagrave.com/memorial/18683493/mary-anna-sutter">FindAGrave</a>, but there is a card and tombstone that matches Anna Mariam of same dates. Are they the same person?
               </div>
             </div>
             <div class="dataErrorRow">
               <div>
-                Ottilia/Otilla Sutter
+                Ottilia/Otilla Sutter (d. 1918)
               </div>
               <div>
                 There are two different ways that her first name is spelled.  <a href="https://www.findagrave.com/memorial/14461701/otilla-sutter" target="_blank">FindAGrave</a> spells it as "Otilla", while the spreadsheet and card spell it as "Otilia". The tombstone seems to give her nickname: "Tillia".
@@ -337,7 +351,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                (Unknown) Sutter
+                (Unknown) Sutter (d. ?)
               </div>
               <div>
                 This person is only listed on <a href="https://www.findagrave.com/memorial/18683517/unknown-sutter" target="_blank">FindAGrave</a>, and its notes only say "Wife of Charles Sutter".
@@ -345,10 +359,10 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                J T
+                J T (d. ?)
               </div>
               <div>
-                A hardcopy card confirms that this person is buried here, but the card has no facts besides their initials and plot location.
+                A hardcopy card confirms that this person is buried here, but the card has no facts besides their initials and plot location. In addition to this, the next plot is for "James Tarlton" (according to the cards).
               </div>
             </div>
             <!-- <div class="dataErrorRow">
@@ -361,7 +375,7 @@
             </div> -->
             <div class="dataErrorRow">
               <div>
-                Catherine Walser
+                Catherine Walser (d. ?)
               </div>
               <div>
                 This name is not on a hardcopy card or the spreadsheet. However, there is <a href="https://www.findagrave.com/memorial/214001389/catherine-walser" target="_blank">strong evidence on FindAGrave</a> that she was buried here before her family migrated to Michigan.
@@ -369,7 +383,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Mary Walser
+                Mary Walser (d. 1861)
               </div>
               <div>
                 Like with Catherine Walser, Mary Walter is not found in the parish records, but other reliable documents indicate that she was buried here. The evidence can be seen at her <a href="https://www.findagrave.com/memorial/182760406/mary-kleophea-walser" target="_blank">FindAGrave page</a>, and a fuller explanation is part of her <a href="https://www.findagrave.com/memorial/150110886/william-walser" target="_blank">son's page</a>.
@@ -377,7 +391,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                John D. Weaver
+                John D. Weaver (d. 1880)
               </div>
               <div>
                 There are differences between the birth dates and the middle names when comparing parish records and the <a href="https://www.findagrave.com/memorial/18740299/john-daniel-weaver" target="_blank">FindAGrave page</a>. The FindAGrave may be more credible, based on a picture that has the middle name starting with “D”, while the hardcopy card say “E”
@@ -385,7 +399,7 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Brigitha Yetzer
+                Brigitha Yetzer (d. 1861)
               </div>
               <div>
                 She is not in our parish records, but evidence on the <a href="http://yetzerfamilyinamerica.com" target="_blank">Yetzer heritage website</a> indicates that she is buried in our cemetery.
@@ -393,10 +407,10 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Jessie Zwilling
+                John & Jessie Zwilling (d. 1954 & 1990)
               </div>
               <div>
-                It is unclear whether Jessie (and her husband, John) were buried here or at another Catholic church that goes by the name "Sacred Heart" in Pomeroy, OH. Jessie has a card in our records and is on our spreadsheet, but her husband's obituary talks about his burial at the church in Pomeroy. They both have FindAGrave pages at each church, although their Pomeroy pages use the name "Zwillinger". Our pages provide more information, but the Pomeroy pages have actual pictures of the couple's common tombstone. Identifying where the tombstones are could prove where the burials actually took place.
+                It is unclear whether Jessie and her husband, John, were buried here or at another Catholic church that goes by the name "Sacred Heart" in Pomeroy, OH. Jessie has a card in our records and is on our spreadsheet, but her husband's obituary talks about his burial at the church in Pomeroy. They both have FindAGrave pages at each church, although their Pomeroy pages use the name "Zwillinger". Our pages provide more information, but the Pomeroy pages have actual pictures of the couple's common tombstone. Identifying where the tombstones could prove where the burials actually took place.
                 </br>
                 Bethlehem: <a href="https://www.findagrave.com/memorial/126489905/jessie-marie-zwillingJessie" target="_blank">Jessie</a> and <a href="https://www.findagrave.com/memorial/198330010/john-leo-zwilling" target="_blank">John</a>
                 </br>
