@@ -27,11 +27,14 @@
                 <div>
                   @if ($one_user->title) {{ $one_user->title }} @endif {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
                 </div>
+                <div style="text-align:right">
+                  <a style="color:gold" href="mailto:{{ $one_user->email }}">EMAIL</a>
+                </div>
               </div>
             @endforeach
           </div>
         </div>
-        <div class="contactForm">
+        <!-- <div class="contactForm">
           <form method="post" action="{{ route('cemetery.messaging') }}" enctype="multipart/form-data">
             @csrf
             <div>
@@ -72,7 +75,7 @@
               <button>SEND</button>
             </div>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   @endsection
