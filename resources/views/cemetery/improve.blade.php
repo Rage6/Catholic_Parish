@@ -73,14 +73,6 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Unknown Biglin (d. 1894)
-              </div>
-              <div>
-                No Biglin matches the “Unknown Biglin” in <a href="https://www.findagrave.com/memorial/18683817/unknown-biglin" target="_blank">FindAGrave</a>. Could this be a “Robert Biglin”, who is in our records but with no dates?
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
                 Brannan vs. Brennan vs. Brennen vs. Brennon
               </div>
               <div>
@@ -101,14 +93,6 @@
               </div>
               <div>
                 Although we have no card to confirmed that John was buried here, historical documents on FindAGrave gives strong evidence that he was indeed buried here somewhere.
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                Johannes Buchhold/Buchholz (d. 1861)
-              </div>
-              <div>
-                Is his named as Buchhold or Buchholz? Our spreadsheet spells as the Buchhold, but there is only a Buchholz hardcopy card like this.
               </div>
             </div>
             <div class="dataErrorRow">
@@ -225,36 +209,6 @@
             </div>
             <div class="dataErrorRow">
               <div>
-                Alphonsus/Alphonse Metzger (d. 1886)
-              </div>
-              <div>
-                The first name on the tombstone looks like "Alphonse", but it is very tough to tell. The spreadsheet says "Alphonsus".
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                George & Flossie Gwirtz/Metzger (d. 1985 & 1972)
-              </div>
-              <div>
-                Both of this couple is shown as being with the Metzger and Gwirtz last names on FindAGrave. Why?
-                <ul>
-                  <li>
-                    <a href="https://www.findagrave.com/memorial/14465265/florence-helen-gwirtz" target="_blank">Flossie Gwirtz</a>
-                  </li>
-                  <li>
-                    <a href="https://www.findagrave.com/memorial/25692241/flossie-metzger" target="_blank">Flossie Metzger</a>
-                  </li>
-                  <li>
-                    <a href="https://www.findagrave.com/memorial/14465256/george-bernard-gwirtz" target="_blank">George Gwirtz</a>
-                  </li>
-                  <li>
-                    <a href="https://www.findagrave.com/memorial/25692251/george-bernard-metzger" target="_blank">George Metzger</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
                 Otillia Metzger (x2)
               </div>
               <div>
@@ -339,14 +293,6 @@
               </div>
               <div>
                 There is no hardcopy card matching "Mary Anna Sutter" on <a href="https://www.findagrave.com/memorial/18683493/mary-anna-sutter" target="_blank">FindAGrave</a>, but there is a card and tombstone that matches Anna Mariam of same dates. Are they the same person?
-              </div>
-            </div>
-            <div class="dataErrorRow">
-              <div>
-                Ottilia/Otilla Sutter (d. 1918)
-              </div>
-              <div>
-                There are two different ways that her first name is spelled.  <a href="https://www.findagrave.com/memorial/14461701/otilla-sutter" target="_blank">FindAGrave</a> spells it as "Otilla", while the spreadsheet and card spell it as "Otilia". The tombstone seems to give her nickname: "Tillia".
               </div>
             </div>
             <div class="dataErrorRow">
