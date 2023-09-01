@@ -27,9 +27,11 @@
                 <div>
                   @if ($one_user->title) {{ $one_user->title }} @endif {{ $one_user->first_name }} {{ $one_user->last_name }} @if ($one_user->suffix_name) {{ $one_user->suffix_name }} @endif
                 </div>
-                <div style="text-align:right;font-size:1.3rem">
-                  <a style="color:gold">{{ $one_user->email }}</a>
-                </div>
+                @if ($one_user->public_email)
+                  <div style="text-align:right;font-size:1.3rem">
+                    <a style="color:gold">{{ $one_user->public_email }}</a>
+                  </div>
+                @endif
               </div>
             @endforeach
           </div>
