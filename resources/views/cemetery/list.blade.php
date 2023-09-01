@@ -49,6 +49,8 @@
                           style="background-image:url('/{{ $one_deceased->profile_photo }}')"
                         @elseif ($one_deceased->tombstone_photo)
                           style="background-image:url('/{{ $one_deceased->tombstone_photo }}')"
+                        @elseif ($one_deceased->zone)
+                          style="background-image:url('/images/{{ $one_deceased->zone }}.jpg')"
                         @endif
                       >
                       </div>
