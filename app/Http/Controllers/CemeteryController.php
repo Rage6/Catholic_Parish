@@ -391,6 +391,115 @@ class CemeteryController extends Controller
       ]);
     }
 
+    public function printable() {
+
+      // The following code for exporting SQL data as an Excel spreadsheet is a modified version of this example: https://www.codexworld.com/export-data-to-excel-in-php/
+      // HTML file name for download 
+      $fileName = "SHJ_cemetery_record_".date('Y-m-d').".html";
+      // Column names 
+      $fields = array('#','NAME', 'DATE OF BIRTH', 'DATE OF DEATH', 'ZONE');
+      // Display column names as first row 
+      $name_row = "<tr style='background-color:lightgrey'>";
+      for ($i = 0; $i < count($fields); $i++) {
+        $name_row .= "<th style='border:black solid 1px;border-collapse:collapse;padding: 2px 5px'>".$fields[$i]."</th>";
+      };
+      $name_row .= "</tr>";
+      // Fetch records from database 
+      $deceased_list = Deceased::where('is_deceased',1)
+        ->orderBy('last_name','ASC')
+        ->orderBy('first_name','ASC')
+        ->get();
+      $all_deceased_rows = "";
+      if (count($deceased_list) > 0) { 
+        // Output each row of the data 
+        $number = 0;
+        foreach ($deceased_list as $one_deceased) {
+          $number++;
+          $this_row = "<tr>";
+          // Combines names into full name 
+          $one_deceased->full_name = $one_deceased->last_name." ".$one_deceased->suffix_name.", ".$one_deceased->first_name." ".$one_deceased->middle_name;
+          // Assembles date of birth (if available)
+          if ($one_deceased->dob_day || $one_deceased->dob_month || $one_deceased->dob_year) {
+            $birth_day = $one_deceased->dob_day ? $one_deceased->dob_day : "__";
+            $birth_month = $one_deceased->dob_month ? $one_deceased->dob_month : "__";
+            $birth_year = $one_deceased->dob_year ? $one_deceased->dob_year : "____";
+            $one_deceased->date_of_birth = $birth_year."-".$birth_month."-".$birth_day;
+          } elseif (!$one_deceased->date_of_birth) {
+            $one_deceased->date_of_birth = "____-__-__";
+          };
+          // Assembles date of death (if available)
+          if ($one_deceased->dod_day || $one_deceased->dod_month || $one_deceased->dod_year) {
+            $death_day = $one_deceased->dod_day ? $one_deceased->dod_day : "__";
+            $death_month = $one_deceased->dod_month ? $one_deceased->dod_month : "__";
+            $death_year = $one_deceased->dod_year ? $one_deceased->dod_year : "____";
+            $one_deceased->date_of_death = $death_year."-".$death_month."-".$death_day;
+          } elseif (!$one_deceased->date_of_death) {
+            $one_deceased->date_of_death = "____-__-__";
+          };
+          // Swaps zone's image names with zone's actual names 
+          $zone_names = [
+            ["old_a", "A (Old Section)"],
+            ["old_b", "B (Old Section)"],
+            ["old_c", "C (Old Section)"],
+            ["old_d", "D (Old Section)"],
+            ["old_e", "E (Old Section)"],
+            ["old_f", "F (Old Section)"],
+            ["old_g", "G (Old Section)"],
+            ["old_h", "H (Old Section)"],
+            ["old_i", "I (Old Section)"],
+            ["old_j", "J (Old Section)"],
+            ["row_1", "Row 1 (New Section)"],
+            ["row_2", "Row 2 (New Section)"],
+            ["row_3", "Row 3 (New Section)"],
+            ["row_4", "Row 4 (New Section)"],
+            ["row_5", "Row 5 (New Section)"],
+            ["row_6"," Row 6 (New Section)"],
+            ["row_7", "Row 7 (New Section)"],
+            ["row_8", "Row 8 (New Section)"],
+            ["row_9", "Row 9 (New Section)"],
+            ["row_10", "Row 10 (New Section)"],
+            ["row_11", "Row 11 (New Section)"]
+          ];
+          for ($i = 0; $i < count($zone_names); $i++) {
+            if ($one_deceased->zone == $zone_names[$i][0]) {
+              $one_deceased->zone = $zone_names[$i][1];
+              $i = count($zone_names);
+            };
+          };
+
+          $this_array = array($number,$one_deceased->full_name, $one_deceased->date_of_birth, $one_deceased->date_of_death, $one_deceased->zone);
+          for ($a = 0; $a < count($this_array); $a++) {
+            $this_row .= "<td style='border:black solid 1px;border-collapse:collapse;padding: 2px 5px'>".$this_array[$a]."</td>";
+          };
+          $this_row .= "</tr>";
+          $all_deceased_rows .= $this_row;
+        };
+      };
+      $overview_path = url('/images/overview_zone.jpg');
+      $all_deceased = "
+        <html>
+          <div style='margin-bottom: 20px'>
+            <div style='border: 1px solid black;padding: 5px'>
+              SACRED HEART OF JESUS PARISH CEMETERY AS OF ".date('Y-m-d')." (YYYY-MM-DD)
+            </div>
+            <div style='margin-top:20px'>
+              For a printable map of our cemetery's zones, <a href=\"".$overview_path."\" target='_blank'>click here</a>
+            </div>
+          </div>
+          <table style='border:black solid 1px;border-collapse:collapse'>
+            ".$name_row.$all_deceased_rows."
+          </table>";
+
+      // Headers for download 
+      header("Content-Type: text/html"); 
+      header("Content-Disposition: attachment; filename=\"$fileName\"");
+      // Render excel data 
+      echo $all_deceased;
+      exit;
+
+      return redirect()->route('cemetery.find');
+    }
+
     public function rules() {
       return view('cemetery.rules', [
         'css' => 'cemetery'

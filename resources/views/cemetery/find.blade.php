@@ -36,6 +36,9 @@
               </button>
             </form>
           </div>
+          <div class="downloadList">
+            Do you want to download a complete list and map of the those buried in our cemetery? <a href="{{ route('cemetery.print') }}">Click here</a>
+          </div>
         </div>
         <div class="all_grids">
           @php

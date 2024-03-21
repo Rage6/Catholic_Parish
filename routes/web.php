@@ -18,7 +18,8 @@ Route::get('/', [App\Http\Controllers\CemeteryController::class, 'index'])->name
 Route::get('/find-a-grave', [App\Http\Controllers\CemeteryController::class, 'find'])->name('cemetery.find');
 Route::get('/cemetery/list', [App\Http\Controllers\CemeteryController::class, 'list'])->name('cemetery.list');
 Route::post('/cemetery/list/search',[App\Http\Controllers\CemeteryController::class, 'search'])->name('cemetery.search');
-Route::get('/cemetery/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');
+Route::get('/cemetery/deceased-member/{id}', [App\Http\Controllers\CemeteryController::class, 'individual'])->name('cemetery.person');
+Route::get('/cemetery/print-deceased-list', [App\Http\Controllers\CemeteryController::class, 'printable'])->name('cemetery.print');
 
 Route::get('/rules', [App\Http\Controllers\CemeteryController::class, 'rules'])->name('cemetery.rules');
 

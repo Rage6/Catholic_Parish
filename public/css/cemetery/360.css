@@ -371,6 +371,16 @@
   width: 90%;
 }
 
+.downloadList {
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+.downloadList a {
+  color: white;
+  text-decoration: underline;
+}
+
 .resultBox {
   margin-top: 30px;
   margin-bottom: 50px;
@@ -477,19 +487,19 @@
 
 .riteImageOne {
   /* float: right; */
-  background-image:url('https://www.dignitymemorial.com/dfsmedia/042808e1630c49a48950d5077d6556eb/25142-50068');
+  background-image:url('/images/book_and_rosary.jpeg');
 }
 
 .riteImageTwo {
   margin-left: 0;
   margin-right: 20px;
   /* float: left; */
-  background-image:url('https://c8.alamy.com/comp/BCBM3N/a-priest-waves-a-senser-over-the-casket-at-a-catholic-funeral-mass-BCBM3N.jpg');
+  background-image:url('/images/incense.jpeg');
 }
 
 .riteImageThree {
   /* float: right; */
-  background-image:url('https://c8.alamy.com/comp/A5B16P/catholic-funeral-where-priest-is-blessing-the-coffin-before-it-is-A5B16P.jpg');
+  background-image:url('/images/burial.jpeg');
 }
 
 .historySection {
