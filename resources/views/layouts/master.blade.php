@@ -36,10 +36,10 @@
       <div id="app">
       <div class="allContent">
         <div class="mainMenuBar primaryFont primaryBackground">
-          <!-- <a href="{{ route('cemetery.index') }}"> -->
+          <a href="{{ route('cemetery.index') }}">
             <div class="logo">
             </div>
-          <!-- </a> -->
+          </a>
           <div class="menuBox">
             <div id="mainMenuBttn" class="mainMenuBttn">
               <div></div>

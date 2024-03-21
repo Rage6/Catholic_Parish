@@ -35,12 +35,13 @@ body {
 }
 
 .logo {
-  background-image: url("https://img1.wsimg.com/isteam/ip/0bbcb4f1-cfde-4106-8098-6e6639240357/SHJC_Color1website.jpg/:/rs=w:455,h:282,cg:true,m/cr=w:455,h:282/qt=q:95");
+  /* background-image: url("https://img1.wsimg.com/isteam/ip/0bbcb4f1-cfde-4106-8098-6e6639240357/SHJC_Color1website.jpg/:/rs=w:455,h:282,cg:true,m/cr=w:455,h:282/qt=q:95"); */
+  background-image: url("/images/sacred_heart_logo.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 27vw;
-  height: 100%;
+  width: 8vh;
+  height: 8vh;
 }
 
 .menuBox {
