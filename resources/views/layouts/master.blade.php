@@ -19,6 +19,7 @@
         @if ($css)
           <link href="{{ asset('css/'.$css.'/360.css') }}" rel="stylesheet">
           <link href="{{ asset('css/'.$css.'/1000.css') }}" rel="stylesheet" media="screen and (min-width: 1000px)">
+          <link href="{{ asset('css/'.$css.'/1500.css') }}" rel="stylesheet" media="screen and (min-width: 1500px)">
         @endif
 
         <!-- jQuery 3.6.0 -->
@@ -29,15 +30,16 @@
 
         <!-- Custom Javascript -->
         <script src="{{ asset('js/master.js') }}"></script>
+        <script src="{{ asset('js/home.js') }}"></script>
     </head>
     <body>
       <div id="app">
       <div class="allContent">
         <div class="mainMenuBar primaryFont primaryBackground">
-          <!-- <a href="{{ route('cemetery.index') }}"> -->
+          <a href="{{ route('cemetery.index') }}">
             <div class="logo">
             </div>
-          <!-- </a> -->
+          </a>
           <div class="menuBox">
             <div id="mainMenuBttn" class="mainMenuBttn">
               <div></div>
@@ -59,7 +61,7 @@
         @endif -->
         </div>
         <div id="mainMenuTable" class="mainMenuTable">
-          <div>
+          <!-- <div> -->
             <div>
               <a href="{{ route('cemetery.index') }}">
                 Home
@@ -91,22 +93,33 @@
               </a>
             </div>
             <div>
+              <a href="{{ route('cemetery.improve') }}">
+                How To Help
+              </a>
+            </div>
+            <div>
               <a href="{{ route('cemetery.contact') }}">
                 Contact Us
               </a>
             </div>
-          </div>
+          <!-- </div> -->
           @if (Route::has('login'))
-            <div>
+            <!-- <div> -->
               @auth
-                <a href="{{ url('/home') }}">My Account</a>
+                <div class="loginBttn">
+                  <a href="{{ url('/home') }}">My Account</a>
+                </div>
               @else
-                <a href="{{ route('login') }}">Log in</a></br>
-                @if (Route::has('register'))
-                  <a href="{{ route('register') }}">Register</a>
+                <div class="loginBttn">
+                  <a href="{{ route('login') }}">Log in</a>
+                </div>
+                @if (Route::has('register') && env('PUBLIC_REGISTRATION'))
+                  <div>
+                    <a href="{{ route('register') }}">Register</a>
+                  </div>
                 @endif
               @endauth
-            </div>
+            <!-- </div> -->
           @endif
         </div>
 

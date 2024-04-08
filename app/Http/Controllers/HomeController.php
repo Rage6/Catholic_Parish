@@ -109,13 +109,17 @@ class HomeController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'suffix_name' => 'nullable',
-            'email' => 'required|email'
+            'title' => 'nullable',
+            'email' => 'required|email',
+            'publicEmail' => 'nullable|email'
         ]);
         $user = Auth::user();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->suffix_name = $request->suffix_name;
+        $user->title = $request->title;
         $user->email = $request->email;
+        $user->public_email = $request->publicEmail;
         $user->save();
         return back()->with("status", "Profile changed successfully!");
     }

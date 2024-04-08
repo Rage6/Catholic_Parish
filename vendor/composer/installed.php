@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '14bf77d13b997eb04fdec113fc9c948015ea32dd',
+        'reference' => 'b84f690a9b9f94a6d5094128eec7d01027faab3a',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -50,12 +50,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.3.7',
-            'version' => '3.3.7.0',
+            'pretty_version' => '3.4.4',
+            'version' => '3.4.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
-            'reference' => '9f79d4650430b582f4598fe0954ef4d52fbc0a8a',
+            'reference' => '4cbbe6e4b9ef6c69d5f4c968c637476f47bb54f5',
             'dev_requirement' => false,
         ),
         'doctrine/deprecations' => array(
@@ -394,6 +394,15 @@
                 0 => 'v9.18.0',
             ),
         ),
+        'josiasmontag/laravel-recaptchav3' => array(
+            'pretty_version' => '1.0.2',
+            'version' => '1.0.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../josiasmontag/laravel-recaptchav3',
+            'aliases' => array(),
+            'reference' => '3ded05660dd9827eef065a44510f5efecc2e68da',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -415,7 +424,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '14bf77d13b997eb04fdec113fc9c948015ea32dd',
+            'reference' => 'b84f690a9b9f94a6d5094128eec7d01027faab3a',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

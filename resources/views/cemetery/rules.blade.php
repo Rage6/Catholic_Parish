@@ -1,6 +1,9 @@
 @extends('layouts.master')
   @section('content')
     <div class="basicInfoSection sectionBackground section primaryFont">
+      <div class="backBttn">
+        <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
+      </div>
       <div class="sectionTitle">
         When Visiting
       </div>
@@ -31,6 +34,9 @@
         </p>
         <p>
           <u>Don't Leave Trash Behind</u>: Litter creates extra work for the caretakers, and is disrespectful to both other visitors and those who are buried there. Hang onto your trash and take it with you when you leave.
+        </p>
+        <p>
+          <u>About Respectful Decorations</u>: Vases, flowerpots, above-ground containers, and other similar decorations are permitted. However, planting of flowers, shrubs, and trees are prohibited and will be removed. Annual spring clean-up begins April 15th. Anything on graves after this date will be discarded. 
         </p>
       </div>
     </div>

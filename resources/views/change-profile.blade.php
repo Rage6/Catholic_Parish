@@ -43,11 +43,28 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="emailInput" class="form-label">Email</label>
+                                <label for="titleNameInput" class="form-label">Title</label>
+                                <input name="title" type="text" value="{{ $current_user->title }}" placeholder="Fr., Sr., etc." class="form-control @error('title') is-invalid @enderror" id="titleNameInput">
+                                @error('title')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailInput" class="form-label">Personal Email</label>
                                 <input name="email" type="email" value="{{ $current_user->email }}" class="form-control @error('email') is-invalid @enderror" id="email">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="publicEmailInput" class="form-label">Public Email</label>
+                                <input name="publicEmail" type="email" value="{{ $current_user->public_email }}" placeholder="optional" class="form-control @error('email') is-invalid @enderror" id="publicEmail">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                                <div>
+                                  <i><u>What is the 'public email' for?</u></i> Some of the parish staff positions allow their members to provide their email address to the public. The 'public email' option above allows those members to enter an email address besides the personal one that they use when logging in. If this option is left blank, then no email address will be shared with the public.
+                                </div>
                             </div>
                             <div class="row justify-content-end">
                               <a href="{{ route('home.change-password') }}" class="col-4">

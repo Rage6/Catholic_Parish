@@ -26,7 +26,7 @@
                       <!-- <ul class="list-group">
                         <li class="list-group-item"> -->
                           <a href="/{{ $one_permission->data[1] }}">
-                            <button class="btn btn-primary col-12">
+                            <button class="btn btn-primary col-12 mb-2">
                               {{ $one_permission->data[0] }}
                             </button>
                           </a>

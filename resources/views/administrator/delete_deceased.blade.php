@@ -15,7 +15,8 @@
                       </div>
                     @endif
                     <div>
-                      <a href="{{ route('cemetery.alldeletes') }}"><< BACK</a>
+                      @php $route_name = 'cemetery.all'.$type.'deletes' @endphp
+                      <a href="{{ route($route_name) }}"><< BACK</a>
                     </div>
                     <div>
                       <div>
@@ -76,25 +77,153 @@
                           </div>
                         @endif
 
-                        <div class="row mb-3">
-                            <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+                        @if ($deceased->nickname)
+                          <div class="row mb-3">
+                              <label for="nickname" class="col-md-4 col-form-label text-md-end">{{ __('Nickname') }}</label>
 
-                            <div id="dateOfBirth" class="col-md-6">
-                              <div class="form-control">
-                                {{ $deceased->date_of_birth }}
+                              <div id="maidenName" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->nickname }}
+                                </div>
                               </div>
+                          </div>
+                        @endif
+
+                        <div class="row mb-3">
+                            <label for="preference" class="col-md-4 col-form-label text-md-end">{{ __('Did they go by their middle name?') }}</label>
+
+                            <div id="namePreference" class="col-md-6">
+                              @if ($deceased->prefers_middle_name == 1)
+                                <div class="form-control">
+                                  YES
+                                </div>
+                              @else
+                                <div class="form-control">
+                                  NO
+                                </div>
+                              @endif
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
+                        @if ($deceased->dob_month || $deceased->dob_day || $deceased->dob_year)
+                          <div class="row mb-3">
+                              <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
-                            <div id="dateOfDeath" class="col-md-6">
-                              <div class="form-control">
-                                {{ $deceased->date_of_death }}
+                              <div id="dateOfBirth" class="col-md-6">
+                                @php
+                                  $dob_month = $deceased->dob_month;
+                                  $dob_day = $deceased->dob_day;
+                                  $dob_year = $deceased->dob_year;
+                                  if (!$dob_month) {
+                                    $dob_month = "--";
+                                  };
+                                  if (!$dob_day) {
+                                    $dob_day = "--";
+                                  };
+                                  if (!$dob_year) {
+                                    $dob_year = "----";
+                                  };
+                                @endphp
+                                <div class="form-control">
+                                  {{ $dob_month }}/{{ $dob_day }}/{{ $dob_year }}
+                                </div>
                               </div>
-                            </div>
-                        </div>
+                          </div>
+                        @elseif ($deceased->date_of_birth)
+                          <div class="row mb-3">
+                              <label for="dateOfBirth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+
+                              <div id="dateOfBirth" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->date_of_birth }}
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->dod_month || $deceased->dod_day || $deceased->dod_year)
+                          <div class="row mb-3">
+                              <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
+
+                              <div id="dateOfDeath" class="col-md-6">
+                                @php
+                                  $dod_month = $deceased->dod_month;
+                                  $dod_day = $deceased->dod_day;
+                                  $dod_year = $deceased->dod_year;
+                                  if (!$dod_month) {
+                                    $dod_month = "--";
+                                  };
+                                  if (!$dod_day) {
+                                    $dod_day = "--";
+                                  };
+                                  if (!$dod_year) {
+                                    $dod_year = "----";
+                                  };
+                                @endphp
+                                <div class="form-control">
+                                  {{ $dod_month }}/{{ $dod_day }}/{{ $dod_year }}
+                                </div>
+                              </div>
+                          </div>
+                        @elseif ($deceased->date_of_death)
+                          <div class="row mb-3">
+                              <label for="dateOfDeath" class="col-md-4 col-form-label text-md-end">{{ __('Date of Death') }}</label>
+
+                              <div id="dateOfDeath" class="col-md-6">
+                                <div class="form-control">
+                                  {{ $deceased->date_of_death }}
+                                </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->father_name)
+                          <div class="row mb-3">
+                              <label for="father" class="col-md-4 col-form-label text-md-end">{{ __("Father's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="mother" class="form-control">
+                                    {{ $deceased->father_name }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->mother_name)
+                          <div class="row mb-3">
+                              <label for="mother" class="col-md-4 col-form-label text-md-end">{{ __("Mother's Name") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="mother" class="form-control">
+                                    {{ $deceased->mother_name }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->title)
+                          <div class="row mb-3">
+                              <label for="title" class="col-md-4 col-form-label text-md-end">{{ __("Title") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="title" class="form-control">
+                                    {{ $deceased->title }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->vocation)
+                          <div class="row mb-3">
+                              <label for="vocation" class="col-md-4 col-form-label text-md-end">{{ __("Vocation") }}</label>
+
+                              <div class="col-md-6">
+                                  <div id="vocation" class="form-control">
+                                    {{ $deceased->vocation }}
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
 
                         @if ($deceased->on_tombstone)
                           <div class="row mb-3">
@@ -156,13 +285,14 @@
                           </div>
                         @endif
 
-                        @if ($deceased->map_photo)
+                        @if ($deceased->zone)
                           <div class="row mb-3">
-                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Photo') }}</label>
+                              <label for="map" class="col-md-4 col-form-label text-md-end">{{ __('Map Zone') }}</label>
 
                               <div id="map" class="col-md-6">
                                 <div class="form-control">
-                                  <img class="img-thumbnail" src="/{{ $deceased->map_photo }}">
+                                  <!-- <img class="img-thumbnail" src="/{{ $deceased->map_photo }}"> -->
+                                  <img class="img-thumbnail" src="/images/{{ $deceased->zone }}.jpg">
                                 </div>
                               </div>
                           </div>
@@ -182,13 +312,35 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
+                        @if ($deceased->purchased_by)
+                          <div class="row mb-3">
+                              <label for="purchased" class="col-md-4 col-form-label text-md-end">{{ __('Who purchased this plot?') }}</label>
 
-                            <div id="purchased" class="col-md-6">
-                              <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)">{{ $deceased->purchased_by }}</textarea>
-                            </div>
-                        </div>
+                              <div id="purchased" class="col-md-6">
+                                <textarea class="form-control" placeholder="Include a name and any other useful information (contact information, date of purhase, etc.)" disabled>{{ $deceased->purchased_by }}</textarea>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->public_notes)
+                          <div class="row mb-3">
+                              <label for="public_notes" class="col-md-4 col-form-label text-md-end">{{ __('Public Notes') }}</label>
+
+                              <div id="public_notes" class="col-md-6">
+                                <textarea class="form-control" disabled>{{ $deceased->public_notes }}</textarea>
+                              </div>
+                          </div>
+                        @endif
+
+                        @if ($deceased->admin_notes)
+                          <div class="row mb-3">
+                              <label for="private_notes" class="col-md-4 col-form-label text-md-end">{{ __('Private Notes') }}</label>
+
+                              <div id="private_notes" class="col-md-6">
+                                <textarea class="form-control" disabled>{{ $deceased->admin_notes }}</textarea>
+                              </div>
+                          </div>
+                        @endif
 
                         <button data-deletebutton="deceased_{{ $deceased->id }}">
                           DELETE

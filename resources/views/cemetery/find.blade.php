@@ -1,6 +1,9 @@
 @extends('layouts.master')
   @section('content')
     <div class="searchSection sectionBackground section primaryFont">
+      <div class="backBttn">
+        <a href="{{ route('cemetery.index') }}" style="color:white"><< BACK</a>
+      </div>
       <div class="searchTop">
         <div class="sectionTitle">
           Find a Grave
@@ -21,19 +24,20 @@
           <div class="orDivider">
             -- OR --
           </div>
-          <div class="searchBox">
-            <div style="color:gold">
+          <div class="searchTool searchBox" style="width:90%">
+            <div class="searchTitle">
               FIND BY NAME
             </div>
             <form method="POST" action="{{ route('cemetery.search') }}" enctype="multipart/form-data">
               @csrf
-              <div>
-                <input name="name_type" placeholder="First, Last, or Maiden">
-              </div>
+              <input name="name_type" placeholder="First, Last, Maiden, or Nickname">
               <button>
                 SEARCH
               </button>
             </form>
+          </div>
+          <div class="downloadList">
+            Do you want to download a complete list and map of the those buried in our cemetery? <a href="{{ route('cemetery.print') }}">Click here</a>
           </div>
         </div>
         <div class="all_grids">

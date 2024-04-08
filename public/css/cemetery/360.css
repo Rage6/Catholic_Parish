@@ -3,13 +3,14 @@
   border-top: 5px solid gold;
   padding: 5vh 10%;
   font-size: 1.5rem;
-  min-height: 90vh;
+  min-height: 76vh;
 }
 
 .sectionTitle {
+  border-bottom: 2px solid gold;
   font-size: 2.5rem;
   text-align: center;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .sectionBackground {
@@ -18,32 +19,267 @@
 }
 
 .introSection {
-  background-image:
+  position: absolute; /* For video */
+  z-index: 2; /* For video */
+  padding-top: 10vh;
+  /* background-image:
     linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
-    url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp');
-  height: 87vh;
+    url('https://www.nps.gov/frsp/learn/historyculture/images/20200916_ChalresSprout_NationalCemetery_mo_003.jpg?maxwidth=1200&autorotate=false&quality=78&format=webp'); */
+  height: 80vh;
+  max-width: 1500px;
+}
+
+.introName {
+  margin: 0 10vw;
+  border-bottom: 2px solid gold;
+  border-radius: 5px 5px 0 0;
+  padding: 1vh 10vw;
+  color: gold;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: rgb(105, 30, 32, 0.8);
 }
 
 .introTitle {
-  padding: 15vh 5vw 0 5vw;
+  margin: 0 10vw;
+  padding: 1vh 10vw;
+  border-radius: 0 0 5px 5px;
   font-size: 2.5rem;
-  color: white;
+  color: gold;
   text-align: center;
+  background-color: rgb(105, 30, 32, 0.8);
 }
 
 .introSubtitle {
-  padding: 15vh 15vw 0 15vw;
+  margin: 5vh 14vw 0 14vw;
+  padding: 1vh 1vw;
   font-size: 1.5rem;
   color: white;
   text-align: center;
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.videoParent { /* For video */
+  overflow: hidden;
+  position: absolute;
+  height: 86vh;
+  width: 100%;
+  top: 14vh;
+  background-image: url('https://media.tenor.com/guhB4PpjrmUAAAAC/loading-loading-gif.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 60px 60px;
+}
+
+.videoParent video { /* For video */
+  height: 100%;
+  width: 177.77777778vh; /* 100 * 16 / 9 */
+  min-width: 100%;
+  min-height: 56.25vw; /* 100 * 9 / 16 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.videoImages {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.singleImage {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blank {
+  0% {
+    background-color: rgba(255,255,255,1);
+  }
+  1% {
+    background-color: rgba(255,255,255,0);
+  }
+  24% {
+    background-color: rgba(255,255,255,0);
+  }
+  25% {
+    background-color: rgba(255,255,255,1);
+  }
+  26% {
+    background-color: rgba(255,255,255,0);
+  }
+  49% {
+    background-color: rgba(255,255,255,0);
+  }
+  50% {
+    background-color: rgba(255,255,255,1);
+  }
+  51% {
+    background-color: rgba(255,255,255,0);
+  }
+  74% {
+    background-color: rgba(255,255,255,0);
+  }
+  75% {
+    background-color: rgba(255,255,255,1);
+  }
+  76% {
+    background-color: rgba(255,255,255,0);
+  }
+  99% {
+    background-color: rgba(255,255,255,0);
+  }
+  100% {
+    background-color: rgba(255,255,255,1);
+  }
+}
+
+.imageBlank {
+  z-index: 0;
+  background-color: white;
+  animation-name: blank;
+}
+
+@keyframes one {
+  0% {
+    visibility: visible;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+  }
+  25% {
+    visibility: visible;
+    top: -10%;
+    left: -10%;
+    height: 110%;
+    width: 110%;
+  }
+  25% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.imageOne {
+  z-index: -1;
+  background-image: url('/images/contact_min.jpg');
+  animation-name: one;
+}
+
+@keyframes two {
+  0% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: visible;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+  }
+  50% {
+    visibility: visible;
+    top: -10%;
+    left: -10%;
+    height: 110%;
+    width: 110%;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.imageTwo {
+  z-index: -2;
+  background-image: url('/images/list_min.jpg');
+  animation-name: two;
+}
+
+@keyframes three {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+  }
+  75% {
+    visibility: visible;
+    top: -10%;
+    left: -10%;
+    height: 110%;
+    width: 110%;
+  }
+  75% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.imageThree {
+  z-index: -3;
+  background-image: url('/images/history_min.jpg');
+  animation-name: three;
+}
+
+@keyframes four {
+  0% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: visible;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+  }
+  100% {
+    visibility: visible;
+    top: -10%;
+    left: -10%;
+    height: 110%;
+    width: 110%;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.imageFour {
+  z-index: -4;
+  background-image: url('/images/rite.jpg');
+  animation-name: four;
 }
 
 .searchSection {
-  background-image:
-    linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-    url("https://resources.stuff.co.nz/content/dam/images/1/w/k/y/t/r/image.related.StuffLandscapeSixteenByNine.710x400.1wg8tg.png/1566945678541.jpg?format=pjpg&optimize=medium");
+  background-color: rgb(105, 30, 32);
 }
 
 .searchSection a {
@@ -92,9 +328,14 @@
   background-color: rgb(105, 30, 32);
 }
 
+.searchTitle {
+  padding-bottom: 1vh;
+  color: gold;
+}
+
 .searchBox form {
   display: grid;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 100%;
 }
 
 .searchBox form div input {
@@ -105,31 +346,51 @@
 }
 
 .searchBox form button {
-  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-left: 15%;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-size: 1rem;
   color: rgb(105,30,32);
   background-color: gold;
+  width: 70%;
 }
 
 .searchTool {
-  background-color: rgb(105, 30, 32);
+  border: 1px solid gold;
   padding: 10px 0;
   text-align: center;
+  background-color: rgb(105, 30, 32);
 }
 
 .searchTool input {
-  font-size: 1.3rem;
+  margin-left: 4%;
+  margin-bottom: 5px;
+  padding: 2px 1%;
+  font-size: 1rem;
   width: 90%;
 }
 
+.downloadList {
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+.downloadList a {
+  color: white;
+  text-decoration: underline;
+}
+
 .resultBox {
+  margin-top: 30px;
   margin-bottom: 50px;
   padding: 0 5%;
   background-image:
     linear-gradient(
     rgb(105, 30, 32,0.7),
     rgb(105, 30, 32,0.7));
-  max-height: 350px;
-  overflow-y: scroll;
+  /* max-height: 350px; */
+  /* overflow-y: scroll; */
 }
 
 .noResults {
@@ -137,33 +398,42 @@
   font-style: italic;
 }
 
+.listTitles {
+  text-align: center;
+  display: none;
+}
+
 .resultList {
 
 }
 
 .resultRow {
-  border-bottom: 1px solid white;
-  padding: 5px 0;
+  margin-bottom: 20px;
+  border: 1px dashed gold;
+  padding: 10px 5%;
+  display: grid;
+  grid-template-rows: auto auto;
 }
 
-.resultRow div:last-child {
+.minWidth {
   text-align: right;
 }
 
-.resultRow:first-child {
+.maxWidth {
+  display: none;
+}
+
+/* .resultRow:first-child {
   padding-top: 10px;
 }
 
 .resultRow:last-child {
   padding-bottom: 10px;
   border-bottom: none;
-}
+} */
 
 .basicInfoSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+  background-color: rgb(105, 30, 32);
   font-size: 1.2rem;
 }
 
@@ -171,12 +441,13 @@
   font-size: 1.5rem;
 }
 
+.basicInfoSection div p {
+  line-height: 1.3;
+}
+
 .riteSection {
   color: white;
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://www.cfcssacramento.org/wp-content/uploads/2021/01/romerofunerl4-474x324.jpg');
+  background-color: rgb(105, 30, 32);
 }
 
 .riteSection div p {
@@ -216,36 +487,35 @@
 
 .riteImageOne {
   /* float: right; */
-  background-image:url('https://www.dignitymemorial.com/dfsmedia/042808e1630c49a48950d5077d6556eb/25142-50068');
+  background-image:url('/images/book_and_rosary.jpeg');
 }
 
 .riteImageTwo {
   margin-left: 0;
   margin-right: 20px;
   /* float: left; */
-  background-image:url('https://c8.alamy.com/comp/BCBM3N/a-priest-waves-a-senser-over-the-casket-at-a-catholic-funeral-mass-BCBM3N.jpg');
+  background-image:url('/images/incense.jpeg');
 }
 
 .riteImageThree {
   /* float: right; */
-  background-image:url('https://c8.alamy.com/comp/A5B16P/catholic-funeral-where-priest-is-blessing-the-coffin-before-it-is-A5B16P.jpg');
+  background-image:url('/images/burial.jpeg');
 }
 
 .historySection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/111/CEM46517262_114576626350.jpg')
+  background-color: rgb(105, 30, 32);
 }
 
 .emptyPlotsInfoSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://images.findagrave.com/photos/2006/150/CEM46517262_114909804654.jpg');
+  background-color: rgb(105, 30, 32);
+}
+
+.emptyPlotsInfoSection div p {
+  margin-bottom: 50px;
 }
 
 .emptyPlotCount {
+  margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid white;
   padding: 10px 6%;
@@ -258,20 +528,77 @@
 }
 
 .contactSection {
-  background-image: linear-gradient(
-      rgb(105, 30, 32,0.7),
-      rgb(105, 30, 32,0.7)),
-      url('https://s3.amazonaws.com/gs-waymarking-images/98f788c9-7e22-4f4e-afc8-2e61bf9bcbdf_l.jpg')
+  background-color: rgb(105, 30, 32);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.contactIntro {
+  margin: 0 0 40px 0;
+  border-bottom: 2px dashed gold;
+  padding: 1em;
+}
+
+.contactGrid {
+  margin-top: 1em;
+}
+
+.roleElement {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 70%;
+}
+
+.roleTitle {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid white;
+  font-size: 1.1rem;
+  text-align: left;
 }
 
 .contactForm {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px dashed gold;
   background-color: rgb(105, 30, 32);
+}
+
+.contactInput {
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.contactTextarea {
+  margin-top: 5px;
+  width: 100%;
+  height: 40vh;
+}
+
+.contactForm button {
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 10px 5%;
+  font-size: 1.2rem;
+  color: rgb(105, 30, 32);
+  background-color: gold;
+}
+
+.contactField {
+  margin-bottom: 20px;
 }
 
 /* CEMETERY.LIST */
 
 .listSection {
   height: 87%;
+}
+
+.listIntro {
+  margin: 10px 0 30px 0;
 }
 
 nav {
@@ -281,6 +608,7 @@ nav {
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pagination div {
@@ -305,7 +633,12 @@ nav {
 }
 
 .backBttn {
+  padding-bottom: 5vh;
+  font-size: 1.2rem;
+}
 
+.backBttn a {
+  text-decoration: none;
 }
 
 .fullName {
@@ -355,7 +688,7 @@ nav {
 }
 
 .basicElement {
-
+  margin-bottom: 20px;
 }
 
 .basicElement:first-child {
@@ -366,4 +699,48 @@ nav {
   margin-left: 10%;
   font-size: 1.5rem;
   width: 90%;
+}
+
+.basicElement textarea {
+  margin-left: 10%;
+  padding: 2px 1%;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-family: 'Verdana', sans-serif;
+  width: 88%;
+  height: 50vh;
+}
+
+.helpSection {
+  padding-top: 30px;
+}
+
+.helpSection div {
+  margin-bottom: 15px;
+}
+
+.helpSubtitle {
+  margin-top: 50px;
+  padding: 5px 0;
+  border-top: 2px dashed;
+  border-bottom: 2px dashed;
+  display: block;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.dataErrorRow {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.dataErrorRow div a {
+  color: gold;
+}
+
+.dataErrorRow div:first-child {
+  padding: 10px 5%;
+  color: rgb(105, 30, 32);
+  text-align: center;
+  background-color: gold;
 }

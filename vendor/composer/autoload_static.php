@@ -17,8 +17,8 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
@@ -114,6 +114,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         ),
         'L' => 
         array (
+            'Lunaweb\\RecaptchaV3\\' => 20,
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
             'League\\Config\\' => 14,
@@ -380,6 +381,10 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Lunaweb\\RecaptchaV3\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -767,7 +772,6 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Driver' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Driver.php',
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\CannotCopyStreamToStream' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/CannotCopyStreamToStream.php',
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\CannotCreateTemporaryFile' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/CannotCreateTemporaryFile.php',
-        'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\CannotWriteToTemporaryFile' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/CannotWriteToTemporaryFile.php',
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\ConnectionError' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/ConnectionError.php',
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\ConnectionFailed' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/ConnectionFailed.php',
         'Doctrine\\DBAL\\Driver\\IBMDB2\\Exception\\Factory' => __DIR__ . '/..' . '/doctrine/dbal/src/Driver/IBMDB2/Exception/Factory.php',
@@ -829,6 +833,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Event\\ConnectionEventArgs' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/ConnectionEventArgs.php',
         'Doctrine\\DBAL\\Event\\Listeners\\OracleSessionInit' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/Listeners/OracleSessionInit.php',
         'Doctrine\\DBAL\\Event\\Listeners\\SQLSessionInit' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/Listeners/SQLSessionInit.php',
+        'Doctrine\\DBAL\\Event\\Listeners\\SQLiteSessionInit' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/Listeners/SQLiteSessionInit.php',
         'Doctrine\\DBAL\\Event\\SchemaAlterTableAddColumnEventArgs' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/SchemaAlterTableAddColumnEventArgs.php',
         'Doctrine\\DBAL\\Event\\SchemaAlterTableChangeColumnEventArgs' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/SchemaAlterTableChangeColumnEventArgs.php',
         'Doctrine\\DBAL\\Event\\SchemaAlterTableEventArgs' => __DIR__ . '/..' . '/doctrine/dbal/src/Event/SchemaAlterTableEventArgs.php',
@@ -852,6 +857,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Exception\\DatabaseDoesNotExist' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DatabaseDoesNotExist.php',
         'Doctrine\\DBAL\\Exception\\DatabaseObjectExistsException' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DatabaseObjectExistsException.php',
         'Doctrine\\DBAL\\Exception\\DatabaseObjectNotFoundException' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DatabaseObjectNotFoundException.php',
+        'Doctrine\\DBAL\\Exception\\DatabaseRequired' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DatabaseRequired.php',
         'Doctrine\\DBAL\\Exception\\DeadlockException' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DeadlockException.php',
         'Doctrine\\DBAL\\Exception\\DriverException' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/DriverException.php',
         'Doctrine\\DBAL\\Exception\\ForeignKeyConstraintViolationException' => __DIR__ . '/..' . '/doctrine/dbal/src/Exception/ForeignKeyConstraintViolationException.php',
@@ -907,6 +913,9 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Platforms\\MySQL57Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL57Platform.php',
         'Doctrine\\DBAL\\Platforms\\MySQL80Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL80Platform.php',
         'Doctrine\\DBAL\\Platforms\\MySQLPlatform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQLPlatform.php',
+        'Doctrine\\DBAL\\Platforms\\MySQL\\CollationMetadataProvider' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL/CollationMetadataProvider.php',
+        'Doctrine\\DBAL\\Platforms\\MySQL\\CollationMetadataProvider\\CachingCollationMetadataProvider' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL/CollationMetadataProvider/CachingCollationMetadataProvider.php',
+        'Doctrine\\DBAL\\Platforms\\MySQL\\CollationMetadataProvider\\ConnectionCollationMetadataProvider' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL/CollationMetadataProvider/ConnectionCollationMetadataProvider.php',
         'Doctrine\\DBAL\\Platforms\\MySQL\\Comparator' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/MySQL/Comparator.php',
         'Doctrine\\DBAL\\Platforms\\OraclePlatform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/OraclePlatform.php',
         'Doctrine\\DBAL\\Platforms\\PostgreSQL100Platform' => __DIR__ . '/..' . '/doctrine/dbal/src/Platforms/PostgreSQL100Platform.php',
@@ -931,6 +940,8 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Query\\QueryBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/QueryBuilder.php',
         'Doctrine\\DBAL\\Query\\QueryException' => __DIR__ . '/..' . '/doctrine/dbal/src/Query/QueryException.php',
         'Doctrine\\DBAL\\Result' => __DIR__ . '/..' . '/doctrine/dbal/src/Result.php',
+        'Doctrine\\DBAL\\SQL\\Builder\\CreateSchemaObjectsSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/CreateSchemaObjectsSQLBuilder.php',
+        'Doctrine\\DBAL\\SQL\\Builder\\DropSchemaObjectsSQLBuilder' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Builder/DropSchemaObjectsSQLBuilder.php',
         'Doctrine\\DBAL\\SQL\\Parser' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser.php',
         'Doctrine\\DBAL\\SQL\\Parser\\Exception' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser/Exception.php',
         'Doctrine\\DBAL\\SQL\\Parser\\Exception\\RegularExpressionError' => __DIR__ . '/..' . '/doctrine/dbal/src/SQL/Parser/Exception/RegularExpressionError.php',
@@ -967,7 +978,6 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Doctrine\\DBAL\\Schema\\Visitor\\Graphviz' => __DIR__ . '/..' . '/doctrine/dbal/src/Schema/Visitor/Graphviz.php',
         'Doctrine\\DBAL\\Schema\\Visitor\\NamespaceVisitor' => __DIR__ . '/..' . '/doctrine/dbal/src/Schema/Visitor/NamespaceVisitor.php',
         'Doctrine\\DBAL\\Schema\\Visitor\\RemoveNamespacedAssets' => __DIR__ . '/..' . '/doctrine/dbal/src/Schema/Visitor/RemoveNamespacedAssets.php',
-        'Doctrine\\DBAL\\Schema\\Visitor\\SchemaDiffVisitor' => __DIR__ . '/..' . '/doctrine/dbal/src/Schema/Visitor/SchemaDiffVisitor.php',
         'Doctrine\\DBAL\\Schema\\Visitor\\Visitor' => __DIR__ . '/..' . '/doctrine/dbal/src/Schema/Visitor/Visitor.php',
         'Doctrine\\DBAL\\Statement' => __DIR__ . '/..' . '/doctrine/dbal/src/Statement.php',
         'Doctrine\\DBAL\\Tools\\Console\\Command\\ReservedWordsCommand' => __DIR__ . '/..' . '/doctrine/dbal/src/Tools/Console/Command/ReservedWordsCommand.php',
@@ -3321,6 +3331,9 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'Lunaweb\\RecaptchaV3\\Facades\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Facades/RecaptchaV3.php',
+        'Lunaweb\\RecaptchaV3\\Providers\\RecaptchaV3ServiceProvider' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Providers/RecaptchaV3ServiceProvider.php',
+        'Lunaweb\\RecaptchaV3\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/RecaptchaV3.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',

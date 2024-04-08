@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  {{ $current_user->first_name }} {{ $current_user->last_name }} @if ($current_user->suffix_name) {{ $current_user->suffix_name }} @endif
+                  @if ($current_user->title) {{ $current_user->title }} @endif {{ $current_user->first_name }} {{ $current_user->last_name }} @if ($current_user->suffix_name) {{ $current_user->suffix_name }} @endif
                 </div>
                 <div class="card-body">
                   @if (session('status'))
@@ -35,11 +35,6 @@
                     </div>
                   @endforeach
                   <br>
-                  <a href="{{route('cemetery.allShown')}}">
-                    <button class="btn btn-primary">
-                      LIST OF DECEASED IN CEMETERY
-                    </button>
-                  </a>
                   </div>
                 </div>
             </div>

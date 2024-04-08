@@ -1,0 +1,20 @@
+.introSection {
+  margin-left: calc(50vw - 750px);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+.introSubtitle {
+  margin: 8vh 14vw;
+}
+
+.dataErrorList {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+}
