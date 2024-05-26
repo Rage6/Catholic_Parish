@@ -290,6 +290,15 @@ class CemeteryController extends Controller
       if ($deceased->nickname) {
         $deceased->nickname = explode(";",$deceased->nickname);
       };
+
+      // This was necessary because "public" needed to be added when hosted by QRAC
+      if ($deceased->profile_photo) {
+        $deceased->profile_photo = str_replace("public","",$deceased->profile_photo);
+      };
+      if ($deceased->tombstone_photo) {
+        $deceased->tombstone_photo = str_replace("public","",$deceased->tombstone_photo);
+      };
+
       $age = null;
       if (($deceased->date_of_birth || ($deceased->dob_year && $deceased->dob_month && $deceased->dob_day)) && ($deceased->date_of_death || ($deceased->dod_year && $deceased->dod_month && $deceased->dod_day))) {
         if ($deceased->dob_day && $deceased->dob_month && $deceased->dob_year) {

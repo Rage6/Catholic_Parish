@@ -32,6 +32,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
+        '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -52,6 +53,7 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
+            'Termwind\\' => 9,
         ),
         'S' => 
         array (
@@ -204,6 +206,10 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'Termwind\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nunomaduro/termwind/src',
         ),
         'Symfony\\Polyfill\\Php81\\' => 
         array (
@@ -5944,6 +5950,41 @@ class ComposerStaticInit66b2336bfe5287faff47d8f58bb8cffb
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         'Symfony\\Polyfill\\Php81\\Php81' => __DIR__ . '/..' . '/symfony/polyfill-php81/Php81.php',
+        'Termwind\\Actions\\StyleToMethod' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Actions/StyleToMethod.php',
+        'Termwind\\Components\\Anchor' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Anchor.php',
+        'Termwind\\Components\\BreakLine' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/BreakLine.php',
+        'Termwind\\Components\\Dd' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Dd.php',
+        'Termwind\\Components\\Div' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Div.php',
+        'Termwind\\Components\\Dl' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Dl.php',
+        'Termwind\\Components\\Dt' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Dt.php',
+        'Termwind\\Components\\Element' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Element.php',
+        'Termwind\\Components\\Hr' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Hr.php',
+        'Termwind\\Components\\Li' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Li.php',
+        'Termwind\\Components\\Ol' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Ol.php',
+        'Termwind\\Components\\Paragraph' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Paragraph.php',
+        'Termwind\\Components\\Raw' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Raw.php',
+        'Termwind\\Components\\Span' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Span.php',
+        'Termwind\\Components\\Ul' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Components/Ul.php',
+        'Termwind\\Enums\\Color' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Enums/Color.php',
+        'Termwind\\Exceptions\\ColorNotFound' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Exceptions/ColorNotFound.php',
+        'Termwind\\Exceptions\\InvalidChild' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Exceptions/InvalidChild.php',
+        'Termwind\\Exceptions\\InvalidColor' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Exceptions/InvalidColor.php',
+        'Termwind\\Exceptions\\InvalidStyle' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Exceptions/InvalidStyle.php',
+        'Termwind\\Exceptions\\StyleNotFound' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Exceptions/StyleNotFound.php',
+        'Termwind\\Helpers\\QuestionHelper' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Helpers/QuestionHelper.php',
+        'Termwind\\HtmlRenderer' => __DIR__ . '/..' . '/nunomaduro/termwind/src/HtmlRenderer.php',
+        'Termwind\\Html\\CodeRenderer' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Html/CodeRenderer.php',
+        'Termwind\\Html\\InheritStyles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Html/InheritStyles.php',
+        'Termwind\\Html\\PreRenderer' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Html/PreRenderer.php',
+        'Termwind\\Html\\TableRenderer' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Html/TableRenderer.php',
+        'Termwind\\Laravel\\TermwindServiceProvider' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Laravel/TermwindServiceProvider.php',
+        'Termwind\\Question' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Question.php',
+        'Termwind\\Repositories\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Repositories/Styles.php',
+        'Termwind\\Terminal' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Terminal.php',
+        'Termwind\\Termwind' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Termwind.php',
+        'Termwind\\ValueObjects\\Node' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Node.php',
+        'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
+        'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

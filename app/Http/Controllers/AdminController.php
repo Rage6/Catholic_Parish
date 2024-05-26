@@ -137,7 +137,7 @@ class AdminController extends Controller
       };
 
       if (explode(":",$_SERVER['HTTP_HOST'])[0] == 'localhost') {
-        $storagePath = 'images';
+        $storagePath = 'public/images';
       } else {
         $storagePath = 'public/images';
       };
@@ -527,7 +527,7 @@ class AdminController extends Controller
       if ($request->action == "update") {
         if (request('profile_photo')) {
           $old_filename = $deceased->profile_photo;
-          $request['profile_photo'] = request('profile_photo')->store($storagePath);
+          $request['profile_photo'] = request('profile_photo')->store('public/images');
           $filename = request('profile_photo')->hashName();
           $deceased->profile_photo = $storagePath."/".$filename;
           if ($old_filename != null) {
@@ -536,7 +536,7 @@ class AdminController extends Controller
         };
         if (request('tombstone_photo')) {
           $old_filename = $deceased->tombstone_photo;
-          $request['tombstone_photo'] = request('tombstone_photo')->store($storagePath);
+          $request['tombstone_photo'] = request('tombstone_photo')->store('public/images');
           $filename = request('tombstone_photo')->hashName();
           $deceased->tombstone_photo = $storagePath."/".$filename;
           if ($old_filename != null) {
