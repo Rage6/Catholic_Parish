@@ -26,16 +26,18 @@ use function stripos;
  */
 class RunSqlCommand extends Command
 {
+    use CommandCompatibility;
+
     private ConnectionProvider $connectionProvider;
 
     public function __construct(ConnectionProvider $connectionProvider)
     {
         parent::__construct();
+
         $this->connectionProvider = $connectionProvider;
     }
 
-    /** @return void */
-    protected function configure()
+    private function doConfigure(): void
     {
         $this
         ->setName('dbal:run-sql')
@@ -54,14 +56,8 @@ outputs the results:
 EOT);
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @return int
-     *
-     * @throws Exception
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    /** @throws Exception */
+    private function doExecute(InputInterface $input, OutputInterface $output): int
     {
         $conn = $this->getConnection($input);
         $io   = new SymfonyStyle($input, $output);

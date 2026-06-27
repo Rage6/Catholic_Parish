@@ -20,17 +20,6 @@ class EventListCommand extends Command
     protected $signature = 'event:list {--event= : Filter the events by name}';
 
     /**
-     * The name of the console command.
-     *
-     * This name is used to identify the command during lazy loading.
-     *
-     * @var string|null
-     *
-     * @deprecated
-     */
-    protected static $defaultName = 'event:list';
-
-    /**
      * The console command description.
      *
      * @var string
@@ -54,17 +43,19 @@ class EventListCommand extends Command
         $events = $this->getEvents()->sortKeys();
 
         if ($events->isEmpty()) {
-            $this->comment("Your application doesn't have any events matching the given criteria.");
+            $this->components->info("Your application doesn't have any events matching the given criteria.");
 
             return;
         }
 
-        $this->line(
-            $events->map(fn ($listeners, $event) => [
-                sprintf('  <fg=white>%s</>', $this->appendEventInterfaces($event)),
-                collect($listeners)->map(fn ($listener) => sprintf('    <fg=#6C7280>⇂ %s</>', $listener)),
-            ])->flatten()->filter()->prepend('')->push('')->toArray()
-        );
+        $this->newLine();
+
+        $events->each(function ($listeners, $event) {
+            $this->components->twoColumnDetail($this->appendEventInterfaces($event));
+            $this->components->bulletList($listeners);
+        });
+
+        $this->newLine();
     }
 
     /**
@@ -208,7 +199,7 @@ class EventListCommand extends Command
     /**
      * Get the event dispatcher.
      *
-     * @return Illuminate\Events\Dispatcher
+     * @return \Illuminate\Events\Dispatcher
      */
     public function getEventsDispatcher()
     {

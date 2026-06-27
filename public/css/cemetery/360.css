@@ -611,13 +611,25 @@ nav {
   flex-wrap: wrap;
 }
 
-.pagination div {
+ul.customPagination {
+  list-style: none;
+}
+
+ul.customPagination li {
+  margin-right: 10px;
+}
+
+ul.customPagination li a {
+  color: white;
+}
+
+/* .pagination div {
   margin-right: 10px;
 }
 
 .pagination div a {
   color: white;
-}
+} */
 
 /* CEMETERY.INDIVIDUAL */
 .indivMain {
