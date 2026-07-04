@@ -35,10 +35,10 @@
       </div>
       <div class="photoBox">
         @if ($deceased->profile_photo != null)
-          <div class="photoProfile" data-size="main" data-type="profile" style="background-image:url('/{{ $deceased->profile_photo }}')"></div>
+          <div class="photoProfile" data-size="main" data-type="profile" style="background-image:url('/images/{{ $deceased->profile_photo }}')"></div>
         @endif
         @if ($deceased->tombstone_photo != null)
-          <div class="photoProfile" data-size="main" data-type="tombstone" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
+          <div class="photoProfile" data-size="main" data-type="tombstone" style="background-image:url('/images/{{ $deceased->tombstone_photo }}')"></div>
         @endif
         @if ($deceased->zone != null)
           <div class="photoProfile" data-size="main" data-type="map" style="background-image:url('/images/{{ $deceased->zone }}.jpg')"></div>
@@ -52,10 +52,10 @@
         @endif
         <div class="photoMenu">
           @if ($deceased->profile_photo != null)
-            <div data-type="profile" data-size="thumbnail" style="background-image:url('/{{ $deceased->profile_photo }}')"></div>
+            <div data-type="profile" data-size="thumbnail" style="background-image:url('/images/{{ $deceased->profile_photo }}')"></div>
           @endif
           @if ($deceased->tombstone_photo != null)
-            <div data-type="tombstone" data-size="thumbnail" style="background-image:url('/{{ $deceased->tombstone_photo }}')"></div>
+            <div data-type="tombstone" data-size="thumbnail" style="background-image:url('/images/{{ $deceased->tombstone_photo }}')"></div>
           @endif
           @if ($deceased->zone != null)
             <div data-type="map" data-size="thumbnail"style="background-image:url('/images/{{ $deceased->zone }}.jpg')"></div>

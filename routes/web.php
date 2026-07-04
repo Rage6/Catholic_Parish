@@ -35,10 +35,10 @@ Route::post('/message', [App\Http\Controllers\CemeteryController::class, 'messag
 Route::get('/how-to-help',[App\Http\Controllers\CemeteryController::class, 'improve_data'])->name('cemetery.improve');
 
 // Retrieves the images from the 'storage' directory
-Route::get('images/{filename}', function($filename){
-     $storagePath = storage_path('app/public/images/' . $filename);
-        return response()->file($storagePath);
-});
+// Route::get('images/{filename}', function($filename){
+//      $storagePath = storage_path('app/public/images/' . $filename);
+//         return response()->file($storagePath);
+// });
 
 Auth::routes();
 

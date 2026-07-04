@@ -216,6 +216,15 @@ class CemeteryController extends Controller
         for ($i = 0; $i < count($all_deceased); $i++) {
           $age = null;
           $one_deceased = $all_deceased[$i];
+          
+          // This was necessary because "public" needed to be added when hosted by QRAC
+          if ($one_deceased->profile_photo) {
+            $one_deceased->profile_photo = str_replace("public/images/","",$one_deceased->profile_photo);
+          };
+          if ($one_deceased->tombstone_photo) {
+            $one_deceased->tombstone_photo = str_replace("public/images/","",$one_deceased->tombstone_photo);
+          };
+
           if (($one_deceased->date_of_birth || ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year)) && ($one_deceased->date_of_death || ($one_deceased->dod_day && $one_deceased->dod_month && $one_deceased->dod_year))) {
             if ($one_deceased->dob_day && $one_deceased->dob_month && $one_deceased->dob_year) {
               $one_deceased->date_of_birth = $one_deceased->dob_year."-".$one_deceased->dob_month."-".$one_deceased->dob_day;
@@ -293,10 +302,10 @@ class CemeteryController extends Controller
 
       // This was necessary because "public" needed to be added when hosted by QRAC
       if ($deceased->profile_photo) {
-        $deceased->profile_photo = str_replace("public","",$deceased->profile_photo);
+        $deceased->profile_photo = str_replace("public/images/","",$deceased->profile_photo);
       };
       if ($deceased->tombstone_photo) {
-        $deceased->tombstone_photo = str_replace("public","",$deceased->tombstone_photo);
+        $deceased->tombstone_photo = str_replace("public/images/","",$deceased->tombstone_photo);
       };
 
       $age = null;

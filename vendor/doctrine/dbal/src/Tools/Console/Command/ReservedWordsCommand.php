@@ -7,8 +7,10 @@ use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\Keywords\DB2Keywords;
 use Doctrine\DBAL\Platforms\Keywords\KeywordList;
 use Doctrine\DBAL\Platforms\Keywords\MariaDb102Keywords;
+use Doctrine\DBAL\Platforms\Keywords\MariaDb117Keywords;
 use Doctrine\DBAL\Platforms\Keywords\MySQL57Keywords;
 use Doctrine\DBAL\Platforms\Keywords\MySQL80Keywords;
+use Doctrine\DBAL\Platforms\Keywords\MySQL84Keywords;
 use Doctrine\DBAL\Platforms\Keywords\MySQLKeywords;
 use Doctrine\DBAL\Platforms\Keywords\OracleKeywords;
 use Doctrine\DBAL\Platforms\Keywords\PostgreSQL100Keywords;
@@ -34,6 +36,8 @@ use function is_string;
 /** @deprecated Use database documentation instead. */
 class ReservedWordsCommand extends Command
 {
+    use CommandCompatibility;
+
     /** @var array<string,KeywordList> */
     private array $keywordLists;
 
@@ -48,14 +52,17 @@ class ReservedWordsCommand extends Command
         );
 
         parent::__construct();
+
         $this->connectionProvider = $connectionProvider;
 
         $this->keywordLists = [
             'db2'        => new DB2Keywords(),
             'mariadb102' => new MariaDb102Keywords(),
+            'mariadb117' => new MariaDb117Keywords(),
             'mysql'      => new MySQLKeywords(),
             'mysql57'    => new MySQL57Keywords(),
             'mysql80'    => new MySQL80Keywords(),
+            'mysql84'    => new MySQL84Keywords(),
             'oracle'     => new OracleKeywords(),
             'pgsql'      => new PostgreSQL94Keywords(),
             'pgsql100'   => new PostgreSQL100Keywords(),
@@ -92,8 +99,7 @@ class ReservedWordsCommand extends Command
         $this->keywordLists[$name] = new $class();
     }
 
-    /** @return void */
-    protected function configure()
+    private function doConfigure(): void
     {
         $this
         ->setName('dbal:reserved-words')
@@ -124,9 +130,11 @@ The following keyword lists are currently shipped with Doctrine:
 
     * db2
     * mariadb102
+    * mariadb117
     * mysql
     * mysql57
     * mysql80
+    * mysql84
     * oracle
     * pgsql
     * pgsql100
@@ -135,14 +143,8 @@ The following keyword lists are currently shipped with Doctrine:
 EOT);
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @return int
-     *
-     * @throws Exception
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    /** @throws Exception */
+    private function doExecute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln(
             '<comment>The <info>dbal:reserved-words</info> command is deprecated.</comment>'
@@ -181,7 +183,7 @@ EOT);
             true,
         );
 
-        $schema  = $conn->getSchemaManager()->createSchema();
+        $schema  = $conn->getSchemaManager()->introspectSchema();
         $visitor = new ReservedKeywordsValidator($keywords);
         $schema->visit($visitor);
 
