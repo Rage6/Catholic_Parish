@@ -50,10 +50,7 @@ class CompiledUrlMatcherDumper extends MatcherDumper
             EOF;
     }
 
-    /**
-     * @return void
-     */
-    public function addExpressionLanguageProvider(ExpressionFunctionProviderInterface $provider)
+    public function addExpressionLanguageProvider(ExpressionFunctionProviderInterface $provider): void
     {
         $this->expressionLanguageProviders[] = $provider;
     }
@@ -85,7 +82,7 @@ class CompiledUrlMatcherDumper extends MatcherDumper
 
         [$staticRoutes, $dynamicRoutes] = $this->groupStaticRoutes($routes);
 
-        $conditions = [null];
+        $conditions = ['' => null];
         $compiledRoutes[] = $this->compileStaticRoutes($staticRoutes, $conditions);
         $chunkLimit = \count($dynamicRoutes);
 
@@ -107,7 +104,7 @@ class CompiledUrlMatcherDumper extends MatcherDumper
         if ($forDump) {
             $compiledRoutes[2] = $compiledRoutes[4];
         }
-        unset($conditions[0]);
+        unset($conditions['']);
 
         if ($conditions) {
             foreach ($conditions as $expression => $condition) {
@@ -430,7 +427,7 @@ class CompiledUrlMatcherDumper extends MatcherDumper
             unset($defaults['_canonical_route']);
         }
 
-        if ($condition = $route->getCondition()) {
+        if ('' !== $condition = $route->getCondition()) {
             $condition = $this->getExpressionLanguage()->compile($condition, ['context', 'request', 'params']);
             $condition = $conditions[$condition] ??= (str_contains($condition, '$request') ? 1 : -1) * \count($conditions);
         } else {
@@ -473,11 +470,10 @@ class CompiledUrlMatcherDumper extends MatcherDumper
         if (null === $value) {
             return 'null';
         }
+        if (\is_object($value)) {
+            throw new \InvalidArgumentException(\sprintf('Symfony\Component\Routing\Route cannot contain objects, but "%s" given.', get_debug_type($value)));
+        }
         if (!\is_array($value)) {
-            if (\is_object($value)) {
-                throw new \InvalidArgumentException('Symfony\Component\Routing\Route cannot contain objects.');
-            }
-
             return str_replace("\n", '\'."\n".\'', var_export($value, true));
         }
         if (!$value) {

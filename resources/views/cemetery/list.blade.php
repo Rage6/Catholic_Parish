@@ -178,7 +178,7 @@
             </div>
           @endif
         </div>
-        {{ $all_deceased->links('pagination::cemetery-list') }}
+        {{ $all_deceased->links('pagination::default') }}
       </div>
     </div>
   @endsection
